@@ -8,9 +8,10 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
 	<!-- db.properties 위치 -->
 	<!-- classpath가 src/main/resources/ 에서 db.properties 자동으로 잡아줌   -->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

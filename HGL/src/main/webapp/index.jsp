@@ -10,5 +10,7 @@
 </head>
 <body>
 
+<a href="home.do">home</a>
+
 </body>
 </html>
