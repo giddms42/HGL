@@ -1,4 +1,4 @@
-# ÄÄÆÄÀÏ °á°ú¹° Á¦¿Ü
+# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 *.com
 *.class
 *.dll
@@ -6,10 +6,10 @@
 *.o
 *.so
  
-# ·Î±×ÆÄÀÏ Á¦¿Ü
+# ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 *.log
  
-# ¿î¿µÃ¼Á¦¿¡¼­ ¸¸µå´Â ½Ã½ºÅÛ ÆÄÀÏµé Á¦¿Ü
+# ï¿½î¿µÃ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½
 .DS_Store
 .DS_Store?
 ._*
@@ -18,7 +18,7 @@
 ehthumbs.db
 Thumbs.db
  
-# ÀÌÅ¬¸³½º¿¡¼­ »ý¼ºÇÏ´Â ÇÁ·ÎÁ§Æ® Á¤º¸ ÆÄÀÏ Á¦¿Ü
+# ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 .metadata
 bin/
 tmp/
@@ -37,3 +37,22 @@ local.properties
 .factorypath
 .buildpath
 .target
+
+# Created by https://www.gitignore.io/api/maven
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+
+
+# End of https://www.gitignore.io/api/maven
