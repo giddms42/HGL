@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController {
+public class MainController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
 
 	@RequestMapping(value = "home.do", method = RequestMethod.GET)
@@ -33,10 +33,6 @@ public class HomeController {
 		
 		return "home";
 	}
-	@RequestMapping(value = "UserSignUp.do")
-	public String map(Model model) {
-		
-		return "UserSignUp";
-	}
+	
 	
 }
