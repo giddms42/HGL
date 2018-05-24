@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+table{
+	font-size: 1.1em;
+}
+
+input {
+   height: 30px;
+   font-size: 10pt;
+}
+th{
+	color: black;
+	align: left;
+}
+td {
+   height: 50px;
+}
+
+table {
+   width: 350px;
+   margin: 0 auto;
+   border-radius: 10px 10px 10px 10px;
+   margin-top: 20%;
+   padding: 20px;
+   opacity: 0.7;
+}
+#idchk{
+	position:absolute;
+	margin-left:37%;
+	margin-top:4%;
+	height: 38px;
+}
+.registForm{
+	position:absolute;
+	margin:auto;
+	width:30%;
+}
+.container{
+	position:relative;
+	width:1920px;
+}
+.info{
+	width: 200px;
+}
+.signUpText{
+	padding-bottom: 20px;
+}
+.checkbox{
+	width: 3.5%;
+}

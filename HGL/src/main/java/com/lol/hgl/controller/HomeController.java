@@ -33,5 +33,10 @@ public class HomeController {
 		
 		return "home";
 	}
+	@RequestMapping(value = "UserSignUp.do")
+	public String map(Model model) {
+		
+		return "UserSignUp";
+	}
 	
 }
