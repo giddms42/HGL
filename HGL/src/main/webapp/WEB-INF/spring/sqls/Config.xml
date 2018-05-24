@@ -2,10 +2,21 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
 
+	<typeAliases>
+		<typeAlias type="com.lol.hgl.dto.userDto" alias="userDto"/>
+	</typeAliases>
+
+
+<!-- mapper 경로 설정 -->
 	<mappers>
-		<mapper resource="/sqls/Mapper.xml"/>
+		<mapper resource="/sqls/Admin_Mapper.xml"/>
+		<mapper resource="/sqls/Cal_Mapper.xml"/>
+		<mapper resource="/sqls/Fam_Mapper.xml"/>
+		<mapper resource="/sqls/FWL_Mapper.xml"/>
+		<mapper resource="/sqls/FWLB_Mapper.xml"/>
+		<mapper resource="/sqls/GG_Mapper.xml"/>
+		<mapper resource="/sqls/Main_Mapper.xml"/>
+		<mapper resource="/sqls/User_Mapper.xml"/>	
 	</mappers>
-
-
 
 </configuration>

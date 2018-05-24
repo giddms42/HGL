@@ -1,4 +1,4 @@
-package com.fin.hgl;
+package com.lol.hgl.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

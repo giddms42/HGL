@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.fin.hgl" />
+	<context:component-scan base-package="com.lol.hgl" />
 	
 	
 	
