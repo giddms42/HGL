@@ -72,14 +72,318 @@
 	         }
 	   }
    
-   function showSub(){ //주소 셀렉트박스
+   function showSub(obj){ //주소 셀렉트박스
+	   alert(obj);
 	   
 	   addr = document.forms.regist;
    
-		switch(addr){
-			case 1 =
-				addr.seoul.style.display = "":
-				
+		switch(obj){
+			case "서울특별시" :
+				addr.seoul.style.display = "";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "경기도" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "인천광역시" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "강원도" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "충청북도" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "충청남도" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "대전광역시" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "세종특별자치시" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;	
+			case "경상북도" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "대구광역시" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "울산광역시" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "경상남도" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "부산광역시" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "전라북도" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "전라남도" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "none";
+				break;
+			case "광주광역시" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "";
+				addr.jeju.style.display = "none";
+				break;
+			case "제주도" :
+				addr.seoul.style.display = "none";
+				addr.gyeonggi.style.display = "none";
+				addr.incheon.style.display = "none";
+				addr.gangwon.style.display = "none";
+				addr.chungbuk.style.display = "none";
+				addr.chungnam.style.display = "none";
+				addr.daejeon.style.display = "none";
+				addr.gyeongbug.style.display = "none";
+				addr.daegu.style.display = "none";
+				addr.ulsan.style.display = "none";
+				addr.gyeongnam.style.display = "none";
+				addr.busan.style.display = "none";
+				addr.jeonbug.style.display = "none";
+				addr.jeonnam.style.display = "none";
+				addr.gwangju.style.display = "none";
+				addr.jeju.style.display = "";
+				break;
 		}
 	   
    }
@@ -143,7 +447,6 @@
 		      	<option value="광주광역시">광주광역시</option>
 		      	<option value="제주도">제주도</option>
 		      </select>
-		      		      
 		      <select name="seoul" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강남구">강남구</option>
@@ -204,7 +507,7 @@
 		      	<option value="포천시">포천시</option>
 		      	<option value="하남시">하남시</option>
 		      	<option value="화성시">화성시</option>
-		      </select >
+		      </select>
 		      <select name="incheon" style="height: 37px; display: none;" required="required">
 		        <option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강화군">강화군</option>
