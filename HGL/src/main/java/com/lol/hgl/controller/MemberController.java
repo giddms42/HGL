@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.lol.hgl.bizz.MemberBizz;
 
 @Controller
 public class MemberController {
 
-   
+
    @Autowired
    private MemberBizz bizz;
    
@@ -22,17 +21,25 @@ public class MemberController {
    @RequestMapping(value="IDChk.do")
    public String IDChk(String id) {
       String res ="";
+      
       return res;
    }
    
+   
+   
    @RequestMapping(value = "MemberSignUp.do")
    public String memberSingUp() {
+      return "Main";
+   }
+   
+   @RequestMapping(value="MemberLoginForm.do")
+   public String MemberLogin(Model model) {
       return "MemberLogin";
    }
    
-   @RequestMapping(value="MemberLogin.do")
-   public String MemberLogin(Model model) {
-      return "MemberLogin";
+   @RequestMapping(value = "MemberLogin.do")
+   public String memberLogin() {
+      return "Main";
    }
    
    @RequestMapping(value="MemberSearch.do")
