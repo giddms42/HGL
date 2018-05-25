@@ -2,25 +2,33 @@
 a{
 	margin-left: 5px;
 }
-
+select{
+	margin-top: 10px;
+	margin-left: 10%;
+}
 input {
    height: 30px;
    font-size: 10pt;
+}
+label{
+	margin-left: 10%;
+}
+header{
+	text-align:center;
 }
 .registForm{
 	margin:auto;
 	width:35%;
 }
-#idchk{
-	margin-left: 10px;
-	margin-top: 3px;
-}
 .info{
-	width: 230px;
+	margin-top: 10px;
+	margin-left: 10%;
+	width: 220px;
 }
 .addrDetail{
 	width: 350px;
 	margin-top: 10px;
+	margin-left: 10%;
 }
 .infocheck{
 	width:120px;
@@ -29,7 +37,7 @@ input {
 	padding-bottom: 20px;
 }
 .checkbox{
-	margin-left:2%;
+	margin-left:10%;
 	width: 5%;
 }
 .sns{
@@ -38,10 +46,4 @@ input {
 }
 .ajChk{
 	display: none;
-}
-#useNick{
-	display: inline;
-}
-#useEmail{
-	display: inline;
 }
