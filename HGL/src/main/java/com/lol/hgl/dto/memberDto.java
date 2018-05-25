@@ -11,6 +11,7 @@ public class memberDto {
 	private String memberDo;
 	private String memberCity;
 	private String memberAddr;
+	private String memberRole;
 	private int memberProhibit;
 	private String memberJoin;
 	private String memberSMS;
@@ -20,7 +21,7 @@ public class memberDto {
 	}
 	
 	public memberDto(int memberNo, String memberId, String memberPw, String memberNickname, String memberEmail,
-			String memberPhone, String memberDo, String memberCity, String memberAddr, int memberProhibit,
+			String memberPhone, String memberDo, String memberCity, String memberAddr, String memberRole, int memberProhibit,
 			String memberJoin, String memberSMS) {
 		this.memberNo = memberNo;
 		this.memberId = memberId;
@@ -30,6 +31,7 @@ public class memberDto {
 		this.memberPhone = memberPhone;
 		this.memberDo = memberDo;
 		this.memberCity = memberCity;
+		this.memberRole = memberRole;
 		this.memberAddr = memberAddr;
 		this.memberProhibit = memberProhibit;
 		this.memberJoin = memberJoin;
@@ -38,6 +40,14 @@ public class memberDto {
 
 	public int getMemberNo() {
 		return memberNo;
+	}
+
+	public String getMemberRole() {
+		return memberRole;
+	}
+
+	public void setMemberRole(String memberRole) {
+		this.memberRole = memberRole;
 	}
 
 	public void setMemberNo(int memberNo) {

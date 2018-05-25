@@ -21,7 +21,22 @@ public class MemberController {
    @RequestMapping(value="IDChk.do")
    public String IDChk(String id) {
       String res ="";
-      
+      res = bizz.IDChk(id);
+      return res;
+   }
+   
+   @RequestMapping(value="nickNameChk.do")
+   public String nickNameChk(String nickName) {
+      String res ="";
+      res = bizz.nickNameChk(nickName);
+      return res;
+   }
+   
+   
+   @RequestMapping(value="emailChk.do")
+   public String emailChk(String email) {
+      String res ="";
+      res = bizz.emailChk(email);
       return res;
    }
    
