@@ -27,6 +27,7 @@
 		<mapper resource="/sqls/FWLB_Mapper.xml"/>
 		<mapper resource="/sqls/GG_Mapper.xml"/>
 		<mapper resource="/sqls/Main_Mapper.xml"/>
+		<mapper resource="/sqls/Map_Mapper.xml"/>
 		<mapper resource="/sqls/Member_Mapper.xml"/>	
 	</mappers>
 
