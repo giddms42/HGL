@@ -334,14 +334,14 @@
             $.ajax({
                type:"post",
                url : ".do",
-               date:"useId="+idVal,
+               dete:"useId="+idVal,
                async : false,
                success : function(res) {
                   var r = $.trim(res)
                   if (r == "t") {
-                     $("input[name=useId]").prop("display", "inline");
+                     $("#useId").prop("display", "inline");
                   }else{
-                	 $("input[name=unId]").prop("display", "inline");
+                	 $("#unId").prop("display", "inline");
                   }
                }
             });
@@ -354,14 +354,14 @@
 	        $.ajax({
 	           type:"post",
 	           url : ".do",
-	           date:"nick="+nickVal,
+	           dete:"nick="+nickVal,
 	           async : false,
 	           success : function(res) {
 	              var r = $.trim(res)
 	              if (r == "t") {
-	                 $("input[name=useNick]").prop("display", "inline");
+	                 $("#useNick").prop("display", "inline");
 	              }else{
-	            	 $("input[name=unNick]").prop("display", "inline");
+	            	 $("#unNick").prop("display", "inline");
 	              }
 	           }
 	        });
@@ -373,14 +373,14 @@
 	        $.ajax({
 	           type:"post",
 	           url : ".do",
-	           date:"email="+emailVal,
+	           dete:"email="+emailVal,
 	           async : false,
 	           success : function(res) {
 	              var r = $.trim(res)
 	              if (r == "t") {
-	                 $("input[name=useEmail]").prop("display", "inline");
+	                 $("#useEmail").prop("display", "inline");
 	              }else{
-	            	 $("input[name=unEmail]").prop("display", "inline");
+	            	 $("#unEmail").prop("display", "inline");
 	              }
 	           }
 	        });
