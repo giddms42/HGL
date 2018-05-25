@@ -61,6 +61,9 @@ public class MemberBizzImple implements MemberBizz {
 
 	@Override
 	public int signUp(memberDto dto) {
+		if(dto.getMemberSMS() == null) {
+			dto.setMemberSMS("N");
+		}
 		System.out.println(dto.getMemberSMS());
 		int res = dao.signUp(dto);
 		return 0;
