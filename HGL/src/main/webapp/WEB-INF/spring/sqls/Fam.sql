@@ -22,4 +22,51 @@ CREATE TABLE FAM
 
 INSERT INTO FAM VALUES(1, FAMNO_SEQ.NEXTVAL, '엄마', '160', '당뇨', '지방간', '빈혈', '19620220', 'N');
 
+UPDATE FAM SET FAMDISEASE1 = '당뇨병' WHERE FAMNO = 1;
+
 SELECT * FROM FAM;
+
+---------------------------------------------------------------------------
+
+--HEATL TABLE SQL
+DROP TABLE HEATL;
+CREATE TABLE HEALTH
+(
+    FAMNO           NUMBER     NOT NULL, 
+    HEALTHWEIGHT    NUMBER     NOT NULL, 
+    HEALTHSHRBP     NUMBER     NOT NULL, 
+    HEALTHRELBP     NUMBER     NOT NULL, 
+    HEALTHDATE      DATE    NOT NULL,
+   CONSTRAINT HEALTH_FK FOREIGN KEY (FAMNO) REFERENCES FAM (FAMNO)
+);
+
+INSERT INTO HEALTH VALUES(1, 60, 100, 80, SYSDATE);
+
+SELECT * FROM HEALTH;
+
+----------------------------------------------------
+
+--MENU TABLE SQL
+DROP TABLE MENU;
+CREATE TABLE MENU
+(
+    MENUDISEASE    VARCHAR2(100)    NOT NULL, 
+    MENUIMG        VARCHAR2(100)    NOT NULL, 
+    CONSTRAINT MENU_PK PRIMARY KEY (MENUDISEASE)
+);
+
+INSERT INTO MENU VALUES('당뇨병','당뇨병 식단');
+INSERT INTO MENU VALUES('심근경색증','심근경색증 식단');
+INSERT INTO MENU VALUES('심부전증','심부전증 식단');
+INSERT INTO MENU VALUES('지방간','지방간 식단');
+INSERT INTO MENU VALUES('빈혈','빈혈 식단');
+INSERT INTO MENU VALUES('알츠하이머','알츠하이머 식단');
+INSERT INTO MENU VALUES('골다골증','골다골증 식단');
+INSERT INTO MENU VALUES('간암','간암 식단');
+INSERT INTO MENU VALUES('갑상선암','갑상선암 식단');
+INSERT INTO MENU VALUES('대장암','대장암 식단');
+INSERT INTO MENU VALUES('위암','위암 식단');
+INSERT INTO MENU VALUES('유방암','유방암 식단');
+INSERT INTO MENU VALUES('전립선암','전립선암 식단');
+
+
