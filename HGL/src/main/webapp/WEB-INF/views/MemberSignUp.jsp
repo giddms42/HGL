@@ -387,7 +387,20 @@
 		}
 	   
    }
-</script>
+
+   function snsChecked() { //문자 알림
+	      var retVal = confirm("문자알림을 받으시겠습니까?\n매달 1일, 부모님께 안부를 물어보도록 유도하는 알림문자가 발송되며,\n캘린더에 일정 추가 시 일정 알림을 체크하면 \n해당 일정 날짜의 하루 전에 알림 문자가 발송됩니다.");
+
+	      if (retVal == true) {
+	         $("input[class=checkbox]").prop("checked", true);
+	         alert("확인선택!");
+	      } else {
+	         $("input[class=checkbox]").prop("checked", false);
+	         alert("취소선택!");
+	      }
+	   }
+   
+   </script>
 </head>
 <body>
 	  <div class="registForm">
@@ -508,7 +521,6 @@
 		      	<option value="하남시">하남시</option>
 		      	<option value="화성시">화성시</option>
 		      </select>
->>>>>>> branch 'gs' of https://github.com/giddms42/HGL.git
 		      <select name="incheon" style="height: 37px; display: none;" required="required">
 		        <option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강화군">강화군</option>

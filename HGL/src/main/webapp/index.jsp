@@ -10,8 +10,8 @@
 </head>
 <body>
 
-<a href="home.do">home으로</a>
-<a href="MemberSignUp.do">sign</a>
+<a href="home.do">home</a>
+<a href="MemberSignUpForm.do">signUp</a>
 
 </body>
 </html>
