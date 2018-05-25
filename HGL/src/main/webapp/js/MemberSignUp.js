@@ -332,22 +332,120 @@
 	$(function(){
 		      $("input[name=userId").on("change",function() {
 		            var idVal = $("input[name=userId]").val();
-		            alert(idVal);
+		            if(idVal==null || idVal==""){
+		            	 $("#useId").css("display", "none");
+	                     $("#unId").css("display", "none");   	
+		            }else{
+		            	  $.ajax({
+				               type:"post",
+				               url : "IDChk.do",
+				               data:"id="+idVal,
+				               success : function(res) {
+				                  var r = $.trim(res);
+				                  if (r == "t") {  
+				                     $("#useId").css("display", "inline");
+				                     $("#unId").css("display", "none");
+				                  }else{
+				                	 $("#unId").css("display", "inline");
+				                	 $("#useId").css("display", "none");
+				                  }
+				               }
+				            });
+		            }
+		         })
+		         
+		          $("input[name=userNick").on("change",function() {
+		            var nickVal = $("input[name=userNick]").val();
+		            if(nickVal==null || nickVal==""){
+		            	 $("#useNick").css("display", "none");
+	                     $("#unNick").css("display", "none");   	
+		            }else{
 		            $.ajax({
 		               type:"post",
-		               url : "IDChk.do",
-		               data:"id="+idVal,
+		               url : "nickNameChk.do",
+		               data:"nickName="+nickVal,
 		               success : function(res) {
-		                  var r = $.trim(res)
-		                  if (r == "t") {
-		          
-		                     $("#useId").prop("display", "inline");
+		                  var r = $.trim(res);
+		                  if (r == "t") {  
+		                     $("#useNick").css("display", "inline");
+		                     $("#unNick").css("display", "none");
 		                  }else{
-		                	 $("#unId").prop("display", "inline");
+		                	 $("#unNick").css("display", "inline");
+		                	 $("#useNick").css("display", "none");
 		                  }
-		               },error : function(){
-		            	   alert("abc");
 		               }
 		            });
+		            }
 		         })
-		       })
+		         
+		          $("input[name=userEmail").on("change",function() {
+		            var emailVal = $("input[name=userEmail]").val();
+		            if(emailVal==null || emailVal==""){
+		            	 $("#useEmail").css("display", "none");
+	                     $("#unEmail").css("display", "none");   	
+		            }else{
+		            $.ajax({
+		               type:"post",
+		               url : "emailChk.do",
+		               data:"email="+emailVal,
+		               success : function(res) {
+		                  var r = $.trim(res);
+		                  if (r == "t") {  
+		                     $("#useEmail").css("display", "inline");
+		                     $("#unEmail").css("display", "none");
+		                  }else{
+		                	 $("#unEmail").css("display", "inline");
+		                	 $("#useEmail").css("display", "none");
+		                  }
+		               }
+		            });
+		            }
+		         })
+		         
+		          $("input[name=userPw").on("change",function() {
+		            var pwVal = $("input[name=userPw]").val();
+		            if(pwVal==null || pwVal==""){
+		            	 $("#usePw").css("display", "none");
+	                     $("#unPw").css("display", "none");   	
+		            }else{
+		            $.ajax({
+		               type:"post",
+		               url : "pwChk.do",
+		               data:"pw="+pwVal,
+		               success : function(res) {
+		                  var r = $.trim(res);
+		                  if (r == "t") {  
+		                     $("#usePw").css("display", "inline");
+		                     $("#unPw").css("display", "none");
+		                  }else{
+		                	 $("#unPw").css("display", "inline");
+		                	 $("#usePw").css("display", "none");
+		                  }
+		               }
+		            });
+		            }
+		         })
+		         
+		          $("input[name=userChkpw").on("change",function() {
+		        	  var pwVal = $("input[name=userPw]").val();
+		        	  var pwValChk = $("input[name=userChkpw]").val();
+		        	  if(pwValChk==null || pwValChk==""){
+			            	 $("#useOnemore").css("display", "none");
+		                     $("#unOnemore").css("display", "none");   	
+			            }else{
+			            	if(pwVal == pwValChk){
+			            		$("#useOnemore").css("display", "inline");
+			            		$("#unOnemore").css("display", "none");
+			            	}else{
+			            		$("#unOnemore").css("display", "inline");
+			            		$("#useOnemore").css("display", "none");  
+			            	}
+			            }
+		         })
+		      
+	
+	
+	
+	
+	
+	})
