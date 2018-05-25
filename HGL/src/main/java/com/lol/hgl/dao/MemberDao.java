@@ -1,5 +1,5 @@
 package com.lol.hgl.dao;
 
-public interface UserDao {
+public interface MemberDao {
 
 }
