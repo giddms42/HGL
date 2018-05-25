@@ -34,5 +34,10 @@ public class MainController {
 		return "home";
 	}
 	
+	@RequestMapping(value="Main.do")
+	public String Main(Locale locale, Model model) {
+		return "Main";
+	}
+	
 	
 }
