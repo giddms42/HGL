@@ -25,27 +25,27 @@
 	      	<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><strong>사용 가능한 아이디 입니다.</strong></a>
 	      </div>
 	      <br><div>
-	      	<label>비밀번호<br><input class="info" type="text" name="userPw" onchange="tabBlock();" onclick="idChkConfirm();" 
+	      	<label>비밀번호<br><input class="info" type="text" name="userPw" 
 	      	required="required" placeholder="비밀번호를 입력해주세요"></label>
 	      </div>
 	      <div>
-	      <br><label>비밀번호 확인<br><input class="info" type="text" name="userChkpw" onchange="tabBlock();" onclick="idChkConfirm();" 
+	      <br><label>비밀번호 확인<br><input class="info" type="text" name="userChkpw"   
 	      	required="required" placeholder="비밀번호를 다시 입력해주세요"></label>
 	      </div>
 	      <br><div>
-	      	<label>닉네임<br><input class="info" type="text" name="userNick" onchange="tabBlock();" onclick="idChkConfirm();"
+	      	<label>닉네임<br><input class="info" type="text" name="userNick" 
 	      	required="required" placeholder="닉네임을 입력해주세요"></label>
 	      	<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 닉네임 입니다.</strong></a>
 	      	<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><strong>사용 가능한 닉네임 입니다.</strong></a>
 	      </div>
 	      <br><div>
-	      	<label>연락처<br><input class="info" type="text" name="userPhone" onchange="tabBlock();" onclick="idChkConfirm();"
+	      	<label>연락처<br><input class="info" type="text" name="userPhone" 
 	      	required="required" placeholder="휴대폰번호를 입력해주세요"></label>
-	      	<p style="margin-top:-2px;"><input class="checkbox" type="checkbox" name="sns" onclick="snsChecked();"><a class="sns" onclick="snsChecked();">문자알림을 받으시겠습니까?</a></p>
+	      	<p style="margin-top:-2px;"><input class="checkbox" type="checkbox" name="sns" onclick="snsChecked();">
+	      	<a class="sns" onclick="snsChecked();">문자알림을 받으시겠습니까?</a></p>
 	      </div>
 	      <div>이메일<br>
-	      	<label><input class="info" type="text" name="userEmail" onchange="tabBlock();" onclick="idChkConfirm();"
-	      	required="required" placeholder="이메일을 입력해주세요"></label>
+	      	<label><input class="info" type="text" name="userEmail" required="required" placeholder="이메일을 입력해주세요"></label>
 	      	<a class="ajChk" id="unEmail" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 E-MAIL 입니다.</strong></a>
 	      	<a class="ajChk" id="useEmail" style="color: #3ee625; font-size: 0.8em;"><strong>사용 가능한 E-MAIL 입니다.</strong></a>
 	      </div>

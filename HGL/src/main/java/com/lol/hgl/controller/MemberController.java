@@ -1,9 +1,14 @@
 package com.lol.hgl.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.lol.hgl.bizz.MemberBizz;
 
 @Controller
@@ -18,8 +23,10 @@ public class MemberController {
       return "MemberSignUp";
    }
    
-   @RequestMapping(value="IDChk.do")
-   public String IDChk(String id) {
+   @RequestMapping(value="IDChk.do", method = RequestMethod.POST)
+   @ResponseBody
+   public String IDChk(HttpSession session, String id) {
+	  System.out.println(id);
       String res ="";
       res = bizz.IDChk(id);
       return res;

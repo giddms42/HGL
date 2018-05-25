@@ -14,6 +14,7 @@ public class MemeberDaoImple implements MemberDao {
 
 	@Override
 	public String IDChk(String id) {
+		System.out.println(id);
 		String res = "";
 		try {
 			res = sqlSession.selectOne(nameSpace+"idChk", id);

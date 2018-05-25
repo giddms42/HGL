@@ -14,6 +14,14 @@
       <org.slf4j-version>1.6.6</org.slf4j-version>
    </properties>
    <!-- repositries : ojdbc6 -->
+   	<repositories>
+		<repository> <!-- 원격저장소. 메이븐 메인에 없는걸 여기에 저장해서 사용하는 것. -->
+			<id>atlassian</id>
+			<url>http://repo.spring.io/plugins-release/</url>
+		</repository>
+	</repositories>
+   
+   
 
    <dependencies>
       <!-- Spring -->

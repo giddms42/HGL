@@ -1,34 +1,12 @@
-   function idChk() { // 중복체크
-      var doc = document.getElementsByName("userId")[0];
-      if (doc.value == null || doc.value == "") {
-         alert("ID를 입력해주세요")
-      } else {
-         open("TrioController?command=idChk&userId=" + doc.value); // open : 새창을 띄어줌. 
-      }
-   }
-   
+/* 
    function idChkConfirm() { // id중복체크를를 우선적으로 하게 하는 기능.
       var chk = document.getElementsByName("userId")[0].title;
       if (chk == "n") {
          alert("아이디 중복체크를 해주세요");
          document.getElementsByName("userId")[0].focus();
       }
-   }
-   
-   function tabBlock(){ //탭 이동 막기
-	      var chk = document.getElementsByName("userId")[0].title;
-	         if (chk == "n") {
-	            alert("아이디 중복체크를 해주세요");
-	            document.getElementsByName("userId")[0].focus();
-	            document.getElementsByName("userId")[0].value="";
-	            document.getElementsByName("userPw")[0].value="";
-	            document.getElementsByName("userChkpw")[0].value="";
-	            document.getElementsByName("userNick")[0].value="";
-	            document.getElementsByName("userPhone")[0].value="";
-	            document.getElementsByName("userEmail")[0].value="";
-	            document.getElementsByName("userAddr")[0].value="";
-	         }
-	}
+   }*/
+
 
 	function snsChecked() { //문자알림서비스 확인창
 		var retVal = confirm("문자알림을 받으시겠습니까?\n매달 1일, 부모님께 안부를 물어보도록 유도하는 알림문자가 발송되며,\n캘린더에 일정 추가 시 일정 알림을 체크하면 \n해당 일정 날짜의 하루 전에 알림 문자가 발송됩니다.");
@@ -357,16 +335,18 @@
 		            alert(idVal);
 		            $.ajax({
 		               type:"post",
-		               url : ".do",
-		               date:"useId="+idVal,
-		               async : false,
+		               url : "IDChk.do",
+		               data:"id="+idVal,
 		               success : function(res) {
 		                  var r = $.trim(res)
 		                  if (r == "t") {
-		                     $("input[name=useId]").prop("display", "inline");
+		          
+		                     $("#useId").prop("display", "inline");
 		                  }else{
-		                	 $("input[name=unId]").prop("display", "inline");
+		                	 $("#unId").prop("display", "inline");
 		                  }
+		               },error : function(){
+		            	   alert("abc");
 		               }
 		            });
 		         })
