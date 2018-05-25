@@ -13,4 +13,14 @@ public class AdminController {
 	public String AdminMange(Locale locale, Model model) {
 		return "AdminMange";
 	}
+	
+	@RequestMapping(value="AdminUserInfo.do")
+	public String AdminUserInfo(Locale locale, Model model) {
+		return "AdminUserInfo";
+	}
+	
+	@RequestMapping(value="AdminSearchUser.do")
+	public String AdminSearchUser(Locale locale, Model model) {
+		return "AdminSearchUser";
+	}
 }

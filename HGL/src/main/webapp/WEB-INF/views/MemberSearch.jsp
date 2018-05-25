@@ -66,6 +66,10 @@
 		width: 100%;
 		height: 100%;
 	}
+	
+	b{
+		color: white;
+	}
 </style>
 
 <body>
@@ -73,7 +77,7 @@
 	<div id="container">
 		<div>
 		<div id="cover">
-			<div><input type="text" readonly="readonly" value="ID 찾기" id="input2"></div>
+			<div><div><b>ID 찾기</b></div></div>
 			<div id="div0">
 				<div class="div1"><input type="text" readonly="readonly" value="E-Mail" id="input"></div>
 				<div class="div2"><input type="text" id="input" placeholder="E-Mail을 입력해주세요."></div>
@@ -85,7 +89,7 @@
 		</div>
 			<br/>
 		<div id="cover">
-			<div><input type="text" readonly="readonly" value="PW 찾기" id="input2"></div>
+			<div><div><b>PW 찾기</b></div></div>
 			<div id="div0">
 				<div class="div1"><input type="text" readonly="readonly" value="E-Mail" id="input"></div>
 				<div class="div2"><input type="text" id="input" placeholder="E-Mail을 입력해주세요."></div>
