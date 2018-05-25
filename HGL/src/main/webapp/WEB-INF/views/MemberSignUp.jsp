@@ -409,12 +409,14 @@
 			<div class="signUpText">로그인 정보 및 가입 정보를 입력하세요</div>
 		</header>
 	
-	  <form name="regist" action="TrioController" method="post" class="userForm">
-      <input type="hidden" name="command" value="inseretUser" /> 
-      <input type="hidden" name="returl" value="" />
+	  <form name="regist" action="MemberSignUp.do" method="post" class="userForm">
 		  <div>
-	   	  	<label>아이디<br><input class="info" type="text" name="userId" title="n" required="required" placeholder="아이디를 입력해주세요"></label>
-	    	<a id="idchk"><input class="infocheck" type="button" value="아이디 중복확인" onclick="idChk()"></a>
+	   	  	<label>아이디<br>
+	   	  	<input class="info" type="text" name="userId" title="n" required="required" placeholder="아이디를 입력해주세요">
+	   	  	</label>
+	    	<a id="idchk">
+	    	<input class="infocheck" type="button" value="아이디 중복확인" onclick="idChk()">
+	    	</a>
 	      </div>
 	      <br><div>
 	      	<label>비밀번호<br><input class="info" type="text" name="userPw" onchange="tabBlock();" onclick="idChkConfirm();" 
