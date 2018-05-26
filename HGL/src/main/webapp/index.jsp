@@ -10,10 +10,11 @@
 </head>
 <body>
 
-<a href="home.do">home으로</a>
-<a href="MemberSignUp.do">sign</a>
-<h1>향은이 천재</h1>
-<h2>경식이 바보</h2>
-<h2>정현오빠 바보</h2>
+<a href="home.do">home</a>
+<a href="MemberSignUpForm.do">signUpForm</a>
+<a href="MemberLoginForm.do">MemberLogin.do</a>
+<a href="Main.do">Main.do</a>
+<a href="MemberSearch.do">MemberSearch.do</a>
+
 </body>
 </html>

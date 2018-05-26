@@ -3,20 +3,32 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias type="com.lol.hgl.dto.userDto" alias="userDto"/>
+		<typeAlias type="com.lol.hgl.dto.calDto" alias="calDto"/>
+		<typeAlias type="com.lol.hgl.dto.famDto" alias="famDto"/>
+		<typeAlias type="com.lol.hgl.dto.fwlbcmDto" alias="fwlbcmDto"/>
+		<typeAlias type="com.lol.hgl.dto.fwlbDto" alias="fwlbDto"/>
+		<typeAlias type="com.lol.hgl.dto.fwlDto" alias="fwlDto"/>
+		<typeAlias type="com.lol.hgl.dto.ggDto" alias="ggDto"/>
+		<typeAlias type="com.lol.hgl.dto.ggcmDto" alias="ggcmDto"/>
+		<typeAlias type="com.lol.hgl.dto.ggimgDto" alias="ggimgDto"/>
+		<typeAlias type="com.lol.hgl.dto.healthDto" alias="healthDto"/>
+		<typeAlias type="com.lol.hgl.dto.kindstoreDto" alias="kindstoreDto"/>
+		<typeAlias type="com.lol.hgl.dto.memberDto" alias="memberDto"/>
+		<typeAlias type="com.lol.hgl.dto.menuDto" alias="menuDto"/>
 	</typeAliases>
 
 
 <!-- mapper 경로 설정 -->
 	<mappers>
 		<mapper resource="/sqls/Admin_Mapper.xml"/>
-		<mapper resource="/sqls/Cal_Mapper.xml"/>
+	   <mapper resource="/sqls/Cal_Mapper.xml"/>
 		<mapper resource="/sqls/Fam_Mapper.xml"/>
 		<mapper resource="/sqls/FWL_Mapper.xml"/>
 		<mapper resource="/sqls/FWLB_Mapper.xml"/>
 		<mapper resource="/sqls/GG_Mapper.xml"/>
 		<mapper resource="/sqls/Main_Mapper.xml"/>
-		<mapper resource="/sqls/User_Mapper.xml"/>	
+		<mapper resource="/sqls/Map_Mapper.xml"/>
+		<mapper resource="/sqls/Member_Mapper.xml"/>	 
 	</mappers>
 
 </configuration>
