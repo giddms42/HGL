@@ -334,7 +334,7 @@
             $.ajax({
                type:"post",
                url : ".do",
-               dete:"useId="+idVal,
+               dete:"id="+idVal,
                async : false,
                success : function(res) {
                   var r = $.trim(res)
