@@ -4,31 +4,27 @@ a{
 }
 select{
 	margin-top: 10px;
-	margin-left: 10%;
+	height: 37px;
 }
 input {
    height: 30px;
    font-size: 10pt;
-}
-label{
-	margin-left: 10%;
 }
 header{
 	text-align:center;
 }
 .registForm{
 	margin:auto;
-	width:35%;
+	min-width: 400px;
+	width:25%;
 }
 .info{
 	margin-top: 10px;
-	margin-left: 10%;
 	width: 220px;
 }
 .addrDetail{
 	width: 350px;
 	margin-top: 10px;
-	margin-left: 10%;
 }
 .infocheck{
 	width:120px;
@@ -46,3 +42,8 @@ header{
 }
 .ajChk{
 	display: none;
+}
+	
+.registinfo{
+	margin-left: 12%;
+}

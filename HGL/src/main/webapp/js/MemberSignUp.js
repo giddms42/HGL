@@ -1,8 +1,5 @@
-/*   function idChkConfirm() { // id중복체크를를 우선적으로 하게 하는 기능.
-=======
 /* 
    function idChkConfirm() { // id중복체크를를 우선적으로 하게 하는 기능.
->>>>>>> refs/remotes/origin/he
       var chk = document.getElementsByName("userId")[0].title;
       if (chk == "n") {
          alert("아이디 중복체크를 해주세요");
@@ -461,4 +458,15 @@
 			            	}
 			            }
 		         })
+		         
+		         $("[name=regist]").submit(
+		        		 function(){
+		        			 if (condition) {
+		        			 	alert('행가래에 가입해주셔서 감사합니다!\n앞으로 많은 이용 부탁드립니다!');
+		        			 }else{
+		        				 alert('가입실패 로그인페이지로 돌아갑니다.')
+		        			 }
+		        		 });
 	})
+	
+	

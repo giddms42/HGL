@@ -19,43 +19,44 @@
 		</header>
 	
 	  <form name="regist" action="MemberSignUp.do" method="post" class="userForm" novalidate>
-		  <div>
+		  <div class="registinfo">
 	   	  	<label>아이디<br><input class="info" type="text" name="memberId" title="n" required="required" placeholder="아이디를 입력해주세요"></label>
 	    	<a class="ajChk" id="unId" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 아이디 입니다.</strong></a>
 	      	<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><strong>사용 가능한 아이디 입니다.</strong></a>
 	      </div>
-	      <br><div>
+	      <br><div class="registinfo">
 	      	<label>비밀번호<br><input class="info" type="text" name="memberPw" required="required" placeholder="8~12길이의 영소문자+숫자"></label>
 	      	<a class="ajChk" id="unPw" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 비밀번호 입니다.</strong></a>
 	      	<a class="ajChk" id="usePw" style="color: #3ee625; font-size: 0.8em;"><strong>사용 가능한 비밀번호 입니다.</strong></a>
 	      </div>
-	      <div>
+	      <div class="registinfo">
 	      <br><label>비밀번호 확인<br><input class="info" type="text" name="userChkpw"   
 	      	required="required" placeholder="비밀번호를 다시 입력해주세요"></label>
 	      	<a class="ajChk" id="unOnemore" style="color: #F15F5F; font-size: 0.8em;"><strong>비밀번호가 일치하지 않습니다.</strong></a>
 	      	<a class="ajChk" id="useOnemore" style="color: #3ee625; font-size: 0.8em;"><strong>비밀번호가 일치합니다.</strong></a>
 	      </div>
-	      <br><div>
+	      <br><div class="registinfo">
 	      	<label>닉네임<br><input class="info" type="text" name="memberNickname" 
 	      	required="required" placeholder="닉네임을 입력해주세요"></label>
 	      	<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 닉네임 입니다.</strong></a>
 	      	<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><strong>사용 가능한 닉네임 입니다.</strong></a>
 	      	<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 닉네임 입니다.</strong></a>
 	      </div>
-	      <br><div>
+	      <br><div class="registinfo">
 	      	<label>연락처<br><input class="info" type="text" name="memberPhone" 
 	      	required="required" placeholder="휴대폰번호를 입력해주세요"></label>
 	      	<p style="margin-top:-2px;"><input class="checkbox" type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y">
 	      	<a class="sns" onclick="snsChecked();">문자알림을 받으시겠습니까?</a></p>
 	      </div>
-	      <div>이메일
-	      	<label><input class="info" type="email" name="memberEmail" required="required" placeholder="이메일을 입력해주세요"></label>
+	      <div class="registinfo">이메일
+	      	<label><br>
+	      	<input class="info" type="email" name="memberEmail" required="required" placeholder="이메일을 입력해주세요"></label>
 	      	<a class="ajChk" id="unEmail" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 E-MAIL 입니다.</strong></a>
 	      	<a class="ajChk" id="useEmail" style="color: #3ee625; font-size: 0.8em;"><strong>사용 가능한 E-MAIL 입니다.</strong></a>
 	      	<a class="ajChk" id="unEmail" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 E-MAIL 입니다.</strong></a>
 	      </div>
-	      <br><div>주  소<br>
-		      <select name="memberDo" onChange="showSub(this.options[this.selectedIndex].value);" style="height: 37px;" required="required">
+	      <br><div class="registinfo">주  소<br>
+		      <select name="memberDo" onChange="showSub(this.options[this.selectedIndex].value);" required="required">
 		      	<option value="">도를 선택해주세요</option>
 		      	<option value="서울특별시">서울특별시</option>
 		      	<option value="경기도">경기도</option>
