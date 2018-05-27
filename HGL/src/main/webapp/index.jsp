@@ -15,6 +15,9 @@
 <a href="MemberLoginForm.do">MemberLogin.do</a>
 <a href="Main.do">Main.do</a>
 <a href="MemberSearch.do">MemberSearch.do</a>
-아제발커밋
+<a href="AdminSearchUser.do">AdminSearchUser.do</a>
+<a href="AdminUserInfo.do">AdminUserInfo.do</a>
+
+<h1>2018-05-28 am:12:21 하아..</h1>
 </body>
 </html>

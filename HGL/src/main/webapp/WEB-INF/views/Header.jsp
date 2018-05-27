@@ -93,7 +93,8 @@ strong{
 }
 
 #admin{
-	
+	display: flex;
+	flex-direction: column;
 }
 
 </style>
@@ -115,17 +116,20 @@ function AdminMange(){
 <body>
 		<div id="header">
 			<div id="up">
-				<div class="up2" id="up21">홈버튼 로고</div>
+				<div class="up2" id="up21"><a href="Main.do">홈버튼 로고</a></div>
 				<div class="up2" id="up22">
 					<div id="hgl"><strong>행</strong>복한
 					<strong>가</strong>족의
 					미<strong>래</strong></div>
 				</div>
 				<div class="up2" id="up23">xx님 환영합니다</div>
-				<div class="up2" id="up24">로그아웃</div>
+				<div class="up2" id="up24"><a href="MemberLoginForm.do">로그아웃</a></div>
 			</div>
 			<div id="down">
-				<div class="menu" id="admin" onclick="AdminMange()">관리자</div>
+				<div class="menu" id="admin">
+					<div onclick="AdminMange()">관리자-회원제재</div>
+					<div onclick="location.href='AdminSearchUser.do'">관리자-회원목록</div>
+				</div>
 				<div class="menu">홈페이지 소개</div>
 				<div class="menu">내정보</div>
 				<div class="menu">캘린더</div>

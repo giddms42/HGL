@@ -88,6 +88,19 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 
 
 </style>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+function AdminUserInfo(){
+	var popupX = (window.screen.width / 2) - (740 / 2);
+	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+	var popupY= (window.screen.height /2) - (340 / 2);
+	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+	window.open("AdminUserInfo.do","", 'width=435, height=220, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	}
+
+</script>
 <body>
 
 	<div id="container">
@@ -111,73 +124,76 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
 						<tr>
 							<td class="div2" id="ans">1</td>
-							<td class="div1" id="res">chlwjdgus</td>
+							<td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
 							<td class="div1" id="res">정현이</td>
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
+						</tr>
+						<tr>
+							<td colspan="5"><div>페이징<br>자리</div></td>
 						</tr>
 					</table>
 		</div>
