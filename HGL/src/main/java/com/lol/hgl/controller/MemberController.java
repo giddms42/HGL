@@ -83,6 +83,11 @@ public class MemberController {
    public String MemberSearch(Model model) {
       return "MemberSearch";
    }
+  
+   @RequestMapping(value="MemberPwFind.do")
+   public String MemberPwFind(Model model) {
+      return "MemberPwFind";
+   }
    
    @RequestMapping(value="IDSearch.do", produces = "application/text; charset=utf8")
    @ResponseBody

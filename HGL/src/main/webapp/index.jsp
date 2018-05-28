@@ -17,6 +17,7 @@
 <a href="MemberSearch.do">MemberSearch.do</a>
 <a href="AdminSearchUser.do">AdminSearchUser.do</a>
 <a href="AdminUserInfo.do">AdminUserInfo.do</a>
+<a href="MemberPwFind.do">MemberPwFind.do</a>
 
 <h1>2018-05-28 am:12:21 하아..</h1>
 </body>

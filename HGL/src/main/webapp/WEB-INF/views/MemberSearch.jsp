@@ -17,7 +17,7 @@ function IDSearch() {
 	alert("아이디찾기클릭");
     var email = $("#email1").val();
     if (email == null || email == "") {
-  	  alertify.alert("이메일을 입력해주세요")
+  	  alert("이메일을 입력해주세요")
     } else {
        $.ajax({
           url : "IDSearch.do",
@@ -29,7 +29,7 @@ function IDSearch() {
         	  $("#idVal").val(msgVal);
           },
           error : function() {
-        	  alert("ajax실패");
+        	  alert("e-mail이 존재하지 않습니다.");
           }
        })
     }
@@ -40,9 +40,9 @@ function PWSearch() {
     var id2 = $("#id2").val();
 
     if (email2 == null || email2 == "") {
-  	  alertify.alert("이메일을 입력해주세요");
+  	  alert("이메일을 입력해주세요");
     } else if (id2 == null || id2 == "") {
-  	  alertify.alert("아이디를 입력해주세요");
+  	  alert("아이디를 입력해주세요");
     } else {
        $.ajax({
           url : "PWSearch.do",
@@ -51,15 +51,24 @@ function PWSearch() {
           dataType : "text",
 
           success : function(msg) {
-        	  var msgVal = $.trim(msg);
-        	  $("#pwVal").val(msgVal);
+        	  /* location.href="MemberPwFind.do"; */
+        	  PwFindPopup();
           },
           error : function() {
-          	alertify.alert("없는 계정입니다.\n 이름,이메일,아이디를 다시 확인해주세요");
+          	alert("없는 계정입니다.\n 이름,이메일,아이디를 다시 확인해주세요");
           }
        })
     }
  }
+ 
+function PwFindPopup(){
+	var popupX = (window.screen.width/2)-(440/2);
+	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+	var popupY= (window.screen.height/2)-(200/2);
+	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+	window.open("MemberPwFind.do","", 'status=no, width=440, height=200, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	}
  
 </script>
 <body>
