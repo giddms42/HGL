@@ -386,6 +386,7 @@
 		                  if (r == "t") {  
 		                     $("#useNick").css("display", "inline");
 		                     $("#unNick").css("display", "none");
+
 		                  }else{
 		                	 $("#unNick").css("display", "inline");
 		                	 $("#useNick").css("display", "none");
@@ -443,26 +444,5 @@
 		            }
 		         })
 		         
-		          $("input[name=userChkpw").on("change",function() {
-		        	  var pwVal = $("input[name=memberPw]").val();
-		        	  var pwValChk = $("input[name=userChkpw]").val();
-		        	  if(pwValChk==null || pwValChk==""){
-			            	 $("#useOnemore").css("display", "none");
-		                     $("#unOnemore").css("display", "none");   	
-			            }else{
-			            	if(pwVal == pwValChk){
-			            		$("#useOnemore").css("display", "inline");
-			            		$("#unOnemore").css("display", "none");
-			            	}else{
-			            		$("#unOnemore").css("display", "inline");
-			            		$("#useOnemore").css("display", "none");  
-			            	}
-			            }
-		         })
-		      
-	
-	
-	
-	
 	
 	})

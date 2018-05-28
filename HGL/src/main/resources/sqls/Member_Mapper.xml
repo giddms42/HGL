@@ -29,6 +29,21 @@
 	<select id="emailChk" parameterType="String" resultType="String">
 		 SELECT MEMBEREMAIL FROM MEMBER WHERE MEMBEREMAIL=#{email}
 	</select>
+	
+	<insert id="singUp" parameterType="memberDto" >
+		INSERT MEMBER INTO VALUE(MEMBERNO_SEQ.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberEmail}, #{memberPhone}, #{memberDo}, #{memberCity}, 
+		#{memberAddr}, 'USER', 0, 'Y', #{memberSMS})
+	</insert>
+	
+		
+	<select id="IDSearch" parameterType="String" resultType="String">
+		 SELECT MEMBERID FROM MEMBER WHERE MEMBEREMAIL=#{email} AND MEMBERJOIN='Y'
+	</select>
+	
+	
+	<select id="PWSearch" parameterType="Map" resultType="String">
+		 SELECT MEMBERPW FROM MEMBER WHERE MEMBEREMAIL=#{email} AND MEMBERID=#{id} AND MEMBERJOIN='Y'
+	</select>
 
 
 </mapper>
