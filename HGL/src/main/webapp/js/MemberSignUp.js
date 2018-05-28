@@ -385,6 +385,7 @@
 		                  if (r == "t") {  
 		                     $("#useNick").css("display", "inline");
 		                     $("#unNick").css("display", "none");
+
 		                  }else{
 		                	 $("#unNick").css("display", "inline");
 		                	 $("#useNick").css("display", "none");
@@ -459,5 +460,3 @@
 		         }
 		         })
 	})
-	
-	

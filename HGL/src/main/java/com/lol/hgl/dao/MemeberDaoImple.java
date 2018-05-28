@@ -1,5 +1,7 @@
 package com.lol.hgl.dao;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -49,8 +51,38 @@ public class MemeberDaoImple implements MemberDao {
 
 	@Override
 	public int signUp(memberDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = 0;
+		try {
+			res = sqlSession.insert(nameSpace+"singUp", dto);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public String IDSearch(String email) {
+		String res = "";
+		try {
+			res = sqlSession.selectOne(nameSpace+"IDSearch", email);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public String PWSearch(String email, String id) {
+		String res = "";
+		HashMap<String, String>map = new HashMap<String, String>();
+		map.put("email", email);
+		map.put("id",id);
+		try {
+			res = sqlSession.selectOne(nameSpace+"PWSearch", map);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
 	}
 
 }
