@@ -14,9 +14,9 @@
 <style>
 
 #header{
+	position: relative;
 	width: 100%;
 	height: 150px;
-	background-color: pink;
 	color: white;
 }
 
@@ -33,7 +33,6 @@ display: -webkit-flex;
 
 #down{
 	height: 35%;
-	background-color: gray;
 	display: -webkit-flex;
 	display:         flex;
 	  -webkit-align-items: center;
@@ -43,8 +42,6 @@ display: -webkit-flex;
 }
 
 .menu{
-	background-color: orange;
-	border: 1px solid white;
 	width: 10%;
 	height: 100%;
 	display: -webkit-flex;
@@ -93,8 +90,78 @@ strong{
 }
 
 #admin{
-	
+	display: flex;
+	flex-direction: column;
 }
+
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css);
+
+body{
+    font-family: 'Lato', sans-serif;
+    /* background: #353535; /* 헤더 백그라운드 색깔 */
+    /* color: #FFF; */
+}
+
+/* Thar Buttons */
+a.animated-button.thar-three {
+    color: #FFF;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border: 2px solid #F7CA18;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+0s;
+}
+a.animated-button.thar-three:hover {
+    color: #000 !important;
+    background-color: transparent;
+    text-shadow: nthree;
+}
+a.animated-button.thar-three:hover:before {
+    left: 0%;
+    right: auto;
+    width: 100%;
+}
+a.animated-button.thar-three:before {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 0px;
+    z-index: -1;
+    content: '';
+    color: #000 !important;
+    background: #F7CA18;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+0s;
+}
+
+#btn{
+	width: 95%;
+}
+
+#btn2{
+	font-weight:bold;
+	text-align: center;
+	text-decoration: none;
+	height: 24px;
+}
+
+#header2{
+	z-index: -1;
+	height: 150px;
+	width: 100%;
+	position: absolute;
+}
+
+img{
+	height: 100%;
+	width: 100%;
+	opacity: 0.6;
+	z-index: -10;
+}
+
 
 </style>
 
@@ -113,27 +180,32 @@ function AdminMange(){
 </script>
 
 <body>
+	<div>
 		<div id="header">
+		<div id="header2"><img src="image/sadad.png"></div>
 			<div id="up">
-				<div class="up2" id="up21">홈버튼 로고</div>
+				<div class="up2" id="up21"><a href="Main.do">홈버튼 로고</a></div>
 				<div class="up2" id="up22">
 					<div id="hgl"><strong>행</strong>복한
 					<strong>가</strong>족의
 					미<strong>래</strong></div>
 				</div>
 				<div class="up2" id="up23">xx님 환영합니다</div>
-				<div class="up2" id="up24">로그아웃</div>
+				<div class="up2" id="up24"><a href="MemberLoginForm.do">로그아웃</a></div>
 			</div>
 			<div id="down">
-				<div class="menu" id="admin" onclick="AdminMange()">관리자</div>
-				<div class="menu">홈페이지 소개</div>
-				<div class="menu">내정보</div>
-				<div class="menu">캘린더</div>
-				<div class="menu">지도</div>
-				<div class="menu">위시리스트</div>
-				<div class="menu">좋은글</div>
+				<div class="menu" id="admin">
+					<div onclick="AdminMange()">관리자-회원제재</div>
+					<div onclick="location.href='AdminSearchUser.do'">관리자-회원목록</div>
+				</div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">홈페이지 소개</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">내정보</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">캘린더</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">지도</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">위시리스트</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">좋은글</a></div></div>
 			</div>
 		</div>
-
+	</div>
 </body>
 </html>
