@@ -13,16 +13,12 @@
 	}
 	
 	.div1{
+		margin: 3;
 		width: 30%;
 	}
 	
 	.div2{
-		background-color: tomato;
 		width: 70%;
-	}
-	
-	.div3{
-		width: 100%
 	}
 	
 	#cover{
@@ -49,7 +45,7 @@
 	          justify-content: center;
 	    background-color: tomato;
 		width: 420px;
-		height: 290px;
+		height: 200px;
 	}
 	
 	.btn{
@@ -59,4 +55,16 @@
 	
 	b{
 		color: white;
+	}
+	
+	table{
+		border: 2px solid white;
+	}
+	
+	#ans{
+		background-color: white;
+	}
+	
+	#res{
+		background-color: orange;
 	}

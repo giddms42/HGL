@@ -1,1 +1,54 @@
 @charset "EUC-KR";
+
+#container{
+	margin: auto;
+	width: 1280px;
+	height: 100%;
+	/* background-color: orange; */
+}
+
+#a{
+width: 100%;
+/* background-color: red; */
+}
+
+#c{
+width: 100%;
+/* background-color: green; */
+}
+
+#b{
+color: white;
+border: 1px dashed red;
+height: 500px;
+width: 100%;
+}
+
+#b1{
+float: left;
+height: 150px;
+width: 20%;
+margin-top: 15%;
+margin-left: 40%;
+margin-right: 40%;
+}
+
+#b2{
+width: 100%;
+height: 100%;
+display: table;
+opacity: 1;
+}
+
+#b3{
+display:table-cell;
+vertical-align: middle;
+}
+ 
+ #im1{
+ z-index: -1;
+ position: absolute;
+ width: 256px;
+ height: 150px;
+ opacity: 0.5
+ }

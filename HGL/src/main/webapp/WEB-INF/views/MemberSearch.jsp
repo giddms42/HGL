@@ -10,68 +10,58 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" type="text/css" href="css/MemberSearch.css">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+function IDSearch() {
+	alert("아이디찾기클릭");
+    var email = $("#email1").val();
+    if (email == null || email == "") {
+  	  alertify.alert("이메일을 입력해주세요")
+    } else {
+       $.ajax({
+          url : "IDSearch.do",
+          data:"email="+email,
+          dataType : "text",
 
-<style>
-	
-	.td1{
-		background-color: gray;
-	}
-	
-	.td2{
-		background-color: tomato;
-	}
-	
-	#div0{
-		width: 400px;
-		display: flex;
-	}
-	
-	.div1{
-		width: 30%;
-	}
-	
-	.div2{
-		background-color: tomato;
-		width: 70%;
-	}
-	
-	#cover{
-	text-align: center;
-	width: 400px;
-	}
-	
-	#input{
-		text-align: center;
-		width: 98%;
-	}
-	
-	#input2{
-		text-align: center;
-		width: 99%;
-	}
-	
-	#container{
-	display: -webkit-flex;
-	display:         flex;
-	  -webkit-align-items: center;
-	          align-items: center;
-	  -webkit-justify-content: center;
-	          justify-content: center;
-	    background-color: tomato;
-		width: 420px;
-		height: 220px;
-	}
-	
-	.btn{
-		width: 100%;
-		height: 100%;
-	}
-	
-	b{
-		color: white;
-	}
-</style>
+          success : function(msg) {
+        	  var msgVal = $.trim(msg);
+        	  $("#idVal").val(msgVal);
+          },
+          error : function() {
+        	  alert("ajax실패");
+          }
+       })
+    }
+ }
+ 
+function PWSearch() {
+    var email2 = $("#email2").val();
+    var id2 = $("#id2").val();
 
+    if (email2 == null || email2 == "") {
+  	  alertify.alert("이메일을 입력해주세요");
+    } else if (id2 == null || id2 == "") {
+  	  alertify.alert("아이디를 입력해주세요");
+    } else {
+       $.ajax({
+          url : "PWSearch.do",
+          data: "email=" + $("#email2").val() + "&id="
+                + $("#id2").val(),
+          dataType : "text",
+
+          success : function(msg) {
+        	  var msgVal = $.trim(msg);
+        	  $("#pwVal").val(msgVal);
+          },
+          error : function() {
+          	alertify.alert("없는 계정입니다.\n 이름,이메일,아이디를 다시 확인해주세요");
+          }
+       })
+    }
+ }
+ 
+</script>
 <body>
 
 	<div id="container">
@@ -79,28 +69,28 @@
 		<div id="cover">
 			<div><div><b>ID 찾기</b></div></div>
 			<div id="div0">
-				<div class="div1"><input type="text" readonly="readonly" value="E-Mail" id="input"></div>
-				<div class="div2"><input type="text" id="input" placeholder="E-Mail을 입력해주세요."></div>
+				<div class="div1"><input type="text" readonly="readonly" value="E-Mail" class="input"></div>
+				<div class="div2"><input type="text" class="input" placeholder="E-Mail을 입력해주세요." id="email1"></div>
 			</div>
 			<div id="div0">
-				<div class="div2"><input type="text" id="input" placeholder="결과가 출력됩니다." readonly="readonly"></div>
-				<div class="div1"><input type="button" value="ID 찾기" class="btn"></div>
+				<div class="div2"><input type="text" class="input" placeholder="결과가 출력됩니다." readonly="readonly" id="idVal"></div>
+				<div class="div1"><input type="button" value="ID 찾기" class="btn" onclick="IDSearch();"></div>
 			</div>
 		</div>
 			<br/>
 		<div id="cover">
 			<div><div><b>PW 찾기</b></div></div>
 			<div id="div0">
-				<div class="div1"><input type="text" readonly="readonly" value="E-Mail" id="input"></div>
-				<div class="div2"><input type="text" id="input" placeholder="E-Mail을 입력해주세요."></div>
+				<div class="div1"><input type="text" readonly="readonly" value="E-Mail" class="input"></div>
+				<div class="div2"><input type="text" class="input" placeholder="E-Mail을 입력해주세요." id="email2"></div>
 			</div>
 			<div id="div0">
-				<div class="div1"><input type="text" readonly="readonly" value="ID" id="input"></div>
-				<div class="div2"><input type="text" id="input" placeholder="ID를 입력해주세요."></div>
+				<div class="div1"><input type="text" readonly="readonly" value="ID" class="input"></div>
+				<div class="div2"><input type="text" class="input" placeholder="ID를 입력해주세요." id="id2"></div>
 			</div>
 			<div id="div0">
-				<div class="div2"><input type="text" id="input" placeholder="결과가 출력됩니다." readonly="readonly"></div>
-				<div class="div1"><input type="button" value="PW 찾기" class="btn"></div>
+				<div class="div2"><input type="text" class="input" placeholder="결과가 출력됩니다." readonly="readonly" id="pwVal"></div>
+				<div class="div1"><input type="button" value="PW 찾기" class="btn" onclick="PWSearch();"></div>
 			</div>
 		</div>
 		</div>

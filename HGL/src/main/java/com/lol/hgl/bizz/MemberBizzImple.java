@@ -70,13 +70,12 @@ public class MemberBizzImple implements MemberBizz {
 
 	@Override
 	public String IDSearch(String email) {
-		String res = dao.IDSearch(email);
-		String use = "f";
-		if (res == null) {
-			use = "t"; 
-		}
-		System.out.println("ID 찾기 성공 여부 : " + use);
-		return use;
+		String res = dao.IDSearch(email);      
+	      if (res == null) {
+	         res = "아이디가 존재하지 않습니다.";
+	      }
+	      System.out.println("ID 찾기 성공 여부 : " + res);
+	      return res;
 	}
 
 	@Override
@@ -84,10 +83,10 @@ public class MemberBizzImple implements MemberBizz {
 		String res = dao.PWSearch(email, id);
 		String use = "f";
 		if (res == null) {
-			use = "t"; 
+			res = "아이디, 이메일을 확인해주세요."; 
 		}
-		System.out.println("pw 찾기 성공 여부 : " + use);
-		return use;
+		System.out.println("pw 찾기 성공 여부 : " + res);
+		return res;
 	}
 
 	

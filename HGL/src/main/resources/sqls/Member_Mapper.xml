@@ -31,7 +31,7 @@
 	</select>
 	
 	<insert id="singUp" parameterType="memberDto" >
-		INSERT MEMBER INTO VALUE(MEMBERNO_SEQ.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberEmail}, #{memberPhone}, #{memberDo}, #{memberCity}, 
+		INSERT INTO MEMBER VALUES(MEMBERNO_SEQ.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberEmail}, #{memberPhone}, #{memberDo}, #{memberCity}, 
 		#{memberAddr}, 'USER', 0, 'Y', #{memberSMS})
 	</insert>
 	
