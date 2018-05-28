@@ -91,7 +91,9 @@ public class MemberBizzImple implements MemberBizz {
 	public String PWSearch(String email, String id) {
 		String res = dao.PWSearch(email, id);
 		if (res == null) {
-			res = "아이디, 이메일을 확인해주세요."; 
+			res = "f";
+		}else {
+			res = "t";
 		}
 		System.out.println("pw 찾기 성공 여부 : " + res);
 		return res;

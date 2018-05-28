@@ -34,11 +34,11 @@
 					<table>
 						<col width="624px">
 						<col width="624px">
-						<tr onclick="javascript:opener.location.href='Main.do';self.close();">
+						<tr onclick="javascript:opener.location.href='AdminSearchGG.do';self.close();">
 							<td class="div2" id="ans">좋은글 게시판 작성글 갯수</td>
 							<td class="div1" id="res">3</td>
 						</tr>
-						<tr onclick="javascript:opener.location.href='MemberLoginForm.do';self.close();">
+						<tr onclick="javascript:opener.location.href='AdminSearchFWLB.do';self.close();">
 							<td class="div2" id="ans">위시리스트 게시판 작성글 갯수</td>
 							<td class="div1" id="res">1</td>
 						</tr>

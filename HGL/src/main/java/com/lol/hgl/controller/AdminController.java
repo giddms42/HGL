@@ -23,4 +23,14 @@ public class AdminController {
 	public String AdminSearchUserForm(Locale locale, Model model) {
 		return "AdminSearchUser";
 	}
+	
+	@RequestMapping(value="AdminSearchGG.do")
+	public String AdminSearchGG(Locale locale, Model model) {
+		return "AdminSearchGG";
+	}
+	
+	@RequestMapping(value="AdminSearchFWLB.do")
+	public String AdminSearchFWLB(Locale locale, Model model) {
+		return "AdminSearchFWLB";
+	}
 }

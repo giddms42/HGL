@@ -37,6 +37,8 @@ function AdminUserInfo(){
 	
 	<div id="b">
 		<div id="bodyMain">
+			<div id="boardName">전체회원목록</div>
+			<br/>
 			<img src="image/sadad.png" id="content">
 					<table border="1" bordercolor="white">
 						<col width="50" class="ab">
@@ -123,7 +125,7 @@ function AdminUserInfo(){
 						</tr>
 					</table>
 					<br/>
-					<div id="paging" style="background-color: orange; border: 1px solid white;">페이징<br>자리~!</div>
+					<div id="paging">페이징<br>자리~!</div>
 		</div>
 	</div>
 	

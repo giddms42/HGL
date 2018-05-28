@@ -22,11 +22,6 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
-$(document).ready(function() {
-	/* $("#admin").hide(); */	
-	
-});
-
 window.onload = function() {
 	
 	if("${msg}" != null && "${msg}".length > 0){
@@ -34,13 +29,17 @@ window.onload = function() {
 	}
 	
 };
-
+/*
+function MemberSearch(){
+	var popupX = (window.screen.width/2)-(440/2);
+	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+*/
 
 function MemberSearch(){
 	var popupX = (window.screen.width/2) - (440 / 2);
 	var popupY= (window.screen.height/2)- (240/2);
 	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-	window.open("MemberSearch.do","", 'status=no, width=440, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	window.open("MemberSearchForm.do","", 'status=no, width=440, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 
 </script>

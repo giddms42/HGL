@@ -50,7 +50,7 @@ function PWSearch() {
                 + $("#id2").val(),
           dataType : "text",
 
-          success : function(msg) {
+          success : function(msg) { //t면 pw 있음, f면 없음.
         	  var msgVal = $.trim(msg);
         	  $("#pwVal").val(msgVal);
           },

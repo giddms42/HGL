@@ -109,10 +109,12 @@ public class MemberController {
    
    @RequestMapping(value="PWSearch.do", produces = "application/text; charset=utf8")
    @ResponseBody
-   public String emailAndIdSearch(String email, String id) {
+   public String PWSearch(String email, String id) {
 	   String res ="";
 	      res = bizz.PWSearch(email, id);
 	      return res;
    }
 
+  
+   
 }
