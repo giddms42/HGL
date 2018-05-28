@@ -57,6 +57,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	          align-items: center;
 	  -webkit-justify-content: center;
 	          justify-content: center;
+	  flex-direction: column;
  }
  
  #content{
@@ -83,6 +84,11 @@ html { background: url("image/img.jpg") no-repeat center fixed;
  table{
  	background-color: orange;
  	width:80%;
+ }
+ 
+ #paging{
+ 	text-align: center;
+ 	width: 80%;
  }
  
 
@@ -192,10 +198,9 @@ function AdminUserInfo(){
 							<td class="div1" id="res">chljh90@gmail.com</td>
 							<td class="div1" id="res">0</td>
 						</tr>
-						<tr>
-							<td colspan="5"><div>페이징<br>자리</div></td>
-						</tr>
 					</table>
+					<br/>
+					<div id="paging" style="background-color: orange; border: 1px solid white;">페이징<br>자리~!</div>
 		</div>
 	</div>
 	
