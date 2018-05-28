@@ -85,7 +85,8 @@ public class MemberController {
       return "MemberSearch";
    }
    
-   @RequestMapping(value="IDSearch.do",  produces = "application/text; charset=utf8")
+
+   @RequestMapping(value="IDSearch.do", produces = "application/text; charset=utf8")
    @ResponseBody
    public String IDSearch(String email) {
 	   String res ="";

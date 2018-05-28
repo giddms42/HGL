@@ -79,23 +79,23 @@ public class MemberBizzImple implements MemberBizz {
 
 	@Override
 	public String IDSearch(String email) {
-		String res = dao.IDSearch(email);		
-		if (res == null) {
-			res = "아이디가 존재하지 않습니다.";
-		}
-		System.out.println("ID 찾기 성공 여부 : " + res);
-		return res;
+		String res = dao.IDSearch(email);      
+	      if (res == null) {
+	         res = "아이디가 존재하지 않습니다.";
+	      }
+	      System.out.println("ID 찾기 성공 여부 : " + res);
+	      return res;
 	}
 
 	@Override
 	public String PWSearch(String email, String id) {
 		String res = dao.PWSearch(email, id);
 		if (res == null) {
-			res = "아이디, 이메일을 확인해주세요.";
+			res = "아이디, 이메일을 확인해주세요."; 
 		}
 		System.out.println("pw 찾기 성공 여부 : " + res);
 		return res;
-	}
+		}
 
 	@Override
 	public memberDto Login(String id, String pw) {
@@ -111,6 +111,7 @@ public class MemberBizzImple implements MemberBizz {
 			}
 
 		return null;
+
 	}
 
 	

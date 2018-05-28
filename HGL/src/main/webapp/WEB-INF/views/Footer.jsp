@@ -10,22 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-
-<style>
-
-
-#footer{
-	height: 100%;
-	height: 150px;
-	color: white;
-}
-
- p{
- font-size: 20px;
- }
-
-</style>
-
+<link rel="stylesheet" type="text/css" href="css/Footer.css">
 <body>
 	
 		<div id="footer" align="center">
