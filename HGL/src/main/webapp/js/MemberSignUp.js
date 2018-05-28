@@ -459,14 +459,22 @@
 			            }
 		         })
 		         
-		         $("[name=regist]").submit(
-		        		 function(){
-		        			 if (condition) {
-		        			 	alert('행가래에 가입해주셔서 감사합니다!\n앞으로 많은 이용 부탁드립니다!');
-		        			 }else{
-		        				 alert('가입실패 로그인페이지로 돌아갑니다.')
-		        			 }
-		        		 });
+		         $("[name=regist]").submit(function(){
+		        	 
+		             var returnVar = true;
+		             if ($("input[name=pw]").val() != $("input[name=pwChk]").val()) {
+		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
+		                document.getElementsByName("pwChk")[0].focus();
+		                return false;
+		         }else{
+		             var returnVar = true;
+		             if ($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
+		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
+		                document.getElementsByName("pwChk")[0].focus();
+		                return false;
+		             }
+		         }
+		         })
 	})
 	
 	

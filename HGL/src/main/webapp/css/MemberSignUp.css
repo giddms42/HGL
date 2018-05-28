@@ -15,7 +15,7 @@ header{
 }
 .registForm{
 	margin:auto;
-	min-width: 400px;
+	min-width: 500px;
 	width:25%;
 }
 .info{
@@ -33,7 +33,6 @@ header{
 	padding-bottom: 20px;
 }
 .checkbox{
-	margin-left:10%;
 	width: 5%;
 }
 .sns{
