@@ -50,6 +50,14 @@ public class MemberController {
       return res;
    }
    
+   @RequestMapping(value="pwChk.do")
+   @ResponseBody
+   public String pWChk(String pw) {
+      String res ="";
+      res = bizz.pwChk(pw);
+      return res;
+   }
+   
    
    @RequestMapping(value = "MemberSignUp.do", method = RequestMethod.POST)
    public String memberSingUp(@ModelAttribute memberDto dto) {
