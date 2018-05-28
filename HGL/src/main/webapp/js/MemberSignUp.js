@@ -341,9 +341,9 @@
 		                  var r = $.trim(res)
 		                  if (r == "t") {
 		          
-		                     $("#useId").prop("display", "inline");
+		                     $("#useId").prop("display", inline);
 		                  }else{
-		                	 $("#unId").prop("display", "inline");
+		                	 $("#unId").prop("display", inline);
 		                  }
 		               },error : function(){
 		            	   alert("abc");
