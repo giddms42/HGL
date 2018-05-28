@@ -33,6 +33,35 @@ function MemberSearch(){
 	window.open("MemberSearch.do","", 'status=no, width=440, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 	
+$(function(){
+	$("#b2").submit(function){
+		  var returnVar = true;
+		  var idVal = $("#inpid").val();
+		  var pwVal = $("#inppw").val();
+		  if (idVal == null || idVal == "") {
+		  	  alertify.alert("아이디를 입력해주세요");
+		    } else if (pwVal == null || pwVal == "") {
+		  	  alertify.alert("비밀번호를 입력해주세요");
+		    } else {
+		       $.ajax({
+		          url : "memberLoginChk.do",
+		          data: "id=" + idVal+ "&pw="+ pwVal,
+		          dataType : "text",
+		          success : function(msg) {
+		        	  var msgVal = $.trim(msg);
+		        	  if( msgVal == "f")){
+		    	  	 alert("ID와 비밀번호가 일치하지 않습니다.");
+	                 returnVar = false;
+		      			 }
+		          }
+		       })
+		     if (!returnVar) {
+         	  return false;
+     	  		}
+		   }
+  });
+})
+	
 	
 
 </script>
@@ -45,8 +74,7 @@ function MemberSearch(){
 			<div>
 			<img src="image/back.png" id="im1">
 			</div>
-			<form action="login.do" id="b2">
-				<input type="hidden" name="command" value="login" />
+			<form action="MemberLogin.do" id="b2">
 				<div id="b3">
 				<table align="center">
 					<tr>

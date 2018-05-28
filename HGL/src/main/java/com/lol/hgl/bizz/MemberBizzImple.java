@@ -98,20 +98,29 @@ public class MemberBizzImple implements MemberBizz {
 		}
 
 	@Override
-	public memberDto Login(String id, String pw) {
+	public memberDto Login(String memberId, String memberPw) {
+		memberDto dto = dao.LoginChk(memberId, memberPw);
+		if(passwordEncoder.matches(memberPw, dto.getMemberPw())) {
+			
+		}
+		return dto;
+
+	}
+
+	@Override
+	public String LoginChk(String id, String pw) {
+		String res = "";
 		//1.저장된 비밀번호 갖고오기.
-		String dbPw = dao.LoginPw(id);
+		memberDto dto = dao.LoginChk(id, pw);
 		//2.입력한 비밀번호랑 비교하기
-		if(passwordEncoder.matches(pw, dbPw)){
-			//3. 일치할 경우 dao의select list 사용하여 dto 전체를 가져오기. 
+		if(passwordEncoder.matches(pw, dto.getMemberPw())){
 			System.out.println("계정정보 일치");
+			res = "t";
 			}else{
 			System.out.println("계정정보 불일치");
-			
-			}
-
-		return null;
-
+			res = "f";	
+					}
+		return res;
 	}
 
 	

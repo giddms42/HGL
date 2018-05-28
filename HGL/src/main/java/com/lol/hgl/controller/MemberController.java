@@ -1,5 +1,9 @@
 package com.lol.hgl.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,13 +79,21 @@ public class MemberController {
    }
    
    @RequestMapping(value = "MemberLogin.do")
-   public String memberLogin(String id, String pw) {
-	  memberDto login = bizz.Login(id, pw);
+   public String memberLogin(String memberId, String memberPw) {
+	  memberDto login = bizz.Login(memberId, memberPw);
       return "Main";
    }
    
-   @RequestMapping(value="MemberSearch.do")
-   public String MemberSearch(Model model) {
+   @RequestMapping(value = "memberLoginChk.do")
+   @ResponseBody
+   public String memberLoginChk(String id, String pw) {
+	  String res = bizz.LoginChk(id, pw);
+      return "Main";
+   }
+   
+   
+   @RequestMapping(value="MemberSearchForm.do")
+   public String MemberSearchForm(Model model) {
       return "MemberSearch";
    }
    
@@ -102,5 +114,11 @@ public class MemberController {
 	      return res;
    }
 
+   protected void jsResponse(String msg, String url, HttpServletResponse response) throws IOException {
+		String s = "<script type='text/javascript'>" + "alert('"+msg+"');" + 
+				"location.href='"+url+"';" + "</script>";
+		PrintWriter out = response.getWriter();
+		out.println(s);	
+	}
 
 }
