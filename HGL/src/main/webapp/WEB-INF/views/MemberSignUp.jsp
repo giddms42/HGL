@@ -25,14 +25,12 @@
 	      	<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><strong>사용 가능한 아이디 입니다.</strong></a>
 	      </div>
 	      <br><div class="registinfo">
-	      	<label>비밀번호<br><input class="info" type="text" name="memberPw" required="required" placeholder="8~12길이의 영소문자+숫자"></label>
+	      	<label>비밀번호<br><input class="info" type="password" name="memberPw" required="required" placeholder="8~12길이의 영소문자+숫자"></label>
 	      	<a class="ajChk" id="unPw" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 비밀번호 입니다.</strong></a>
 	      	<a class="ajChk" id="usePw" style="color: #3ee625; font-size: 0.8em;"><strong>사용 가능한 비밀번호 입니다.</strong></a>
 	      </div>
 	      <div class="registinfo">
-	      <br><label>비밀번호 확인<br><input class="info" type="text" name="userChkpw" required="required" placeholder="비밀번호를 다시 입력해주세요"></label>
-	      	<a class="ajChk" id="unOnemore" style="color: #F15F5F; font-size: 0.8em;"><strong>비밀번호가 일치하지 않습니다.</strong></a>
-	      	<a class="ajChk" id="useOnemore" style="color: #3ee625; font-size: 0.8em;"><strong>비밀번호가 일치합니다.</strong></a>
+	      <br><label>비밀번호 확인<br><input class="info" type="password" name="userChkpw" required="required" placeholder="비밀번호를 다시 입력해주세요"></label>
 	      </div>
 	      <br><div class="registinfo">
 	      	<label>닉네임<br><input class="info" type="text" name="memberNickname" 
