@@ -382,24 +382,14 @@
 		               url : "nickNameChk.do",
 		               data:"nickName="+nickVal,
 		               success : function(res) {
-<<<<<<< HEAD
-		                  var r = $.trim(res)
-		                  if (r == "t") {
-		          
-		                     $("#useId").prop("display", inline);
-=======
 		                  var r = $.trim(res);
 		                  if (r == "t") {  
 		                     $("#useNick").css("display", "inline");
 		                     $("#unNick").css("display", "none");
->>>>>>> refs/remotes/origin/he
+
 		                  }else{
-<<<<<<< HEAD
-		                	 $("#unId").prop("display", inline);
-=======
 		                	 $("#unNick").css("display", "inline");
 		                	 $("#useNick").css("display", "none");
->>>>>>> refs/remotes/origin/he
 		                  }
 		               }
 		            });
@@ -454,26 +444,5 @@
 		            }
 		         })
 		         
-		          $("input[name=userChkpw").on("change",function() {
-		        	  var pwVal = $("input[name=memberPw]").val();
-		        	  var pwValChk = $("input[name=userChkpw]").val();
-		        	  if(pwValChk==null || pwValChk==""){
-			            	 $("#useOnemore").css("display", "none");
-		                     $("#unOnemore").css("display", "none");   	
-			            }else{
-			            	if(pwVal == pwValChk){
-			            		$("#useOnemore").css("display", "inline");
-			            		$("#unOnemore").css("display", "none");
-			            	}else{
-			            		$("#unOnemore").css("display", "inline");
-			            		$("#useOnemore").css("display", "none");  
-			            	}
-			            }
-		         })
-		      
-	
-	
-	
-	
 	
 	})
