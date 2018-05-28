@@ -84,18 +84,30 @@ public class MemberController {
       return "MemberSearch";
    }
    
-   @RequestMapping(value="IDSearch.do")
+   @RequestMapping(value="IDSearch.do", produces = "application/text; charset=utf8")
+   @ResponseBody
    public String IDSearch(String email) {
 	   String res ="";
 	      res = bizz.IDSearch(email);
 	      return res;
    }
    
-   @RequestMapping(value="PWSearch.do")
+   @RequestMapping(value="PWSearch.do", produces = "application/text; charset=utf8")
+   @ResponseBody
    public String PWSearch(String email, String id) {
 	   String res ="";
 	      res = bizz.PWSearch(email, id);
 	      return res;
+   }
+   
+   @RequestMapping(value = "MemberInfo.do")
+   public String MemberInfo() {   
+      return "MemberInfo";
+   }
+   
+   @RequestMapping(value = "MemberInfoUpdate.do")
+   public String MemberInfoUpdate() {   
+      return "MemberInfoUpdate";
    }
 
 

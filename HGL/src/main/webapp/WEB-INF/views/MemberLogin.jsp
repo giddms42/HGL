@@ -10,6 +10,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login.jsp</title>
 </head>
+<link rel="stylesheet" type="text/css" href="css/MemberLogin.css">
+<style>
+html { background: url("image/img.jpg") no-repeat center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -25,72 +34,6 @@ function MemberSearch(){
 	}
 
 </script>
-
-<style>
-
-#container{
-	margin: auto;
-	width: 1280px;
-	height: 100%;
-	/* background-color: orange; */
-}
-
-#a{
-width: 100%;
-/* background-color: red; */
-}
-
-#c{
-width: 100%;
-/* background-color: green; */
-}
-
-#b{
-color: white;
-border: 1px dashed red;
-height: 500px;
-width: 100%;
-}
-
-#b1{
-float: left;
-height: 150px;
-width: 20%;
-margin-top: 15%;
-margin-left: 40%;
-margin-right: 40%;
-}
-
-#b2{
-width: 100%;
-height: 100%;
-display: table;
-opacity: 1;
-}
-
-#b3{
-display:table-cell;
-vertical-align: middle;
-}
-
-
-html { background: url("image/img.jpg") no-repeat center fixed;
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
- }
- 
- #im1{
- z-index: -1;
- position: absolute;
- width: 256px;
- height: 150px;
- opacity: 0.5
- }
-
-
-</style>
 <body>
 	<div id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
@@ -104,14 +47,13 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 				<input type="hidden" name="command" value="login" />
 				<div id="b3">
 				<table align="center">
-					<!-- <caption>로그인</caption> -->
 					<tr>
 						<td>ID</td>
-						<td><input type="text" name="id" id="inpid"></td>
+						<td><input type="text" name="memberId" id="inpid"></td>
 					</tr>
 					<tr>
 						<td>PW</td>
-						<td><input type="password" name="pw" id="inppw"></td>
+						<td><input type="password" name="memberPw" id="inppw"></td>
 	
 					</tr>
 					<tr>
@@ -119,9 +61,9 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 					</tr>
 					<tr>
 						<td colspan="2">
-						<input type="button" value="로그인" onclick="">
+						<input type="submit" value="로그인">
 		                <input type="button" value="ID / PW 찾기" onclick="MemberSearch()">
-					    <input type="button" value="회원가입" onclick="">
+					    <input type="button" value="회원가입" onclick="location.href='MemberSignUpForm.do'">
 					</td>
 					</tr>
 				</table>

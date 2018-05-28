@@ -10,5 +10,7 @@
 </head>
 <body>
 
+<h1>좋은글게시판</h1>
+
 </body>
 </html>
