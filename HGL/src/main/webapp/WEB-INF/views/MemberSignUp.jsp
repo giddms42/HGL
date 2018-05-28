@@ -19,7 +19,7 @@
 			<div class="signUpText">로그인 정보 및 가입 정보를 입력하세요</div>
 		</header>
 	
-	  <form name="regist" action="MemberSignUp.do" method="post" class="userForm" novalidate>
+	  <form id="regist" action="MemberSignUp.do" method="post" class="userForm" novalidate>
 		  <div class="registinfo">
 	   	  	<label>아이디<br><input class="info" type="text" name="memberId" title="n" required="required" placeholder="아이디를 입력해주세요"></label>
 	    	<a class="ajChk" id="unId" style="color: #F15F5F; font-size: 0.8em;"><strong>사용 불가능한 아이디 입니다.</strong></a>
@@ -42,7 +42,7 @@
 	      </div>
 	      <br><div class="registinfo">
 	      	<label>연락처<br><input class="info" type="tel" name="memberPhone" 
-	      	required="required" placeholder="휴대폰번호를 입력해주세요"></label>
+	      	required="required" placeholder="연락가능한 번호를 입력해주세요"></label>
 	      	<p style="margin-top:-2px;"><input class="checkbox" type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y">
 	      	<a class="sns" onclick="snsChecked();">문자알림을 받으시겠습니까?</a></p>
 	      </div>

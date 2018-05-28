@@ -455,20 +455,30 @@
 		            }
 		         })
 		         
-		         $("[name=regist]").submit(function(){
-		        	 
-		             var returnVar = true;
-		             if ($("input[name=pw]").val() != $("input[name=pwChk]").val()) {
-		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
-		                document.getElementsByName("pwChk")[0].focus();
-		                return false;
-		         }else{
+		         $("#regist").submit(function(){
 		             var returnVar = true;
 		             if ($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
 		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
-		                document.getElementsByName("pwChk")[0].focus();
+		                document.getElementsByName("memberPw")[0].focus();
 		                return false;
-		             	}
-		         	  }
+		             }else{	
+		            	 if($("input[name=memberId]").attr("title")=="n"){
+		            		 alert("아이디를 다시 확인해주세요")
+		            		 document.getElementsByName("memberId")[0].focus();
+		            		 return false;
+		            	 }else{
+			            	 if($("input[name=memberNickname]").attr("title")=="n"){
+			            		 alert("닉네임을 다시 확인해주세요")
+			            		 document.getElementsByName("memberNickname")[0].focus();
+			            		 return false;
+			            	 }else{
+				            	 if($("input[name=memberEmail]").attr("title")=="n"){
+				            		 alert("이메일을 다시 확인해주세요")
+				            		 document.getElementsByName("memberEmail")[0].focus();
+				            		 return false;
+				            		 }
+				             		}
+				          	 	}
+		             }
 		         })
 	})
