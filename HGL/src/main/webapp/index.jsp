@@ -19,6 +19,7 @@
 <a href="AdminUserInfo.do">AdminUserInfo.do</a>
 <a href="MemberPwFind.do">MemberPwFind.do</a>
 
-<h1>2018-05-28 am:12:21 하아..</h1>
+<h1>2018-05-28 pm:11:11</h1>
+<h1>한번에 수정되길 간절히 바란다</h1>
 </body>
 </html>
