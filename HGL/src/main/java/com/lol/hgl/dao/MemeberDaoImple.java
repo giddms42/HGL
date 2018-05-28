@@ -87,18 +87,23 @@ public class MemeberDaoImple implements MemberDao {
 
 	@Override
 	public memberDto Login(String memberId, String meberPw) {
-		// TODO Auto-generated method stub
-		return null;
+		memberDto res = new memberDto();
+		HashMap<String, String>map = new HashMap<String, String>();
+		map.put("pw", memberId);
+		map.put("id", meberPw);
+		try {
+			res = sqlSession.selectOne(nameSpace+"Login", map);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
 	}
 
 	@Override
-	public memberDto LoginChk(String id, String pw) {
-		memberDto res= new memberDto();
-		HashMap<String, String>map = new HashMap<String, String>();
-		map.put("pw", pw);
-		map.put("id",id);
+	public String LoginChk(String id) {
+		String res = "";
 		try {
-			res = sqlSession.selectOne(nameSpace+"LoginChk", map);
+			res = sqlSession.selectOne(nameSpace+"LoginChk", id);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	

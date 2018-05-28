@@ -25,7 +25,7 @@ public class MemberController {
    private MemberBizz bizz;
    
    @RequestMapping(value = "MemberSignUpForm.do")
-   public String memberSignUpform() {   
+   public String memberSignUpForm() {   
       return "MemberSignUp";
    }
    
@@ -67,7 +67,7 @@ public class MemberController {
    public String memberSingUp(@ModelAttribute memberDto dto) {
 	  int res = bizz.signUp(dto);
 	  if(res>0) {
-		  return "Main";
+		  return "MemberLogin";
 	  }else {
 		  return "MemberSignUp";
 	  }
@@ -79,18 +79,19 @@ public class MemberController {
    }
    
    @RequestMapping(value = "MemberLogin.do")
-   public String memberLogin(String memberId, String memberPw) {
-	  memberDto login = bizz.Login(memberId, memberPw);
+   public String memberLogin(String memberId, String memberPw, Model model, HttpSession session) throws IOException {
+	  String chkRes = bizz.LoginChk(memberId, memberPw);
+	  if(chkRes == "f") {
+		  String msg =  "아이디와 비밀번호가 일치하지 않습니다. 다시 확인해 주세요.";
+		  model.addAttribute("msg", msg);
+	      return "MemberLogin";  
+	  }else {	  
+		  memberDto login = bizz.Login(memberId, memberPw);
+		    session.setAttribute("login", login);
+			session.setMaxInactiveInterval(10 * 60); 	
+	  }   
       return "Main";
    }
-   
-   @RequestMapping(value = "memberLoginChk.do")
-   @ResponseBody
-   public String memberLoginChk(String id, String pw) {
-	  String res = bizz.LoginChk(id, pw);
-      return "Main";
-   }
-   
    
    @RequestMapping(value="MemberSearchForm.do")
    public String MemberSearchForm(Model model) {
@@ -113,12 +114,5 @@ public class MemberController {
 	      res = bizz.PWSearch(email, id);
 	      return res;
    }
-
-   protected void jsResponse(String msg, String url, HttpServletResponse response) throws IOException {
-		String s = "<script type='text/javascript'>" + "alert('"+msg+"');" + 
-				"location.href='"+url+"';" + "</script>";
-		PrintWriter out = response.getWriter();
-		out.println(s);	
-	}
 
 }

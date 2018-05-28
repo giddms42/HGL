@@ -23,8 +23,18 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 <script type="text/javascript">
 
 $(document).ready(function() {
-	/* $("#admin").hide(); */
+	/* $("#admin").hide(); */	
+	
 });
+
+window.onload = function() {
+	
+	if("${msg}" != null && "${msg}".length > 0){
+		alert("${msg}");
+	}
+	
+};
+
 
 function MemberSearch(){
 	var popupX = (window.screen.width/2) - (440 / 2);
@@ -32,37 +42,6 @@ function MemberSearch(){
 	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 	window.open("MemberSearch.do","", 'status=no, width=440, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
-	
-$(function(){
-	$("#b2").submit(function){
-		  var returnVar = true;
-		  var idVal = $("#inpid").val();
-		  var pwVal = $("#inppw").val();
-		  if (idVal == null || idVal == "") {
-		  	  alertify.alert("아이디를 입력해주세요");
-		    } else if (pwVal == null || pwVal == "") {
-		  	  alertify.alert("비밀번호를 입력해주세요");
-		    } else {
-		       $.ajax({
-		          url : "memberLoginChk.do",
-		          data: "id=" + idVal+ "&pw="+ pwVal,
-		          dataType : "text",
-		          success : function(msg) {
-		        	  var msgVal = $.trim(msg);
-		        	  if( msgVal == "f")){
-		    	  	 alert("ID와 비밀번호가 일치하지 않습니다.");
-	                 returnVar = false;
-		      			 }
-		          }
-		       })
-		     if (!returnVar) {
-         	  return false;
-     	  		}
-		   }
-  });
-})
-	
-	
 
 </script>
 <body>

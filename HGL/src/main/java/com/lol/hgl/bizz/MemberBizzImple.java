@@ -99,21 +99,20 @@ public class MemberBizzImple implements MemberBizz {
 
 	@Override
 	public memberDto Login(String memberId, String memberPw) {
-		memberDto dto = dao.LoginChk(memberId, memberPw);
-		if(passwordEncoder.matches(memberPw, dto.getMemberPw())) {
-			
-		}
+		memberDto dto = dao.Login(memberId, memberPw);	
 		return dto;
-
 	}
 
 	@Override
-	public String LoginChk(String id, String pw) {
-		String res = "";
+	public String LoginChk(String id, String rawPassword) {
+		String res = "";	
 		//1.저장된 비밀번호 갖고오기.
-		memberDto dto = dao.LoginChk(id, pw);
+		String encodedPassword = dao.LoginChk(id);
+		if(encodedPassword == null) {
+			return "f";
+		}
 		//2.입력한 비밀번호랑 비교하기
-		if(passwordEncoder.matches(pw, dto.getMemberPw())){
+		if(passwordEncoder.matches(rawPassword, encodedPassword)){
 			System.out.println("계정정보 일치");
 			res = "t";
 			}else{

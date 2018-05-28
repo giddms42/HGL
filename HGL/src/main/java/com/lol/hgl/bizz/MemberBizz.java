@@ -12,5 +12,5 @@ public interface MemberBizz {
 	public String IDSearch(String email);
 	public String PWSearch(String email, String id);
 	public memberDto Login(String memberId, String memberPw);
-	public String LoginChk(String id, String pw);
+	public String LoginChk(String id, String rawPassword);
 }
