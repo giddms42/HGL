@@ -4,6 +4,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.lol.hgl.dto.memberDto;
+
 @Repository
 public class MemeberDaoImple implements MemberDao {
 	
@@ -14,7 +16,6 @@ public class MemeberDaoImple implements MemberDao {
 
 	@Override
 	public String IDChk(String id) {
-		System.out.println(id);
 		String res = "";
 		try {
 			res = sqlSession.selectOne(nameSpace+"idChk", id);
@@ -44,6 +45,12 @@ public class MemeberDaoImple implements MemberDao {
 				e.printStackTrace();
 			}	
 		return res;
+	}
+
+	@Override
+	public int signUp(memberDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

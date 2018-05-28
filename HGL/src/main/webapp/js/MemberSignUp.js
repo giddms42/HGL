@@ -19,335 +19,461 @@
 	}
 
 	function showSub(obj){ //주소 셀렉트박스
- 	   addr = document.forms.regist;
+		var seoul = document.getElementById("seoul");
+		var gyeonggi = document.getElementById("gyeonggi");
+		var incheon = document.getElementById("incheon");
+		var gangwon = document.getElementById("gangwon");
+		var chungbuk = document.getElementById("chungbuk");
+		var chungnam = document.getElementById("chungnam");
+		var daejeon = document.getElementById("daejeon");
+		var gyeongbug = document.getElementById("gyeongbug");
+		var daegu = document.getElementById("daegu");
+		var ulsan = document.getElementById("ulsan");
+		var gyeongnam = document.getElementById("gyeongnam");
+		var busan = document.getElementById("busan");
+		var jeonbug = document.getElementById("jeonbug");
+		var jeonnam = document.getElementById("jeonnam");
+		var gwangju = document.getElementById("gwangju");
+		var jeju = document.getElementById("jeju");
+		
 		switch(obj){
 			case "서울특별시" :
-				addr.seoul.style.display = "";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "경기도" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "인천광역시" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "강원도" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "충청북도" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "충청남도" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "대전광역시" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "세종특별자치시" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;	
 			case "경상북도" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "대구광역시" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "울산광역시" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "경상남도" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "부산광역시" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "전라북도" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "전라남도" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "";
+				gwangju.style.display = "none";
+				jeju.style.display = "none";
 				break;
 			case "광주광역시" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "";
-				addr.jeju.style.display = "none";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "";
+				jeju.style.display = "none";
 				break;
 			case "제주도" :
-				addr.seoul.style.display = "none";
-				addr.gyeonggi.style.display = "none";
-				addr.incheon.style.display = "none";
-				addr.gangwon.style.display = "none";
-				addr.chungbuk.style.display = "none";
-				addr.chungnam.style.display = "none";
-				addr.daejeon.style.display = "none";
-				addr.gyeongbug.style.display = "none";
-				addr.daegu.style.display = "none";
-				addr.ulsan.style.display = "none";
-				addr.gyeongnam.style.display = "none";
-				addr.busan.style.display = "none";
-				addr.jeonbug.style.display = "none";
-				addr.jeonnam.style.display = "none";
-				addr.gwangju.style.display = "none";
-				addr.jeju.style.display = "";
+				seoul.style.display = "none";
+				gyeonggi.style.display = "none";
+				incheon.style.display = "none";
+				gangwon.style.display = "none";
+				chungbuk.style.display = "none";
+				chungnam.style.display = "none";
+				daejeon.style.display = "none";
+				gyeongbug.style.display = "none";
+				daegu.style.display = "none";
+				ulsan.style.display = "none";
+				gyeongnam.style.display = "none";
+				busan.style.display = "none";
+				jeonbug.style.display = "none";
+				jeonnam.style.display = "none";
+				gwangju.style.display = "none";
+				jeju.style.display = "";
 				break;
 		}
    }
+	
 	$(function(){
-		      $("input[name=userId").on("change",function() {
-		            var idVal = $("input[name=userId]").val();
-		            alert(idVal);
+		      $("input[name=memberId").on("change",function() {
+		            var idVal = $("input[name=memberId]").val();
+		            if(idVal==null || idVal==""){
+		            	 $("#useId").css("display", "none");
+	                     $("#unId").css("display", "none");   	
+		            }else{
+		            	  $.ajax({
+				               type:"post",
+				               url : "IDChk.do",
+				               data:"id="+idVal,
+				               success : function(res) {
+				                  var r = $.trim(res);
+				                  if (r == "t") {  
+				                     $("#useId").css("display", "inline");
+				                     $("#unId").css("display", "none");
+				                  }else{
+				                	 $("#unId").css("display", "inline");
+				                	 $("#useId").css("display", "none");
+				                  }
+				               }
+				            });
+		            }
+		         })
+		         
+		          $("input[name=memberNickname").on("change",function() {
+		            var nickVal = $("input[name=memberNickname]").val();
+		            if(nickVal==null || nickVal==""){
+		            	 $("#useNick").css("display", "none");
+	                     $("#unNick").css("display", "none");   	
+		            }else{
 		            $.ajax({
 		               type:"post",
-		               url : "IDChk.do",
-		               data:"id="+idVal,
+		               url : "nickNameChk.do",
+		               data:"nickName="+nickVal,
 		               success : function(res) {
+<<<<<<< HEAD
 		                  var r = $.trim(res)
 		                  if (r == "t") {
 		          
 		                     $("#useId").prop("display", inline);
+=======
+		                  var r = $.trim(res);
+		                  if (r == "t") {  
+		                     $("#useNick").css("display", "inline");
+		                     $("#unNick").css("display", "none");
+>>>>>>> refs/remotes/origin/he
 		                  }else{
+<<<<<<< HEAD
 		                	 $("#unId").prop("display", inline);
+=======
+		                	 $("#unNick").css("display", "inline");
+		                	 $("#useNick").css("display", "none");
+>>>>>>> refs/remotes/origin/he
 		                  }
-		               },error : function(){
-		            	   alert("abc");
 		               }
 		            });
+		            }
 		         })
-		       })
+		         
+		          $("input[name=memberEmail").on("change",function() {
+		            var emailVal = $("input[name=memberEmail]").val();
+		            if(emailVal==null || emailVal==""){
+		            	 $("#useEmail").css("display", "none");
+	                     $("#unEmail").css("display", "none");   	
+		            }else{
+		            $.ajax({
+		               type:"post",
+		               url : "emailChk.do",
+		               data:"email="+emailVal,
+		               success : function(res) {
+		                  var r = $.trim(res);
+		                  if (r == "t") {  
+		                     $("#useEmail").css("display", "inline");
+		                     $("#unEmail").css("display", "none");
+		                  }else{
+		                	 $("#unEmail").css("display", "inline");
+		                	 $("#useEmail").css("display", "none");
+		                  }
+		               }
+		            });
+		            }
+		         })
+		         
+		          $("input[name=memberPw").on("change",function() {
+		            var pwVal = $("input[name=memberPw]").val();
+		            if(pwVal==null || pwVal==""){
+		            	 $("#usePw").css("display", "none");
+	                     $("#unPw").css("display", "none");   	
+		            }else{
+		            $.ajax({
+		               type:"post",
+		               url : "pwChk.do",
+		               data:"pw="+pwVal,
+		               success : function(res) {
+		                  var r = $.trim(res);
+		                  if (r == "t") {  
+		                     $("#usePw").css("display", "inline");
+		                     $("#unPw").css("display", "none");
+		                  }else{
+		                	 $("#unPw").css("display", "inline");
+		                	 $("#usePw").css("display", "none");
+		                  }
+		               }
+		            });
+		            }
+		         })
+		         
+		          $("input[name=userChkpw").on("change",function() {
+		        	  var pwVal = $("input[name=memberPw]").val();
+		        	  var pwValChk = $("input[name=userChkpw]").val();
+		        	  if(pwValChk==null || pwValChk==""){
+			            	 $("#useOnemore").css("display", "none");
+		                     $("#unOnemore").css("display", "none");   	
+			            }else{
+			            	if(pwVal == pwValChk){
+			            		$("#useOnemore").css("display", "inline");
+			            		$("#unOnemore").css("display", "none");
+			            	}else{
+			            		$("#unOnemore").css("display", "inline");
+			            		$("#useOnemore").css("display", "none");  
+			            	}
+			            }
+		         })
+		      
+	
+	
+	
+	
+	
+	})
