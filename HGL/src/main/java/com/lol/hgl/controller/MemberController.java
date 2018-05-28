@@ -50,13 +50,15 @@ public class MemberController {
       return res;
    }
    
-
    
    @RequestMapping(value = "MemberSignUp.do", method = RequestMethod.POST)
    public String memberSingUp(@ModelAttribute memberDto dto) {
 	  int res = bizz.signUp(dto);
-	  
-      return "Main";
+	  if(res>0) {
+		  return "Main";
+	  }else {
+		  return "MemberSignUp";
+	  }
    }
    
    @RequestMapping(value="MemberLoginForm.do")
@@ -72,6 +74,20 @@ public class MemberController {
    @RequestMapping(value="MemberSearch.do")
    public String MemberSearch(Model model) {
       return "MemberSearch";
+   }
+   
+   @RequestMapping(value="IDSearch.do")
+   public String IDSearch(String email) {
+	   String res ="";
+	      res = bizz.IDSearch(email);
+	      return res;
+   }
+   
+   @RequestMapping(value="PWSearch.do")
+   public String PWSearch(String email, String id) {
+	   String res ="";
+	      res = bizz.PWSearch(email, id);
+	      return res;
    }
 
 

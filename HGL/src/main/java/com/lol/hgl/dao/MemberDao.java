@@ -8,5 +8,7 @@ public interface MemberDao {
 	public String nickNameChk(String nickName);
 	public String emailChk(String email);
 	public int signUp(memberDto dto);
+	public String IDSearch(String email);
+	public String PWSearch(String email, String id);
 
 }

@@ -64,9 +64,30 @@ public class MemberBizzImple implements MemberBizz {
 		if(dto.getMemberSMS() == null) {
 			dto.setMemberSMS("N");
 		}
-		System.out.println(dto.getMemberSMS());
 		int res = dao.signUp(dto);
-		return 0;
+		return res;
+	}
+
+	@Override
+	public String IDSearch(String email) {
+		String res = dao.IDSearch(email);
+		String use = "f";
+		if (res == null) {
+			use = "t"; 
+		}
+		System.out.println("ID 찾기 성공 여부 : " + use);
+		return use;
+	}
+
+	@Override
+	public String PWSearch(String email, String id) {
+		String res = dao.PWSearch(email, id);
+		String use = "f";
+		if (res == null) {
+			use = "t"; 
+		}
+		System.out.println("pw 찾기 성공 여부 : " + use);
+		return use;
 	}
 
 	

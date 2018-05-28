@@ -9,5 +9,6 @@ public interface MemberBizz {
 	public String emailChk(String email);
 	public String pwChk(String pw);
 	public int signUp(memberDto dto);
-
+	public String IDSearch(String email);
+	public String PWSearch(String email, String id);
 }
