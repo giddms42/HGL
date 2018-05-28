@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 #header{
 	position: relative;
 	width: 100%;
@@ -84,7 +84,7 @@ strong{
 
 body{
     font-family: 'Lato', sans-serif;
-    /* background: #353535; /* Çì´õ ¹é±×¶ó¿îµå »ö±ò */
+    /* background: #353535; /* í—¤ë” ë°±ê·¸ë¼ìš´ë“œ ìƒ‰ê¹” */
     /* color: #FFF; */
 }
 
