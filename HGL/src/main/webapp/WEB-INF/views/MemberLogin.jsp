@@ -22,10 +22,6 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
-$(document).ready(function() {
-	/* $("#admin").hide(); */
-});
-
 function MemberSearch(){
 	var popupX = (window.screen.width/2)-(440/2);
 	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
