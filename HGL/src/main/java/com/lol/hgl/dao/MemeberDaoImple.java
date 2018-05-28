@@ -85,4 +85,21 @@ public class MemeberDaoImple implements MemberDao {
 		return res;
 	}
 
+	@Override
+	public memberDto Login(String id, String pw) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String LoginPw(String id) {
+		String res="";
+		try {
+			res = sqlSession.selectOne(nameSpace+"LoginPw", id);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
 }

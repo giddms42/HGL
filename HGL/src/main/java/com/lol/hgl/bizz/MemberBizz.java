@@ -11,4 +11,5 @@ public interface MemberBizz {
 	public int signUp(memberDto dto);
 	public String IDSearch(String email);
 	public String PWSearch(String email, String id);
+	public memberDto Login(String id, String pw);
 }

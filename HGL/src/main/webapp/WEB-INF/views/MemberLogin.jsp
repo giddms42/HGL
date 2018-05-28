@@ -114,7 +114,6 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 					<tr>
 						<td>PW</td>
 						<td><input type="password" name="pw" id="inppw"></td>
-	
 					</tr>
 					<tr>
 						<td><br></td>

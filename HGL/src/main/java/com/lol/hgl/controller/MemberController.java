@@ -70,12 +70,13 @@ public class MemberController {
    }
    
    @RequestMapping(value="MemberLoginForm.do")
-   public String MemberLogin(Model model) {
+   public String MemberLoginForm() {
       return "MemberLogin";
    }
    
    @RequestMapping(value = "MemberLogin.do")
-   public String memberLogin() {
+   public String memberLogin(String id, String pw) {
+	  memberDto login = bizz.Login(id, pw);
       return "Main";
    }
    
@@ -84,14 +85,16 @@ public class MemberController {
       return "MemberSearch";
    }
    
-   @RequestMapping(value="IDSearch.do")
+   @RequestMapping(value="IDSearch.do",  produces = "application/text; charset=utf8")
+   @ResponseBody
    public String IDSearch(String email) {
 	   String res ="";
 	      res = bizz.IDSearch(email);
 	      return res;
    }
    
-   @RequestMapping(value="PWSearch.do")
+   @RequestMapping(value="PWSearch.do", produces = "application/text; charset=utf8")
+   @ResponseBody
    public String PWSearch(String email, String id) {
 	   String res ="";
 	      res = bizz.PWSearch(email, id);

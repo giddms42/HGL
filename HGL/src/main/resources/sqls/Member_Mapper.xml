@@ -46,4 +46,10 @@
 	</select>
 
 
+	<select id="LoginPw" parameterType="String" resultType="String">
+		 SELECT MEMBERPW FROM MEMBER WHERE MEMBERID=#{id} AND MEMBERJOIN='Y'
+	</select>
+
+
+
 </mapper>
