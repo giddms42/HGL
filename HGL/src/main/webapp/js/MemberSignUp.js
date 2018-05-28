@@ -349,8 +349,9 @@
 		      $("input[name=memberId").on("change",function() {
 		            var idVal = $("input[name=memberId]").val();
 		            if(idVal==null || idVal==""){
+		            	 $("input[name=memberId]").attr('title','n');
 		            	 $("#useId").css("display", "none");
-	                     $("#unId").css("display", "none");   	
+	                     $("#unId").css("display", "none");
 		            }else{
 		            	  $.ajax({
 				               type:"post",
@@ -361,9 +362,11 @@
 				                  if (r == "t") {  
 				                     $("#useId").css("display", "inline");
 				                     $("#unId").css("display", "none");
+				                     $("input[name=memberId]").attr('title','y');
 				                  }else{
 				                	 $("#unId").css("display", "inline");
 				                	 $("#useId").css("display", "none");
+				                	 $("input[name=memberId]").attr('title','n');
 				                  }
 				               }
 				            });
@@ -375,6 +378,7 @@
 		            if(nickVal==null || nickVal==""){
 		            	 $("#useNick").css("display", "none");
 	                     $("#unNick").css("display", "none");   	
+	                     $("input[name=memberNickname]").attr('title','n');
 		            }else{
 		            $.ajax({
 		               type:"post",
@@ -385,10 +389,12 @@
 		                  if (r == "t") {  
 		                     $("#useNick").css("display", "inline");
 		                     $("#unNick").css("display", "none");
+		                     $("input[name=memberNickname]").attr('title','y');
 
 		                  }else{
 		                	 $("#unNick").css("display", "inline");
 		                	 $("#useNick").css("display", "none");
+		                	 $("input[name=memberNickname]").attr('title','n');
 		                  }
 		               }
 		            });
@@ -399,7 +405,8 @@
 		            var emailVal = $("input[name=memberEmail]").val();
 		            if(emailVal==null || emailVal==""){
 		            	 $("#useEmail").css("display", "none");
-	                     $("#unEmail").css("display", "none");   	
+	                     $("#unEmail").css("display", "none");
+	                     $("input[name=memberEmail]").attr('title','n');
 		            }else{
 		            $.ajax({
 		               type:"post",
@@ -410,9 +417,11 @@
 		                  if (r == "t") {  
 		                     $("#useEmail").css("display", "inline");
 		                     $("#unEmail").css("display", "none");
+		                     $("input[name=memberEmail]").attr('title','y');
 		                  }else{
 		                	 $("#unEmail").css("display", "inline");
 		                	 $("#useEmail").css("display", "none");
+		                	 $("input[name=memberEmail]").attr('title','n');
 		                  }
 		               }
 		            });
@@ -423,7 +432,8 @@
 		            var pwVal = $("input[name=memberPw]").val();
 		            if(pwVal==null || pwVal==""){
 		            	 $("#usePw").css("display", "none");
-	                     $("#unPw").css("display", "none");   	
+	                     $("#unPw").css("display", "none");
+	                     $("input[name=memberPw]").attr('title','n');
 		            }else{
 		            $.ajax({
 		               type:"post",
@@ -434,9 +444,11 @@
 		                  if (r == "t") {  
 		                     $("#usePw").css("display", "inline");
 		                     $("#unPw").css("display", "none");
+		                     $("input[name=memberPw]").attr('title','y');
 		                  }else{
 		                	 $("#unPw").css("display", "inline");
 		                	 $("#usePw").css("display", "none");
+		                	 $("input[name=memberPw]").attr('title','n');
 		                  }
 		               }
 		            });
@@ -456,7 +468,7 @@
 		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
 		                document.getElementsByName("pwChk")[0].focus();
 		                return false;
-		             }
-		         }
+		             	}
+		         	  }
 		         })
 	})
