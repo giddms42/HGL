@@ -87,6 +87,7 @@ public class MemberController {
 	      return "MemberLogin";  
 	  }else {	  
 		  memberDto login = bizz.Login(memberId, memberPw);
+		 // System.out.println(login.getMemberNickname());
 		    session.setAttribute("login", login);
 			session.setMaxInactiveInterval(10 * 60); 	
 	  }   
