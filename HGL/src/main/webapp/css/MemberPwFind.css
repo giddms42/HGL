@@ -13,14 +13,29 @@
 	}
 	
 	.div1{
-		width: 30%;
+		padding: 1px;
+		position: relative;
+		top: 1px;
+		width: 34%;
 	}
 	
 	.div2{
+		padding: 1px;
 		background-color: tomato;
-		width: 70%;
+		width: 54%;
 	}
 	
+	.div3{
+		padding: 1px;
+		background-color: tomato;
+		width: 10%;
+	}
+	
+	.div4{
+		background-color: tomato;
+		width: 100%;
+	}
+
 	#cover{
 	text-align: center;
 	width: 400px;
@@ -45,7 +60,7 @@
 	          justify-content: center;
 	    background-color: tomato;
 		width: 420px;
-		height: 220px;
+		height: 183px;
 	}
 	
 	.btn{
