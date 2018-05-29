@@ -46,4 +46,15 @@
 	</select>
 
 
+	<select id="LoginChk" parameterType="String" resultType="String">
+		 SELECT MEMBERPW FROM MEMBER WHERE MEMBERID=#{id} AND MEMBERJOIN='Y'
+	</select>
+	
+	<select id="Login" parameterType="Map" resultMap="memberDto">
+		 SELECT * FROM MEMBER WHERE MEMBERID=#{id} AND MEMBERPW=#{pw} AND MEMBERJOIN='Y'
+	</select>
+	
+
+
+
 </mapper>

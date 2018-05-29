@@ -50,9 +50,15 @@ function PWSearch() {
                 + $("#id2").val(),
           dataType : "text",
 
+<<<<<<< HEAD
           success : function(msg) {
         	  /* location.href="MemberPwFind.do"; */
         	  PwFindPopup();
+=======
+          success : function(msg) { //t면 pw 있음, f면 없음.
+        	  var msgVal = $.trim(msg);
+        	  $("#pwVal").val(msgVal);
+>>>>>>> branch 'he' of https://github.com/giddms42/HGL.git
           },
           error : function() {
           	alert("없는 계정입니다.\n 이름,이메일,아이디를 다시 확인해주세요");

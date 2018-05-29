@@ -85,4 +85,29 @@ public class MemeberDaoImple implements MemberDao {
 		return res;
 	}
 
+	@Override
+	public memberDto Login(String memberId, String meberPw) {
+		memberDto res = new memberDto();
+		HashMap<String, String>map = new HashMap<String, String>();
+		map.put("pw", memberId);
+		map.put("id", meberPw);
+		try {
+			res = sqlSession.selectOne(nameSpace+"Login", map);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public String LoginChk(String id) {
+		String res = "";
+		try {
+			res = sqlSession.selectOne(nameSpace+"LoginChk", id);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
 }

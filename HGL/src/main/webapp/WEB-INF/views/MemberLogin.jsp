@@ -21,16 +21,32 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
 
 $(document).ready(function() {
 	/* $("#admin").hide(); */
 });
+=======
+
+window.onload = function() {
+	
+	if("${msg}" != null && "${msg}".length > 0){
+		alert("${msg}");
+	}
+	
+};
+/*
+function MemberSearch(){
+	var popupX = (window.screen.width/2)-(440/2);
+	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+*/
+>>>>>>> branch 'he' of https://github.com/giddms42/HGL.git
 
 function MemberSearch(){
 	var popupX = (window.screen.width/2) - (440 / 2);
 	var popupY= (window.screen.height/2)- (240/2);
 	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-	window.open("MemberSearch.do","", 'status=no, width=440, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	window.open("MemberSearchForm.do","", 'status=no, width=440, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 
 </script>
@@ -43,8 +59,7 @@ function MemberSearch(){
 			<div>
 			<img src="image/back.png" id="im1">
 			</div>
-			<form action="login.do" id="b2">
-				<input type="hidden" name="command" value="login" />
+			<form action="MemberLogin.do" id="b2">
 				<div id="b3">
 				<table align="center">
 					<tr>
@@ -54,7 +69,6 @@ function MemberSearch(){
 					<tr>
 						<td>PW</td>
 						<td><input type="password" name="memberPw" id="inppw"></td>
-	
 					</tr>
 					<tr>
 						<td><br></td>

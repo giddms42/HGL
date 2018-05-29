@@ -15,7 +15,12 @@
 <a href="MemberInfo.do">MemberInfo</a>
 <a href="MemberInfoUpdate.do">MemberInfoUpdate</a><br>
 <a href="MemberSignUpForm.do">signUpForm</a>
+<<<<<<< HEAD
 <a href="Main.do">Main.do</a>
+=======
+<a href="MemberLoginForm.do">MemberLogin.do</a>
+<a href="MainForm.do">Main.do</a>
+>>>>>>> branch 'he' of https://github.com/giddms42/HGL.git
 <a href="MemberSearch.do">MemberSearch.do</a>
 <a href="AdminSearchUser.do">AdminSearchUser.do</a>
 <a href="AdminUserInfo.do">AdminUserInfo.do</a>

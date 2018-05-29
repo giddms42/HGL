@@ -1,5 +1,9 @@
 package com.lol.hgl.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +25,7 @@ public class MemberController {
    private MemberBizz bizz;
    
    @RequestMapping(value = "MemberSignUpForm.do")
-   public String memberSignUpform() {   
+   public String memberSignUpForm() {   
       return "MemberSignUp";
    }
    
@@ -63,24 +67,34 @@ public class MemberController {
    public String memberSingUp(@ModelAttribute memberDto dto) {
 	  int res = bizz.signUp(dto);
 	  if(res>0) {
-		  return "Main";
+		  return "MemberLogin";
 	  }else {
 		  return "MemberSignUp";
 	  }
    }
    
    @RequestMapping(value="MemberLoginForm.do")
-   public String MemberLogin(Model model) {
+   public String MemberLoginForm() {
       return "MemberLogin";
    }
    
    @RequestMapping(value = "MemberLogin.do")
-   public String memberLogin() {
+   public String memberLogin(String memberId, String memberPw, Model model, HttpSession session) throws IOException {
+	  String chkRes = bizz.LoginChk(memberId, memberPw);
+	  if(chkRes == "f") {
+		  String msg =  "아이디와 비밀번호가 일치하지 않습니다. 다시 확인해 주세요.";
+		  model.addAttribute("msg", msg);
+	      return "MemberLogin";  
+	  }else {	  
+		  memberDto login = bizz.Login(memberId, memberPw);
+		    session.setAttribute("login", login);
+			session.setMaxInactiveInterval(10 * 60); 	
+	  }   
       return "Main";
    }
    
-   @RequestMapping(value="MemberSearch.do")
-   public String MemberSearch(Model model) {
+   @RequestMapping(value="MemberSearchForm.do")
+   public String MemberSearchForm(Model model) {
       return "MemberSearch";
    }
   
@@ -89,6 +103,7 @@ public class MemberController {
       return "MemberPwFind";
    }
    
+
    @RequestMapping(value="IDSearch.do", produces = "application/text; charset=utf8")
    @ResponseBody
    public String IDSearch(String email) {
@@ -113,7 +128,5 @@ public class MemberController {
    @RequestMapping(value = "MemberInfoUpdate.do")
    public String MemberInfoUpdate() {   
       return "MemberInfoUpdate";
-   }
-
-
+   } 
 }
