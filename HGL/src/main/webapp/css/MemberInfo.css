@@ -38,7 +38,7 @@ h2{
 	margin: auto;
 	margin-top: 2%;
 	margin-left: 50%;
-	min-width: 300px;
+	min-width: 350px;
 	min-height: 500px;
 	color: black;
 }
@@ -66,7 +66,9 @@ h2{
 	vertical-align: -10px;
 }
 .threeButton{
+	position:absolute;
 	margin: auto;
+	margin-left: 15%;
 	margin-top: -45px;
-	width: 900px;
+	width: 950px;
 }

@@ -50,8 +50,8 @@ html { /* background: url("image/img.jpg") no-repeat center fixed; */
 		</div>
 		<div class="threeButton">
 			<input type="button" value="탈퇴하기" style="margin-left: 1.5%">
-			<input type="button" value="수정하기" style="margin-left: 39.5%">
-			<input type="button" value="가족추가" style="margin-left: 33.5%">
+			<input type="button" value="수정하기" style="margin-left: 37%">
+			<input type="button" value="가족추가" style="margin-left: 36.5%">
 		</div>
 
 	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>

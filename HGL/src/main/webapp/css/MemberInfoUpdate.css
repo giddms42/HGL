@@ -7,6 +7,7 @@ h2{
 	text-align: center;
 }
 .userInfo{
+	position: relative;
 	margin: auto;
 	margin-top: 50px;
 	margin-left: 36%;
@@ -26,6 +27,9 @@ h2{
 	width: 305px;
 }
 #updateButton{
+	position: absolute;
+	margin-left: 500px;
 	margin:auto;
 	width:440px;
+	height: 50px;
 }

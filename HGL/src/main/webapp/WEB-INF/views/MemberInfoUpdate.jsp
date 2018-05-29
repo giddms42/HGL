@@ -320,13 +320,13 @@
 		      	<option value="서귀포시">서귀포시</option>
 		      	<option value="제주시">제주시</option>
 		      </select>
-	      <br><input class="info" type="text" value="memberId" required="required" placeholder="상세주소를 입력해주세요" style="margin-top:10px; height:37px; vertical-align: 1px;">
+	      <br><input class="info" type="text" value="memberId" required="required" placeholder="상세주소를 입력해주세요" style="margin-top:10px; mar height:37px; vertical-align: 1px;">
 	      </li>
 		</ul>
-	</div>
 	<div id="updateButton">
-		<input type="submit" value="수정하기">
-		<input type="button" value="취소하기">
+		<input type="submit" value="수정하기" style="margin-left: 10%;	margin-top:5%;">
+		<input type="button" value="취소하기" style="margin-left: 47%; margin-top:5%;">
+	</div>
 	</div>
 	</form>
 		
