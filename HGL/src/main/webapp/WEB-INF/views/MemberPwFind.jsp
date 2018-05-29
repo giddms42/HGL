@@ -36,8 +36,8 @@ $("input[name=memberPw").on("change",function() {
  })
  
  $("#regist").submit(function(){
-	if ($("input[name=memberPw]").val() != $("#pwSame").val()) {
-		   alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
+	if ($("input[name=memberPw]").val() != $("input[name=memberPwChk]").val()) {
+		   alert("비밀번호가 일치하지 않습니다. 다시 확인해주세요");
 		   return false;
 	}else{	
 		   if($("input[name=memberPw]").attr("title")=="n"){
@@ -47,6 +47,7 @@ $("input[name=memberPw").on("change",function() {
 	}
  })
 })
+
 
 function goSubmit(){
 	alert("asd");
@@ -78,7 +79,7 @@ function goSubmit(){
 				</div>
 				<br/>
 				<div id="div0">
-					<div class="div4"><input type="submit" class="btn" value="비밀번호 변경완료"  id="regist" onclick="goSubmit();"></div>
+					<div class="div4"><input type="submit" class="btn" value="비밀번호 변경완료" onclick="goSubmit();"></div>
 				</div>
 			</form>
 		</div>

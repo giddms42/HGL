@@ -36,7 +36,7 @@ function AdminMange(){
 					<strong>가</strong>족의
 					미<strong>래</strong></div>
 				</div>
-				<div class="up2" id="up23">${login.memberNickName} xx님 환영합니다</div>
+				<div class="up2" id="up23">${login.memberNickname} xx님 환영합니다</div>
 				<div class="up2" id="up24"><a href="MemberLoginForm.do">로그아웃</a></div>
 			</div>
 			<div id="down">
