@@ -127,6 +127,7 @@ public class MemberController {
    
    @RequestMapping(value="pwChange.do", method = RequestMethod.POST)
    public String pwChange(@ModelAttribute memberDto dto, Model model) {
+	   System.out.println("도착");
 	   int res = bizz.pwChange(dto);
 	   if(res< 0) {
 			  String msg = "올바른 비밀번호로 다시 작성해주세요";

@@ -36,21 +36,19 @@ $("input[name=memberPw").on("change",function() {
  })
  
  $("#regist").submit(function(){
-	if ($("input[name=memberPw]").val() != $("#pwSame").val()) {
-		   alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
+	if ($("input[name=memberPw]").val() != $("input[name=memberPwChk]").val()) {
+		   alert("비밀번호가 일치하지 않습니다. 다시 확인해주세요");
 		   return false;
 	}else{	
 		   if($("input[name=memberPw]").attr("title")=="n"){
 		        alert("비밀번호를 다시 확인해주세요.")
 		        return false;
-		  	 }else{
-		  		self.close();
 		  	 }
 	}
- 
  })
-
+ 
 })
+
 </script>
 </head>
 <link rel="stylesheet" type="text/css" href="css/MemberPwFind.css">
@@ -59,7 +57,7 @@ $("input[name=memberPw").on("change",function() {
 	<div id="container">
 		<div>
 		<div id="cover">
-			<form action="pwChange.do" method="post">
+			<form action="pwChange.do" method="post" id="regist">
 				<input type="hidden" name="memberEmail" value="${email}">
 				<input type="hidden" name="memberId" value="${id}">
 				<div><div><b>비밀번호 변경</b></div></div><br/>
@@ -75,7 +73,7 @@ $("input[name=memberPw").on("change",function() {
 				</div>
 				<br/>
 				<div id="div0">
-					<div class="div4"><input type="submit" class="btn" value="비밀번호 변경완료"  id="regist"></div>
+					<div class="div4"><input type="submit" class="btn" value="비밀번호 변경완료"></div>
 				</div>
 			</form>
 		</div>
