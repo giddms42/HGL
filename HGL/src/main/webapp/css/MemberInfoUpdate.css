@@ -1,0 +1,35 @@
+@charset "UTF-8";
+ul{
+	font-size:16pt;
+	list-style: none;
+}
+h2{
+	text-align: center;
+}
+.userInfo{
+	position: relative;
+	margin: auto;
+	margin-top: 50px;
+	margin-left: 36%;
+	width: 440px;
+	height: 100%;
+	border: 2px solid black;
+}
+.updateInfo{
+	height:40px;
+	width:250px;
+	font-size:15pt;
+	margin-left: 2%;
+	margin-bottom: 2%;
+}
+.info{
+	font-size:15pt;
+	width: 305px;
+}
+#updateButton{
+	position: absolute;
+	margin-left: 500px;
+	margin:auto;
+	width:440px;
+	height: 50px;
+}
