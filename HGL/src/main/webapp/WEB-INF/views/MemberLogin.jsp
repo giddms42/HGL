@@ -39,6 +39,7 @@ function MemberSearch(){
 	var popupX = (window.screen.width/2) - (440 / 2);
 	var popupY= (window.screen.height/2)- (240/2);
 	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+	window.name="Parent";
 	window.open("MemberSearchForm.do","", 'status=no, width=440, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 

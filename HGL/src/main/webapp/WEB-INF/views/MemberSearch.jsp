@@ -52,8 +52,9 @@ function PWSearch() {
           success : function(msg) {
         	  var msgVal = $.trim(msg);
         	  if(msgVal == "t"){
-        	  PwFindPopup(email2, id2);      
-        	  self.close();
+        	  /* PwFindPopup(email2, id2); */   
+        	  PwFindPopup(email2, id2); 
+        	  /* self.close(); */
         	  /* location.href="MemberPwFind.do"; */
         	  }else{
         		  $("#pwVal").val("이메일, 아이디를 다시 확인해주세요."); 
@@ -67,12 +68,13 @@ function PWSearch() {
  }
  
 function PwFindPopup(email2, id2){
-	var popupX = (window.screen.width/2)-(440/2);
+	/* var popupX = (window.screen.width/2)-(440/2);
 	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
 
 	var popupY= (window.screen.height/2)-(200/2);
 	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-	window.open("MemberPwFindForm.do?email="+email2+"&id="+id2,"", 'status=no, width=440, height=200, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	window.open("MemberPwFindForm.do?email="+email2+"&id="+id2,"", 'status=no, width=440, height=200, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY); */
+	location.href="MemberPwFindForm.do?email="+email2+"&id="+id2;
 	}
  
 </script>

@@ -26,7 +26,7 @@ function AdminUserInfo(){
 
    var popupY= (window.screen.height /2) - (220 / 2);
    // 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-   window.open("AdminUserInfo.do","", 'width=440, height=220, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+   window.open("AdminUserInfoForm.do","", 'width=440, height=220, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
    }
 
 </script>

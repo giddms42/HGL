@@ -49,6 +49,13 @@ $("input[name=memberPw").on("change",function() {
  
 })
 
+
+function goSubmit(){
+	alert("asd");
+	window.opener.name = "Parent"; // 부모창의 이름 설정
+    document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
+    self.close();
+}
 </script>
 </head>
 <link rel="stylesheet" type="text/css" href="css/MemberPwFind.css">
@@ -57,7 +64,7 @@ $("input[name=memberPw").on("change",function() {
 	<div id="container">
 		<div>
 		<div id="cover">
-			<form action="pwChange.do" method="post" id="regist">
+			<form action="pwChange.do" name="myForm" method="post" id="regist">
 				<input type="hidden" name="memberEmail" value="${email}">
 				<input type="hidden" name="memberId" value="${id}">
 				<div><div><b>비밀번호 변경</b></div></div><br/>
@@ -73,7 +80,7 @@ $("input[name=memberPw").on("change",function() {
 				</div>
 				<br/>
 				<div id="div0">
-					<div class="div4"><input type="submit" class="btn" value="비밀번호 변경완료"></div>
+					<div class="div4"><input type="submit" class="btn" value="비밀번호 변경완료" onclick="goSubmit();"></div>
 				</div>
 			</form>
 		</div>
