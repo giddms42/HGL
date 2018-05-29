@@ -88,8 +88,8 @@ public class MemberBizzImple implements MemberBizz {
 	}
 
 	@Override
-	public String PWSearch(String email, String id) {
-		String res = dao.PWSearch(email, id);
+	public String memberCertification(String email, String id) {
+		String res = dao.memberCertification(email, id);
 		if (res == null) {
 			res = "f";
 		}else {

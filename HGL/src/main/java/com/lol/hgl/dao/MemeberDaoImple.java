@@ -72,7 +72,7 @@ public class MemeberDaoImple implements MemberDao {
 	}
 
 	@Override
-	public String PWSearch(String email, String id) {
+	public String memberCertification(String email, String id) {
 		String res = "";
 		HashMap<String, String>map = new HashMap<String, String>();
 		map.put("email", email);

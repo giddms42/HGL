@@ -98,8 +98,11 @@ public class MemberController {
       return "MemberSearch";
    }
   
-   @RequestMapping(value="MemberPwFind.do")
-   public String MemberPwFind(Model model) {
+   @RequestMapping(value="MemberPwFindForm.do")
+   public String MemberPwFindForm(String email, String id, Model model) {
+	   System.out.println(email +  " , " + id);
+	   model.addAttribute("email", email);
+	   model.addAttribute("id", id);
       return "MemberPwFind";
    }
    
@@ -112,11 +115,11 @@ public class MemberController {
 	      return res;
    }
    
-   @RequestMapping(value="PWSearch.do", produces = "application/text; charset=utf8")
+   @RequestMapping(value="memberCertification.do", produces = "application/text; charset=utf8")
    @ResponseBody
-   public String PWSearch(String email, String id) {
+   public String memberCertification(String email, String id) {
 	   String res ="";
-	      res = bizz.PWSearch(email, id);
+	      res = bizz.memberCertification(email, id);
 	      return res;
    }
 
