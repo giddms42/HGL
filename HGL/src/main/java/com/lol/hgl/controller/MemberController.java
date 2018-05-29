@@ -85,9 +85,10 @@ public class MemberController {
 		  String msg =  "아이디와 비밀번호가 일치하지 않습니다. 다시 확인해 주세요.";
 		  model.addAttribute("msg", msg);
 	      return "MemberLogin";  
-	  }else {	  
-		  memberDto login = bizz.Login(memberId, memberPw);
-		 // System.out.println(login.getMemberNickname());
+	  }else {
+
+	   memberDto login = bizz.Login(memberId);
+		  System.out.println(login.getMemberId());
 		    session.setAttribute("login", login);
 			session.setMaxInactiveInterval(10 * 60); 	
 	  }   
@@ -140,6 +141,13 @@ public class MemberController {
 	      return "MemberLogin";
    }
 
+   @RequestMapping(value="memberLoginOut.do")
+   public String memberLoginOut(HttpSession session) {
+		session.invalidate(); 
+	    return "MemberLoginForm";
+   }
+
+   
    
    
    

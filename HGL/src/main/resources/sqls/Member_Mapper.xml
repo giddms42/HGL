@@ -50,8 +50,8 @@
 		 SELECT MEMBERPW FROM MEMBER WHERE MEMBERID=#{id} AND MEMBERJOIN='Y'
 	</select>
 	
-	<select id="Login" parameterType="Map" resultMap="memberDto">
-		 SELECT * FROM MEMBER WHERE MEMBERID=#{id} AND MEMBERPW=#{pw} AND MEMBERJOIN='Y'
+	<select id="Login" parameterType="String" resultMap="memberDto">
+		 SELECT * FROM MEMBER WHERE MEMBERID=#{id}
 	</select>
 	
 	<update id="pwChange" parameterType="memberDto">
