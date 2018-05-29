@@ -104,6 +104,11 @@ public class MemberController {
 	      res = bizz.PWSearch(email, id);
 	      return res;
    }
+   
+   @RequestMapping(value = "PopupSilheom.do")
+   public String PopupSilheom() {
+      return "PopupSilheom";
+   }
 
 
 }
