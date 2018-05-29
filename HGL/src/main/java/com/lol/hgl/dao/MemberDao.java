@@ -12,6 +12,7 @@ public interface MemberDao {
 	public String memberCertification(String email, String id);
 	public memberDto Login(String memberId, String memberPw);
 	public String LoginChk(String id);
+	public int pwChange(memberDto dto);
 	
 
 }

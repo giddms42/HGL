@@ -52,7 +52,8 @@ function PWSearch() {
           success : function(msg) {
         	  var msgVal = $.trim(msg);
         	  if(msgVal == "t"){
-        	  PwFindPopup(email2, id2);        		  
+        	  PwFindPopup(email2, id2);      
+        	  self.close();
         	  /* location.href="MemberPwFind.do"; */
         	  }else{
         		  $("#pwVal").val("이메일, 아이디를 다시 확인해주세요."); 

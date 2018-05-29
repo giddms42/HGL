@@ -78,7 +78,7 @@ public class MemeberDaoImple implements MemberDao {
 		map.put("email", email);
 		map.put("id",id);
 		try {
-			res = sqlSession.selectOne(nameSpace+"PWSearch", map);
+			res = sqlSession.selectOne(nameSpace+"memberCertification", map);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	
@@ -104,6 +104,17 @@ public class MemeberDaoImple implements MemberDao {
 		String res = "";
 		try {
 			res = sqlSession.selectOne(nameSpace+"LoginChk", id);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public int pwChange(memberDto dto) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"pwChange", dto);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	

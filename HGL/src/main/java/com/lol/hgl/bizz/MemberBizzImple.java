@@ -124,6 +124,15 @@ public class MemberBizzImple implements MemberBizz {
 		return res;
 	}
 
+	@Override
+	public int pwChange(memberDto dto) {		
+		int res = 0;
+		String encryptPassword = passwordEncoder.encode(dto.getMemberPw());
+		dto.setMemberPw(encryptPassword);
+		res = dao.pwChange(dto);
+		return res;
+	}
+
 	
 	
 	

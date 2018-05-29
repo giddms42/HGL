@@ -13,4 +13,5 @@ public interface MemberBizz {
 	public String memberCertification(String email, String id);
 	public memberDto Login(String memberId, String memberPw);
 	public String LoginChk(String id, String rawPassword);
+	public int pwChange(memberDto dto);
 }

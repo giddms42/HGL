@@ -125,6 +125,23 @@ public class MemberController {
    }
 
    
+   @RequestMapping(value="pwChange.do", method = RequestMethod.POST)
+   public String pwChange(@ModelAttribute memberDto dto, Model model) {
+	   int res = bizz.pwChange(dto);
+	   if(res< 0) {
+			  String msg = "올바른 비밀번호로 다시 작성해주세요";
+			  model.addAttribute("msg", msg);
+		  }else {
+			  String msg = "비밀번호 변경이 완료되었습니다. 다시 로그인 해주세요";
+			  model.addAttribute("msg", msg);
+		  }	      
+	      return "MemberLogin";
+   }
+
+   
+   
+   
+   
    @RequestMapping(value = "PopupSilheom.do")
    public String PopupSilheom() {
       return "PopupSilheom";

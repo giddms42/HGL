@@ -36,33 +36,20 @@ $("input[name=memberPw").on("change",function() {
  })
  
  $("#regist").submit(function(){
-		             var returnVar = true;
-		             if ($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
-		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
-		                document.getElementsByName("memberPw")[0].focus();
-		                return false;
-		             }else{	
-		            	 if($("input[name=memberId]").attr("title")=="n"){
-		            		 alert("아이디를 다시 확인해주세요")
-		            		 document.getElementsByName("memberId")[0].focus();
-		            		 return false;
-		            	 }else{
-			            	 if($("input[name=memberNickname]").attr("title")=="n"){
-			            		 alert("닉네임을 다시 확인해주세요")
-			            		 document.getElementsByName("memberNickname")[0].focus();
-			            		 return false;
-			            	 }else{
-				            	 if($("input[name=memberEmail]").attr("title")=="n"){
-				            		 alert("이메일을 다시 확인해주세요")
-				            		 document.getElementsByName("memberEmail")[0].focus();
-				            		 return false;
-				            		 }
-				             		}
-				          	 	}
-		             }
-		         })
+	if ($("input[name=memberPw]").val() != $("#pwSame").val()) {
+		   alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
+		   return false;
+	}else{	
+		   if($("input[name=memberPw]").attr("title")=="n"){
+		        alert("비밀번호를 다시 확인해주세요.")
+		        return false;
+		  	 }else{
+		  		self.close();
+		  	 }
+	}
  
- 
+ })
+
 })
 </script>
 </head>
@@ -72,18 +59,18 @@ $("input[name=memberPw").on("change",function() {
 	<div id="container">
 		<div>
 		<div id="cover">
-			<form action="">
+			<form action="pwChange.do" method="post">
 				<input type="hidden" name="memberEmail" value="${email}">
 				<input type="hidden" name="memberId" value="${id}">
 				<div><div><b>비밀번호 변경</b></div></div><br/>
 				<div id="div0">
 					<div class="div1"><input type="text" class="input" readonly="readonly" value="비밀번호 입력" ></div>
-					<div class="div2"><input type="text" class="input" placeholder="비밀번호를 입력해주세요." id="memberPw" title="n"></div>
+					<div class="div2"><input type="text" class="input" placeholder="비밀번호를 입력해주세요." name="memberPw" title="n"></div>
 					<div class="div3"><input type="text" class="input" placeholder="O or X" readonly="readonly" id="pwValidity" ></div>
 				</div>
 				<div id="div0">
 					<div class="div1"><input type="text" class="input" readonly="readonly" value="비밀번호 재입력" ></div>
-					<div class="div2"><input type="text" class="input" placeholder="비밀번호를 재입력해주세요." id="memberPwChk" title="n"></div>
+					<div class="div2"><input type="text" class="input" placeholder="비밀번호를 재입력해주세요." name="memberPwChk"></div>
 					<div class="div3"><input type="text" class="input" placeholder="T or F" readonly="readonly" id="pwSame"></div>
 				</div>
 				<br/>
