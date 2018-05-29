@@ -105,9 +105,9 @@ public class MemberController {
 	      return res;
    }
    
-   @RequestMapping(value = "PopupSilheom.do")
-   public String PopupSilheom() {
-      return "PopupSilheom";
+   @RequestMapping(value="FChart.do")
+   public String FChart() {
+      return "FChart";
    }
 
 

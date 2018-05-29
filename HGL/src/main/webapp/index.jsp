@@ -18,7 +18,7 @@
 <a href="AdminSearchUser.do">AdminSearchUser.do</a>
 <a href="AdminUserInfo.do">AdminUserInfo.do</a>
 <a href="MemberPwFind.do">MemberPwFind.do</a>
-<a href="PopupSilheom.do">PopupSilheom.do</a>
+<a href="FChart.do">FChart.do</a>
 
 <h1>2018-05-28 pm:11:11</h1>
 <h1>한번에 수정되길 간절히 바란다</h1>
