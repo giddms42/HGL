@@ -43,13 +43,9 @@ $("input[name=memberPw").on("change",function() {
 		   if($("input[name=memberPw]").attr("title")=="n"){
 		        alert("비밀번호를 다시 확인해주세요.")
 		        return false;
-		  	 }else{
-		  		/* self.close(); */
 		  	 }
 	}
- 
  })
-
 })
 
 function goSubmit(){
@@ -66,7 +62,7 @@ function goSubmit(){
 	<div id="container">
 		<div>
 		<div id="cover">
-			<form action="pwChange.do" name="myForm" method="post">
+			<form action="pwChange.do" name="myForm" method="post" id="regist">
 				<input type="hidden" name="memberEmail" value="${email}">
 				<input type="hidden" name="memberId" value="${id}">
 				<div><div><b>비밀번호 변경</b></div></div><br/>
