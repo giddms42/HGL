@@ -121,7 +121,15 @@ public class MemberController {
 	   String res ="";
 	      res = bizz.memberCertification(email, id);
 	      return res;
+
    }
+
+   
+   @RequestMapping(value = "PopupSilheom.do")
+   public String PopupSilheom() {
+      return "PopupSilheom";
+   }
+
 
   
    
