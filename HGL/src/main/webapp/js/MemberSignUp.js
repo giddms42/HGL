@@ -1,12 +1,3 @@
-/* 
-   function idChkConfirm() { // id중복체크를를 우선적으로 하게 하는 기능.
-      var chk = document.getElementsByName("userId")[0].title;
-      if (chk == "n") {
-         alert("아이디 중복체크를 해주세요");
-         document.getElementsByName("userId")[0].focus();
-      }
-   }*/
-
 
 	function snsChecked() { //문자알림서비스 확인창
 		var retVal = confirm("문자알림을 받으시겠습니까?\n매달 1일, 부모님께 안부를 물어보도록 유도하는 알림문자가 발송되며,\n캘린더에 일정 추가 시 일정 알림을 체크하면 \n해당 일정 날짜의 하루 전에 알림 문자가 발송됩니다.");
@@ -350,8 +341,9 @@
 		      $("input[name=memberId").on("change",function() {
 		            var idVal = $("input[name=memberId]").val();
 		            if(idVal==null || idVal==""){
+		            	 $("input[name=memberId]").attr('title','n');
 		            	 $("#useId").css("display", "none");
-	                     $("#unId").css("display", "none");   	
+	                     $("#unId").css("display", "none");
 		            }else{
 		            	  $.ajax({
 				               type:"post",
@@ -362,9 +354,11 @@
 				                  if (r == "t") {  
 				                     $("#useId").css("display", "inline");
 				                     $("#unId").css("display", "none");
+				                     $("input[name=memberId]").attr('title','y');
 				                  }else{
 				                	 $("#unId").css("display", "inline");
 				                	 $("#useId").css("display", "none");
+				                	 $("input[name=memberId]").attr('title','n');
 				                  }
 				               }
 				            });
@@ -376,6 +370,7 @@
 		            if(nickVal==null || nickVal==""){
 		            	 $("#useNick").css("display", "none");
 	                     $("#unNick").css("display", "none");   	
+	                     $("input[name=memberNickname]").attr('title','n');
 		            }else{
 		            $.ajax({
 		               type:"post",
@@ -386,10 +381,12 @@
 		                  if (r == "t") {  
 		                     $("#useNick").css("display", "inline");
 		                     $("#unNick").css("display", "none");
+		                     $("input[name=memberNickname]").attr('title','y');
 
 		                  }else{
 		                	 $("#unNick").css("display", "inline");
 		                	 $("#useNick").css("display", "none");
+		                	 $("input[name=memberNickname]").attr('title','n');
 		                  }
 		               }
 		            });
@@ -400,7 +397,8 @@
 		            var emailVal = $("input[name=memberEmail]").val();
 		            if(emailVal==null || emailVal==""){
 		            	 $("#useEmail").css("display", "none");
-	                     $("#unEmail").css("display", "none");   	
+	                     $("#unEmail").css("display", "none");
+	                     $("input[name=memberEmail]").attr('title','n');
 		            }else{
 		            $.ajax({
 		               type:"post",
@@ -411,9 +409,11 @@
 		                  if (r == "t") {  
 		                     $("#useEmail").css("display", "inline");
 		                     $("#unEmail").css("display", "none");
+		                     $("input[name=memberEmail]").attr('title','y');
 		                  }else{
 		                	 $("#unEmail").css("display", "inline");
 		                	 $("#useEmail").css("display", "none");
+		                	 $("input[name=memberEmail]").attr('title','n');
 		                  }
 		               }
 		            });
@@ -424,7 +424,8 @@
 		            var pwVal = $("input[name=memberPw]").val();
 		            if(pwVal==null || pwVal==""){
 		            	 $("#usePw").css("display", "none");
-	                     $("#unPw").css("display", "none");   	
+	                     $("#unPw").css("display", "none");
+	                     $("input[name=memberPw]").attr('title','n');
 		            }else{
 		            $.ajax({
 		               type:"post",
@@ -435,14 +436,41 @@
 		                  if (r == "t") {  
 		                     $("#usePw").css("display", "inline");
 		                     $("#unPw").css("display", "none");
+		                     $("input[name=memberPw]").attr('title','y');
 		                  }else{
 		                	 $("#unPw").css("display", "inline");
 		                	 $("#usePw").css("display", "none");
+		                	 $("input[name=memberPw]").attr('title','n');
 		                  }
 		               }
 		            });
 		            }
 		         })
 		         
-	
+		         $("#regist").submit(function(){
+		             var returnVar = true;
+		             if ($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
+		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
+		                document.getElementsByName("memberPw")[0].focus();
+		                return false;
+		             }else{	
+		            	 if($("input[name=memberId]").attr("title")=="n"){
+		            		 alert("아이디를 다시 확인해주세요")
+		            		 document.getElementsByName("memberId")[0].focus();
+		            		 return false;
+		            	 }else{
+			            	 if($("input[name=memberNickname]").attr("title")=="n"){
+			            		 alert("닉네임을 다시 확인해주세요")
+			            		 document.getElementsByName("memberNickname")[0].focus();
+			            		 return false;
+			            	 }else{
+				            	 if($("input[name=memberEmail]").attr("title")=="n"){
+				            		 alert("이메일을 다시 확인해주세요")
+				            		 document.getElementsByName("memberEmail")[0].focus();
+				            		 return false;
+				            		 }
+				             		}
+				          	 	}
+		             }
+		         })
 	})

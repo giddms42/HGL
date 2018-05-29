@@ -3,6 +3,7 @@ package com.lol.hgl.bizz;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.lol.hgl.dao.MemberDao;
@@ -13,6 +14,11 @@ public class MemberBizzImple implements MemberBizz {
 	
 	@Autowired
 	private MemberDao dao;
+	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
+
+	
 
 	@Override
 	public String IDChk(String id) {
@@ -64,6 +70,9 @@ public class MemberBizzImple implements MemberBizz {
 		if(dto.getMemberSMS() == null) {
 			dto.setMemberSMS("N");
 		}
+		String encryptPassword = passwordEncoder.encode(dto.getMemberPw());
+		dto.setMemberPw(encryptPassword);
+		System.out.println(encryptPassword);
 		int res = dao.signUp(dto);
 		return res;
 	}
@@ -79,13 +88,48 @@ public class MemberBizzImple implements MemberBizz {
 	}
 
 	@Override
-	public String PWSearch(String email, String id) {
-		String res = dao.PWSearch(email, id);
-		String use = "f";
+	public String memberCertification(String email, String id) {
+		String res = dao.memberCertification(email, id);
 		if (res == null) {
-			res = "아이디, 이메일을 확인해주세요."; 
+			res = "f";
+		}else {
+			res = "t";
 		}
 		System.out.println("pw 찾기 성공 여부 : " + res);
+		return res;
+		}
+
+	@Override
+	public memberDto Login(String memberId, String memberPw) {
+		memberDto dto = dao.Login(memberId, memberPw);	
+		return dto;
+	}
+
+	@Override
+	public String LoginChk(String id, String rawPassword) {
+		String res = "";	
+		//1.저장된 비밀번호 갖고오기.
+		String encodedPassword = dao.LoginChk(id);
+		if(encodedPassword == null) {
+			return "f";
+		}
+		//2.입력한 비밀번호랑 비교하기
+		if(passwordEncoder.matches(rawPassword, encodedPassword)){
+			System.out.println("계정정보 일치");
+			res = "t";
+			}else{
+			System.out.println("계정정보 불일치");
+			res = "f";	
+					}
+		return res;
+	}
+
+	@Override
+	public int pwChange(memberDto dto) {		
+		int res = 0;
+		String encryptPassword = passwordEncoder.encode(dto.getMemberPw());
+		dto.setMemberPw(encryptPassword);
+		res = dao.pwChange(dto);
 		return res;
 	}
 

@@ -2,21 +2,25 @@
 a{
 	margin-left: 5px;
 }
-
+select{
+	margin-top: 10px;
+	height: 37px;
+}
 input {
    height: 30px;
    font-size: 10pt;
 }
+header{
+	text-align:center;
+}
 .registForm{
 	margin:auto;
-	width:35%;
-}
-#idchk{
-	margin-left: 10px;
-	margin-top: 3px;
+	min-width: 500px;
+	width:25%;
 }
 .info{
-	width: 230px;
+	margin-top: 10px;
+	width: 220px;
 }
 .addrDetail{
 	width: 350px;
@@ -29,7 +33,6 @@ input {
 	padding-bottom: 20px;
 }
 .checkbox{
-	margin-left:2%;
 	width: 5%;
 }
 .sns{
@@ -38,4 +41,8 @@ input {
 }
 .ajChk{
 	display: none;
+}
+	
+.registinfo{
+	margin-left: 12%;
 }

@@ -72,13 +72,49 @@ public class MemeberDaoImple implements MemberDao {
 	}
 
 	@Override
-	public String PWSearch(String email, String id) {
+	public String memberCertification(String email, String id) {
 		String res = "";
 		HashMap<String, String>map = new HashMap<String, String>();
 		map.put("email", email);
 		map.put("id",id);
 		try {
-			res = sqlSession.selectOne(nameSpace+"PWSearch", map);
+			res = sqlSession.selectOne(nameSpace+"memberCertification", map);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public memberDto Login(String memberId, String meberPw) {
+		memberDto res = new memberDto();
+		HashMap<String, String>map = new HashMap<String, String>();
+		map.put("pw", memberId);
+		map.put("id", meberPw);
+		try {
+			res = sqlSession.selectOne(nameSpace+"Login", map);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public String LoginChk(String id) {
+		String res = "";
+		try {
+			res = sqlSession.selectOne(nameSpace+"LoginChk", id);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public int pwChange(memberDto dto) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"pwChange", dto);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	

@@ -20,6 +20,11 @@ public class memberDto {
 		
 	}
 	
+	public memberDto(String memberId, String memberPw) {
+		this.memberId = memberId;
+		this.memberPw = memberPw;
+	}
+	
 	public memberDto(int memberNo, String memberId, String memberPw, String memberNickname, String memberEmail,
 			String memberPhone, String memberDo, String memberCity, String memberAddr, String memberRole, int memberProhibit,
 			String memberJoin, String memberSMS) {

@@ -20,7 +20,7 @@ function AdminMange(){
 
 	var popupY= (window.screen.height /2) - (310 / 2);
 	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-	window.open("AdminMange.do","", 'width=440, height=310, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	window.open("AdminMangeForm.do","", 'width=440, height=310, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 
 </script>
@@ -36,13 +36,13 @@ function AdminMange(){
 					<strong>가</strong>족의
 					미<strong>래</strong></div>
 				</div>
-				<div class="up2" id="up23">xx님 환영합니다</div>
+				<div class="up2" id="up23">${login.memberNickName} xx님 환영합니다</div>
 				<div class="up2" id="up24"><a href="MemberLoginForm.do">로그아웃</a></div>
 			</div>
 			<div id="down">
 				<div class="menu" id="admin">
 					<div onclick="AdminMange()">관리자-회원제재</div>
-					<div onclick="location.href='AdminSearchUser.do'">관리자-회원목록</div>
+					<div onclick="location.href='AdminSearchUserForm.do'">관리자-회원목록</div>
 				</div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">홈페이지 소개</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">내정보</a></div></div>
