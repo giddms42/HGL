@@ -46,7 +46,6 @@ $("input[name=memberPw").on("change",function() {
 		  	 }
 	}
  })
- 
 })
 
 
