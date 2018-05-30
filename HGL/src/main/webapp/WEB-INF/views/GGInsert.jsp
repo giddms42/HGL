@@ -24,9 +24,10 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	   
 	   <div id="b">
 	      <div id="bodyMain">
-	         <div id="boardName">좋은글 상세보기</div>
-	         <br/>
 	         <img src="image/sadad.png" id="content">
+	         <form action="" id="form">
+	         	   <div id="boardName">정말 좋은글 글쓰기</div>
+		           <br/>
 	               <table border="1" bordercolor="white">
 	               <col width="100">
 	                  <tr>
@@ -43,13 +44,16 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                  </tr>
 	                  <tr>
 	                     <td>파일첨부</td>
-						<td><textarea rows="5" placeholder="파일첨부 표시되는곳"></textarea></td>
+						<td><textarea rows="5" placeholder="파일첨부 표시되는곳" style="resize: none;"></textarea></td>
 					</tr>
 	               </table>
-	               <div class="Gbtn"><input type="button" value="글쓰기" onclick=""></div>
-	               <div id="paging">페이징<br>자리</div>
-	               <br/>
-	               <div id="paging">페이징<br>자리</div>
+	               <div class="btn">
+	               		<input type="button" value="파일첨부" onclick="" class="btn1">
+	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do'" class="btn2">
+		                <input type="button" value="글작성" onclick="" class="btn3">
+	               </div>
+	               <div id="paging">　<br>　</div>
+	      </form>
 	      </div>
 	   </div>
 	   

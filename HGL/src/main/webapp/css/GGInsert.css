@@ -19,7 +19,7 @@ width: 100%;
 #b{
 color: white;
 border: 1px dashed red;
-height: 850px;
+height: 650px;
 width: 100%; 
 display: -webkit-flex;
      display:         flex;
@@ -40,6 +40,18 @@ display: -webkit-flex;
      -webkit-justify-content: center;
              justify-content: center;
      flex-direction: column;
+ }
+ 
+ #form{
+ 	 display: -webkit-flex;
+     display:         flex;
+     -webkit-align-items: center;
+             align-items: center;
+     -webkit-justify-content: center;
+             justify-content: center;
+     flex-direction: column;
+ 	margin: auto;
+ 	width: 95%;
  }
  
  #content{
@@ -111,8 +123,26 @@ a:visited {
 	color: white;
 	text-decoration: none;
 }
-
-.Gbtn{
-	margin-left: 91%;
+.btn{
+	position: relative;
 	padding: 5px;
+}
+
+.btn1{
+	position: absolute;
+	height: 30px;
+	right: 337px;
+	top: 17px;
+}
+.btn2{
+	position: absolute;
+	height: 30px;
+	left: 295px;
+	top: 17px;
+}
+.btn3{
+	position: absolute;
+	height: 30px;
+	left: 355px;
+	top: 17px;	
 }
