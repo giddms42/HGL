@@ -15,7 +15,6 @@
 <a href="MemberLoginForm.do">로그인</a>
 <a href="MainForm.do">메인</a>
 <a href="GGListForm.do">좋은글게시판</a>
-<a href="FChart.do">건강그래프</a>
 <a href="MemberInfo.do">MemberInfo</a>
 <a href="FamInsert.do">FamInsert</a>
 <a href="FamDetail.do">FamDetail</a>
