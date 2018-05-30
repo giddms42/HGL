@@ -29,7 +29,7 @@ SELECT * FROM FAM;
 ---------------------------------------------------------------------------
 
 --HEATL TABLE SQL
-DROP TABLE HEATL;
+DROP TABLE HEALTH;
 CREATE TABLE HEALTH
 (
     FAMNO           NUMBER     NOT NULL, 
