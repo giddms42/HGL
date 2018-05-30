@@ -156,6 +156,9 @@ public class MemberController {
    public String FChart() {
       return "FChart";
    }
+
+   
+
    
    @RequestMapping(value = "MemberInfo.do")
    public String MemberInfo() {   
