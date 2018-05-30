@@ -4,6 +4,8 @@ li{
 }
 header{
 	text-align: center;
+	margin-left: 180px;
+	width: 200px;
 }
 form{
 	margin:auto;	
@@ -11,6 +13,7 @@ form{
 }
 label{
 	font-size: 12pt;
+	
 }
 .radi{
 	width: 16px;
