@@ -86,3 +86,18 @@ display: -webkit-flex;
     background-color: orange;
     border: 1px solid white;
  }
+ 
+ a:link{
+ 	color: white;
+ 	text-decoration: none;
+ }
+ 
+ a:hover {
+	color: white;
+	text-decoration: none;
+ }
+ 
+ a:visited {
+	color: white;
+	text-decoration: none;
+}
