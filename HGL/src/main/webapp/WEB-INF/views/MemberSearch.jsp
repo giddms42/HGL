@@ -59,7 +59,6 @@ function PWSearch() {
         	  }else{
         		  $("#pwVal").val("이메일, 아이디를 다시 확인해주세요."); 
         	  }
-        	  $("#pwVal").val(msgVal);
           },
           error : function() {
           	alert("없는 계정입니다.\n 이름,이메일,아이디를 다시 확인해주세요");

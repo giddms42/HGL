@@ -4,6 +4,12 @@
     <% request.setCharacterEncoding("UTF-8"); %>
     <% response.setContentType("text/html; charset=UTF-8"); %>
     
+<%
+	response.setHeader("Cache-control", "no-store");
+	response.setHeader("Pragma", "no-cache");
+	response.setHeader("Expires", "0");
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,12 +27,6 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
-
-$(document).ready(function() {
-	/* $("#admin").hide(); */
-});
-=======
 
 window.onload = function() {
 	
@@ -35,12 +35,15 @@ window.onload = function() {
 	}
 	
 };
-/*
-function MemberSearch(){
-	var popupX = (window.screen.width/2)-(440/2);
-	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
-*/
->>>>>>> branch 'he' of https://github.com/giddms42/HGL.git
+
+history.pushState(null, null, location.href);
+window.onpopstate = function(event) {
+	history.go(1);
+};
+
+
+
+출처: http://vicki.tistory.com/1487 [불친절한자수씨]
 
 function MemberSearch(){
 	var popupX = (window.screen.width/2) - (440 / 2);
