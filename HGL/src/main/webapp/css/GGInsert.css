@@ -51,7 +51,7 @@ display: -webkit-flex;
              justify-content: center;
      flex-direction: column;
  	margin: auto;
- 	width: 95%;
+ 	width: 99.5%;
  }
  
  #content{
@@ -131,18 +131,18 @@ a:visited {
 .btn1{
 	position: absolute;
 	height: 30px;
-	right: 337px;
+	right: 355px;
 	top: 17px;
 }
 .btn2{
 	position: absolute;
 	height: 30px;
-	left: 295px;
+	left: 315px;
 	top: 17px;
 }
 .btn3{
 	position: absolute;
 	height: 30px;
-	left: 355px;
+	left: 375px;
 	top: 17px;	
 }
