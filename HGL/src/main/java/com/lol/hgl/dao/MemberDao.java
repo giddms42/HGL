@@ -10,7 +10,7 @@ public interface MemberDao {
 	public int signUp(memberDto dto);
 	public String IDSearch(String email);
 	public String memberCertification(String email, String id);
-	public memberDto Login(String memberId, String memberPw);
+	public memberDto Login(String id);
 	public String LoginChk(String id);
 	public int pwChange(memberDto dto);
 	

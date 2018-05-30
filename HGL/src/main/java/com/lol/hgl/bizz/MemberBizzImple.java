@@ -100,8 +100,8 @@ public class MemberBizzImple implements MemberBizz {
 		}
 
 	@Override
-	public memberDto Login(String memberId, String memberPw) {
-		memberDto dto = dao.Login(memberId, memberPw);	
+	public memberDto Login(String memberId) {
+		memberDto dto = dao.Login(memberId);	
 		return dto;
 	}
 

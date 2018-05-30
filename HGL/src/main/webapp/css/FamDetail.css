@@ -1,1 +1,54 @@
 @charset "UTF-8";
+li{
+	list-style: none;
+}
+header{
+	text-align:center;
+	margin: auto;
+	width: 500px;
+}
+form{
+	margin:auto;	
+	width: 500px;	
+}
+label{
+	font-size: 12pt;
+}
+.radi{
+	width: 16px;
+	height: 16px;
+	margin-bottom: 15px;
+}
+.disease{
+	margin-left: 30px;
+	margin-top: 15px;
+	width: 150px;
+	height: 20px;
+}
+
+.famInfo{
+	width: 250px;
+	height: 35px;
+	margin-left: 20px;
+	margin-bottom: 30px;
+}
+.sibal{
+	margin-top: 50px;
+}
+#famDetail{
+	position: relative;
+}
+#detail{
+	margin: auto;
+	width: 500px;
+	border: 1px dotted blue;
+	display: inline-block;
+}
+
+#graph{
+	margin: auto;
+	width: 500px;
+	height: 657px;
+	border: 1px dotted black;
+	display: inline-block;
+}

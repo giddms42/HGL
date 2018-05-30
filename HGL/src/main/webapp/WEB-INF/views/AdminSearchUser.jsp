@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 <!DOCTYPE html>
@@ -31,7 +30,6 @@ function AdminUserInfo(){
 
 </script>
 <body>
-
    <div id="container">
    <div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
    
@@ -133,6 +131,7 @@ function AdminUserInfo(){
    
    <div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
    </div>
+>>>>>>> branch 'jh' of https://github.com/giddms42/HGL.git
 
 </body>
 </html>

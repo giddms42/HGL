@@ -31,6 +31,11 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
+	
+		<!-- logger 추가 -->
+	<logger name="org.ibatis">
+		<level value="info"/>
+	</logger>
 
 	<!-- Root Logger -->
 	<root>
