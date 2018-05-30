@@ -16,7 +16,7 @@
 			<div class="signUpText">가정 정보를 입력하세요</div>
 		</header>
 		
-		<form id="regist" action="MemberSignUp.do" method="post" class="userForm" novalidate>
+		<form id="regist" action="FamInsert.do" method="post" class="userForm" novalidate>
 			<ul>
 				<li>이름
 					<input class="famInfo" type="text" name="famName" required="required" placeholder="이름를 입력해주세요">

@@ -42,12 +42,12 @@ label{
 #famInfoFom{
 	position:absolute;
 	margin: auto;
-	margin-left: -12%;
+	margin-left: -20%;
 	width: 400px;
 }
 #graph{
 	position:absolute;
-	margin-left: 48%;
+	margin-left: 38%;
 	width: 400px;
 	height: 100%;
 }

@@ -18,7 +18,11 @@
 <a href="MemberInfoForm.do">MemberInfo</a>
 <a href="FamInsert.do">FamInsert</a>
 <a href="FamDetail.do">FamDetail</a>
-<a href="MemberInfoUpdateForm.do">MemberInfoUpdate</a><br>
+
+<a href="FamHealthInsert.do">FamHealthInsert</a>
+<a href="FWLList.do">FWLList</a>
+<a href="MemberInfoUpdate.do">MemberInfoUpdate</a><br>
+
 
 <h1>2018-05-30 am:11:45</h1>
 <h1>그런짓은 하지 말아야 했는데..</h1>
