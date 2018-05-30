@@ -46,7 +46,7 @@ function AdminUserInfo(){
                   <col width="150">
                   <col width="300">
                   <col width="70">
-                  <tr onclick="javascript:opener.location.href='Main.do';self.close();">
+                  <tr>
                      <th>번호</th>
                      <th>아이디</th>
                      <th>닉네임</th>
@@ -55,70 +55,70 @@ function AdminUserInfo(){
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res" onclick="AdminUserInfo();">chlwjdgus</td>
+                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
                      <td class="div1" id="res">정현이</td>
                      <td class="div1" id="res">chljh90@gmail.com</td>
                      <td class="div1" id="res">0</td>

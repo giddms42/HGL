@@ -32,7 +32,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
                   <col width="550">
                   <col width="300">
                   <col width="70">
-                  <tr onclick="javascript:opener.location.href='Main.do';self.close();">
+                  <tr>
                      <th>글번호</th>
                      <th>글제목</th>
                      <th>작성일</th>
@@ -40,61 +40,61 @@ html { background: url("image/img.jpg") no-repeat center fixed;
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>
                   <tr>
                      <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res">정현이님이 쓴 눈물나게 좋은글</td>
+                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
                      <td class="div1" id="res">2018-05-28 pm21:55</td>
                      <td class="div1" id="res"><input type="button" value="삭제"></td>
                   </tr>

@@ -30,7 +30,7 @@ function AdminMange(){
 		<div id="header">
 		<div id="header2"><img src="image/sadad.png"></div>
 			<div id="up">
-				<div class="up2" id="up21"><a href="Main.do">홈버튼 로고</a></div>
+				<div class="up2" id="up21"><a href="MainForm.do">홈버튼 로고</a></div>
 				<div class="up2" id="up22">
 					<div id="hgl"><strong>행</strong>복한
 					<strong>가</strong>족의
@@ -49,7 +49,7 @@ function AdminMange(){
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">캘린더</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">지도</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">위시리스트</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">좋은글</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="GGListForm.do" class="btn btn-sm animated-button thar-three" id="btn2">좋은글</a></div></div>
 			</div>
 		</div>
 	</div>
