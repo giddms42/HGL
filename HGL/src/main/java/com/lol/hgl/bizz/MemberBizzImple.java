@@ -72,7 +72,6 @@ public class MemberBizzImple implements MemberBizz {
 		}
 		String encryptPassword = passwordEncoder.encode(dto.getMemberPw());
 		dto.setMemberPw(encryptPassword);
-		System.out.println(encryptPassword);
 		int res = dao.signUp(dto);
 		return res;
 	}
@@ -130,6 +129,22 @@ public class MemberBizzImple implements MemberBizz {
 		String encryptPassword = passwordEncoder.encode(dto.getMemberPw());
 		dto.setMemberPw(encryptPassword);
 		res = dao.pwChange(dto);
+		return res;
+	}
+
+	@Override
+	public int updateMemberInfo(memberDto dto) {
+		if(dto.getMemberSMS() == null) {
+			dto.setMemberSMS("N");
+		}
+		int res = dao.updateMemberInfo(dto);
+		
+		return res;
+	}
+
+	@Override
+	public int getOut(int memberNo) {
+		int res = dao.getOut(memberNo);
 		return res;
 	}
 

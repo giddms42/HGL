@@ -30,6 +30,7 @@
 		switch(obj){
 			case "서울특별시" :
 				seoul.style.display = "";
+				seoul.setAttribute( 'name', 'memberCity' );
 				gyeonggi.style.display = "none";
 				incheon.style.display = "none";
 				gangwon.style.display = "none";
@@ -49,6 +50,7 @@
 			case "경기도" :
 				seoul.style.display = "none";
 				gyeonggi.style.display = "";
+				gyeonggi.setAttribute( 'name', 'memberCity' );
 				incheon.style.display = "none";
 				gangwon.style.display = "none";
 				chungbuk.style.display = "none";
@@ -68,6 +70,7 @@
 				seoul.style.display = "none";
 				gyeonggi.style.display = "none";
 				incheon.style.display = "";
+				incheon.setAttribute( 'name', 'memberCity' );
 				gangwon.style.display = "none";
 				chungbuk.style.display = "none";
 				chungnam.style.display = "none";
@@ -87,6 +90,7 @@
 				gyeonggi.style.display = "none";
 				incheon.style.display = "none";
 				gangwon.style.display = "";
+				gangwon.setAttribute( 'name', 'memberCity' );
 				chungbuk.style.display = "none";
 				chungnam.style.display = "none";
 				daejeon.style.display = "none";
@@ -106,6 +110,7 @@
 				incheon.style.display = "none";
 				gangwon.style.display = "none";
 				chungbuk.style.display = "";
+				chungbuk.setAttribute( 'name', 'memberCity' );
 				chungnam.style.display = "none";
 				daejeon.style.display = "none";
 				gyeongbug.style.display = "none";
@@ -125,6 +130,7 @@
 				gangwon.style.display = "none";
 				chungbuk.style.display = "none";
 				chungnam.style.display = "";
+				chungnam.setAttribute( 'name', 'memberCity' );
 				daejeon.style.display = "none";
 				gyeongbug.style.display = "none";
 				daegu.style.display = "none";
@@ -144,6 +150,7 @@
 				chungbuk.style.display = "none";
 				chungnam.style.display = "none";
 				daejeon.style.display = "";
+				daejeon.setAttribute( 'name', 'memberCity' );
 				gyeongbug.style.display = "none";
 				daegu.style.display = "none";
 				ulsan.style.display = "none";
@@ -181,6 +188,7 @@
 				chungnam.style.display = "none";
 				daejeon.style.display = "none";
 				gyeongbug.style.display = "";
+				gyeongbug.setAttribute( 'name', 'memberCity' );
 				daegu.style.display = "none";
 				ulsan.style.display = "none";
 				gyeongnam.style.display = "none";
@@ -200,6 +208,7 @@
 				daejeon.style.display = "none";
 				gyeongbug.style.display = "none";
 				daegu.style.display = "";
+				daegu.setAttribute( 'name', 'memberCity' );
 				ulsan.style.display = "none";
 				gyeongnam.style.display = "none";
 				busan.style.display = "none";
@@ -219,6 +228,7 @@
 				gyeongbug.style.display = "none";
 				daegu.style.display = "none";
 				ulsan.style.display = "";
+				ulsan.setAttribute( 'name', 'memberCity' );
 				gyeongnam.style.display = "none";
 				busan.style.display = "none";
 				jeonbug.style.display = "none";
@@ -238,6 +248,7 @@
 				daegu.style.display = "none";
 				ulsan.style.display = "none";
 				gyeongnam.style.display = "";
+				gyeongnam.setAttribute( 'name', 'memberCity' );
 				busan.style.display = "none";
 				jeonbug.style.display = "none";
 				jeonnam.style.display = "none";
@@ -257,6 +268,7 @@
 				ulsan.style.display = "none";
 				gyeongnam.style.display = "none";
 				busan.style.display = "";
+				busan.setAttribute( 'name', 'memberCity' );
 				jeonbug.style.display = "none";
 				jeonnam.style.display = "none";
 				gwangju.style.display = "none";
@@ -276,6 +288,7 @@
 				gyeongnam.style.display = "none";
 				busan.style.display = "none";
 				jeonbug.style.display = "";
+				jeonbug.setAttribute( 'name', 'memberCity' );
 				jeonnam.style.display = "none";
 				gwangju.style.display = "none";
 				jeju.style.display = "none";
@@ -295,6 +308,7 @@
 				busan.style.display = "none";
 				jeonbug.style.display = "none";
 				jeonnam.style.display = "";
+				jeonnam.setAttribute( 'name', 'memberCity' );
 				gwangju.style.display = "none";
 				jeju.style.display = "none";
 				break;
@@ -314,6 +328,7 @@
 				jeonbug.style.display = "none";
 				jeonnam.style.display = "none";
 				gwangju.style.display = "";
+				gwangju.setAttribute( 'name', 'memberCity' );
 				jeju.style.display = "none";
 				break;
 			case "제주도" :
@@ -333,6 +348,7 @@
 				jeonnam.style.display = "none";
 				gwangju.style.display = "none";
 				jeju.style.display = "";
+				jeju.setAttribute( 'name', 'memberCity' );
 				break;
 		}
    }
