@@ -142,8 +142,11 @@ public class MemberController {
    }
 
    @RequestMapping(value="memberLoginOut.do")
-   public String memberLoginOut(HttpSession session) {
+   public String memberLoginOut(HttpSession session, Model model) {
 		session.invalidate(); 
+		
+		 String msg = "로그아웃 되었습니다. 다음에 또 와주세요!";
+		  model.addAttribute("msg", msg);
 	    return "MemberLoginForm";
    }
 
