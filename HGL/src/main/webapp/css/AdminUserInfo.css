@@ -69,3 +69,7 @@
 	#res{
 		background-color: orange;
 	}
+	
+	#cursor{
+		cursor: pointer;
+	}
