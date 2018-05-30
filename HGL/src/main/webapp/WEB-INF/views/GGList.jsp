@@ -33,7 +33,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                  <col width="50">
 	                  <col width="100">
 	                  <col width="50">
-	                  <tr onclick="javascript:opener.location.href='Main.do';self.close();">
+	                  <tr>
 	                     <th>글번호</th>
 	                     <th>글제목</th>
 	                     <th>글쓴이</th>
