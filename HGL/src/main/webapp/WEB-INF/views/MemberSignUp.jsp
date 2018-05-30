@@ -355,7 +355,7 @@
 	      <div style="margin-left: 10%; margin-top: 10%; width:370px;" align="center">
 	      <input type="submit" value="가입하기">
 	      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	      <input type="button" value="취소하기"> 
+	      <input type="button" value="취소하기" onclick=""> 
 	      </div>
    		</form>
      </div> 

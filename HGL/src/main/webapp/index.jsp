@@ -18,6 +18,7 @@
 <a href="MemberInfo.do">MemberInfo</a>
 <a href="FamInsert.do">FamInsert</a>
 <a href="FamDetail.do">FamDetail</a>
+<a href="FamHealthInsert.do">FamHealthInsert</a>
 <a href="MemberInfoUpdate.do">MemberInfoUpdate</a><br>
 
 <h1>2018-05-30 am:11:45</h1>
