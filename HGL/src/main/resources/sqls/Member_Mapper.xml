@@ -51,13 +51,20 @@
 	</select>
 	
 	<select id="Login" parameterType="String" resultMap="memberDto">
-		 SELECT * FROM MEMBER WHERE MEMBERID=#{id}
+		 SELECT * FROM MEMBER WHERE MEMBERID=#{id} 
 	</select>
 	
 	<update id="pwChange" parameterType="memberDto">
 		UPDATE MEMBER SET MEMBERPW=#{memberPw} WHERE MEMBERID=#{memberId} AND MEMBEREMAIL=#{memberEmail}
 	</update>
+	
+	<update id="updateMemberInfo" parameterType="memberDto">
+		UPDATE MEMBER SET MEMBERPHONE=#{memberPhone}, MEMBERSMS=#{memberSMS}, MEMBERDO=#{memberDo}, MEMBERCITY=#{memberCity}, MEMBERADDR=#{memberAddr} WHERE MEMBERNO=#{memberNo}
+	</update>
 
+	<update id="getOut" parameterType="int">
+		UPDATE MEMBER SET MEMBERJOIN='N' WHERE MEMBERNO=#{memberNo}
+	</update>
 
 
 </mapper>

@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="gg">
+
+	<resultMap type="com.lol.hgl.dto.ggDto" id="ggDtoMap">
+		<result column="GGNO" property="ggNo"/>
+		<result column="GGWRITER" property="ggWriter"/>
+		<result column="GGTITLE" property="ggTitle"/>
+		<result column="GGCONT" property="ggCont"/>
+		<result column="GGREADCNT" property="ggReadcnt"/>
+		<result column="GGDATE" property="ggDate"/>
+		<result column="GGIMGNAME" property="ggImgname"/>
+	</resultMap>
+	
+	<select id="selectAll" resultMap="ggDtoMap">
+		SELECT * FROM GG ORDER BY GGNO DESC
+	</select>
+	
+	<select id="selectOne" resultType="ggDto" parameterType="int">
+		SELECT * FROM GG WHERE GGNO=#{ggNo}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM GG WHERE GGNO = #{ggNo}
+	</delete>
+	
+	<insert id="insert" parameterType="ggDto">
+		INSERT INTO GG VALUES(
+		GGNO_SEQ.NEXTVAL, #{ggWriter}, #{ggTitle}, #{ggCont}, 0, SYSDATE, ''
+		)
+	</insert>
+
+
+
+
 </mapper>

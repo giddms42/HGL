@@ -65,6 +65,7 @@ public class MemberController {
    
    @RequestMapping(value = "MemberSignUp.do", method = RequestMethod.POST)
    public String memberSingUp(@ModelAttribute memberDto dto) {
+	  System.out.println(dto.getMemberCity());
 	  int res = bizz.signUp(dto);
 	  if(res>0) {
 		  return "MemberLogin";
@@ -142,31 +143,41 @@ public class MemberController {
    }
 
    @RequestMapping(value="memberLoginOut.do")
-   public String memberLoginOut(HttpSession session) {
+   public String memberLoginOut(HttpSession session, Model model) {
 		session.invalidate(); 
-	    return "MemberLoginForm";
+		
+		 String msg = "로그아웃 되었습니다. 다음에 또 와주세요!";
+		  model.addAttribute("msg", msg);
+	    return "MemberLogin";
    }
 
-   
-   
-   
-   
-   
-   @RequestMapping(value="FChart.do")
-   public String FChart() {
-      return "FChart";
-   }
 
-   
-
-   
-   @RequestMapping(value = "MemberInfo.do")
-   public String MemberInfo() {   
+   @RequestMapping(value = "MemberInfoForm.do")
+   public String MemberInfoForm(String memberId, Model model) {   
+	   memberDto dto = bizz.Login(memberId);
+	   model.addAttribute("dto", dto);
       return "MemberInfo";
    }
    
    @RequestMapping(value = "MemberInfoUpdate.do")
-   public String MemberInfoUpdate() {   
+   public String MemberInfoUpdate(@ModelAttribute memberDto dto, Model model) {   
+	  bizz.updateMemberInfo(dto);
+	  System.out.println(dto.getMemberId());
+	  model.addAttribute("memberId", dto.getMemberId());
+      return "redirect:MemberInfoForm.do";
+   } 
+   
+   @RequestMapping(value = "MemberInfoUpdateForm.do")
+   public String MemberInfoUpdateForm() {   
       return "MemberInfoUpdate";
    } 
+   
+   @RequestMapping(value = "MemberGetOut.do")
+   public String MemberGetOut(int memberNo, Model model) {
+       bizz.getOut(memberNo);
+	   String msg = "그동안 이용해주셔서 감사합니다.";
+	   model.addAttribute("msg", msg);
+	   return "MemberLogin";
+   }
+   
 }

@@ -14,4 +14,6 @@ public interface MemberBizz {
 	public memberDto Login(String id);
 	public String LoginChk(String id, String pw);
 	public int pwChange(memberDto dto);
+	public int updateMemberInfo(memberDto dto);
+	public int getOut(int memberNo);
 }

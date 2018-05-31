@@ -8,11 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FamController {
 	
 	  @RequestMapping(value="FamInsert.do")
-	  public String FamHealthInsertForm() {
+	  public String FamInsertForm() {
 	     return "FamInsert";
 	  }
+	  
 	  @RequestMapping(value="FamDetail.do")
 	  public String FamDetailForm() {
 	     return "FamDetail";
 	  }
+	  
+	  @RequestMapping(value="FamHealthInsert.do")
+	  public String FamHealthInsertForm() {
+	     return "FamHealthInsert";
+	  }	  
+	  
 }

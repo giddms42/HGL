@@ -118,4 +118,26 @@ public class MemeberDaoImple implements MemberDao {
 		return res;
 	}
 
+	@Override
+	public int updateMemberInfo(memberDto dto) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"updateMemberInfo", dto);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public int getOut(int memberNo) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"getOut", memberNo);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
 }
