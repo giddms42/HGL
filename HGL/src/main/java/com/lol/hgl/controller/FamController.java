@@ -27,7 +27,9 @@ public class FamController {
 	  }
 	  
 	  @RequestMapping(value="FamDetailForm.do")
-	  public String FamDetailForm() {
+	  public String FamDetailForm(int famNo, Model model) {
+		 famDto famDto = bizz.famDetail(famNo);
+		 model.addAttribute("famDto", famDto);
 	     return "FamDetail";
 	  }
 	  
@@ -47,5 +49,13 @@ public class FamController {
 		  model.addAttribute("memberNo", famdto.getMemberNo());	  
 	     return "redirect:MemberInfoForm.do";
 	  }  
+	  
+	 
+      @RequestMapping(value=" FamDelete.do")
+	  public String FamDelete(int famNo, int memberNo, Model model) {
+		  bizz.famDelete(famNo);
+		  model.addAttribute("memberNo",memberNo);	  
+	     return "redirect:MemberInfoForm.do";
+	  } 
 	  
 }

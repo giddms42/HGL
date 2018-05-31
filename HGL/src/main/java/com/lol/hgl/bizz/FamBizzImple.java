@@ -44,9 +44,6 @@ public class FamBizzImple implements FamBizz {
 			
 		}
 		
-		
-		
-		
 		if(famDto.getFamLunar()==null) {
 			famDto.setFamLunar("양력");
 		}
@@ -54,6 +51,19 @@ public class FamBizzImple implements FamBizz {
 		int res = dao.insertFam(famDto);		
 		return res;
 	}
+
+	@Override
+	public famDto famDetail(int famNo) {
+		famDto res = dao.famDetail(famNo);
+		return null;
+	}
+
+	@Override
+	public int famDelete(int famNo) {
+		int res = dao.famDelete(famNo);
+		return res;
+	}
+
 
 
 }

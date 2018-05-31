@@ -21,5 +21,19 @@
 	<insert id="insertFam" parameterType="famDto">
 	INSERT INTO FAM VALUES(#{memberNo}, FAMNO_SEQ.NEXTVAL, #{famName}, #{famHeight}, #{famDisease1} , #{famDisease2} , #{famDisease3} , #{famBirth}, #{famLunar})
 	</insert>
+	
+	<select id="famDetail" parameterType="int" resultType="famDto">
+     SELECT * FROM FAM WHERE FAMNO=#{famNo}
+    </select>
+    
+    <delete id="famDelete" parameterType="int">
+    DELETE FROM FAM WHERE FAMNO=#{famNo}
+    </delete>
+    
+   
+    <select id="memberNoSearch" parameterType="int" resultType="int">
+      SELECT MEMBERNO FROM FAM WHERE FAMNO=#{famNo}
+    </select>
+	
 
 </mapper>

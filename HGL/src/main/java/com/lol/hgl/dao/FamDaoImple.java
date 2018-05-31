@@ -41,4 +41,28 @@ public class FamDaoImple implements FamDao {
 		return res;
 	}
 
+	@Override
+	public famDto famDetail(int famNo) {
+		famDto res = new famDto();
+		try {
+			res = sqlSession.selectOne(nameSpace+"famDetail", famNo);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}		
+	return res;
+	}
+
+	@Override
+	public int famDelete(int famNo) {
+		int res = 0;
+		try {
+			res = sqlSession.delete(nameSpace+"famDelete", famNo);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}		
+	return res;
+	}
+
+
+
 }
