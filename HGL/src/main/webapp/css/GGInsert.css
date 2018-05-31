@@ -19,7 +19,7 @@ width: 100%;
 #b{
 color: white;
 border: 1px dashed red;
-height: 570px;
+height: 650px;
 width: 100%; 
 display: -webkit-flex;
      display:         flex;
@@ -31,7 +31,7 @@ display: -webkit-flex;
  
  #bodyMain{
     position: relative;
-    width: 80%;
+    width: 70%;
     height: 95%;
     display: -webkit-flex;
      display:         flex;
@@ -40,6 +40,18 @@ display: -webkit-flex;
      -webkit-justify-content: center;
              justify-content: center;
      flex-direction: column;
+ }
+ 
+ #form{
+ 	 display: -webkit-flex;
+     display:         flex;
+     -webkit-align-items: center;
+             align-items: center;
+     -webkit-justify-content: center;
+             justify-content: center;
+     flex-direction: column;
+ 	margin: auto;
+ 	width: 99.5%;
  }
  
  #content{
@@ -56,9 +68,19 @@ display: -webkit-flex;
  }
  
  td{
+ 	height: 25px;
     text-align: center;
       border: 1px solid white;
       text-decoration: none;
+ }
+ 
+ .td{
+ 	height: 99%;
+ 	width: 99%;
+ }
+ 
+ textarea{
+ 	width: 99%;
  }
  
  table{
@@ -101,8 +123,26 @@ a:visited {
 	color: white;
 	text-decoration: none;
 }
-
-.Gbtn{
-	margin-left: 91%;
+.btn{
+	position: relative;
 	padding: 5px;
+}
+
+.btn1{
+	position: absolute;
+	height: 30px;
+	right: 355px;
+	top: 17px;
+}
+.btn2{
+	position: absolute;
+	height: 30px;
+	left: 315px;
+	top: 17px;
+}
+.btn3{
+	position: absolute;
+	height: 30px;
+	left: 375px;
+	top: 17px;	
 }

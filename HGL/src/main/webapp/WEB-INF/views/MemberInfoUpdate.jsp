@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,19 +11,38 @@
 <link rel="stylesheet" type="text/css" href="css/MemberInfoUpdate.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script src="js/MemberInfoUpdate.js"></script>
+<script type="text/javascript">
+
+function cancle(){
+	location.href="MemberInfoForm.do?memberId="${login.memberId};
+		
+}
+</script>
 </head>
 <body>
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
-	<form action="">
+	<form action="MemberInfoUpdate.do" novalidate>
 	<div class="userInfo">
 		<h2>회원정보 수정</h2>
+			<input type="hidden" name="memberNo" value="${login.memberNo}"/>
 		<ul>
-			<li>아이디<input class="updateInfo" type="text" value="memberId" readonly="readonly"></li>
-			<li>닉네임<input class="updateInfo" type="text" value="memberNickname" readonly="readonly"></li>
-			<li>연락처<input class="updateInfo" type="text" value="memberphone"></li>
+			<li>아이디<input class="updateInfo" type="text" name="memberId" value="${login.memberId}" readonly="readonly"></li>
+			<li>닉네임<input class="updateInfo" type="text" value="${login.memberNickname}" readonly="readonly"></li>
+			<li>연락처<input class="updateInfo" type="text" name="memberPhone" value="${login.memberPhone}"></li>
 			<li style="font-size:11pt; margin-left: 75px; margin-bottom: 10px; margin-top: -10px;">
-			<input type="checkbox" value="" style="width: 20px; height: 20px; vertical-align: -5px;">문자알림을 받으시겠습니까?</li>
-			<li>이메일<input class="updateInfo" type="text" value="memberEmail" readonly="readonly"></li>
+			<label>
+				<c:choose>
+						<c:when test="${login.memberSMS eq 'Y'}">
+							<input class="smsChk" style="width:5%" type="checkbox" checked="checked" name="memberSMS" value="Y" onclick="snsChecked();">
+						</c:when>
+						<c:otherwise>
+							<input class="smsChk" style="width:5%" type="checkbox" name="memberSMS" value="Y" onclick="snsChecked();">	
+						</c:otherwise>
+					</c:choose>
+					문자알림을 받으시겠습니까?
+			</label>
+			</li>
+			<li>이메일<input class="updateInfo" type="text" value="${login.memberEmail}" readonly="readonly"></li>
 			<li>주  소<br>
 			<select name="memberDo" onChange="showSub(this.options[this.selectedIndex].value);" required="required" style="height: 37px;">
 		      	<option value="">도를 선택해주세요</option>
@@ -44,7 +64,7 @@
 		      	<option value="광주광역시">광주광역시</option>
 		      	<option value="제주도">제주도</option>
 		      </select>
-		      <select name="memberCity" id="seoul" style="height: 37px; display: none;" required="required">
+		      <select name="" id="seoul" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강남구">강남구</option>
 		      	<option value="강동구">강동구</option>
@@ -72,7 +92,7 @@
 		      	<option value="중구">중구</option>
 		      	<option value="중랑구">중랑구</option>
 		      </select>
-		      <select name="memberCity" id="gyeonggi" style="height: 37px; display: none;" required="required">
+		      <select name="" id="gyeonggi" style="height: 37px; display: none;" required="required">
 		      	<option value="">시,군을 선택해주세요</option>
 		      	<option value="가평군">가평군</option>
 		      	<option value="고양시">고양시</option>
@@ -105,7 +125,7 @@
 		      	<option value="하남시">하남시</option>
 		      	<option value="화성시">화성시</option>
 		      </select>
-		      <select name="memberCity" id="incheon" style="height: 37px; display: none;" required="required">
+		      <select name="" id="incheon" style="height: 37px; display: none;" required="required">
 		        <option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강화군">강화군</option>
 		      	<option value="계양구">계양구</option>
@@ -118,7 +138,7 @@
 		      	<option value="옹진군">옹진군</option>
 		      	<option value="중구">중구</option>
 		      </select>
-		      <select name="memberCity" id="gangwon" style="height: 37px; display: none;" required="required">
+		      <select name="" id="gangwon" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강릉시">강릉시</option>
 		      	<option value="고성군">고성군</option>
@@ -137,10 +157,9 @@
 		      	<option value="평창군">평창군</option>
 		      	<option value="홍천군">홍천군</option>
 		      	<option value="화천군">화천군</option>
-
 		      	<option value="횡성군">횡성군</option>
 		      </select>
-		      <select name="memberCity" id="chungbuk" style="height: 37px; display: none;" required="required">
+		      <select name="" id="chungbuk" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="괴산군">괴산군</option>
 		      	<option value="단양군">단양군</option>
@@ -154,7 +173,7 @@
 		      	<option value="청주시">청주시</option>
 		      	<option value="충주시">충주시</option>
 		      </select>
-  		      <select name="memberCity"  id="chungnam" style="height: 37px; display: none;" required="required">
+  		      <select name=""  id="chungnam" style="height: 37px; display: none;" required="required">
   		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="계룡시">계룡시</option>
 		      	<option value="공주시">공주시</option>
@@ -172,7 +191,7 @@
 		      	<option value="태안군">태안군</option>
 		      	<option value="홍성군">홍성군</option>
 		      </select>
-		      <select name="memberCity" id="daejeon" style="height: 37px; display: none;" required="required">
+		      <select name="" id="daejeon" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="대덕구">대덕구</option>
 		      	<option value="동구">동구</option>
@@ -180,7 +199,7 @@
 		      	<option value="유성구">유성구</option>
 		      	<option value="중구">중구</option>
 		      </select>
-		      <select name="memberCity" id="gyeongbug" style="height: 37px; display: none;" required="required">
+		      <select name="" id="gyeongbug" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="경산시">경산시</option>
 		      	<option value="경주시">경주시</option>
@@ -206,7 +225,7 @@
 		      	<option value="칠곡군">칠곡군</option>
 		      	<option value="포항시">포항시</option>
 		      </select>
-		      <select name="memberCity" id="daegu" style="height: 37px; display: none;" required="required">
+		      <select name="" id="daegu" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="남구">남구</option>
 		      	<option value="달서구">달서구</option>
@@ -217,7 +236,7 @@
 		      	<option value="수성구">수성구</option>
 		      	<option value="중구">중구</option>
 		      </select>
-		      <select name="memberCity" id="ulsan" style="height: 37px; display: none;" required="required">
+		      <select name="" id="ulsan" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="남구">남구</option>
 		      	<option value="동구">동구</option>
@@ -225,7 +244,7 @@
 		      	<option value="울주군">울주군</option>
 		      	<option value="중구">중구</option>
 		      </select>
-		      <select name="memberCity" id="gyeongnam" style="height: 37px; display: none;" required="required">
+		      <select name="" id="gyeongnam" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="거제시">거제시</option>
 		      	<option value="거창군">거창군</option>
@@ -246,7 +265,7 @@
 		      	<option value="함양군">함양군</option>
 		      	<option value="합천군">합천군</option>
 		      </select>
-		      <select name="memberCity"  id="busan" style="height: 37px; display: none;" required="required">
+		      <select name=""  id="busan" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강서구">강서구</option>
 		      	<option value="금정구">금정구</option>
@@ -265,7 +284,7 @@
 		      	<option value="중구">중구</option>
 		      	<option value="해운대구">해운대구</option>
 		      </select>
-		      <select name="memberCity" id="jeonbug"  style="height: 37px; display: none;" required="required">
+		      <select name="" id="jeonbug"  style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="고창군">고창군</option>
 		      	<option value="군산시">군산시</option>
@@ -282,7 +301,7 @@
 		      	<option value="정읍시">정읍시</option>
 		      	<option value="진안군">진안군</option>
 		      </select>
-		      <select name="memberCity" id="jeonnam" style="height: 37px; display: none;" required="required">
+		      <select name="" id="jeonnam" style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강진군">강진군</option>
 		      	<option value="고흥군">고흥군</option>
@@ -307,7 +326,7 @@
 		      	<option value="해남군">해남군</option>
 		      	<option value="화순군">화순군</option>
 		      </select>
-		      <select name="memberCity" id="gwangju"  style="height: 37px; display: none;" required="required">
+		      <select name="" id="gwangju"  style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="광산군">광산군</option>
 		      	<option value="남구">남구</option>
@@ -315,17 +334,17 @@
 		      	<option value="북구">북구</option>
 		      	<option value="서구">서구</option>
 		      </select>
-		      <select name="memberCity" id="jeju"style="height: 37px; display: none;" required="required">
+		      <select name="" id="jeju"style="height: 37px; display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="서귀포시">서귀포시</option>
 		      	<option value="제주시">제주시</option>
 		      </select>
-	      <br><input class="info" type="text" value="memberId" required="required" placeholder="상세주소를 입력해주세요" style="margin-top:10px; mar height:37px; vertical-align: 1px;">
+	      <br><input class="info" type="text" name="memberAddr" value="${login.memberAddr}" required="required" placeholder="상세주소를 입력해주세요" style="margin-top:10px; mar height:37px; vertical-align: 1px;">
 	      </li>
 		</ul>
 	<div id="updateButton">
 		<input type="submit" value="수정하기" style="margin-left: 10%;	margin-top:5%;">
-		<input type="button" value="취소하기" style="margin-left: 47%; margin-top:5%;">
+		<input type="button" value="취소하기" onclick="cancle();"style="margin-left: 47%; margin-top:5%;">
 	</div>
 	</div>
 	</form>
