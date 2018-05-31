@@ -63,6 +63,10 @@
 					</select>
 				</li>
 			</ul>
+			<div>
+				<input type="submit" value="등록하기">
+				<input type="button" value="등록취소">
+			</div>
 		</form>
      </div> 
 

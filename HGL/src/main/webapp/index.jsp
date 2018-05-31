@@ -20,6 +20,8 @@
 <a href="FamDetail.do">FamDetail</a>
 <a href="FamHealthInsert.do">FamHealthInsert</a>
 <a href="FWLList.do">FWLList</a>
+<a href="FWLBList.do">FWLBList</a>
+<a href="FWLBDetail.do">FWLBDetail</a>
 <a href="MemberInfoUpdate.do">MemberInfoUpdate</a><br>
 
 <h1>2018-05-30 am:11:45</h1>

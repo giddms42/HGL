@@ -9,6 +9,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>{OOO님의 위시리스트}</h2>
+	<div>
+		<input type="text" value="조회수">
+		<input type="date" value="공유일">
+		<div>
+			
+		</div>
+	</div>
 
 </body>
 </html>
