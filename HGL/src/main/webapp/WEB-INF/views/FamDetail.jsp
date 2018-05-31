@@ -50,7 +50,7 @@ google.charts.setOnLoadCallback(drawChart);
 					<div>지병 항목 (최대 3개) <input type="button" value="변경하기"></div>
 					
 					<c:choose>
-						<c:when test="${famDto.famDisease1 eq 질병없음}">
+						<c:when test="${famDto.famDisease1 eq '질병없음'}">
 						</c:when>
 						<c:otherwise>
 						<div style="margin-left: 20px;">
@@ -61,7 +61,7 @@ google.charts.setOnLoadCallback(drawChart);
 					</c:choose>
 					
 					<c:choose>
-						<c:when test="${famDto.famDisease2 eq 질병없음}">
+						<c:when test="${famDto.famDisease2 eq '질병없음'}">
 						</c:when>
 						<c:otherwise>
 						<div style="margin-left: 20px;">
@@ -72,7 +72,7 @@ google.charts.setOnLoadCallback(drawChart);
 					</c:choose>
 					
 					<c:choose>
-						<c:when test="${famDto.famDisease3 eq 질병없음}">
+						<c:when test="${famDto.famDisease3 eq '질병없음'}">
 						</c:when>
 						<c:otherwise>
 						<div style="margin-left: 20px;">

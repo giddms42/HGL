@@ -55,7 +55,7 @@ public class FamBizzImple implements FamBizz {
 	@Override
 	public famDto famDetail(int famNo) {
 		famDto res = dao.famDetail(famNo);
-		return null;
+		return res;
 	}
 
 	@Override
