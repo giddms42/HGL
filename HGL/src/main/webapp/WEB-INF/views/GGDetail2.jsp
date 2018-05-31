@@ -26,7 +26,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	   <div id="b">
 	      <div id="bodyMain">
 	         <!-- <img src="image/sadad.png" id="content"> -->
-	         <form action="GGUpdateForm.do?ggNo=${dto.ggNo}" id="form" method="post">
+	         <form action="GGUpdateForm.do?ggNo=${dto.ggNo }" id="form" method="post">
 		           <br/>
 	               <table border="1" bordercolor="white">
 	               <col width="100">
@@ -65,13 +65,9 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	      </form>
 	      </div>
 	      
-	    <div id="comment">
+	      <div id="comment">
 	      		<div>
-	      		<c:choose>
-				<c:when test="${login != null}">
-			<div class="replyBox">
-			<form action="GGRepleyInsert.do" id="form" method="post">
-			<input type="hidden" name="ggNo" value="${dto.ggNo}">
+	      		<form action="" id="form">
 		           <br/>
 	               <table border="1" bordercolor="white">
 	                  <col width="125" class="ab">
@@ -83,51 +79,38 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	               	  	 </td>
 	               	  </tr>
 	                  <tr>
-						<td><input type="text" name="ggcmWriter" value="${login.memberNickname}">${login.memberNickname}</td>
-						<td><textarea rows="2" cols="" placeholder="댓글 내용을 입력해주세요" style="resize: none;" name="ggcmCont"></textarea></td>
+						<td>${dto.ggWriter }</td>
+						<td><textarea rows="2" cols="" placeholder="댓글 내용을 입력해주세요" style="resize: none;"></textarea></td>
 						<td><input type="submit" value="댓글달기" id="Cbtn1"></td>
 					</tr>
 	               </table>
 	     		</form>
-		</div>
-		</c:when>
-		</c:choose>
 	      		</div>
 	      		
 	      		<div>
 	      		<form action="" id="form">
-		           	   <br/>
-		               <c:if test="${!empty commentList}">
-							<div class="qaUpdate" id="commentBox">
-							     <c:forEach items="${commentList}" var="commentDto">
-							      <table border="1" bordercolor="white">
-							         <col width="125" class="ab">
-							         <col width="800">
-							         <col width="155">
-							         <tr>
-					               	  	 <td colspan="3">
-					         	   			<div>댓글 목록</div>
-					               	  	 </td>
-					               	  </tr>					               	  
-					               	  <tr>
-										 <td>${commentDto.ggWriter }</td>
-										 <td><textarea rows="2" cols="" readonly="readonly" style="resize: none;">댓글 내용입니다 / for문으로 목록 나열해야함</textarea></td>
-										 <td>
-										 	<input type="submit" value="수정" class="Cbtn2">
-										 	<input type="button" value="삭제" class="Cbtn2">
-										 </td>
-									 </tr>
-									 <tr>
-					               	  	 <td>
-					         	   			<div>작성일</div>
-					               	  	 </td><td colspan="2">
-					         	   			<div><fmt:formatDate value="${commentDto.regDate}" pattern="yyyy-MM-dd"/></div>
-					               	  	 </td>
-					               	  </tr>
-							      </table>
-							    </c:forEach>  
-							</div>
-						</c:if>
+		           <br/>
+	               <table border="1" bordercolor="white">
+	                  <col width="125" class="ab">
+	                  <col width="800">
+	                  <col width="155">
+	                  <tr>
+	               	  	 <td>
+	         	   			<div>작성자</div>
+	               	  	 </td>
+	               	  	 <td colspan="2">
+	         	   			<div>댓글 목록　　　　　　</div>
+	               	  	 </td>
+	               	  </tr>
+	                  <tr>
+						<td>${dto.ggWriter }</td>
+						<td><textarea rows="2" cols="" readonly="readonly" style="resize: none;">댓글 내용입니다 / for문으로 목록 나열해야함</textarea></td>
+						<td>
+							<input type="submit" value="수정" class="Cbtn2">
+							<input type="button" value="삭제" class="Cbtn2">
+						</td>
+					</tr>
+	               </table>
 	     		</form>
 	      		</div>
 	      </div>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lol.hgl.bizz.GGBizz;
 import com.lol.hgl.dto.ggDto;
+import com.lol.hgl.dto.ggcmDto;
 
 
 
@@ -45,8 +46,10 @@ public class GGController {
 	public String GGDetailForm(Model model, int ggNo) {
 		
 		ggDto dto = bizz.selectOne(ggNo);
+		List<ggcmDto> dto2 = bizz.repleySelectOne(ggNo);
 		
 		model.addAttribute("dto",dto);
+		model.addAttribute("commentList",dto2);
 		
 		return "GGDetail";
 	}
@@ -82,6 +85,13 @@ public class GGController {
 		} else {
 			return "redirect:updateForm.do?ggNo=" + dto.getGgNo();
 		}
+	}
+	
+	@RequestMapping(value = "GGRepleyInsert.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String GGRepleyInsert(Model model, ggcmDto dto) {
+		int res = bizz.repleyInsert(dto);
+		
+		return "redirect:GGDetailForm.do?ggcmNo="+dto.getGgcmNo();
 	}
 
 }

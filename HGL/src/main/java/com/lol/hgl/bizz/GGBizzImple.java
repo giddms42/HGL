@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.lol.hgl.dao.GGDao;
 import com.lol.hgl.dao.GGDaoImple;
 import com.lol.hgl.dto.ggDto;
+import com.lol.hgl.dto.ggcmDto;
 
 @Service
 public class GGBizzImple implements GGBizz {
@@ -38,6 +39,28 @@ public class GGBizzImple implements GGBizz {
 	@Override
 	public int update(ggDto dto) {
 		return dao.update(dto);
+	}
+
+	@Override
+	public int repleyInsert(ggcmDto dto) {
+		return dao.repleyInsert(dto);
+	}
+
+	@Override
+	public int repleyDelete(int seq) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int repleyUpdate(ggcmDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<ggcmDto> repleySelectOne(int seq) {
+		return dao.repleySelectOne(seq);
 	}
 
 }

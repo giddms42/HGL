@@ -12,6 +12,14 @@
 		<result column="GGIMGNAME" property="ggImgname"/>
 	</resultMap>
 	
+	<resultMap type="com.lol.hgl.dto.ggcmDto" id="ggcmDtoMap">
+		<result column="GGNO" property="ggNo"/>
+		<result column="GGCMNO" property="ggcmNo"/>
+		<result column="GGCMWRITER" property="ggcmWriter"/>
+		<result column="GGCMCONT" property="ggcmCont"/>
+		<result column="GGCMDATE" property="ggcmDate"/>
+	</resultMap>
+	
 	<select id="selectAll" resultMap="ggDtoMap">
 		SELECT * FROM GG ORDER BY GGNO DESC
 	</select>
@@ -33,6 +41,16 @@
 	<update id="update" parameterType="ggDto">
 		UPDATE GG SET GGTITLE= #{ggTitle}, GGCONT= #{ggCont} WHERE GGNO= #{ggNo}
 	</update>
+	
+	<insert id="repleyInsert" parameterType="ggcmDto">
+		INSERT INTO GGCM VALUES(
+		#{ggNo},GGCMNO_SEQ.NEXTVAL, #{ggcmWriter}, #{ggcmCont}, SYSDATE
+		)
+	</insert>
+	
+	<select id="repleySelectList" resultMap="ggcmDtoMap" parameterType="int">
+		SELECT * FROM GGCM WHERE GGNO=#{ggNo}
+	</select>
 
 
 
