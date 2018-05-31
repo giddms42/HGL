@@ -65,7 +65,7 @@ function goSubmit(){
 					<input class="famInfo" type="text" name="famName" required="required" placeholder="이름를 입력해주세요">
 				</li>
 				<li>생일
-					<input class="famInfo" type="NUMBER" name="famBirth" required="required" placeholder="생일를 입력해주세요(ex.19910621)">
+					<input class="famInfo" type="NUMBER" name="famBirth" maxlength="8" required="required" placeholder="생일를 입력해주세요(ex.19910621)">
 				</li>
 				<li style="margin-top: -30px; margin-left: 60px;">
 					<label><input class="radi" type="radio" name="famLunar" value="양력">양력</label>
