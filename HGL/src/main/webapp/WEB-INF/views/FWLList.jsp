@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,13 +34,23 @@
 				<th style="text-align: center;">위 시 리 스 트</th>
 			</tr>
 			<tr>
-				<td><input type="checkbox" value="" style="margin-left:35px; vertical-align: middle; width: 25px; height: 25px;"></td>
-				<td>---------위시리스트 항목이 존재하지않습니당---------</td>
+				<c:choose>
+					<c:when test="${empty FWLList}">
+						<td></td>
+						<td style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${FWLList}" var="FwlDto">
+							<td><input type="checkbox" value="" style="margin-left:35px; vertical-align: middle; width: 25px; height: 25px;"></td>
+							<td>${FwlDto.fwlItem}</td>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<input type="button" value="삭제" style="float:right;">  
-					<input type="submit" value="저장" style="float:right;"><!-- 추가하기하고 저장을 누르기위해서 -->
+					<input type="submit" value="달성여부 저장" style="float:right;"><!-- 추가하기하고 저장을 누르기위해서 -->
 				</td>
 			</tr>
 		</table>
