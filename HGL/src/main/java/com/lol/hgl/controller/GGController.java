@@ -15,5 +15,10 @@ public class GGController {
 	   public String GGInsertForm() {   
 	      return "GGInsert";
 	   }
+	
+	@RequestMapping(value = "GGUpdateForm.do")
+	   public String GGUpdateForm() {   
+	      return "GGUpdate";
+	   }
 
 }

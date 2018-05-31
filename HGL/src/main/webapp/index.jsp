@@ -12,10 +12,18 @@
 
 <a href="home.do">home</a><br>
 <a href="MemberSignUpForm.do">signUpForm</a>
+
+<br>
+
 <a href="MemberLoginForm.do">로그인</a>
 <a href="MainForm.do">메인</a>
 <a href="GGListForm.do">좋은글게시판</a>
-<a href="FChart.do">건강그래프</a>
+<a href="GGUpdateForm.do">좋은글수정</a>
+
+<br>
+<br>
+<br>
+
 <a href="MemberInfo.do">MemberInfo</a>
 <a href="FamInsert.do">FamInsert</a>
 <a href="FamDetail.do">FamDetail</a>
