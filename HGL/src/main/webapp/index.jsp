@@ -16,8 +16,8 @@
 <a href="MainForm.do">메인</a>
 <a href="GGListForm.do">좋은글게시판</a>
 <a href="MemberInfoForm.do">MemberInfo</a>
-<a href="FamInsert.do">FamInsert</a>
-<a href="FamDetail.do">FamDetail</a>
+<a href="FamInsertForm.do">FamInsert</a>
+<a href="FamDetailForm.do">FamDetail</a>
 
 <a href="FamHealthInsert.do">FamHealthInsert</a>
 <a href="FWLList.do">FWLList</a>

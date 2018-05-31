@@ -50,7 +50,6 @@ $("input[name=memberPw").on("change",function() {
 
 
 function goSubmit(){
-	alert("asd");
 	window.opener.name = "Parent"; // 부모창의 이름 설정
     document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
     self.close();

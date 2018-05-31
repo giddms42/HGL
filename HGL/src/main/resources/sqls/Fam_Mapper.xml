@@ -10,7 +10,7 @@
 		<result column="FAMDISEASE1" property="famDisease1"/>
 		<result column="FAMDISEASE2" property="famDisease2"/>
 		<result column="FAMDISEASE3" property="famDisease3"/>
-		<result column="FAMBIRTH" property="famBirth"/>	
+		<result column="FAMBIRTH" property="famBirth" />  
 		<result column="FAMLUNAR" property="famLunar"/>		
 	</resultMap>
 
