@@ -4,16 +4,16 @@ li{
 }
 header{
 	text-align: center;
+	margin:auto;
 	margin-left: 180px;
-	width: 200px;
-}
-form{
-	margin:auto;	
-	width: 500px;	
+	width: 500px;
 }
 label{
 	font-size: 12pt;
-	
+}
+#famDetail{
+	margin:auto;	
+	width: 500px;	
 }
 .radi{
 	width: 16px;
@@ -29,6 +29,8 @@ label{
 .famInfo{
 	width: 250px;
 	height: 35px;
+	border: none;
+	background-color : #f0f0f0;
 	margin-left: 20px;
 	margin-bottom: 30px;
 }
@@ -36,7 +38,7 @@ label{
 	position:relative;
 	margin:auto;
 	border: 2px soild red;
-	width: 100%;
+	width: 1280px;
 	height: 100%;
 }
 #famInfoFom{
