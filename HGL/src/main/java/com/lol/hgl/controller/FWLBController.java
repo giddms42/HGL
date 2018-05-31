@@ -10,4 +10,9 @@ public class FWLBController {
 	   public String FWLList() {   
 	      return "FWLBList";
 	   }
+	   
+	   @RequestMapping(value="FWLBDetail.do")
+	   public String FWLBDetail() {   
+	      return "FWLBDetail";
+	   }
 }
