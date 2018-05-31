@@ -13,13 +13,18 @@
 
 $(function(){
 $("input[type=checkbox]").click(function(){ //체크박스를 클릭할때마다 
-	 $("input[type=checkbox]").each(function() { // 체크박스의 각자를 갖고와서 
-		 if($(this).is(":checked")){//checked의 속성이 checked 라면 
-			 $(this).prop("name","disease"); // name=disease 추가 
-		 }else{ //chekced 속성이 checked가 아니라면 	 
-			 $(this).removeAttr("name");
-		 }
-	 });	
+	if($("input[type=checkbox]:checked").length > 3) {
+		   alert("지병은 최대 3개까지만 선택할 수 있습니다. 다시 확인해주세요");
+		   $(this).prop("checked", false);
+	}else{
+		$("input[type=checkbox]").each(function() { // 체크박스의 각자를 갖고와서 
+			 if($(this).is(":checked")){//checked의 속성이 checked 라면 
+				 $(this).prop("name","disease"); // name=disease 추가 
+			 }else{ //chekced 속성이 checked가 아니라면 	 
+				 $(this).removeAttr("name");
+			 }
+		 });	
+	}	
   });
   
   
@@ -27,9 +32,23 @@ $("#famInsert").submit(function(){
 	if ($("input[type=checkbox]:checked").length > 3) {
 		   alert("지병은 최대 3개까지만 선택할 수 있습니다. 다시 확인해주세요");
 		   return false;
-	}
-		
+	}		
  })
+ 
+ 
+ $("input[type=radio]").click(function(){
+	 var radioValue = $(this).val();
+	 if(radioValue=="질병없음"){
+		 $("#disNo").prop("name","disease"); 
+		 $("#disYes").prop("checked",false);
+		 $("#disList").css("display","none");  
+	 }else if(radioValue=="질병있음"){
+		 $("#disList").css("display","block"); 
+		 $("#disNo").prop("checked",false);
+		 $("#disNo").removeAttr("name");
+	 }
+	 
+ });
 
 });
 
@@ -74,7 +93,13 @@ function goSubmit(){
 				<li>신장
 					<input class="famInfo" type="number" name="famHeight" required="required" placeholder="cm. 숫자만 인력해주세요">
 				</li>
+			<li>		
 			
+			<label><input class="radi" type="radio" name="t" value="질병없음" id="disNo">질병없음</label>
+		    <label><input class="radi" type="radio" name="t" value="질병있음" id="disYes">질병있음</label>
+
+			</li>
+			 <div id="disList">
 				<li>지병 항목 (최대 3개)</li>
 				<li>
 					<input class="dis" type="checkbox" value="당뇨병" readonly="readonly"><a>당뇨병</a>
@@ -87,8 +112,6 @@ function goSubmit(){
 					<input class="dis" type="checkbox" value="알츠하이머"><a>알츠하이머</a>
 					<input class="dis" type="checkbox" value="빈혈"><a>빈혈</a>
 					
-					<input class="dis" type="checkbox" value="질병없음"><a>질병없음</a>
-					
 				</li>
 				<li>		
 					<a>암을 선택해주세요</a>
@@ -100,9 +123,9 @@ function goSubmit(){
 						<option value="위암">위암</option>
 						<option value="유방암">유방암</option>
 						<option value="전립선암">전립선암</option>
-					</select>
-					
+					</select>			
 				</li>
+			</div>
 			</ul>
 			
 			<div>

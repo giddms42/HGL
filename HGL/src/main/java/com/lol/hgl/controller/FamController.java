@@ -39,6 +39,7 @@ public class FamController {
 	  
 	  @RequestMapping(value="FamInsert.do")
 	  public String FamInsert(@ModelAttribute famDto famdto, String disease, Model model) {
+		 System.out.println(disease);
 		 int r =  bizz.insertFam(famdto, disease);
 		  if(r>0) {
 			  System.out.println("가족 구성원 추가 성공! ");

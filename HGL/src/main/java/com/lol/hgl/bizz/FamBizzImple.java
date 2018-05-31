@@ -21,18 +21,31 @@ public class FamBizzImple implements FamBizz {
 	}
 
 	@Override
-	public int insertFam(famDto famDto, String disease) {	 		
-		String[] tmp = disease.split(",");		
-		if(tmp.length==3) {
-			famDto.setFamDisease1(tmp[0]);
-			famDto.setFamDisease2(tmp[1]);
-			famDto.setFamDisease3(tmp[2]);			
-		}else if(tmp.length==2) {
-			famDto.setFamDisease1(tmp[0]);
-			famDto.setFamDisease2(tmp[1]);
-		}else if(tmp.length==1){
-			famDto.setFamDisease1(tmp[0]);
+	public int insertFam(famDto famDto, String disease) {
+		if(disease == "질병없음") {
+			famDto.setFamDisease1("질병없음");
+			famDto.setFamDisease2("질병없음");
+			famDto.setFamDisease3("질병없음");		
+		}else {
+			String[] tmp = disease.split(",");		
+			if(tmp.length==3) {
+				famDto.setFamDisease1(tmp[0]);
+				famDto.setFamDisease2(tmp[1]);
+				famDto.setFamDisease3(tmp[2]);			
+			}else if(tmp.length==2) {
+				famDto.setFamDisease1(tmp[0]);
+				famDto.setFamDisease2(tmp[1]);
+				famDto.setFamDisease3("질병없음");
+			}else if(tmp.length==1){
+				famDto.setFamDisease1(tmp[0]);
+				famDto.setFamDisease2("질병없음");
+				famDto.setFamDisease3("질병없음");
+			}
+			
 		}
+		
+		
+		
 		
 		if(famDto.getFamLunar()==null) {
 			famDto.setFamLunar("양력");
