@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,87 +30,28 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	         <img src="image/sadad.png" id="content">
 	               <table border="1" bordercolor="white">
 	                  <col width="50" class="ab">
-	                  <col width="450">
+	                  <col width="350">
 	                  <col width="50">
-	                  <col width="100">
 	                  <col width="50">
+	                  <col width="200">
 	                  <tr>
 	                     <th>글번호</th>
 	                     <th>글제목</th>
 	                     <th>글쓴이</th>
-	                     <th>등록일</th>
 	                     <th>조회수</th>
+	                     <th>등록일</th>
 	                  </tr>
+	                  <c:forEach items="${list }" var="dto">
 	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
-	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
-	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
-	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
-	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
-	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
-	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
-	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
-	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
-	                  <tr>
-	                     <td class="div2" id="ans">1</td>
-	                     <td class="div1" id="res"><a href="#">좋은글 게시판의 좋은글</a></td>
-	                     <td class="div1" id="res">정현이</td>
-	                     <td class="div1" id="res">2018-05-30</td>
-	                     <td class="div1" id="res">0</td>
-	                  </tr>
+						<td>${dto.ggNo }</td>
+						<td>
+							<a href="GGDetailForm.do?ggNo=${dto.ggNo }">${dto.ggTitle }</a>
+						</td>
+						<td>${dto.ggWriter }</td>
+						<td>${dto.ggReadcnt }</td>
+						<td>${dto.ggDate }</td>
+					</tr>
+				</c:forEach>
 	               </table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
 	               <div id="paging">페이징<br>자리</div>
