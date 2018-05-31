@@ -30,4 +30,41 @@ public class FamDaoImple implements FamDao {
 		return list;
 	}
 
+	@Override
+	public int insertFam(famDto famDto) {
+		int res = 0;
+		if(famDto.getFamDisease1()==null) { //3개 null
+			try {
+				res = sqlSession.insert(nameSpace+"insertFam1", famDto);
+				}catch(Exception e ) {
+					e.printStackTrace();
+				}	
+			
+		}else if(famDto.getFamDisease2()==null) {// 2개 null
+			try {
+				res = sqlSession.insert(nameSpace+"insertFam2", famDto);
+				}catch(Exception e ) {
+					e.printStackTrace();
+				}	
+		}else if(famDto.getFamDisease3()==null) {// 1개 null
+			try {
+				res = sqlSession.insert(nameSpace+"insertFam3", famDto);
+				}catch(Exception e ) {
+					e.printStackTrace();
+				}	
+			
+		}else {
+			try {
+				res = sqlSession.insert(nameSpace+"insertFam4", famDto);
+				}catch(Exception e ) {
+					e.printStackTrace();
+				}	
+			
+		}
+		
+		
+		
+		return res;
+	}
+
 }

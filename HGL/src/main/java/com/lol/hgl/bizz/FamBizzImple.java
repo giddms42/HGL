@@ -20,4 +20,27 @@ public class FamBizzImple implements FamBizz {
 		return list;
 	}
 
+	@Override
+	public int insertFam(famDto famDto, String disease) {	 		
+		String[] tmp = disease.split(",");		
+		if(tmp.length==3) {
+			famDto.setFamDisease1(tmp[0]);
+			famDto.setFamDisease2(tmp[1]);
+			famDto.setFamDisease3(tmp[2]);			
+		}else if(tmp.length==2) {
+			famDto.setFamDisease1(tmp[0]);
+			famDto.setFamDisease2(tmp[1]);
+		}else if(tmp.length==1){
+			famDto.setFamDisease1(tmp[0]);
+		}
+		
+		if(famDto.getFamLunar()==null) {
+			famDto.setFamLunar("양력");
+		}
+		
+		int res = dao.insertFam(famDto);		
+		return res;
+	}
+
+
 }
