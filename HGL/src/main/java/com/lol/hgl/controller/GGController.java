@@ -57,15 +57,31 @@ public class GGController {
 		return "redirect:GGListForm.do";
 	}
 	
-	@RequestMapping(value="insert.do",  method = RequestMethod.POST)
+	@RequestMapping(value="insert.do",  method = {RequestMethod.GET,RequestMethod.POST})
 	public String insert(Model model, ggDto dto) {
 		int res = bizz.insert(dto);
 		if (res > 0) {
 			return "redirect:GGListForm.do";
 		} else {
 			return "redirect:GGInsertForm.do";
+		}	
+	}
+	
+	@RequestMapping(value = "GGUpdateForm.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String GGUpdateForm(Model model, int ggNo) {
+		ggDto dto = bizz.selectOne(ggNo);
+		model.addAttribute("dto", dto);
+		return "GGUpdate";
+	}
+	
+	@RequestMapping(value = "update.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String update(Model model, ggDto dto) {
+		int res = bizz.update(dto);
+		if (res > 0) {
+			return "redirect:GGDetailForm.do?ggNo="+dto.getGgNo();
+		} else {
+			return "redirect:updateForm.do?ggNo=" + dto.getGgNo();
 		}
-		
 	}
 
 }

@@ -29,6 +29,10 @@
 		GGNO_SEQ.NEXTVAL, #{ggWriter}, #{ggTitle}, #{ggCont}, 0, SYSDATE, ''
 		)
 	</insert>
+	
+	<update id="update" parameterType="ggDto">
+		UPDATE GG SET GGTITLE= #{ggTitle}, GGCONT= #{ggCont} WHERE GGNO= #{ggNo}
+	</update>
 
 
 

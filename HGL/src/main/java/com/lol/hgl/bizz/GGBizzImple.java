@@ -37,8 +37,7 @@ public class GGBizzImple implements GGBizz {
 
 	@Override
 	public int update(ggDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.update(dto);
 	}
 
 }

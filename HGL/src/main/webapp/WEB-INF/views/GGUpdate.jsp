@@ -25,22 +25,23 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	   <div id="b">
 	      <div id="bodyMain">
 	         <img src="image/sadad.png" id="content">
-	         <form action="" id="form">
+	         <form action="update.do" id="form" method="post">
+	      		   <input type="hidden" name="ggNo" value="${dto.ggNo }">   	   
 	         	   <div id="boardName">정말 좋은글 수정하기</div>
 		           <br/>
 	               <table border="1" bordercolor="white">
 	               <col width="100">
 	                  <tr>
 	                     <td>글제목</td>
-	                     <td><input type="text" class="td" value="입력해둔 제목 "></td>
+	                     <td><input type="text" class="td" value="${dto.ggTitle }" name="ggTitle"></td>
 	                  </tr>
 	                  <tr>
 	                     <td>글쓴이</td>
-	                     <td><input type="text" value="정현이" readonly="readonly" class="td"></td>
+	                     <td><input type="text" value="${dto.ggWriter }" readonly="readonly" class="td" name="ggWriter"></td>
 	                  </tr>
 	                  <tr>
 	                     <td>글내용</td>
-	                     <td><textarea rows="20" cols="50" style="resize: none;">입력해둔 내용</textarea></td>
+	                     <td><textarea rows="20" cols="50" style="resize: none;" name="ggCont">${dto.ggCont }</textarea></td>
 	                  </tr>
 	                  <tr>
 	                     <td>파일첨부</td>
@@ -50,7 +51,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	               <div class="btn">
 	               		<input type="button" value="파일첨부" onclick="" class="btn1">
 	               		<input type="button" value="취소" onclick="location.href='GGListForm.do'" class="btn2">
-		                <input type="button" value="글수정" onclick="" class="btn3">
+		                <input type="submit" value="글수정" class="btn3">
 	               </div>
 	               <div id="paging">　<br>　</div>
 	      </form>

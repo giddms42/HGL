@@ -26,7 +26,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	   <div id="b">
 	      <div id="bodyMain">
 	         <!-- <img src="image/sadad.png" id="content"> -->
-	         <form action="" id="form">
+	         <form action="GGUpdateForm.do?ggNo=${dto.ggNo }" id="form" method="post">
 		           <br/>
 	               <table border="1" bordercolor="white">
 	               <col width="100">
@@ -58,7 +58,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	               </table>
 	               <div class="btn">
 	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do'" class="btn1">
-	               		<input type="button" value="글수정" onclick="location.href=''" class="btn2">
+	               		<input type="submit" value="글수정" class="btn2">
 		                <input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" class="btn3">
 	               </div>
 	               <div id="paging">　<br>　</div>

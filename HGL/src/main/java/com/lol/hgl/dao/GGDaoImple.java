@@ -64,8 +64,17 @@ public class GGDaoImple implements GGDao {
 
 	@Override
 	public int update(ggDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println(dto.getGgCont());
+		System.out.println(dto.getGgTitle());
+		System.out.println(dto.getGgNo());
+		int res = 0;
+		try {
+			res = sqlSession.update(namespace+"update", dto);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		System.out.println(res);
+		return res;
 	}
 
 }
