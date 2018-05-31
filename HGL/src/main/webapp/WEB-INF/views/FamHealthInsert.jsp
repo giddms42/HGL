@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="css/FamHealthInsert.css">
 </head>
 <body>
-	<h3>OOO님의 건강정보 추가</h3>
+	<h3>${famDto.famName }님의 건강정보 추가</h3>
 	<div id="addHealth">
 		<form action="FamHealthInsert.do" method="post" novalidate>
 			<div>체중<br>

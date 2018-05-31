@@ -19,8 +19,10 @@
 <a href="FamInsertForm.do">FamInsert</a>
 <a href="FamDetailForm.do">FamDetail</a>
 
-<a href="FamHealthInsert.do">FamHealthInsert</a>
+<a href="FamHealthInsertForm.do">FamHealthInsert</a>
 <a href="FWLList.do">FWLList</a>
+<a href="FWLBList.do">FWLBList</a>
+<a href="FWLBDetail.do">FWLBDetail</a>
 <a href="MemberInfoUpdate.do">MemberInfoUpdate</a><br>
 
 
