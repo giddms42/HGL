@@ -2,6 +2,7 @@ package com.lol.hgl.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.lol.hgl.bizz.FamBizz;
 import com.lol.hgl.bizz.MemberBizz;
+import com.lol.hgl.dto.famDto;
 import com.lol.hgl.dto.memberDto;
 
 @Controller
@@ -22,7 +25,10 @@ public class MemberController {
 
 
    @Autowired
-   private MemberBizz bizz;
+   private MemberBizz memberBizz;
+   @Autowired
+   private FamBizz famBizz;
+   
    
    @RequestMapping(value = "MemberSignUpForm.do")
    public String memberSignUpForm() {   
@@ -33,7 +39,7 @@ public class MemberController {
    @ResponseBody
    public String IDChk(HttpSession session, String id) {
       String res ="";
-      res = bizz.IDChk(id);
+      res = memberBizz.IDChk(id);
       return res;
    }
    
@@ -41,7 +47,7 @@ public class MemberController {
    @ResponseBody
    public String nickNameChk(String nickName) {
       String res ="";
-      res = bizz.nickNameChk(nickName);
+      res = memberBizz.nickNameChk(nickName);
       return res;
    }
    
@@ -50,7 +56,7 @@ public class MemberController {
    @ResponseBody
    public String emailChk(String email) {
       String res ="";
-      res = bizz.emailChk(email);
+      res = memberBizz.emailChk(email);
       return res;
    }
    
@@ -58,7 +64,7 @@ public class MemberController {
    @ResponseBody
    public String pWChk(String pw) {
       String res ="";
-      res = bizz.pwChk(pw);
+      res = memberBizz.pwChk(pw);
       return res;
    }
    
@@ -66,7 +72,7 @@ public class MemberController {
    @RequestMapping(value = "MemberSignUp.do", method = RequestMethod.POST)
    public String memberSingUp(@ModelAttribute memberDto dto) {
 	  System.out.println(dto.getMemberCity());
-	  int res = bizz.signUp(dto);
+	  int res = memberBizz.signUp(dto);
 	  if(res>0) {
 		  return "MemberLogin";
 	  }else {
@@ -81,15 +87,13 @@ public class MemberController {
    
    @RequestMapping(value = "MemberLogin.do")
    public String memberLogin(String memberId, String memberPw, Model model, HttpSession session) throws IOException {
-	  String chkRes = bizz.LoginChk(memberId, memberPw);
+	  String chkRes = memberBizz.LoginChk(memberId, memberPw);
 	  if(chkRes == "f") {
 		  String msg =  "아이디와 비밀번호가 일치하지 않습니다. 다시 확인해 주세요.";
 		  model.addAttribute("msg", msg);
 	      return "MemberLogin";  
 	  }else {
-
-	   memberDto login = bizz.Login(memberId);
-		  System.out.println(login.getMemberId());
+	   memberDto login = memberBizz.Login(memberId);
 		    session.setAttribute("login", login);
 			session.setMaxInactiveInterval(10 * 60); 	
 	  }   
@@ -114,7 +118,7 @@ public class MemberController {
    @ResponseBody
    public String IDSearch(String email) {
 	   String res ="";
-	      res = bizz.IDSearch(email);
+	      res = memberBizz.IDSearch(email);
 	      return res;
    }
    
@@ -122,7 +126,7 @@ public class MemberController {
    @ResponseBody
    public String memberCertification(String email, String id) {
 	   String res ="";
-	      res = bizz.memberCertification(email, id);
+	      res = memberBizz.memberCertification(email, id);
 	      return res;
 
    }
@@ -131,7 +135,7 @@ public class MemberController {
    @RequestMapping(value="pwChange.do", method = RequestMethod.POST)
    public String pwChange(@ModelAttribute memberDto dto, Model model) {
 	   System.out.println("도착");
-	   int res = bizz.pwChange(dto);
+	   int res = memberBizz.pwChange(dto);
 	   if(res< 0) {
 			  String msg = "올바른 비밀번호로 다시 작성해주세요";
 			  model.addAttribute("msg", msg);
@@ -153,17 +157,18 @@ public class MemberController {
 
 
    @RequestMapping(value = "MemberInfoForm.do")
-   public String MemberInfoForm(String memberId, Model model) {   
-	   memberDto dto = bizz.Login(memberId);
+   public String MemberInfoForm(int memberNo, Model model) {   
+	   memberDto dto = memberBizz.detailLogin(memberNo);
+	   List<famDto> list = famBizz.allFamList(memberNo);	   
 	   model.addAttribute("dto", dto);
+	   model.addAttribute("list", list);
       return "MemberInfo";
    }
    
    @RequestMapping(value = "MemberInfoUpdate.do")
    public String MemberInfoUpdate(@ModelAttribute memberDto dto, Model model) {   
-	  bizz.updateMemberInfo(dto);
-	  System.out.println(dto.getMemberId());
-	  model.addAttribute("memberId", dto.getMemberId());
+	  memberBizz.updateMemberInfo(dto);
+	  model.addAttribute("memberNo", dto.getMemberNo());
       return "redirect:MemberInfoForm.do";
    } 
    
@@ -174,7 +179,7 @@ public class MemberController {
    
    @RequestMapping(value = "MemberGetOut.do")
    public String MemberGetOut(int memberNo, Model model) {
-       bizz.getOut(memberNo);
+       memberBizz.getOut(memberNo);
 	   String msg = "그동안 이용해주셔서 감사합니다.";
 	   model.addAttribute("msg", msg);
 	   return "MemberLogin";

@@ -51,7 +51,11 @@
 	</select>
 	
 	<select id="Login" parameterType="String" resultMap="memberDto">
-		 SELECT * FROM MEMBER WHERE MEMBERID=#{id} 
+		 SELECT * FROM MEMBER WHERE MEMBERID=#{memberId} 
+	</select>
+	
+	<select id="detailLogin" parameterType="int" resultMap="memberDto">
+		 SELECT * FROM MEMBER WHERE MEMBERNO=#{memberNo} 
 	</select>
 	
 	<update id="pwChange" parameterType="memberDto">
