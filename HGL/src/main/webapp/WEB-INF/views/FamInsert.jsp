@@ -66,7 +66,13 @@ function goSubmit(){
     self.close();
 }
 
-
+//생일에 숫자입력제한
+function maxLengthCheck(object){
+	   if (object.value.length > object.maxLength){
+	    object.value = object.value.slice(0, object.maxLength);
+	   }
+}
+	   
 </script>
 
 </head>
@@ -77,60 +83,58 @@ function goSubmit(){
 			<div class="signUpText">가정 정보를 입력하세요</div>
 		</header>
 		
-		<form id="famInsert" name="myForm" action="FamInsert.do" method="post" class="userForm" novalidate>
-		<input type="hidden" name="memberNo" value="${login.memberNo}"/>
-			<ul>
-				<li>이름
+		<form name="myForm" action="FamInsert.do" method="post" class="userForm" novalidate>
+			<input type="hidden" name="memberNo" value="${login.memberNo}"/>
+			<div id="famInsert">
+				<div style="margin-top: 30px;">이름
 					<input class="famInfo" type="text" name="famName" required="required" placeholder="이름를 입력해주세요">
-				</li>
-				<li>생일
-					<input class="famInfo" type="NUMBER" name="famBirth" maxlength="8" required="required" placeholder="생일를 입력해주세요(ex.19910621)">
-				</li>
-				<li style="margin-top: -30px; margin-left: 60px;">
+				</div>
+				<div>생일
+					<input class="famInfo" type="NUMBER" name="famBirth" required="required" placeholder="생일를 입력해주세요(ex.19910621)"
+					 max="9999" maxlength="8" oninput="maxLengthCheck(this)"/>
+				</div>
+				<div style="margin-top: -30px; margin-left: 60px;">
 					<label><input class="radi" type="radio" name="famLunar" value="양력">양력</label>
 					<label><input class="radi" type="radio" name="famLunar" value="음력">음력</label>
-				</li>
-				<li>신장
+				</div>
+				<div>신장
 					<input class="famInfo" type="number" name="famHeight" required="required" placeholder="cm. 숫자만 인력해주세요">
-				</li>
-			<li>		
-			
-			<label><input class="radi" type="radio" name="t" value="질병없음" id="disNo">질병없음</label>
-		    <label><input class="radi" type="radio" name="t" value="질병있음" id="disYes">질병있음</label>
+				</div>
+				<div style="text-align: center;">지병 항목 (최대 3개)</div>
+				<table style="margin: auto;">
+					<tr>
+						<td><input class="dis" type="checkbox" value="알츠하이머">알츠하이머</td>
+						<td><input class="dis" type="checkbox" value="지방간">지방간</td>
+						<td><input class="dis" type="checkbox" value="당뇨병">당뇨병</td>
+						<td><input class="dis" type="checkbox" value="빈혈">빈혈</td>
+					</tr>
+					<tr>
+						<td><input class="dis" type="checkbox" value="심근경색증">심근경색증</td>
+						<td><input class="dis" type="checkbox" value="심부전증">심부전증</td>
+						<td><input class="dis" type="checkbox" value="골다공증">골다공증</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+						<input class="dis" type="checkbox" id="chkCancer" value="">암
+						<select onchange="change(this.options[this.selectedIndex].value);" id="diseSelect">
+							<option value="">종류를 선택하세요</option>
+							<option value="간암">간암</option>
+							<option value="갑상선암">갑상선암</option>
+							<option value="대장암">대장암</option>
+							<option value="위암">위암</option>
+							<option value="유방암">유방암</option>
+							<option value="전립선암">전립선암</option>
+						</select>
+						</td>
+					</tr>
+				</table>		
 
-			</li>
-			 <div id="disList">
-				<li>지병 항목 (최대 3개)</li>
-				<li>
-					<input class="dis" type="checkbox" value="당뇨병" readonly="readonly"><a>당뇨병</a>
-					<input class="dis" type="checkbox" value="심근경색증"><a>심근경색증</a>
-					<input class="dis" type="checkbox" value="심부전증"><a>심부전증</a>
-					<input class="dis" type="checkbox" value="지방간"><a>지방간</a>
-				</li>
-				<li>
-					<input class="dis" type="checkbox" value="골다공증"><a>골다공증</a>
-					<input class="dis" type="checkbox" value="알츠하이머"><a>알츠하이머</a>
-					<input class="dis" type="checkbox" value="빈혈"><a>빈혈</a>
-					
-				</li>
-				<li>		
-					<a>암을 선택해주세요</a>
-					<input class="dis" type="checkbox" id="chkCancer" value="">
-					<select onchange="change(this.options[this.selectedIndex].value);" style="height: 35px; width: 80px; text-align: center;">
-						<option value="간암">간암</option>
-						<option value="갑상선암">갑상선암</option>
-						<option value="대장암">대장암</option>
-						<option value="위암">위암</option>
-						<option value="유방암">유방암</option>
-						<option value="전립선암">전립선암</option>
-					</select>			
-				</li>
-			</div>
-			</ul>
-			<div>
-            	<input type="submit" value="등록하기" onclick="goSubmit();">
-            	<input type="button" value="등록취소">
-        	 </div>
+        	</div>	 
+			<div style="margin-top: 30px;">
+	            <button style="margin-left: 105px;"onclick="goSubmit();">등록하기</button>
+	            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	            <button type="button">등록취소</button>
+        	</div>
 		</form>
      </div> 
 
