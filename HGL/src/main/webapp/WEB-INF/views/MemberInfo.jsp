@@ -59,31 +59,31 @@ function famDelete(famNo){
 		<div id="allInfo">
 			<div class="userInfo">
 				<h2>회원정보</h2>
-				<div>아이디<input class="info" type="text" value="${dto.memberId}" readonly="readonly"></div>
-				<div>닉네임<input class="info" type="text" value="${dto.memberNickname}" readonly="readonly"></div>
-				<div>연락처<input class="info" type="text" value="${dto.memberPhone}" readonly="readonly"></div>
-				<div class="smsChk">
-				<c:choose>
-					<c:when test="${dto.memberSMS eq 'Y'}">
-						<input class="smsChk" style="width:5%" type="checkbox" checked="checked" readonly="readonly">
-					</c:when>
-					<c:otherwise>
-					<input class="smsChk" style="width:5%" type="checkbox" readonly="readonly">	
-					</c:otherwise>
-				</c:choose>
-				문자알림을 받으시겠습니까?
-				</div>
-				<div>이메일<input class="info" type="text" value="${dto.memberEmail}" readonly="readonly"></div>
+				<div>아이디<input class="info" type="text" value="${dto.memberId}" readonly="readonly" style="margin-left:5px;"></div>
+				<div>닉네임<input class="info" type="text" value="${dto.memberNickname}" readonly="readonly" style="margin-left:5px;"></div>
+				<div>연락처<input class="info" type="text" value="${dto.memberPhone}" readonly="readonly" style="margin-left:5px;"></div>
+				<div>이메일<input class="info" type="text" value="${dto.memberEmail}" readonly="readonly" style="margin-left:5px;"></div>
 				<div>주&nbsp&nbsp&nbsp소
 				<input class="info" type="text" value="${dto.memberDo}" readonly="readonly"><br>
-				<input class="info" type="text" value="${dto.memberCity}" readonly="readonly"><br>
-				<input class="info" type="text" value="${dto.memberAddr}" readonly="readonly">
+				<input class="info" type="text" value="${dto.memberCity}" readonly="readonly" style="margin-left: 52px;"><br>
+				<input class="info" type="text" value="${dto.memberAddr}" readonly="readonly" style="margin-left: 52px;">
+				<div>문자알림
+					<c:choose>
+						<c:when test="${dto.memberSMS eq 'Y'}">
+							<input class="smsChk" type="checkbox" checked="checked" readonly="readonly">
+						</c:when>
+						<c:otherwise>
+						<input class="smsChk" type="checkbox" readonly="readonly">	
+						</c:otherwise>
+					</c:choose>
+				</div>
 				</div>
 			</div>
 			
 				
 			<div class="famInfo">
 				<h2>가족정보</h2>
+				<button type="button" onclick="goFamInsert();" style="margin-left:80%; margin-bottom: 10px;">추가</button>
 		 		<c:choose>
 					<c:when test="${empty list }">
 						<span>등록한 가족구성원이 없습니다! 등록해주세요 </span>
@@ -105,7 +105,6 @@ function famDelete(famNo){
 		<div class="threeButton">
 			<button type="button" onclick="getOut();" style="margin-left: 1.5%">탈퇴하기</button>
 			<button type="button" onclick="goUpdate();" style="margin-left: 37%">수정하기</button>
-			<button type="button" onclick="goFamInsert();" style="margin-left: 36.5%">가족추가</button>
 		</div>
 
 	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
