@@ -76,10 +76,37 @@ public class FamBizzImple implements FamBizz {
 	}
 
 	@Override
-	public List<healthDto> heatlList(int famNo) {
-		return dao.heatlList(famNo);
+	public String[][] heatlList(int famNo) {
+		List<healthDto> list = dao.heatlList(famNo);
+		//필요한건 수축 혈압, 이완 혈압, 체중 
+
+		String healthArray[][] = new String[5][3];
+	
+		for(int i = 0; i < list.size(); i++) {
+			for(int j=0; j<3; j++) {
+				healthDto tmp = list.get(i);
+				switch (j) {
+				case 0:
+					healthArray[i][j] = String.valueOf(tmp.getHealthShrbp());								
+					break;
+				case 1:
+					healthArray[i][j] = String.valueOf(tmp.getHealthRelbp());								
+					break;
+				case 2:
+					healthArray[i][j] = String.valueOf(tmp.getHealthWeight());								
+					break;
+				}
+			}	
+		}
+				
+	   /* sb = "{\"parkingAirportCodeName\":\"" + dto.getParkingairportcodename() + "\",\"parkingBasicAccount\":\""
+                + dto.getParkingbasicaccount() + "\",\"parkingGetdate\":\"" + dto.getParkinggetdate()
+                + "\",\"parkingGettime\":\"" + dto.getParkinggettime() + "\",\"parkingIincnt\":\""
+                + dto.getParkingiincnt() + "\",\"parkingIoutcnt\":\"" + dto.getParkingioutcnt()
+                + "\",\"parkingIstay\":\"" + dto.getParkingistay() + "\",\"parkingPullSpace\":\""
+                + dto.getParkingpullspace() + "\"}";*/
+
+		return healthArray;
 	}
-
-
 
 }

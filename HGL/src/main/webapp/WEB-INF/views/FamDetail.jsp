@@ -10,24 +10,22 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/FamDetail.css">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="js/FChart.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="js/FChart.js"></script>
 <script type="text/javascript">
-var list = document.getElementById("list").value;
-alert(list.length);
 google.charts.load('current', {'packages':['line']});
-google.charts.setOnLoadCallback(drawChart(list));
+google.charts.setOnLoadCallback(drawChart);
 </script>
 </head>
 <body>
 		<div id="detail">
-			<input type="hidden" id="list" value="${healthList}">
 		    <header>
 				<h2>${famDto.famName}님의 정보</h2>
 			</header>
 			
 			<div id="famDetail">
 				<div id="famInfoFom">
+					<input type="hidden" id="famNo" value="${famDto.famNo}">
 					<div>이름
 						<input class="famInfo" type="text" value="${famDto.famName}님" readonly="readonly">
 					</div>

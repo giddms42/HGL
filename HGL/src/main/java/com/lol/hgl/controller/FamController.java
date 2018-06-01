@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lol.hgl.bizz.FamBizz;
 import com.lol.hgl.dto.famDto;
@@ -31,13 +33,20 @@ public class FamController {
 	  @RequestMapping(value="FamDetailForm.do")
 	  public String FamDetailForm(int famNo, Model model) {
 		 famDto famDto = bizz.famDetail(famNo);
-		 healthDto healthDto = bizz.healthDetail(famNo);
-		 List<healthDto> healthList = bizz.heatlList(famNo);
+		 healthDto healthDto = bizz.healthDetail(famNo);		 
 		 model.addAttribute("healthDto",healthDto);
-		 model.addAttribute("famDto", famDto);
-		 model.addAttribute("healthList", healthList);
+		 model.addAttribute("famDto", famDto);		 
 	     return "FamDetail";
 	  }
+	  
+	  @RequestMapping(value="FamHealthList.do", method= {RequestMethod.GET,RequestMethod.POST});
+	  @ResponseBody
+	  public String[][] healthList(String famNo) {
+		  int famN = Integer.parseInt(famNo);
+		String[][] res = bizz.heatlList(famN);
+		  return res;
+	  }
+	  
 	  
 	  @RequestMapping(value="FamHealthInsertForm.do")
 	  public String FamHealthInsertForm(int famNo, Model model) {

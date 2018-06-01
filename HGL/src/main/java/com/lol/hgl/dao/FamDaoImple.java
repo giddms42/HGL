@@ -94,7 +94,7 @@ public class FamDaoImple implements FamDao {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return null;
+		return res;
 	}
 
 
