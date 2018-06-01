@@ -11,10 +11,9 @@
 <body>
 
 <a href="home.do">home</a><br>
-<a href="MemberSignUpForm.do">signUpForm</a><br>
 
 <br>
-
+<h1>작성자 : 정현</h1>
 <a href="MemberLoginForm.do">로그인</a>
 <a href="MainForm.do">메인</a>
 <a href="GGListForm.do">좋은글게시판</a>
@@ -25,6 +24,8 @@
 <br>
 <br>
 
+<h1>작성자 : 경식</h1>
+<a href="MemberSignUpForm.do">signUpForm</a><br>
 <a href="MemberInfo.do">MemberInfo</a>
 <a href="FamInsert.do">FamInsert</a>
 <a href="FamDetail.do">FamDetail</a>
@@ -33,6 +34,6 @@
 <a href="MemberInfoUpdate.do">MemberInfoUpdate</a><br>
 
 
-<h1>2018-05-31-13:08-정현</h1>
+<h1>2018-05-31-13:08-정현~!</h1>
 </body>
 </html>

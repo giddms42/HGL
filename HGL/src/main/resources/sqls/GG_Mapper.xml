@@ -49,10 +49,12 @@
 	</insert>
 	
 	<select id="repleySelectList" resultMap="ggcmDtoMap" parameterType="int">
-		SELECT * FROM GGCM WHERE GGNO=#{ggNo}
+		SELECT * FROM GGCM WHERE GGNO=#{ggNo} ORDER BY GGCMNO
 	</select>
-
-
+	
+	<select id="repleyDelete" parameterType="int">
+		DELETE FROM GGCM WHERE GGCMNO = #{ggcmNo}
+	</select>
 
 
 </mapper>

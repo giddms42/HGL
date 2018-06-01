@@ -67,7 +67,7 @@ flex-direction: column;
       text-decoration: none;
  }
  
- .td{
+ .Mtd{
  	height: 99%;
  	width: 99%;
  }
@@ -149,7 +149,7 @@ a:visited {
 .Cbtn2{
 	margin-top: 5px;
 	height: 99%;
-	width: 8%;
+	width: 40%;
 }
 
 #cmtd{
@@ -179,15 +179,42 @@ a:visited {
              justify-content: center;
      flex-direction: column;
 }
+
+.mdv{
+	width: 100%;
+	display: -webkit-flex;
+     display:         flex;
+     -webkit-align-items: center;
+             align-items: center;
+     -webkit-justify-content: center;
+             justify-content: center;
+}
+
 .dv1{
 	height: 30px;
-	width: 97.5%;
 	margin-left: 81%;
 }
-.dv{
+.th{
+	text-align: center;
 	padding: 2px;
 	margin: 2px;
-	width: 49%;
+	width: 15%;
+	border: 1px solid white;
+	background-color: orange;
+}
+.td{
+	padding: 2px;
+	margin: 2px;
+	width: 45%;
+	border: 1px solid gray;
+	background-color: white;
+	color: gray;
+}
+
+.cont{
+	padding: 2px;
+	margin: 2px;
+	width: 100%;
 	border: 1px solid white;
 	background-color: orange;
 }

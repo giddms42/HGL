@@ -20,6 +20,11 @@ public class GGController {
 	@Autowired
 	private GGBizz bizz;
 	
+	@RequestMapping(value = "FChart.do")
+	   public String FChart() {   
+	      return "FChart";
+	   }
+	
 	@RequestMapping(value = "ys.do")
 	   public String ys() {   
 	      return "ys";
@@ -96,6 +101,17 @@ public class GGController {
 		int res = bizz.repleyInsert(dto);
 		
 		return "redirect:GGDetailForm.do?ggNo="+dto.getGgNo();
+	}
+	
+	@RequestMapping(value = "GGRepleyDelete.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String GGRepleyDelete(Model model, ggcmDto dto) {
+		int res = bizz.repleyDelete(dto.getGgcmNo());
+		System.out.println("들어봐요허어~ : "+res);
+		if (res > 0) {
+			return "redirect:GGDetailForm.do?ggNo="+dto.getGgNo();
+		} else {
+			return "redirect:GGDetailForm.do?ggNo=" + dto.getGgNo();
+		}
 	}
 
 }

@@ -48,8 +48,7 @@ public class GGBizzImple implements GGBizz {
 
 	@Override
 	public int repleyDelete(int seq) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.repleyDelete(seq);
 	}
 
 	@Override

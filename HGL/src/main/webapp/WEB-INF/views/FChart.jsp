@@ -11,12 +11,14 @@
 <title>Insert title here</title>
 </head>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
       google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-
+	var ab = $("#20").val();
+	alert(ab);
       var data = new google.visualization.DataTable();
       data.addColumn('number', '가장 최근 입력한 5개의 건강수치');
       data.addColumn('number', '최고 혈압');
@@ -56,6 +58,6 @@
 </script>
 <body>
 		<div id="line_top_x"></div>
-
+<input id="20" type="text" value="20">
 </body>
 </html>

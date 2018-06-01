@@ -39,19 +39,19 @@ html {
 						</tr>
 						<tr>
 							<td>조회수</td>
-							<td><input type="text" value="${dto.ggReadcnt }" readonly="readonly" class="td"></td>
+							<td><input type="text" value="${dto.ggReadcnt }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
 							<td>작성일</td>
-							<td><input type="text" value="${dto.ggDate }" readonly="readonly" class="td"></td>
+							<td><input type="text" value="${dto.ggDate }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
 							<td>글제목</td>
-							<td><input type="text" value="${dto.ggTitle }" readonly="readonly" class="td"></td>
+							<td><input type="text" value="${dto.ggTitle }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
 							<td>글쓴이</td>
-							<td><input type="text" value="${dto.ggWriter }" readonly="readonly" class="td"></td>
+							<td><input type="text" value="${dto.ggWriter }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
 							<td>글내용</td>
@@ -75,21 +75,19 @@ html {
 						<div id="cml">댓글 목록</div><br/>
 							<c:forEach items="${dto2 }" var="ggcmDto">
 							<div class="dv0">
-								<div style="background-color: red;">
-									<div class="dv">작성자</div>
-									<div class="dv">${ggcmDto.ggcmWriter }</div>
+								<div class="mdv">
+									<div class="th">작성자</div>
+									<div class="td">${ggcmDto.ggcmWriter }</div>
+									<div class="th">작성일</div>
+									<div class="td"><fmt:formatDate value="${ggcmDto.ggcmDate}" pattern="yyyy-MM-dd" /></div>
 								</div>
-								<div>
-									<div class="dv">작성일</div>
-									<div class="dv"><fmt:formatDate value="${ggcmDto.ggcmDate}" pattern="yyyy-MM-dd" /></div>
-								</div>
-								<div>
-									<div class="dv">${ggcmDto.ggcmCont }</div>
+								<div class="mdv">
+									<div class="cont"><textarea rows="3" cols="" style="resize: none; overflow: hidden;" readonly="readonly">${ggcmDto.ggcmCont }</textarea></div>
 								</div>
 							</div>
 							<div class="dv1">
 								<input type="submit" value="댓글수정" class="Cbtn2">
-								<input type="button" value="댓글삭제" class="Cbtn2">
+								<input type="button" onclick="location.href='GGRepleyDelete.do?ggcmNo='+${ggcmDto.ggcmNo}+'&ggNo='+${ggcmDto.ggNo}" value="댓글삭제" class="Cbtn2">
 							</div><br/>								
 							</c:forEach>
 						</table>
@@ -113,7 +111,7 @@ html {
 											</tr>
 											<tr>
 												<td><input type="text" name="ggcmWriter" value="${login.memberNickname}" id="cmtd"></td>
-												<td><textarea rows="2" cols="" placeholder="댓글 내용을 입력해주세요" style="resize: none;" name="ggcmCont"></textarea></td>
+												<td><textarea rows="3" cols=~" name="ggcmCont" style="resize: none; overflow: hidden;" placeholder="댓글 내용을 입력해주세요~" ></textarea></td>
 												<td><input type="submit" value="댓글달기" id="Cbtn1"></td>
 											</tr>
 										</table>
