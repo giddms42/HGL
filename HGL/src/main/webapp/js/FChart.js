@@ -6,9 +6,12 @@
       data.addColumn('number', '최저혈압');
       data.addColumn('number', '체중');
 
+      
       var famNo = document.getElementById("famNo").value;
       var array = new Array();
-      $.ajax({
+      array = document.getElementById("array").value;
+  
+      /*$.ajax({
           url : "FamHealthList.do",
           type: "post",
           data : "famNo="+famNo,
@@ -20,11 +23,11 @@
           error:function(){                        
              alert("실패!"); // 통신 실패시에 alert 출력
           }       
-       });
+       });*/
       
       for(var i=0; i<array.lenght; i++){
     	  for(var j=0; j<array[i].length; i++){
-    		  alert(array[i][j]);
+    		  document.write(array[i][j]);
     	  }
       }
       
@@ -44,11 +47,6 @@
       
       );
 
-      
-      
-      
-      
-      
       var options = {
         chart: {
           title: '건강 그래프',

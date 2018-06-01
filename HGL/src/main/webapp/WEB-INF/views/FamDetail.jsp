@@ -22,9 +22,9 @@ google.charts.setOnLoadCallback(drawChart);
 		    <header>
 				<h2>${famDto.famName}님의 정보</h2>
 			</header>
-			
-			<div id="famDetail">
+		<div id="famDetail">
 				<div id="famInfoFom">
+					<input type="text" id="array" value="${arr}">
 					<input type="hidden" id="famNo" value="${famDto.famNo}">
 					<div>이름
 						<input class="famInfo" type="text" value="${famDto.famName}님" readonly="readonly">
@@ -79,6 +79,9 @@ google.charts.setOnLoadCallback(drawChart);
 				</div>
 			<div id="graph"></div>
 			</div>
+		</div>
+		<div>
+		
 		</div> 
 </body>
 </html>

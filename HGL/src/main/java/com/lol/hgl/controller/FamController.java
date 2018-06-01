@@ -33,12 +33,16 @@ public class FamController {
 	  @RequestMapping(value="FamDetailForm.do")
 	  public String FamDetailForm(int famNo, Model model) {
 		 famDto famDto = bizz.famDetail(famNo);
-		 healthDto healthDto = bizz.healthDetail(famNo);		 
+		 healthDto healthDto = bizz.healthDetail(famNo);
+		 String[][] arr = bizz.heatlList(famNo);
+		 System.out.println(arr.length + "배열 길이");
 		 model.addAttribute("healthDto",healthDto);
-		 model.addAttribute("famDto", famDto);		 
+		 model.addAttribute("famDto", famDto);		
+		 model.addAttribute("arr", arr);		
 	     return "FamDetail";
 	  }
-	  
+	
+	  /*
 	  @RequestMapping(value="FamHealthList.do", method= {RequestMethod.POST, RequestMethod.GET})
 	  @ResponseBody
 	  public String[][] healthList(String famNo) {
@@ -47,6 +51,9 @@ public class FamController {
 		String[][] res = bizz.heatlList(famN);
 		  return res;
 	  }
+	  */
+	  
+	  
 	  
 	  
 	  @RequestMapping(value="FamHealthInsertForm.do")

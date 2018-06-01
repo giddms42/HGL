@@ -189,7 +189,7 @@
 			<version>3.1.1.RELEASE</version>
 		</dependency>
 
-			<!-- upgrade -->
+		<!-- upgrade -->
 		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -204,13 +204,49 @@
 			<version>${org.aspectj-version}</version>
 		</dependency>
 
-		<!-- commons-lang3  -->
+		<!-- commons-lang3 -->
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.3</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.5</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+
+
+
+
+
+
+
+
 	</dependencies>
 
 
