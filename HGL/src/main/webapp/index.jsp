@@ -19,6 +19,7 @@
 <a href="MainForm.do">메인</a>
 <a href="GGListForm.do">좋은글게시판</a>
 <a href="GGUpdateForm.do">좋은글수정</a>
+<a href="ys.do">연습장</a>
 
 <br>
 <br>

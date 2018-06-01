@@ -20,10 +20,10 @@ public class GGController {
 	@Autowired
 	private GGBizz bizz;
 	
-	/*@RequestMapping(value = "GGListForm.do")
-	   public String GGListForm() {   
-	      return "GGList";
-	   }*/
+	@RequestMapping(value = "ys.do")
+	   public String ys() {   
+	      return "ys";
+	   }
 	
 	@RequestMapping(value = "GGInsertForm.do")
 	   public String GGInsertForm() {   
@@ -49,7 +49,7 @@ public class GGController {
 		List<ggcmDto> dto2 = bizz.repleySelectOne(ggNo);
 		
 		model.addAttribute("dto",dto);
-		model.addAttribute("commentList",dto2);
+		model.addAttribute("dto2",dto2);
 		
 		return "GGDetail";
 	}
@@ -89,9 +89,13 @@ public class GGController {
 	
 	@RequestMapping(value = "GGRepleyInsert.do", method = {RequestMethod.GET,RequestMethod.POST})
 	public String GGRepleyInsert(Model model, ggcmDto dto) {
+		System.out.println(dto.getGgNo());
+		System.out.println(dto.getGgcmWriter());
+		System.out.println(dto.getGgcmCont());
+		System.out.println("으아아아 : " + dto.getGgcmDate());
 		int res = bizz.repleyInsert(dto);
 		
-		return "redirect:GGDetailForm.do?ggcmNo="+dto.getGgcmNo();
+		return "redirect:GGDetailForm.do?ggNo="+dto.getGgNo();
 	}
 
 }
