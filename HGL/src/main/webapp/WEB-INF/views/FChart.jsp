@@ -40,7 +40,7 @@
           title: '최정현님의 건강 그래프',
           subtitle: '가장 최근 입력된 5개의 정보'
         },
-        width: 700,
+        width: 500,
         height: 500,
         axes: {
           x: {

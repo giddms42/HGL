@@ -100,6 +100,11 @@ function maxLengthCheck(object){
 				<div>신장
 					<input class="famInfo" type="number" name="famHeight" required="required" placeholder="cm. 숫자만 인력해주세요">
 				</div>
+				
+				<label><input class="radi" type="radio" name="t" value="질병없음" id="disNo">질병없음</label>
+          		<label><input class="radi" type="radio" name="t" value="질병있음" id="disYes">질병있음</label>
+				
+				<div id="disList">	
 				<div style="text-align: center;">지병 항목 (최대 3개)</div>
 				<table style="margin: auto;">
 					<tr>
@@ -128,7 +133,7 @@ function maxLengthCheck(object){
 						</td>
 					</tr>
 				</table>		
-
+				</div>
         	</div>	 
 			<div style="margin-top: 30px;">
 	            <button style="margin-left: 105px;"onclick="goSubmit();">등록하기</button>

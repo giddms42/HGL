@@ -483,9 +483,9 @@
 				            		 alert("이메일을 다시 확인해주세요")
 				            		 document.getElementsByName("memberEmail")[0].focus();
 				            		 return false;
-				            		 }
-				             		}
-				          	 	}
-		             }
+				            	 }
+				              }
+				          }
+		              }
 		         })
 	})

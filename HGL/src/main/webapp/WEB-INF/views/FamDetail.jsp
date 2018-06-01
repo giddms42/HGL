@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/FamDetail.css">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="js/FChart.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 google.charts.load('current', {'packages':['line']});
 google.charts.setOnLoadCallback(drawChart);
@@ -19,7 +20,7 @@ google.charts.setOnLoadCallback(drawChart);
 <body>
 		<div id="detail">
 		    <header>
-				<h3>${famDto.famName}님</h3>
+				<h2>${famDto.famName}님의 정보</h2>
 			</header>
 			
 			<div id="famDetail">
@@ -74,8 +75,8 @@ google.charts.setOnLoadCallback(drawChart);
 						</c:otherwise>
 					</c:choose>
 				</div>
-			</div>
 			<div id="graph"></div>
+			</div>
 		</div> 
 </body>
 </html>
