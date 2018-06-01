@@ -55,5 +55,16 @@
 		WHERE FAMNO=#{famNo} AND ROWNUM=1
     </select>
 	
+	
+	<select id="heatlList" parameterType="int" resultMap="healthDto">
+		<![CDATA[
+		SELECT * FROM (
+		SELECT *
+		FROM( SELECT * FROM HEALTH WHERE FAMNO=#{famNo})
+		ORDER BY HEALTHDATE DESC)
+		WHERE ROWNUM <= 5
+		ORDER BY HEALTHDATE
+		]]>
+	</select>
 
 </mapper>

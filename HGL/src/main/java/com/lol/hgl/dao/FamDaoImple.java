@@ -86,6 +86,17 @@ public class FamDaoImple implements FamDao {
 		return res;
 	}
 
+	@Override
+	public List<healthDto> heatlList(int famNo) {
+		List<healthDto> res = new ArrayList<healthDto>();
+		try {
+			res = sqlSession.selectList(nameSpace+"heatlList", famNo);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 
 
 }

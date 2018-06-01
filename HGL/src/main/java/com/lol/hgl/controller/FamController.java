@@ -1,6 +1,8 @@
 package com.lol.hgl.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,8 +32,10 @@ public class FamController {
 	  public String FamDetailForm(int famNo, Model model) {
 		 famDto famDto = bizz.famDetail(famNo);
 		 healthDto healthDto = bizz.healthDetail(famNo);
+		 List<healthDto> healthList = bizz.heatlList(famNo);
 		 model.addAttribute("healthDto",healthDto);
 		 model.addAttribute("famDto", famDto);
+		 model.addAttribute("healthList", healthList);
 	     return "FamDetail";
 	  }
 	  

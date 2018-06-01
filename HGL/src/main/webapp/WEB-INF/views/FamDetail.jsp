@@ -13,12 +13,15 @@
 <script src="js/FChart.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
+var list = document.getElementById("list").value;
+alert(list.length);
 google.charts.load('current', {'packages':['line']});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChart(list));
 </script>
 </head>
 <body>
 		<div id="detail">
+			<input type="hidden" id="list" value="${healthList}">
 		    <header>
 				<h2>${famDto.famName}님의 정보</h2>
 			</header>
@@ -29,10 +32,10 @@ google.charts.setOnLoadCallback(drawChart);
 						<input class="famInfo" type="text" value="${famDto.famName}님" readonly="readonly">
 					</div>
 					<div>생일
-						<input class="famInfo" type="text" value="${famDto.famBirth }　　(${famDto.famLunar})" readonly="readonly">
+						<input class="famInfo" type="text" value="${famDto.famBirth } (${famDto.famLunar})" readonly="readonly">
 					</div>
 					<div>신장
-						<input class="famInfo" type="text" value="${healthDto.famHeight}cm" readonly="readonly">
+						<input class="famInfo" type="text" value="${famDto.famHeight}cm" readonly="readonly">
 					</div>
 					<div>체중
 						<input class="famInfo" type="text" value="${healthDto.healthWeight}kg" readonly="readonly">

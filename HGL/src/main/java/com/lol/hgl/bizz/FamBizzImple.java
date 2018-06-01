@@ -75,6 +75,11 @@ public class FamBizzImple implements FamBizz {
 		return dao.healthDetail(famNo);
 	}
 
+	@Override
+	public List<healthDto> heatlList(int famNo) {
+		return dao.heatlList(famNo);
+	}
+
 
 
 }
