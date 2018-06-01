@@ -358,7 +358,7 @@
 	      <br><input class="info" type="text" name="memberAddr" required="required" placeholder="상세주소를 입력해주세요" style="vertical-align: 1px;">
 	      </div>
 	      <div style="margin-left: 10%; margin-top: 5%; margin-bottom: 5%; width:370px;" align="center">
-	      <button type="submit">가입하기</button>
+	      <button>가입하기</button>
 	      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	      <button type="button" onclick="">취소하기</button> 
 	      </div>
