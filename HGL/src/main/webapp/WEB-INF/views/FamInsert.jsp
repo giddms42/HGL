@@ -25,17 +25,8 @@ $("input[type=checkbox]").click(function(){ //체크박스를 클릭할때마다
 			 }
 		 });	
 	}	
-  });
-  
-  
-$("#famInsert").submit(function(){	
-	if ($("input[type=checkbox]:checked").length > 3) {
-		   alert("지병은 최대 3개까지만 선택할 수 있습니다. 다시 확인해주세요");
-		   return false;
-	}		
- })
- 
- 
+ });
+   
  $("input[type=radio]").click(function(){
 	 var radioValue = $(this).val();
 	 if(radioValue=="질병없음"){
@@ -57,13 +48,6 @@ function change(obj){
 	document.getElementById("chkCancer").checked=true;
 	document.getElementById("chkCancer").name="disease";
 	
-}
-
-
-function goSubmit(){
-	window.opener.name = "Parent"; // 부모창의 이름 설정
-    document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
-    self.close();
 }
 
 //생일에 숫자입력제한

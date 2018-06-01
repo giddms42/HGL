@@ -13,6 +13,21 @@
 <script src="js/FChart.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
+function goDiseaseUpdate(){
+ 	var popupX = (window.screen.width/2)-(250 /2);
+	var popupY= (window.screen.height/2)-(50 /2);
+
+	window.name="Parent";
+	window.open("FamDiseaseUpdateForm.do","", 'status=no, width=450, height=200, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	}
+
+function goHealthInfoAdd(){
+ 	var popupX = (window.screen.width/2)-(410/2);
+	var popupY= (window.screen.height/2)-(240/2); 
+	window.name="Parent";
+	window.open("FamHealthInsertForm.do?famNo='+${famDto.famNo}","", 'status=no, width=410, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+}
+
 google.charts.load('current', {'packages':['line']});
 google.charts.setOnLoadCallback(drawChart);
 </script>
@@ -23,7 +38,7 @@ google.charts.setOnLoadCallback(drawChart);
 				<h2>${famDto.famName}님의 정보</h2>
 			</header>
 			
-			<div id="famDetail">
+			<div id="famDetail" style="display: flex; ">
 				<div id="famInfoFom">
 					<div>이름
 						<input class="famInfo" type="text" value="${famDto.famName}님" readonly="readonly">
@@ -41,7 +56,7 @@ google.charts.setOnLoadCallback(drawChart);
 						<input class="famInfo" type="text" value="${healthDto.healthShrbp}mg" readonly="readonly">
 						<p style="margin-top: -20px; margin-left: 38px;"><input class="famInfo" type="text" value="${healthDto.healthRelbp}mg" readonly="readonly"></p>
 					</div>
-					<div>지병 항목 (최대 3개) <input type="button" value="변경하기"></div>
+					<div>지병 항목 (최대 3개) <input type="button" value="변경하기" onclick="goDiseaseUpdate()"></div>
 					<c:choose>
 						<c:when test="${famDto.famDisease1 eq '질병없음'}">
 						</c:when>
@@ -75,7 +90,11 @@ google.charts.setOnLoadCallback(drawChart);
 						</c:otherwise>
 					</c:choose>
 				</div>
-			<div id="graph"></div>
+					<div id="graph"></div>
+			</div>
+			<div style="margin-top:100px;  margin-bottom:50px; text-align: center;">
+			<button type="button" onclick="goHealthInfoAdd();">정보추가</button>
+			<button type="button">목록으로</button>
 			</div>
 		</div> 
 </body>

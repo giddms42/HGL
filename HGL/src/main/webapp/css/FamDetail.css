@@ -23,10 +23,9 @@ label{
 }
 #famInfoFom{
 	text-align: center;
-	display:inline-block;
 	margin: auto;
 	margin-left: 10%;
-	width: 350px;
+	width: 33%;
 }
 .disease{
 	margin-left: 15px;
@@ -50,15 +49,8 @@ label{
 	height: 100%;
 }
 #graph{
-	display:inline;
-	width: 400px;
+	width: 33%;
+	margin:auto;
+	margin-left:-350px;
 	height: 100%;
-}
-
-#diseaseUpdate{
-	/* display: none; */
-	background-color: #f2f2f2;
-	width:90%;
-	margin-left: -20px;
-	margin-top: 20px;
 }

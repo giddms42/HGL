@@ -36,8 +36,12 @@ public class FamController {
 	  @RequestMapping(value="FamHealthInsertForm.do")
 	  public String FamHealthInsertForm() {
 	     return "FamHealthInsert";
-	  }	  
+	  }
 	  
+	  @RequestMapping(value="FamDiseaseUpdateForm.do")
+	  public String FamDiseaseUpdateForm() {
+	     return "FamDiseaseUpdate";
+	  }
 	  
 	  @RequestMapping(value="FamInsert.do")
 	  public String FamInsert(@ModelAttribute famDto famdto, String disease, Model model) {
