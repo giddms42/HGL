@@ -4,21 +4,29 @@ li{
 }
 header{
 	text-align: center;
-	margin-left: 180px;
+	margin:auto;
+	margin-left: 110px;
 	width: 200px;
-}
-form{
-	margin:auto;	
-	width: 500px;	
 }
 label{
 	font-size: 12pt;
-	
+}
+#famDetail{
+	margin:auto;	
+	width: 1280px;	
+	height: 100%;
 }
 .radi{
 	width: 16px;
 	height: 16px;
 	margin-bottom: 15px;
+}
+#famInfoFom{
+	text-align: center;
+	display:inline-block;
+	margin: auto;
+	margin-left: 10%;
+	width: 350px;
 }
 .disease{
 	margin-left: 15px;
@@ -29,6 +37,8 @@ label{
 .famInfo{
 	width: 250px;
 	height: 35px;
+	border: none;
+	background-color : #f0f0f0;
 	margin-left: 20px;
 	margin-bottom: 30px;
 }
@@ -36,18 +46,19 @@ label{
 	position:relative;
 	margin:auto;
 	border: 2px soild red;
-	width: 100%;
+	width: 1280px;
 	height: 100%;
-}
-#famInfoFom{
-	position:absolute;
-	margin: auto;
-	margin-left: -20%;
-	width: 400px;
 }
 #graph{
-	position:absolute;
-	margin-left: 38%;
+	display:inline;
 	width: 400px;
 	height: 100%;
+}
+
+#diseaseUpdate{
+	/* display: none; */
+	background-color: #f2f2f2;
+	width:90%;
+	margin-left: -20px;
+	margin-top: 20px;
 }

@@ -88,9 +88,11 @@ function goSubmit(){
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${list}" var="famDto">
-						<input class="famMember" type="text" value="${famDto.famNo}" readonly="readonly" onclick="window.open('FamDetailForm.do?famNo='+ ${famDto.famNo},'','width=600,height=900,location=no,status=no,scrollbars=yes');"> ${famDto.famName} 님
+						<div style="margin: auto; width: 300px;">
+						<input class="famMember" type="text" value="${famDto.famName}" readonly="readonly" onclick="window.open('FamDetailForm.do?famNo='+ ${famDto.famNo},'','width=600,height=900,location=no,status=no,scrollbars=yes');">님</a></a>
 						<input type="button" value="정보추가" style="margin-left: 10px;" onclick="window.open('FamHealthInsertForm.do?famNo='+${famDto.famNo},'','width=600,height=500,location=no,status=no,scrollbars=yes');">
-						<input type="button" value="삭제" style="margin-left: 5px;" onclick="location.href='FamDelete.do?famNo='+${famDto.famNo}+'&memberNo='+${dto.memberNo}"><br>
+						<input type="button" value="삭제" style="margin-left: 5px;" onclick="location.href='FamDelete.do?famNo='+${famDto.famNo}+'&memberNo='+${dto.memberNo}">
+						</div>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
