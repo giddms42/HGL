@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lol.hgl.dto.famDto;
+import com.lol.hgl.dto.healthDto;
 
 
 @Repository
@@ -60,7 +61,40 @@ public class FamDaoImple implements FamDao {
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}		
-	return res;
+		return res;
+	}
+
+	@Override
+	public int FamHealthInsert(healthDto healthdto) {
+		int res = 0;
+		try {
+			res = sqlSession.insert(nameSpace+"FamHealthInsert", healthdto);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}		
+		return res;
+	}
+
+	@Override
+	public healthDto healthDetail(int famNo) {
+		healthDto res = new healthDto();
+		try {
+			res = sqlSession.selectOne(nameSpace+"healthDetail", famNo);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public List<healthDto> heatlList(int famNo) {
+		List<healthDto> res = new ArrayList<healthDto>();
+		try {
+			res = sqlSession.selectList(nameSpace+"heatlList", famNo);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 

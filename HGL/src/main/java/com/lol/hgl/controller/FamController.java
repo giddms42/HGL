@@ -1,11 +1,15 @@
 package com.lol.hgl.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lol.hgl.bizz.FamBizz;
 import com.lol.hgl.dto.famDto;
@@ -29,12 +33,26 @@ public class FamController {
 	  @RequestMapping(value="FamDetailForm.do")
 	  public String FamDetailForm(int famNo, Model model) {
 		 famDto famDto = bizz.famDetail(famNo);
-		 model.addAttribute("famDto", famDto);
+		 healthDto healthDto = bizz.healthDetail(famNo);		 
+		 model.addAttribute("healthDto",healthDto);
+		 model.addAttribute("famDto", famDto);		 
 	     return "FamDetail";
 	  }
 	  
+	  @RequestMapping(value="FamHealthList.do", method= {RequestMethod.POST, RequestMethod.GET})
+	  @ResponseBody
+	  public String[][] healthList(String famNo) {
+		  int famN = Integer.parseInt(famNo);
+		  System.out.println(famN);
+		String[][] res = bizz.heatlList(famN);
+		  return res;
+	  }
+	  
+	  
 	  @RequestMapping(value="FamHealthInsertForm.do")
-	  public String FamHealthInsertForm() {
+	  public String FamHealthInsertForm(int famNo, Model model) {
+		  famDto famDto = bizz.famDetail(famNo);
+		  model.addAttribute("famDto", famDto);
 	     return "FamHealthInsert";
 	  }
 	  
@@ -61,5 +79,12 @@ public class FamController {
 		  model.addAttribute("memberNo",memberNo);	  
 	     return "redirect:MemberInfoForm.do";
 	  } 
+      
+      @RequestMapping(value="FamHealthInsert.do")
+      public String FamHealthInsert(@ModelAttribute healthDto healthDto,int memberNo,Model model) {
+    	  bizz.FamHealthInsert(healthDto);
+    	  model.addAttribute("memberNo", memberNo);
+    	  return "redirect:MemberInfoForm.do";
+      }
 	  
 }

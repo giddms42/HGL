@@ -10,8 +10,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/FamDetail.css">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="js/FChart.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="js/FChart.js"></script>
 <script type="text/javascript">
 function goDiseaseUpdate(){
  	var popupX = (window.screen.width/2)-(250 /2);
@@ -40,21 +40,23 @@ google.charts.setOnLoadCallback(drawChart);
 			
 			<div id="famDetail" style="display: flex; ">
 				<div id="famInfoFom">
+					<input type="hidden" id="famNo" value="${famDto.famNo}">
 					<div>이름
 						<input class="famInfo" type="text" value="${famDto.famName}님" readonly="readonly">
 					</div>
 					<div>생일
-						<input class="famInfo" type="text" value="${famDto.famBirth }　　(${famDto.famLunar})" readonly="readonly">
+						<input class="famInfo" type="text" value="${famDto.famBirth } (${famDto.famLunar})" readonly="readonly">
 					</div>
 					<div>신장
-						<input class="famInfo" type="text" value="${healthDto.famHeight}cm" readonly="readonly">
+						<input class="famInfo" type="text" value="${famDto.famHeight}cm" readonly="readonly">
 					</div>
 					<div>체중
 						<input class="famInfo" type="text" value="${healthDto.healthWeight}kg" readonly="readonly">
 					</div>
 					<div>혈압
 						<input class="famInfo" type="text" value="${healthDto.healthShrbp}mg" readonly="readonly">
-						<p style="margin-top: -20px; margin-left: 38px;"><input class="famInfo" type="text" value="${healthDto.healthRelbp}mg" readonly="readonly"></p>
+						<p style="margin-top: -20px; margin-left: 38px;">
+						<input class="famInfo" type="text" value="${healthDto.healthRelbp}mg" readonly="readonly"></p>
 					</div>
 					<div>지병 항목 (최대 3개) <input type="button" value="변경하기" onclick="goDiseaseUpdate()"></div>
 					<c:choose>
