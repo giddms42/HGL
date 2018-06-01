@@ -14,6 +14,16 @@
 		<result column="FAMLUNAR" property="famLunar"/>		
 	</resultMap>
 
+
+<resultMap type="com.lol.hgl.dto.healthDto" id="healthDto"> 
+		<result column="FAMNO" property="famNo"/>
+		<result column="HEALTHWEIGHT" property="healthWeight"/>
+		<result column="HEALTHSHRBP" property="healthShrbp"/>
+		<result column="HEALTHRELBP" property="healthRelbp"/>
+		<result column="HEALTHDATE" property="healthDate"/>	
+	</resultMap>
+
+
     <select id="allFamList" parameterType="int" resultMap="famDto">
      SELECT * FROM FAM WHERE MEMBERNO=#{memberNo}
     </select>
@@ -33,6 +43,16 @@
    
     <select id="memberNoSearch" parameterType="int" resultType="int">
       SELECT MEMBERNO FROM FAM WHERE FAMNO=#{famNo}
+    </select>
+    
+    <insert id="FamHealthInsert" parameterType="healthDto">
+     INSERT INTO HEALTH VALUES(#{famNo}, #{healthWeight}, #{healthShrbp}, #{healthRelbp} , SYSDATE)
+    </insert>
+    
+    <select id="healthDetail" parameterType="int" resultType="healthDto">
+     SELECT * FROM(
+		SELECT * FROM HEALTH ORDER BY HEALTHDATE DESC)
+		WHERE FAMNO=#{famNo} AND ROWNUM=1
     </select>
 	
 

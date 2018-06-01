@@ -32,18 +32,18 @@ google.charts.setOnLoadCallback(drawChart);
 						<input class="famInfo" type="text" value="${famDto.famBirth}" readonly="readonly">
 					</div>
 					<div style="margin-top: -30px; margin-left: 60px;">
-						<label><input class="radi" type="text" value="${famDto.famLunar}" readonly="readonly">
+						<label><input class="radi" type="text" value="${famDto.famLunar}" readonly="readonly"></label>
 					</div>
 					<div>신장
 						<input class="famInfo" type="text" value="${famDto.famHeight}" readonly="readonly">
 					</div>
 					<div>체중
-						<input class="famInfo" type="text" value="weight" readonly="readonly">
+						<input class="famInfo" type="text" value="${healthDto.healthWeight}" readonly="readonly">
 					</div>
 					<div>혈압
-						<input class="famInfo" type="text" value="systolic+mg" readonly="readonly">
+						<input class="famInfo" type="text" value="${healthDto.healthShrbp}" readonly="readonly">
 						<p style="margin-top: -20px; margin-left: 38px;">
-						<input class="famInfo" type="text" value="diastole+mg" readonly="readonly">
+						<input class="famInfo" type="text" value="${healthDto.healthRelbp}" readonly="readonly">
 						</p>
 					</div>
 					

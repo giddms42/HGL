@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lol.hgl.dao.FamDaoImple;
 import com.lol.hgl.dto.famDto;
+import com.lol.hgl.dto.healthDto;
 
 @Service
 public class FamBizzImple implements FamBizz {
@@ -62,6 +63,16 @@ public class FamBizzImple implements FamBizz {
 	public int famDelete(int famNo) {
 		int res = dao.famDelete(famNo);
 		return res;
+	}
+
+	@Override
+	public int FamHealthInsert(healthDto healthdto) {
+		return dao.FamHealthInsert(healthdto);
+	}
+
+	@Override
+	public healthDto healthDetail(int famNo) {
+		return dao.healthDetail(famNo);
 	}
 
 

@@ -29,12 +29,16 @@ public class FamController {
 	  @RequestMapping(value="FamDetailForm.do")
 	  public String FamDetailForm(int famNo, Model model) {
 		 famDto famDto = bizz.famDetail(famNo);
+		 healthDto healthDto = bizz.healthDetail(famNo);
+		 model.addAttribute("healthDto",healthDto);
 		 model.addAttribute("famDto", famDto);
 	     return "FamDetail";
 	  }
 	  
 	  @RequestMapping(value="FamHealthInsertForm.do")
-	  public String FamHealthInsertForm() {
+	  public String FamHealthInsertForm(int famNo, Model model) {
+		  famDto famDto = bizz.famDetail(famNo);
+		  model.addAttribute("famDto", famDto);
 	     return "FamHealthInsert";
 	  }	  
 	  
@@ -57,5 +61,12 @@ public class FamController {
 		  model.addAttribute("memberNo",memberNo);	  
 	     return "redirect:MemberInfoForm.do";
 	  } 
+      
+      @RequestMapping(value="FamHealthInsert.do")
+      public String FamHealthInsert(@ModelAttribute healthDto healthDto,int memberNo,Model model) {
+    	  bizz.FamHealthInsert(healthDto);
+    	  model.addAttribute("memberNo", memberNo);
+    	  return "redirect:MemberInfoForm.do";
+      }
 	  
 }
