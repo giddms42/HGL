@@ -84,12 +84,24 @@ public class MemeberDaoImple implements MemberDao {
 			}	
 		return res;
 	}
-
+	
 	@Override
 	public memberDto Login(String memberId) {
 		memberDto res = new memberDto();
 		try {
 			res = sqlSession.selectOne(nameSpace+"Login", memberId);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+	
+
+	@Override
+	public memberDto detailLogin(int memberNo) {
+		memberDto res = new memberDto();
+		try {
+			res = sqlSession.selectOne(nameSpace+"detailLogin", memberNo);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	
@@ -139,5 +151,7 @@ public class MemeberDaoImple implements MemberDao {
 			}	
 		return res;
 	}
+
+
 
 }

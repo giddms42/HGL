@@ -24,6 +24,9 @@ html { /* background: url("image/img.jpg") no-repeat center fixed; */
 function goUpdate(){
 	location.href="MemberInfoUpdateForm.do";
 }
+function goFamDetail(famNo){
+	location.href="FamDetailForm.do?famNo="+famNo;
+}
 
 function getOut(){
     var con = confirm("정말로 탈퇴하시겠습니까?");
@@ -32,8 +35,21 @@ function getOut(){
        location.href="MemberGetOut.do?memberNo="+${dto.memberNo};
     }
  }
+function goSubmit(){
+	window.opener.name = "Parent"; // 부모창의 이름 설정
+    document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
+    self.close();
+}
+function goFamInsert(){
+	location.href="FamInsertForm.do";
+}
 
-
+function famDelete(famNo){
+	var fam_Delete = confirm("삭제하시겠습니까?");
+	if(fam_Delete == true){
+		location.href="FamDelete.do?famNo="+famNo+"&memberNo="+${dto.memberNo};
+	}
+}
 </script>
 <body>
 
@@ -43,44 +59,53 @@ function getOut(){
 		<div id="allInfo">
 			<div class="userInfo">
 				<h2>회원정보</h2>
-				<ul>
-					<li>아이디<input class="info" type="text" value="${dto.memberId}" readonly="readonly"></li>
-					<li>닉네임<input class="info" type="text" value="${dto.memberNickname}" readonly="readonly"></li>
-					<li>연락처<input class="info" type="text" value="${dto.memberPhone}" readonly="readonly"></li>
-					<li class="smsChk">
-					<c:choose>
-						<c:when test="${dto.memberSMS eq 'Y'}">
-							<input class="smsChk" style="width:5%" type="checkbox" checked="checked" readonly="readonly">
-						</c:when>
-						<c:otherwise>
-						<input class="smsChk" style="width:5%" type="checkbox" readonly="readonly">	
-						</c:otherwise>
-					</c:choose>
-					문자알림을 받으시겠습니까?
-					</li>
-					<li>이메일<input class="info" type="text" value="${dto.memberEmail}" readonly="readonly"></li>
-					<li>주&nbsp&nbsp&nbsp소
-					<input class="info" type="text" value="${dto.memberDo}" readonly="readonly"><br>
-					<input class="info" type="text" value="${dto.memberCity}" readonly="readonly"><br>
-					<input class="info" type="text" value="${dto.memberAddr}" readonly="readonly">
-					</li>
-				</ul>
+				<div>아이디<input class="info" type="text" value="${dto.memberId}" readonly="readonly"></div>
+				<div>닉네임<input class="info" type="text" value="${dto.memberNickname}" readonly="readonly"></div>
+				<div>연락처<input class="info" type="text" value="${dto.memberPhone}" readonly="readonly"></div>
+				<div class="smsChk">
+				<c:choose>
+					<c:when test="${dto.memberSMS eq 'Y'}">
+						<input class="smsChk" style="width:5%" type="checkbox" checked="checked" readonly="readonly">
+					</c:when>
+					<c:otherwise>
+					<input class="smsChk" style="width:5%" type="checkbox" readonly="readonly">	
+					</c:otherwise>
+				</c:choose>
+				문자알림을 받으시겠습니까?
+				</div>
+				<div>이메일<input class="info" type="text" value="${dto.memberEmail}" readonly="readonly"></div>
+				<div>주&nbsp&nbsp&nbsp소
+				<input class="info" type="text" value="${dto.memberDo}" readonly="readonly"><br>
+				<input class="info" type="text" value="${dto.memberCity}" readonly="readonly"><br>
+				<input class="info" type="text" value="${dto.memberAddr}" readonly="readonly">
+				</div>
 			</div>
+			
+				
 			<div class="famInfo">
 				<h2>가족정보</h2>
-				<span id="fam">
-					<input class="famMember" type="text" value="famName" readonly="readonly" onclick="window.open('http://www.naver.com','naver','width=600,height=900,location=no,status=no,scrollbars=yes');">님
-					<input type="button" value="정보추가" style="margin-left: 10px;"
-					onclick="window.open('http://www.naver.com','naver','width=600,height=500,location=no,status=no,scrollbars=yes');">
-					<input type="button" value="삭제" style="margin-left: 5px;"
-					onclick="">
-				</span>
+		 		<c:choose>
+					<c:when test="${empty list }">
+						<span>등록한 가족구성원이 없습니다! 등록해주세요 </span>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${list}" var="famDto">
+							<div style="margin: auto; width: 300px;">
+							<input class="famMember" type="text" value="${famDto.famName}" readonly="readonly" onclick="goFamDetail(${famDto.famNo});">님
+							<button class="famDelete" type="button" style="margin-left: 5px;" onclick="famDelete(${famDto.famNo});"><img class="famDelete-img" src="image/menu_close.png"></button>
+							<hr>
+							</div>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
 			</div>
-		</div>
+	</div>
+		
+				
 		<div class="threeButton">
-			<input type="button" value="탈퇴하기" onclick="getOut();" style="margin-left: 1.5%">
-			<input type="button" value="수정하기" onclick="goUpdate();" style="margin-left: 37%">
-			<input type="button" value="가족추가" style="margin-left: 36.5%">
+			<button type="button" onclick="getOut();" style="margin-left: 1.5%">탈퇴하기</button>
+			<button type="button" onclick="goUpdate();" style="margin-left: 37%">수정하기</button>
+			<button type="button" onclick="goFamInsert();" style="margin-left: 36.5%">가족추가</button>
 		</div>
 
 	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>

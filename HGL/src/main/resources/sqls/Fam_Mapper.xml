@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="fam">
+
+<resultMap type="com.lol.hgl.dto.famDto" id="famDto"> 
+		<result column="MEMBERNO" property="memberNo"/>
+		<result column="FAMNO" property="famNo"/>
+		<result column="FAMNAME" property="famName"/>
+		<result column="FAMHEIGHT" property="famHeight"/>
+		<result column="FAMDISEASE1" property="famDisease1"/>
+		<result column="FAMDISEASE2" property="famDisease2"/>
+		<result column="FAMDISEASE3" property="famDisease3"/>
+		<result column="FAMBIRTH" property="famBirth" />  
+		<result column="FAMLUNAR" property="famLunar"/>		
+	</resultMap>
+
+    <select id="allFamList" parameterType="int" resultMap="famDto">
+     SELECT * FROM FAM WHERE MEMBERNO=#{memberNo}
+    </select>
+
+	<insert id="insertFam" parameterType="famDto">
+	INSERT INTO FAM VALUES(#{memberNo}, FAMNO_SEQ.NEXTVAL, #{famName}, #{famHeight}, #{famDisease1} , #{famDisease2} , #{famDisease3} , #{famBirth}, #{famLunar})
+	</insert>
+	
+	<select id="famDetail" parameterType="int" resultType="famDto">
+     SELECT * FROM FAM WHERE FAMNO=#{famNo}
+    </select>
+    
+    <delete id="famDelete" parameterType="int">
+    DELETE FROM FAM WHERE FAMNO=#{famNo}
+    </delete>
+    
+   
+    <select id="memberNoSearch" parameterType="int" resultType="int">
+      SELECT MEMBERNO FROM FAM WHERE FAMNO=#{famNo}
+    </select>
+	
+
 </mapper>

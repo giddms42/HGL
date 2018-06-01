@@ -464,7 +464,6 @@
 		         })
 		         
 		         $("#regist").submit(function(){
-		             var returnVar = true;
 		             if ($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
 		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
 		                document.getElementsByName("memberPw")[0].focus();
@@ -484,9 +483,9 @@
 				            		 alert("이메일을 다시 확인해주세요")
 				            		 document.getElementsByName("memberEmail")[0].focus();
 				            		 return false;
-				            		 }
-				             		}
-				          	 	}
-		             }
+				            	 }
+				              }
+				          }
+		              }
 		         })
 	})

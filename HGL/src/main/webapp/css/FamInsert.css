@@ -6,6 +6,7 @@ header{
 	text-align:center;
 	margin: auto;
 	width: 500px;
+	margin-bottom: 30px;
 }
 form{
 	margin:auto;	
@@ -14,21 +15,75 @@ form{
 label{
 	font-size: 12pt;
 }
+
+
+
 .radi{
 	width: 20px;
 	height: 20px;
+	vertical-align: middle;
+	margin-bottom: 15px;
 }
-.disease{
+.dis{
 	width: 20px;
 	height: 20px;
 }
-
 .famInfo{
-	width: 250px;
-	height: 35px;
+	width: 400px;
+	height: 37px;
+	border: none;
+	background-color : #f0f0f0;
 	margin-left: 20px;
 	margin-bottom: 30px;
 }
-.sibal{
-	margin-top: 50px;
+
+#disList{
+display:none;	
+}
+
+#diseSelect{
+	height: 35px; 
+	width: 160px; 
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+
+button {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	color: black;
+	background-color: white;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+button:hover {
+	text-decoration: none;
+}
+button:active {
+	position: relative;
+	top: 2px;
+}
+
+select {
+    height: 37px;
+    margin-top: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #400040;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    text-align: center;
+>>>>>>> branch 'gs' of https://github.com/giddms42/HGL.git
 }

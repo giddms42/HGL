@@ -45,7 +45,7 @@ function AdminMange(){
 					<div onclick="location.href='AdminSearchUserForm.do'">관리자-회원목록</div>
 				</div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">홈페이지 소개</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MemberInfoForm.do?memberId=${login.memberId}" class="btn btn-sm animated-button thar-three" id="btn2">내정보</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MemberInfoForm.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn2">내정보</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">캘린더</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">지도</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">위시리스트</a></div></div>

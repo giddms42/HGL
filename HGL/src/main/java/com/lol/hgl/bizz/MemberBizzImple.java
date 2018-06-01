@@ -103,6 +103,13 @@ public class MemberBizzImple implements MemberBizz {
 		memberDto dto = dao.Login(memberId);	
 		return dto;
 	}
+	
+	
+	@Override
+	public memberDto detailLogin(int memberNo) {
+		memberDto dto = dao.detailLogin(memberNo);	
+		return dto;
+	}
 
 	@Override
 	public String LoginChk(String id, String rawPassword) {
@@ -147,6 +154,8 @@ public class MemberBizzImple implements MemberBizz {
 		int res = dao.getOut(memberNo);
 		return res;
 	}
+
+
 
 	
 	
