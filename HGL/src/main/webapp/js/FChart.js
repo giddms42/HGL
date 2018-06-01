@@ -7,13 +7,14 @@
       data.addColumn('number', '체중');
 
       var famNo = document.getElementById("famNo").value;
-      var array = new Array()();
+      var array = new Array();
       $.ajax({
           url : "FamHealthList.do",
           type: "post",
           data : "famNo="+famNo,
           dataType:"json",
           success:function(data){
+        	  alert("에이작수 성공!")
              array = data;
           },            
           error:function(){                        

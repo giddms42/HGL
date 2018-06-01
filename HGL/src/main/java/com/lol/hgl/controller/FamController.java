@@ -39,10 +39,11 @@ public class FamController {
 	     return "FamDetail";
 	  }
 	  
-	  @RequestMapping(value="FamHealthList.do", method= {RequestMethod.GET,RequestMethod.POST});
+	  @RequestMapping(value="FamHealthList.do", method= {RequestMethod.POST, RequestMethod.GET})
 	  @ResponseBody
 	  public String[][] healthList(String famNo) {
 		  int famN = Integer.parseInt(famNo);
+		  System.out.println(famN);
 		String[][] res = bizz.heatlList(famN);
 		  return res;
 	  }
