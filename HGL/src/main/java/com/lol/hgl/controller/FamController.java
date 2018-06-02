@@ -36,38 +36,14 @@ public class FamController {
 		 famDto famDto = bizz.famDetail(famNo);
 		 healthDto healthDto = bizz.healthDetail(famNo);
 		 List<healthDto> list = bizz.heatlList(famNo);
-		 /*healthDto heatlDtoTmp = new healthDto();
-
-	
-		 int list_size = list.size(), i;
-		 for ( i = 0 ; i < 5; i ++) {
-			 if ( i < list_size ) {
-				 model.addAttribute("heatlDto"+i, list.get(i));	 
-			 } else {
-				 model.addAttribute("heatlDto"+i, heatlDtoTmp);	
-			 }
-			
-		 }*/
+		 System.out.println(list.size());
 		 model.addAttribute("list",list);	
 		 model.addAttribute("healthDto",healthDto);	 
 		 model.addAttribute("famDto", famDto);			
 	     return "FamDetail";
 	  }
 	
-	  /*
-	  @RequestMapping(value="FamHealthList.do", method= {RequestMethod.POST, RequestMethod.GET})
-	  @ResponseBody
-	  public String[][] healthList(String famNo) {
-		  int famN = Integer.parseInt(famNo);
-		  System.out.println(famN);
-		String[][] res = bizz.heatlList(famN);
-		  return res;
-	  }
-	  */
-	  
-	  
-	  
-	  
+
 	  @RequestMapping(value="FamHealthInsertForm.do")
 	  public String FamHealthInsertForm(int famNo, Model model) {
 		  famDto famDto = bizz.famDetail(famNo);
@@ -76,18 +52,28 @@ public class FamController {
 	  }
 	  
 	  @RequestMapping(value="FamDiseaseUpdateForm.do")
-	  public String FamDiseaseUpdateForm() {
+	  public String FamDiseaseUpdateForm(String famNo, Model model) {
+		  System.out.println(famNo);
+		 model.addAttribute("famNo", famNo);
 	     return "FamDiseaseUpdate";
 	  }
 	  
+	  @RequestMapping(value="FamDiseaseUpdate.do")
+	  public String FamDiseaseUpdate(String famNo, String disease, Model model) {
+		  int famN = Integer.parseInt(famNo);
+		  famDto famDto = bizz.famDetail(famN);
+		  System.out.println("가족구성원 번호" + famDto.getFamNo());
+		  bizz.FamDiseaseUpdate(famDto, disease);
+		  model.addAttribute("famNo", famNo);	  
+		  return "redirect:FamDetailForm.do";
+	  }
+	  
+	  
+	  
 	  @RequestMapping(value="FamInsert.do")
 	  public String FamInsert(@ModelAttribute famDto famdto, String disease, Model model) {
-		 System.out.println(disease);
-		 int r =  bizz.insertFam(famdto, disease);
-		  if(r>0) {
-			  System.out.println("가족 구성원 추가 성공! ");
-		  }		  
-		  model.addAttribute("memberNo", famdto.getMemberNo());	  
+		 bizz.insertFam(famdto, disease);	  
+		 model.addAttribute("memberNo", famdto.getMemberNo());	  
 	     return "redirect:MemberInfoForm.do";
 	  }  
 	  
@@ -100,10 +86,10 @@ public class FamController {
 	  } 
       
       @RequestMapping(value="FamHealthInsert.do")
-      public String FamHealthInsert(@ModelAttribute healthDto healthDto,int memberNo,Model model) {
+      public String FamHealthInsert(@ModelAttribute healthDto healthDto, String famNo, Model model) {
     	  bizz.FamHealthInsert(healthDto);
-    	  model.addAttribute("memberNo", memberNo);
-    	  return "redirect:MemberInfoForm.do";
+    	  model.addAttribute("famNo", famNo);
+    	  return "redirect:FamDetailForm.do";
       }
 	  
 }

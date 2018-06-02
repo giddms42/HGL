@@ -78,27 +78,45 @@ public class FamBizzImple implements FamBizz {
 	@Override
 	public List<healthDto>heatlList(int famNo) {
 		List<healthDto> list = dao.heatlList(famNo);
-		System.out.println(list.size());
-		
-	/*
-		for(int i = 0; i < list.size(); i++) {
-			for(int j=0; j<3; j++) {
-				healthDto tmp = list.get(i);
-				switch (j) {
-				case 0:
-					healthArray[i][j] = String.valueOf(tmp.getHealthShrbp());								
-					break;
-				case 1:
-					healthArray[i][j] = String.valueOf(tmp.getHealthRelbp());								
-					break;
-				case 2:
-					healthArray[i][j] = String.valueOf(tmp.getHealthWeight());								
-					break;
-				}
-			}	
+		healthDto tmp = new healthDto();
+		tmp.setHealthShrbp(0);
+		tmp.setHealthRelbp(0);
+		tmp.setHealthWeight(0);
+		for(int i=0; i<5; i++) {
+			if(i>=list.size()){
+				list.add(0,tmp);
+			}
 		}
-*/
+
 		return list;
+	}
+
+	@Override
+	public int FamDiseaseUpdate(famDto famDto, String disease) {
+		if(disease == "질병없음") {
+			famDto.setFamDisease1("질병없음");
+			famDto.setFamDisease2("질병없음");
+			famDto.setFamDisease3("질병없음");		
+		}else {
+			String[] tmp = disease.split(",");		
+			if(tmp.length==3) {
+				famDto.setFamDisease1(tmp[0]);
+				famDto.setFamDisease2(tmp[1]);
+				famDto.setFamDisease3(tmp[2]);			
+			}else if(tmp.length==2) {
+				famDto.setFamDisease1(tmp[0]);
+				famDto.setFamDisease2(tmp[1]);
+				famDto.setFamDisease3("질병없음");
+			}else if(tmp.length==1){
+				famDto.setFamDisease1(tmp[0]);
+				famDto.setFamDisease2("질병없음");
+				famDto.setFamDisease3("질병없음");
+			}
+			
+		}
+		
+		int res = dao.FamDiseaseUpdate(famDto);		
+		return res;
 	}
 
 }

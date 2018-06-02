@@ -14,4 +14,5 @@ public interface FamBizz {
 	public int FamHealthInsert(healthDto healthdto);
 	public healthDto healthDetail(int famNo);
 	public List<healthDto> heatlList(int famNo);
+	public int FamDiseaseUpdate(famDto famDto, String disease);
 }

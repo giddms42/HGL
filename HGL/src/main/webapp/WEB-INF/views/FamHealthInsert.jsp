@@ -24,7 +24,6 @@ function goSubmit(){
 	<div id="addHealth">
 		<form action="FamHealthInsert.do" method="post" name="myForm">
 			<input type="hidden" name="famNo" value="${famDto.famNo}">
-			<input type="hidden" name="memberNo" value="${famDto.memberNo}">
 			<div>체중<br>
 				<input type="text" name="healthWeight" placeholder="kg. 체중을 입력해주세요">
 
@@ -35,8 +34,8 @@ function goSubmit(){
 				<input class="healthInfoAdd" type="number" name="healthRelbp" placeholder="이완기를 숫자만 입력해주세요" style="margin-left: 35px;">
 
 
-			<div style="margin-top: 10px; ">
-				<button>추가하기</button>
+			<div style="margin-top: 10px; "> 
+				<button onclick="goSubmit();">추가하기</button>
 				<button type="button" onclick="self.close()">취소하기</button>
 			</div>
 

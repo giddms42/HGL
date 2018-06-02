@@ -23,7 +23,7 @@
       for(var i=0; i<totalCount; i++){
     	  for(var j=0; j<4; j++){
     		  if((j%4)==0){
-    			  arr[i][j] = i+1;
+    			  arr[i][j] = i;
     		  }else{
     			  arr[i][j] = Number(healthName[count].value);
     			  count=count+1;

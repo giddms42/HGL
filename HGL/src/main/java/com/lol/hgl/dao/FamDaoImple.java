@@ -98,5 +98,17 @@ public class FamDaoImple implements FamDao {
 	}
 
 
+	@Override
+	public int FamDiseaseUpdate(famDto famDto) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"FamDiseaseUpdate", famDto);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+
 
 }

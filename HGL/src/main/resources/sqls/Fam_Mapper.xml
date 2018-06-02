@@ -66,5 +66,9 @@
 		ORDER BY HEALTHDATE
 		]]>
 	</select>
+	
+	<update id="FamDiseaseUpdate" parameterType="famDto">
+		UPDATE FAM SET FAMDISEASE1=#{famDisease1}, FAMDISEASE2=#{famDisease2}, FAMDISEASE3=#{famDisease3} WHERE FAMNO=#{famNo} 
+	</update>
 
 </mapper>

@@ -32,6 +32,13 @@ function goSubmit(){
     document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
     self.close();
 }
+
+function change(obj){
+	document.getElementById("chkCancer").value=obj;
+	document.getElementById("chkCancer").checked=true;
+	document.getElementById("chkCancer").name="disease";
+	
+}
 </script>
 <style>
 #diseaseUpdate{
@@ -49,7 +56,8 @@ function goSubmit(){
 <body>
 	
 	<div id="diseaseUpdate">
-		<form action="">
+		<form action="FamDiseaseUpdate.do" name="myForm">
+		<input type="hidden" name="famNo" value="${famNo}"/>
 		<div id="disList">	
 			<div style="text-align: center; margin-bottom: 10px;"><b>지병 항목 (최대 3개)</b></div>
 			<table style="margin: auto;">
@@ -81,7 +89,7 @@ function goSubmit(){
 			</table>
 		</div>
 		<div style="text-align:center; margin-top: 10px; margin-bottom: 20px;">
-			<button onclick="goSubmit()">변경</button>
+			<input type="submit" onclick="goSubmit()" value="변경">
 			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 			<button type="button" onclick="self.close()">취소</button>
 		</div>

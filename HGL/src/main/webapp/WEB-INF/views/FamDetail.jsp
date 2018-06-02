@@ -19,14 +19,14 @@ function goDiseaseUpdate(){
 	var popupY= (window.screen.height/2)-(50 /2);
 
 	window.name="Parent";
-	window.open("FamDiseaseUpdateForm.do","", 'status=no, width=450, height=200, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	window.open("FamDiseaseUpdateForm.do?famNo="+${famDto.famNo},"", 'status=no, width=450, height=200, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 
 function goHealthInfoAdd(){
  	var popupX = (window.screen.width/2)-(410/2);
 	var popupY= (window.screen.height/2)-(240/2); 
 	window.name="Parent";
-	window.open("FamHealthInsertForm.do?famNo='+${famDto.famNo}","", 'status=no, width=410, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	window.open("FamHealthInsertForm.do?famNo="+${famDto.famNo},"", 'status=no, width=410, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 }
 
 google.charts.load('current', {'packages':['line']});
@@ -101,12 +101,12 @@ google.charts.setOnLoadCallback(drawChart);
 			<button type="button">목록으로</button>
 			</div>
 		</div>
-		<div style="display:none;">
+
 			<c:forEach items="${list}" var="healthDto" varStatus="status">
-			<input type="number" name="health" id="dto${status.index}ShrBP" value="${healthDto.healthShrbp}" />
-			<input type="number" name="health" id="dto${status.index}RelBP" value="${healthDto.healthRelbp}" />
-			<input type="number" name="health" id="dto${status.index}Weigth" value="${healthDto.healthWeight}" />
+			<input type="hidden" name="health" id="dto${status.index}ShrBP" value="${healthDto.healthShrbp}" />
+			<input type="hidden" name="health" id="dto${status.index}RelBP" value="${healthDto.healthRelbp}" />
+			<input type="hidden" name="health" id="dto${status.index}Weigth" value="${healthDto.healthWeight}" />
 			</c:forEach>
-		</div>
+	
 </body>
 </html>
