@@ -61,8 +61,12 @@ public class FamController {
 		  famDto famDto = bizz.famDetail(famNo);
 		  model.addAttribute("famDto", famDto);
 	     return "FamHealthInsert";
-	  }	  
+	  }
 	  
+	  @RequestMapping(value="FamDiseaseUpdateForm.do")
+	  public String FamDiseaseUpdateForm() {
+	     return "FamDiseaseUpdate";
+	  }
 	  
 	  @RequestMapping(value="FamInsert.do")
 	  public String FamInsert(@ModelAttribute famDto famdto, String disease, Model model) {

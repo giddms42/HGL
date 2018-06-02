@@ -33,11 +33,11 @@
 		
 		<div class="qaUpdate" id="commentBox" style="border:1px dotted green; margin-bottom: 40px;">
 	
-			<c:if test="${empty fwlbcmList}">
+			<c:if test="${!empty fwlbcmList}">
 			<div style="width:600px; margin: auto;  margin-top: 20px;">
 				<span>작성자: ${fwlbcmDto.fwlbcmWriter}</span>
 				<span style="float:right;">작성일:　<fmt:formatDate value="${fwlbcmDto.fwlbcmDate}" pattern="yyyy-MM-dd"/></span>
-	       		<div style="border-bottom: 1px solid #BDBDBD; margin-bottom: 10px; margin-top: 15px;">sdfsdafaasdfsdafjlnsdafjksdavfjkasndvkj</div>
+	       		<div style="border-bottom: 1px solid #BDBDBD; margin-bottom: 10px; margin-top: 15px;"> ${fwlbcmDto.fwlbCont}</div>
 	      		<button type="button" style="float:right;">삭제</button>
 	      		<button type="button" style="float:right;">수정</button>
 			</div>

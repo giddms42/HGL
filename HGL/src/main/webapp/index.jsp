@@ -9,10 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<a href="home.do">home</a><br>
-<a href="MemberSignUpForm.do">signUpForm</a><br>
-
 <br>
 
 <a href="MemberLoginForm.do">로그인</a>
