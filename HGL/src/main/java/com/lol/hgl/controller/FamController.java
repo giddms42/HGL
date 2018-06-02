@@ -1,6 +1,7 @@
 package com.lol.hgl.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,22 @@ public class FamController {
 	  public String FamDetailForm(int famNo, Model model) {
 		 famDto famDto = bizz.famDetail(famNo);
 		 healthDto healthDto = bizz.healthDetail(famNo);
-		 String[][] arr = bizz.heatlList(famNo);
-		 System.out.println(arr.length + "배열 길이");
-		 model.addAttribute("healthDto",healthDto);
-		 model.addAttribute("famDto", famDto);		
-		 model.addAttribute("arr", arr);		
+		 List<healthDto> list = bizz.heatlList(famNo);
+		 /*healthDto heatlDtoTmp = new healthDto();
+
+	
+		 int list_size = list.size(), i;
+		 for ( i = 0 ; i < 5; i ++) {
+			 if ( i < list_size ) {
+				 model.addAttribute("heatlDto"+i, list.get(i));	 
+			 } else {
+				 model.addAttribute("heatlDto"+i, heatlDtoTmp);	
+			 }
+			
+		 }*/
+		 model.addAttribute("list",list);	
+		 model.addAttribute("healthDto",healthDto);	 
+		 model.addAttribute("famDto", famDto);			
 	     return "FamDetail";
 	  }
 	

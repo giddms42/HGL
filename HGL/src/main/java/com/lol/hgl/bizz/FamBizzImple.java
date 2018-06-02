@@ -76,12 +76,11 @@ public class FamBizzImple implements FamBizz {
 	}
 
 	@Override
-	public String[][] heatlList(int famNo) {
+	public List<healthDto>heatlList(int famNo) {
 		List<healthDto> list = dao.heatlList(famNo);
-		//필요한건 수축 혈압, 이완 혈압, 체중 
-
-		String healthArray[][] = new String[5][3];
-	
+		System.out.println(list.size());
+		
+	/*
 		for(int i = 0; i < list.size(); i++) {
 			for(int j=0; j<3; j++) {
 				healthDto tmp = list.get(i);
@@ -98,15 +97,8 @@ public class FamBizzImple implements FamBizz {
 				}
 			}	
 		}
-				
-	   /* sb = "{\"parkingAirportCodeName\":\"" + dto.getParkingairportcodename() + "\",\"parkingBasicAccount\":\""
-                + dto.getParkingbasicaccount() + "\",\"parkingGetdate\":\"" + dto.getParkinggetdate()
-                + "\",\"parkingGettime\":\"" + dto.getParkinggettime() + "\",\"parkingIincnt\":\""
-                + dto.getParkingiincnt() + "\",\"parkingIoutcnt\":\"" + dto.getParkingioutcnt()
-                + "\",\"parkingIstay\":\"" + dto.getParkingistay() + "\",\"parkingPullSpace\":\""
-                + dto.getParkingpullspace() + "\"}";*/
-
-		return healthArray;
+*/
+		return list;
 	}
 
 }

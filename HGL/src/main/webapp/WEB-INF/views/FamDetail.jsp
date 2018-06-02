@@ -3,6 +3,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,6 @@ google.charts.setOnLoadCallback(drawChart);
 			<div id="famDetail" style="display: flex; ">
 
 				<div id="famInfoFom">
-					<input type="text" id="array" value="${arr}">
 					<input type="hidden" id="famNo" value="${famDto.famNo}">
 					<div>이름
 						<input class="famInfo" type="text" value="${famDto.famName}님" readonly="readonly">
@@ -101,8 +101,12 @@ google.charts.setOnLoadCallback(drawChart);
 			<button type="button">목록으로</button>
 			</div>
 		</div>
-		<div>
-		
-		</div> 
+		<div style="display:none;">
+			<c:forEach items="${list}" var="healthDto" varStatus="status">
+			<input type="number" name="health" id="dto${status.index}ShrBP" value="${healthDto.healthShrbp}" />
+			<input type="number" name="health" id="dto${status.index}RelBP" value="${healthDto.healthRelbp}" />
+			<input type="number" name="health" id="dto${status.index}Weigth" value="${healthDto.healthWeight}" />
+			</c:forEach>
+		</div>
 </body>
 </html>
