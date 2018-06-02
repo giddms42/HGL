@@ -29,6 +29,14 @@ function goHealthInfoAdd(){
 	window.open("FamHealthInsertForm.do?famNo="+${famDto.famNo},"", 'status=no, width=410, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 }
 
+function showMenu(disea){
+	var popupX = (window.screen.width/2)-(410/2);
+	var popupY= (window.screen.height/2)-(240/2); 
+	window.name="Parent";
+	window.open("FamDiseaseMenu.do?disease="+disea,"", 'status=no, width=410, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+}
+
+
 google.charts.load('current', {'packages':['line']});
 google.charts.setOnLoadCallback(drawChart);
 </script>
@@ -67,7 +75,7 @@ google.charts.setOnLoadCallback(drawChart);
 						<c:otherwise>
 						<div style="margin-left: 20px;">
 						지병1<input class="disease" type="text" value="${famDto.famDisease1}">
-						<input type="button" value="추천식단">
+						<input type="button" value="추천식단" onclick="showMenu('${famDto.famDisease1}');">
 						</div>
 						</c:otherwise>
 					</c:choose>
@@ -78,7 +86,7 @@ google.charts.setOnLoadCallback(drawChart);
 						<c:otherwise>
 						<div style="margin-left: 20px;">
 						지병1<input class="disease" type="text" value="${famDto.famDisease2}">
-						<input type="button" value="추천식단">
+						<input type="button" value="추천식단" onclick="showMenu('${famDto.famDisease2}');">
 						</div>
 						</c:otherwise>
 					</c:choose>
@@ -89,7 +97,7 @@ google.charts.setOnLoadCallback(drawChart);
 						<c:otherwise>
 						<div style="margin-left: 20px;">
 						지병1<input class="disease" type="text" value="${famDto.famDisease3}">
-						<input type="button" value="추천식단">
+						<input type="button" value="추천식단" onclick="showMenu('${famDto.famDisease3}');">
 						</div>
 						</c:otherwise>
 					</c:choose>

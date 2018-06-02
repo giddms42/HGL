@@ -91,5 +91,11 @@ public class FamController {
     	  model.addAttribute("famNo", famNo);
     	  return "redirect:FamDetailForm.do";
       }
+      
+      @RequestMapping(value="FamDiseaseMenu.do")
+      public String FamDiseaseMenu(String disease, Model model) {
+    	  model.addAttribute("disease", disease);
+    	  return "FamDiseaseMenu";
+      }
 	  
 }
