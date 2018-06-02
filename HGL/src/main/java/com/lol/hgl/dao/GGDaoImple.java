@@ -91,8 +91,13 @@ public class GGDaoImple implements GGDao {
 
 	@Override
 	public int repleyDelete(int seq) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = 0;
+		try {
+			res = sqlSession.insert(namespace+"repleyDelete", seq);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
 	}
 
 	@Override

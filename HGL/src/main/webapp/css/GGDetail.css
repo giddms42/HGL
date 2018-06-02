@@ -55,14 +55,6 @@ flex-direction: column;
  	width: 99.5%;
  }
  
- #content{
-    z-index: -1;
-    /* position: absolute; */
-    width: 100%;
-    height: 100%;
-    opacity: 0.7;
- }
- 
  th{
     font-weight:bold;
     font-size: 13pt;
@@ -75,7 +67,7 @@ flex-direction: column;
       text-decoration: none;
  }
  
- .td{
+ .Mtd{
  	height: 99%;
  	width: 99%;
  }
@@ -132,27 +124,22 @@ a:visited {
 .btn1{
 	position: absolute;
 	height: 30px;
-	left: 254px;
+	left: 260px;
 	top: 17px;
 }
 .btn2{
 	position: absolute;
 	height: 30px;
-	left: 315px;
+	left: 321px;
 	top: 17px;
 }
 .btn3{
 	position: absolute;
 	height: 30px;
-	left: 375px;
+	left: 381px;
 	top: 17px;	
 }
 
-#comment{
-	z-index: 10;
-	position: relative;
-    width: 70%;
-}
 
 #Cbtn1{
 	width: 99%;
@@ -160,6 +147,81 @@ a:visited {
 }
 
 .Cbtn2{
+	margin-top: 5px;
 	height: 99%;
-	width: 47.5%;
+	width: 40%;
+}
+
+#cmtd{
+	border: 1px solid orange;
+	background-color : orange;
+	color: white;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	font-size: 13pt;
+}
+
+#form2{
+	margin-left: 18.5px;
+	width: 100%;
+}
+
+.dv0{
+	width: 97.5%;
+	border: 1px solid white;
+	background-color: orange;
+	display: -webkit-flex;
+     display:         flex;
+     -webkit-align-items: center;
+             align-items: center;
+     -webkit-justify-content: center;
+             justify-content: center;
+     flex-direction: column;
+}
+
+.mdv{
+	width: 100%;
+	display: -webkit-flex;
+     display:         flex;
+     -webkit-align-items: center;
+             align-items: center;
+     -webkit-justify-content: center;
+             justify-content: center;
+}
+
+.dv1{
+	height: 30px;
+	margin-left: 81%;
+}
+.th{
+	text-align: center;
+	padding: 2px;
+	margin: 2px;
+	width: 15%;
+	border: 1px solid white;
+	background-color: orange;
+}
+.td{
+	padding: 2px;
+	margin: 2px;
+	width: 45%;
+	border: 1px solid gray;
+	background-color: white;
+	color: gray;
+}
+
+.cont{
+	padding: 2px;
+	margin: 2px;
+	width: 100%;
+	border: 1px solid white;
+	background-color: orange;
+}
+
+#cml{
+	width: 96.5%;
+	border: 1px solid white;
+	background-color: orange;
+	padding: 5px;
 }

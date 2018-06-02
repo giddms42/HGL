@@ -9,19 +9,24 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
+
+
 <br>
-
+<h1>작성자 : 정현</h1>
 <a href="MemberLoginForm.do">로그인</a>
-
 <a href="MainForm.do">메인</a>
 <a href="GGListForm.do">좋은글게시판</a>
 <a href="GGUpdateForm.do">좋은글수정</a>
+<a href="ys.do">연습장</a>
 
 <br>
 <br>
 <br>
+
+<h1>작성자 : 경식</h1>
 <a href="FamHealthInsertForm.do">FamHealthInsert</a>
-
 <a href="MemberInfo.do">MemberInfo</a>
 <a href="FamInsert.do">FamInsert</a>
 <a href="FamDetail.do">FamDetail</a>
@@ -32,7 +37,5 @@
 <a href="MemberInfoUpdate.do">MemberInfoUpdate</a><br>
 
 
-<h1>2018-05-31-13:08-정현</h1>
-<h1>2018-05-31-23:30 향은이가 유도리가 있기를.. 입새에 이는 바람에도 나는 괴로워했다 </h1>
 </body>
 </html>
