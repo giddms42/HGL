@@ -122,7 +122,7 @@ function maxLengthCheck(object){
 			<div style="margin-top: 30px;">
 	            <button style="margin-left: 105px;"onclick="goSubmit();">등록하기</button>
 	            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	            <button type="button">등록취소</button>
+	            <button type="button" onclick="history.back();">등록취소</button>
         	</div>
 		</form>
      </div> 

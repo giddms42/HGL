@@ -410,12 +410,17 @@
 		         })
 		         
 		          $("input[name=memberEmail").on("change",function() {
+		        	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		            var emailVal = $("input[name=memberEmail]").val();
 		            if(emailVal==null || emailVal==""){
 		            	 $("#useEmail").css("display", "none");
 	                     $("#unEmail").css("display", "none");
 	                     $("input[name=memberEmail]").attr('title','n');
-		            }else{
+		            }else if(emailVal == ""||!re.test(emailVal)){
+		            	 $("#useEmail").css("display", "none");
+		            	 $("#unEmail").css("display", "none");
+		        		 $("#incorrectEmail").css("display","inline");
+		        	}else{
 		            $.ajax({
 		               type:"post",
 		               url : "emailChk.do",
@@ -425,10 +430,12 @@
 		                  if (r == "t") {  
 		                     $("#useEmail").css("display", "inline");
 		                     $("#unEmail").css("display", "none");
+		                     $("#incorrectEmail").css("display","none");
 		                     $("input[name=memberEmail]").attr('title','y');
 		                  }else{
 		                	 $("#unEmail").css("display", "inline");
 		                	 $("#useEmail").css("display", "none");
+		                	 $("#incorrectEmail").css("display","none");
 		                	 $("input[name=memberEmail]").attr('title','n');
 		                  }
 		               }
@@ -464,28 +471,58 @@
 		         })
 		         
 		         $("#regist").submit(function(){
+		        	 
 		             if ($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
 		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
 		                document.getElementsByName("memberPw")[0].focus();
 		                return false;
-		             }else{	
-		            	 if($("input[name=memberId]").attr("title")=="n"){
-		            		 alert("아이디를 다시 확인해주세요")
-		            		 document.getElementsByName("memberId")[0].focus();
-		            		 return false;
-		            	 }else{
-			            	 if($("input[name=memberNickname]").attr("title")=="n"){
-			            		 alert("닉네임을 다시 확인해주세요")
-			            		 document.getElementsByName("memberNickname")[0].focus();
-			            		 return false;
-			            	 }else{
-				            	 if($("input[name=memberEmail]").attr("title")=="n"){
-				            		 alert("이메일을 다시 확인해주세요")
-				            		 document.getElementsByName("memberEmail")[0].focus();
-				            		 return false;
-				            	 }
-				              }
-				          }
-		              }
-		         })
+		             }else if($("input[name=memberId]").attr("title")=="n"){
+	            		 alert("아이디를 다시 확인해주세요")
+	            		 document.getElementsByName("memberId")[0].focus();
+	            		 return false;
+		             }else if($("input[name=memberNickname]").attr("title")=="n"){
+		            	 alert("닉네임을 다시 확인해주세요")
+		            	 document.getElementsByName("memberNickname")[0].focus();
+		            	 return false;
+		             }else if($("input[name=memberPw]").val() == ""){
+		            	 alert("비밀번호를 입력해주세요")
+		            	 document.getElementsByName("memberPw")[0].focus();
+		            	 return false;
+		             }else if($("input[name=userChkpw]").val() == ""){
+		            	 alert("비밀번호 확인을 입력해주세요")
+		            	 document.getElementsByName("userChkpw")[0].focus();
+		            	 return false;
+		             }else if($("input[name=memberEmail]").attr("title")=="n"){
+	            		 alert("이메일을 다시 확인해주세요")
+	            		 document.getElementsByName("memberEmail")[0].focus();
+	            		 return false;
+		             }else if($("input[name=memberPhone]").val() == ""){
+		            	 alert("연락처를 입력해주세요")
+		            	 document.getElementsByName("memberPhone")[0].focus();
+		            	 return false;
+		             }else if($("input[name=memberDo]").val() == ""){
+		            	 alert("주소를 선택해주세요")
+		            	 document.getElementsByName("memberDo")[0].focus();
+		            	 return false;
+		             }else if($("select[name=memberDo]").val() == ""){
+		            	 alert("도를 선택해주세요")
+		            	 document.getElementsByName("memberDo")[0].focus();
+		            	 return false;
+		             }else if($("select[name=memberCity]").val() == ""){
+		            	 alert("시,군,구를 선택해주세요")
+		            	 document.getElementsByName("memberDo")[0].focus();
+		            	 return false;
+		             }else if($("input[name=memberAddr]").val() == ""){
+		            	 alert("상세주소를 입력해주세요")
+		            	 document.getElementsByName("memberAddr")[0].focus();
+		            	 return false;
+		             }
+				 })
+				 $("input[name=memberEmail]").change(function(){
+					 var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+					 var email = document.getElementsByName('memberEmail').value;
+					 
+		    	  if(email==""){
+		    	  }
+		      })
 	})
