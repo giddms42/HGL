@@ -23,7 +23,7 @@
 	</delete>
 	
 	<insert id="FWLBInsert" parameterType="String">
-		INSERT INTO FWLB VALUES()
+		INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, #{memberNickName}, #{memberNickName})
 	</insert>
 
 </mapper>

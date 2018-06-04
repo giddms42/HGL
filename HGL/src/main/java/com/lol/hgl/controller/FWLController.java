@@ -36,12 +36,14 @@ public class FWLController {
 	   @ResponseBody
 	   public String FWLInsert(String fwlItem, int memberNo) {
 		  bizz.fwlInsert(fwlItem, memberNo); 
+		  
 	      return "FWLInsert";
 	   }
 	   
 	   
 	   @RequestMapping(value="FWLSuccess.do")
-	   public String FWLSuccess(int fwlNo) {
+	   public String FWLSuccess(String checkValue) {
+		   int fwlNo = Integer.parseInt(checkValue);
 		   bizz.FWLSuccess(fwlNo);
 		   return "redirect:FWLList.do";
 	   }

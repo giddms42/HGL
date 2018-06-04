@@ -45,7 +45,7 @@
 						<tr>
 							<c:choose>
 								<c:when test="${FwlDto.fwlChk eq 'Y'}">
-								<td>	<input type="checkbox" checked="checked" > </td>
+								<td>	<input type="checkbox" checked="checked"> </td>
 								</c:when>
 								<c:otherwise>
 								<td>	<input type="checkbox" >	</td>
