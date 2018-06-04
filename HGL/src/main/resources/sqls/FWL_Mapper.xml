@@ -2,12 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="fwl">
 	<resultMap type="com.lol.hgl.dto.fwlDto" id="fwlDto">
-		<result column="FWLCHK" property="flwChk"/>
+		<result column="FWLCHK" property="fwlChk"/>
 		<result column = "FWLITEM" property="fwlItem"/>	
 	</resultMap>
 	
 	<select id="fwlList" parameterType="int" resultMap="fwlDto">
 		SELECT * FROM FWL WHERE MEMBERNO=#{memberNo}
 	</select>
+	
+	<insert id="fwlInsert" parameterType="fwlDto">
+		INSERT INTO FWL VALUES(#{memberNo}, FWLNO_SEQ.NEXTVAL, #{fwlItem}, 'N')
+	</insert>
 
 </mapper>

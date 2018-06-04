@@ -25,7 +25,7 @@
 
 	<div style="width: 800px; border: 1px dotted red; margin: auto;">
 		<input type="button" value="공유하기" style="margin-left: 75px;">
-		<input type="button" value="+위시리스트 추가하기" onclick="window.open('FWLInsertForm.do','위시리스트추가하기','width=600,height=150,location=no,status=no,scrollbars=yes')" style="margin-left: 425px;">
+		<input type="button" value="+위시리스트 추가하기" onclick="window.open('FWLInsertForm.do?memberNo='+${memberNo},'위시리스트추가하기','width=600,height=150,location=no,status=no,scrollbars=yes')" style="margin-left: 425px;">
 		
 		<form>
 		<table border="1" style="width:650px; margin: auto;">
@@ -33,27 +33,30 @@
 				<th>달성여부</th>
 				<th style="text-align: center;">위 시 리 스 트</th>
 			</tr>
-			<tr>
 				<c:choose>
 					<c:when test="${empty FWLList}">
+					<tr>
 						<td></td>
 						<td style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
+					</tr>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${FWLList}" var="FwlDto">
+						<tr>
 							<c:choose>
 								<c:when test="${FwlDto.fwlChk eq 'Y'}">
-									<input type="checkbox" checked="checked" >
+								<td>	<input type="checkbox" checked="checked" > </td>
 								</c:when>
 								<c:otherwise>
-									<input type="checkbox">	
+								<td>	<input type="checkbox" >	</td>
 								</c:otherwise>
 							</c:choose>
-							<td>${Fwl.Dto.fwlItem}</td>
+							<td>${FwlDto.fwlItem}</td>
+						</tr>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
-			</tr>
+		
 			<tr>
 				<td colspan="2">
 					<input type="button" value="삭제" style="float:right;">  

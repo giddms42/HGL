@@ -11,6 +11,11 @@ public class fwlDto {
 		
 	}
 	
+	public fwlDto(int memberNo, String fwlItem) {
+		this.memberNo = memberNo;
+		this.fwlItem = fwlItem;
+	}
+	
 	public fwlDto(int memberNo, int fwlNo, String fwlItem, String fwlChk) {
 		super();
 		this.memberNo = memberNo;

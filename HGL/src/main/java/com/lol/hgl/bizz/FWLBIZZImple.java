@@ -18,4 +18,10 @@ public class FWLBIZZImple implements FWLBizz {
 		return dao.fwlList(memberNo);
 	}
 
+	@Override
+	public int fwlInsert(String fwlItem, int memberNo) {
+		fwlDto dto = new fwlDto(memberNo, fwlItem);
+		return dao.fwlInsert(dto);
+	}
+
 }
