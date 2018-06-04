@@ -14,6 +14,11 @@ public class fwlbDto {
 		
 	}
 	
+	public fwlbDto(String fwlbWriter, String fwlbTitle) {
+		this.fwlbWriter=fwlbWriter;
+		this.fwlbTitle=fwlbTitle;
+	}
+	
 	public fwlbDto(int fwlbNo, String fwlbWriter, String fwlbTitle, int fwlbReadcnt, Date fwlbDate) {
 		this.fwlbNo = fwlbNo;
 		this.fwlbWriter = fwlbWriter;

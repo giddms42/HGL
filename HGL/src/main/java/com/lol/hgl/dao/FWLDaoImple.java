@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lol.hgl.dto.fwlDto;
+import com.lol.hgl.dto.fwlbDto;
+import com.lol.hgl.dto.fwlbcmDto;
 
 
 @Repository
@@ -68,14 +70,38 @@ public class FWLDaoImple implements FWLDao {
 
 
 	@Override
-	public int FWLBInsert(String memberNickName) {
+	public int FWLBInsert(fwlbDto dto) {
 		int res = 0;
 		try {
-			res = sqlSession.insert(nameSpace+"FWLBInsert", memberNickName);
+			res = sqlSession.insert(nameSpace+"FWLBInsert", dto);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	
 		return res;
+	}
+
+
+	@Override
+	public fwlbDto FWLBDetail(String memberNickName) {
+		fwlbDto dto = new fwlbDto();
+		try {
+			dto = sqlSession.selectOne(nameSpace+"FWLBDetail", memberNickName);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return dto;
+	}
+
+
+	@Override
+	public List<fwlbcmDto> fwlbcmList(int fwlbNO) {
+		List<fwlbcmDto> list = new ArrayList<fwlbcmDto>();
+		try {
+			list = sqlSession.selectList(nameSpace+"fwlbcmList", fwlbNO);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return list;
 	}
 
 }

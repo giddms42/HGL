@@ -58,6 +58,7 @@ $(function(){
 		window.open("FWLInsertForm.do","위시리스트추가하기", 'status=no, width=600, height=150, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 
+
 </script>
 </head>
 <body>
@@ -65,7 +66,7 @@ $(function(){
 	<div id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 		<div id="topbutton">
-			<button type="button">공유하기</button>
+			<button type="button" onclick="location.href='FWLShare.do?memberNo='+${login.memberNo}+'&memberNickName='+${login.memberNickName}">공유하기</button>
 			<button type="button" onclick="FWLinsert();" style="margin-left: 425px;">+위시리스트 추가하기</button>
 		</div>
 		

@@ -13,11 +13,11 @@
 <body>
 	<%@ include file="/WEB-INF/views/Header.jsp"%>
 
-	<h2 style="text-align: center">${fwlbDto.fwlbWriter}위시리스트입니다</h2>
+	<h2 style="text-align: center">${dto.fwlbWriter} 님의 위시리스트입니다</h2>
 	<div style="width: 800px; min-height:700px; height: 100%; margin: auto; border:1px solid pink;" >
 		<div style="margin-bottom: 30px;"><br>		
-			<div style="float: right;">공유일<fmt:formatDate value="${fwlbDto.fwlbDate}" pattern="yyyy-MM-dd" /></div><br>
-			<div style="float:right">작성자 ${fwlbDto.fwlbWriter}</div><br><br>
+			<div style="float: right;">공유일<fmt:formatDate value="${dto.fwlbDate}" pattern="yyyy-MM-dd" /></div><br>
+			<div style="float:right">작성자 ${dto.fwlbWriter}</div><br><br>
 			
 			<div style="margin:auto; width: 700px; min-height: 500px; height: 100%; border-top: 2px solid black; border-bottom: 2px solid black;">
 				${fwlbDto.fwlbCont }

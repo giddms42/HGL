@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lol.hgl.bizz.FWLBizz;
 import com.lol.hgl.dto.fwlDto;
+import com.lol.hgl.dto.fwlbDto;
+import com.lol.hgl.dto.fwlbcmDto;
 
 @Controller
 public class FWLController {
@@ -36,9 +38,8 @@ public class FWLController {
 	   
 	   @RequestMapping(value="FWLInsert.do")
 	   @ResponseBody
-	   public String FWLInsert(String fwlItem, int memberNo) {
+	   public String FWLInsert(String fwlItem, int memberNo, Model model) {
 		  bizz.fwlInsert(fwlItem, memberNo); 
-		  
 	      return "FWLInsert";
 	   }
 
@@ -57,10 +58,11 @@ public class FWLController {
 	   }
 	   
 	   @RequestMapping(value="FWLShare.do")
-	   public String FWLShare(String memberNickName) {
+	   public String FWLShare(String memberNickName, int memberNo, Model model) {
 		   bizz.FWLShare(memberNickName); 
-		   
-		   return null;
+		   model.addAttribute("memberNo", memberNo);
+		   model.addAttribute("memberNickName", memberNickName);
+		   return "redirect:FWLBDetail.do";
 	   }
 	   
 	   
@@ -108,7 +110,13 @@ public class FWLController {
 	   }
 	   
 	   @RequestMapping(value="FWLBDetail.do")
-	   public String FWLBDetail() {   
+	   public String FWLBDetail(String memberNickName, int memberNo, Model model) {
+		   fwlbDto dto = bizz.FWLBDetail(memberNickName);
+		   List<fwlDto> fwlList = bizz.fwlList(memberNo);
+		   List<fwlbcmDto> fwlbcmList = bizz.fwlbcmList(dto.getFwlbNo());
+		   model.addAttribute("dto",dto);
+		   model.addAttribute("fwlList",fwlList);
+		   model.addAttribute("fwlbcmList",fwlbcmList);   
 	      return "FWLBDetail";
 	   }
 	   
