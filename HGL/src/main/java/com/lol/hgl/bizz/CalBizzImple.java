@@ -39,6 +39,11 @@ public class CalBizzImple implements CalBizz {
 		return dao.update(dto);
 	}
 
+	@Override
+	public int getCalViewCount(String memberId, String yyyyMMdd) {
+		return dao.getCalViewCount(memberId, yyyyMMdd);
+	}
+
 	
 
 }

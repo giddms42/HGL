@@ -82,16 +82,20 @@ public class CalDaoImple implements CalDao {
 
 	@Override
 	public int getCalViewCount(String memberId, String yyyyMMdd) {
+		System.out.println("다오"+memberId);
+		System.out.println("다오"+yyyyMMdd);
+
 		int res = 0;
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("memberId", memberId);
 		map.put("yyyyMMdd", yyyyMMdd);
-		
+			
 		try {
-			res = sqlSession.selectOne(namespace + "getCalViewCount",map);			
+			res = sqlSession.selectOne(namespace + "getCalViewCount", map);			
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
+		System.out.println(res);
 		return res;
 	}
 

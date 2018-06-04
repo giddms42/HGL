@@ -25,20 +25,22 @@
 			var year=$(".y").text().trim();//년도
 			var month=$(".m").text().trim();//월
 			var cDate=aCountView.text().trim();//일
+			var memberId = $("#memberId").val();
 
 			var yyyyMMdd=year+isTwo(month)+isTwo(cDate);//8자리
+			/* var memberId = $("login") */
 			
 			$.ajax({
 				type:"post", //전송방식
 				url:"CalListCountAjax.do", //요청url
-//				data:"id=hk&yyyyMMdd="+yyyyMMdd, //전송 파리미터
-				data:{"id":"hk","yyyyMMdd":yyyyMMdd},
-				datatype:"json",//서버에서 받는 데이터 타입
+				data:"memberId="+memberId+"&yyyyMMdd="+yyyyMMdd, //전송 파리미터
+			//	data:{"memberId":memberId,"yyyyMMdd":yyyyMMdd},
+			//	datatype:"",//서버에서 받는 데이터 타입
 				async:true, //javascript 코드를 동기식으로 설정 (비동기/동기설정)
 				success:function(val){
-
-					var count=val.calCount;
-					aCountView.after("<div class='cPreview'>"+count+"</div>");
+					  var r = $.trim(val);	
+				//	var count=val.calCount;
+					aCountView.after("<div class='cPreview'>"+r+"</div>");
 				},
 				error:function(){
 					alert("서버통신실패!!");
@@ -101,17 +103,17 @@
 %>
 
 <body>
-
+<input type="hidden" id="memberId" value="${login.memberId}"/>
 	<table id="calendar">
 		<caption>
-			<a href="CalList.jsp?year=<%=year-1%>&month=<%=month%>">◁</a>
-			<a href="CalList.jsp?year=<%=year%>&month=<%=month-1%>">◀</a>
+			<a href="CalListForm.do?year=<%=year-1%>&month=<%=month%>">◁</a>
+			<a href="CalListForm.do?year=<%=year%>&month=<%=month-1%>">◀</a>
 			
 			<span class="y"><%=year %></span>년
 			<span class="m"><%=month %></span>월
 			
-			<a href="CalList.jsp?year=<%=year%>&month=<%=month+1%>">▶</a>
-			<a href="CalList.jsp?year=<%=year+1%>&month=<%=month%>">▷</a>
+			<a href="CalListForm.do?year=<%=year%>&month=<%=month+1%>">▶</a>
+			<a href="CalListForm.do?year=<%=year+1%>&month=<%=month%>">▷</a>
 		</caption>
 		
 		<tr>

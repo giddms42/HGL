@@ -30,7 +30,7 @@
 	<select id="selectAll" resultMap="CalDtoMap">
 		SELECT *
 		FROM
-			(SELECT (ROW_NUMBER() OVER(PARTITION BY SUBSTR(MDATE,1,8) ORDER BY CALSCH)) RN,MEMBERID,CALNO,CALTITLE,CALSCH,CALDATE,CALMEMO,CALSMS
+			(SELECT (ROW_NUMBER() OVER(PARTITION BY SUBSTR(CALSCH,1,8) ORDER BY CALSCH)) RN,MEMBERID,CALNO,CALTITLE,CALSCH,CALDATE,CALMEMO,CALSMS
 			FROM CAL
 			WHERE MEMBERID = #{memberId} AND SUBSTR(CALSCH,1,6)=#{yyyyMM})
 		WHERE RN BETWEEN 1 AND 3
@@ -42,10 +42,10 @@
 		WHERE CALNO = #{calNo}
 	</select>
 	
-	<select id="getCalViewCount" resultType="int">
-		SELECT COUNT(*)
-		FROM CAL
-		WHERE MEMBERID=#{memberId} AND SUBSTR(MDATE,1,8)=#{yyyyMMdd}
+	<select id="getCalViewCount" parameterType="map" resultType="int">
+		   SELECT COUNT(*)
+    	    FROM CAL
+      		WHERE MEMBERID=#{memberId} AND CALSCH=#{yyyyMMdd}
 	</select>
 	
 </mapper>

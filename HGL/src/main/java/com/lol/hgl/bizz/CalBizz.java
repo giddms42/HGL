@@ -12,5 +12,6 @@ public interface CalBizz {
 	public int insert(calDto dto);
 	public int delete(int seq);
 	public int update(calDto dto);
+	public int getCalViewCount(String memberId, String yyyyMMdd);
 
 }
