@@ -8,8 +8,49 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/FWLList.css">
+
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
+
+function checkClick(chkbox){
+	if(chkbox.checked == true){
+		alert($(this).val());
+	}else{
+		
+	}
+}
+
+
+$(function(){
+	$("input[type=checkbox]").click(function(){
+		 var checkValue = $("input[type=checkbox]").val();
+		 alert(checkValue)
+		 if($(this).is(":checked")){
+			 var wishChk=confirm("위시리스트를 달성하셨나요?")
+			 if(wishChk==true){
+				 $.ajax({
+		               type:"post",
+		               url : "FWLSuccess.do",
+		               data:checkValue,
+		               success : function(res) {
+		                  var r = $.trim(res);
+		                  alert(r)
+		                  if (r == "t") {  
+		                     $("input[type=checkbox]").prop('name','');
+		                  }else{
+		                	 $("#unId").css("display", "inline");
+		                	 $("#useId").css("display", "none");
+		                	 $("input[name=memberId]").attr('title','n');
+		                  }
+		               }
+		            });
+			 }else{
+				 
+			 }
+		 }
+	});
+})
 
 	function FWLinsert(){
 		var popupX = (window.screen.width/2) - (600 / 2);
@@ -25,13 +66,15 @@
 
 	<div id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
-		<button type="button" style="margin-left: 317px; margin-bottom: 10px; margin-top: 30px;">공유하기</button>
-		<button type="button" onclick="FWLinsert();" style="margin-left: 425px;">+위시리스트 추가하기</button>
+		<div id="topbutton">
+			<button type="button">공유하기</button>
+			<button type="button" onclick="FWLinsert();" style="margin-left: 425px;">+위시리스트 추가하기</button>
+		</div>
 		
 		<form>
 		<table border="1" style="width:650px; margin: auto;">
 			<tr>
-				<th>달성여부</th>
+				<th>달성</th>
 				<th style="text-align: center;">위 시 리 스 트</th>
 			</tr>
 				<c:choose>
@@ -46,7 +89,7 @@
 						<tr>
 							<c:choose>
 								<c:when test="${FwlDto.fwlChk eq 'Y'}">
-								<td>	<input type="checkbox" checked="checked" > </td>
+								<td><input type="checkbox" checked="checked" value="${fwlDto.fwlNo}" onclick="checkClick(this)"></td>
 								</c:when>
 								<c:otherwise>
 								<td>	<input type="checkbox" >	</td>

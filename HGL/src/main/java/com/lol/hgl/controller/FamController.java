@@ -77,7 +77,12 @@ public class FamController {
 	     return "redirect:MemberInfoForm.do";
 	  }  
 	  
-	 
+	  @RequestMapping(value="FWLSuccess.do")
+	  public String FWLSuccess(int fwlNo) {
+		  bizz.FWLSuccess(fwlNo);
+		  return "redirect:FWLList.do";
+	  }
+	  
       @RequestMapping(value=" FamDelete.do")
 	  public String FamDelete(int famNo, int memberNo, Model model) {
 		  bizz.famDelete(famNo);
