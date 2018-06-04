@@ -86,7 +86,7 @@ function famDelete(famNo){
 				<button type="button" onclick="goFamInsert();" style="margin-left:80%; margin-bottom: 10px;">추가</button>
 		 		<c:choose>
 					<c:when test="${empty list }">
-						<span>등록한 가족구성원이 없습니다! 등록해주세요 </span>
+						<div style="margin-top:30px; margin-bottom: 30px;">등록한 가족구성원이 없습니다! 등록해주세요 </div>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${list}" var="famDto">
