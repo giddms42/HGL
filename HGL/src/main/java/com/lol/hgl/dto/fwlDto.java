@@ -5,18 +5,18 @@ public class fwlDto {
 	private int memberNo;
 	private int fwlNo;
 	private String fwlItem;
-	private String flwChk;
+	private String fwlChk;
 	
 	public fwlDto() {
 		
 	}
 	
-	public fwlDto(int memberNo, int fwlNo, String fwlItem, String flwChk) {
+	public fwlDto(int memberNo, int fwlNo, String fwlItem, String fwlChk) {
 		super();
 		this.memberNo = memberNo;
 		this.fwlNo = fwlNo;
 		this.fwlItem = fwlItem;
-		this.flwChk = flwChk;
+		this.fwlChk = fwlChk;
 	}
 
 	public int getMemberNo() {
@@ -43,15 +43,14 @@ public class fwlDto {
 		this.fwlItem = fwlItem;
 	}
 
-	public String getFlwChk() {
-		return flwChk;
+	public String getFwlChk() {
+		return fwlChk;
 	}
 
-	public void setFlwChk(String flwChk) {
-		this.flwChk = flwChk;
+	public void setFwlChk(String fwlChk) {
+		this.fwlChk = fwlChk;
 	}
-	
-	
+
 	
 
 }

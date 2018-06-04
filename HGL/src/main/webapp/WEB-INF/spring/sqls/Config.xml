@@ -24,7 +24,6 @@
 	   <mapper resource="/sqls/Cal_Mapper.xml"/>
 		<mapper resource="/sqls/Fam_Mapper.xml"/>
 		<mapper resource="/sqls/FWL_Mapper.xml"/>
-		<mapper resource="/sqls/FWLB_Mapper.xml"/>
 		<mapper resource="/sqls/GG_Mapper.xml"/>
 		<mapper resource="/sqls/Main_Mapper.xml"/>
 		<mapper resource="/sqls/Map_Mapper.xml"/>
