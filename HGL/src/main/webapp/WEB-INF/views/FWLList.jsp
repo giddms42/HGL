@@ -41,8 +41,15 @@
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${FWLList}" var="FwlDto">
-							<td><input type="checkbox" value="" style="margin-left:35px; vertical-align: middle; width: 25px; height: 25px;"></td>
-							<td>${FwlDto.fwlItem}</td>
+							<c:choose>
+								<c:when test="${FwlDto.fwlChk eq 'Y'}">
+									<input type="checkbox" checked="checked" >
+								</c:when>
+								<c:otherwise>
+									<input type="checkbox">	
+								</c:otherwise>
+							</c:choose>
+							<td>${Fwl.Dto.fwlItem}</td>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
