@@ -7,7 +7,6 @@ public class fwlbDto {
 	private int fwlbNo;
 	private String fwlbWriter;
 	private String fwlbTitle;
-	private String fwlbCont;
 	private int fwlbReadcnt;
 	private Date fwlbDate;
 	
@@ -15,11 +14,10 @@ public class fwlbDto {
 		
 	}
 	
-	public fwlbDto(int fwlbNo, String fwlbWriter, String fwlbTitle, String fwlbCont, int fwlbReadcnt, Date fwlbDate) {
+	public fwlbDto(int fwlbNo, String fwlbWriter, String fwlbTitle, int fwlbReadcnt, Date fwlbDate) {
 		this.fwlbNo = fwlbNo;
 		this.fwlbWriter = fwlbWriter;
 		this.fwlbTitle = fwlbTitle;
-		this.fwlbCont = fwlbCont;
 		this.fwlbReadcnt = fwlbReadcnt;
 		this.fwlbDate = fwlbDate;
 	}
@@ -48,13 +46,6 @@ public class fwlbDto {
 		this.fwlbTitle = fwlbTitle;
 	}
 
-	public String getFwlbCont() {
-		return fwlbCont;
-	}
-
-	public void setFwlbCont(String fwlbCont) {
-		this.fwlbCont = fwlbCont;
-	}
 
 	public int getFwlbReadcnt() {
 		return fwlbReadcnt;

@@ -1,7 +1,9 @@
 package com.lol.hgl.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,42 @@ public class FWLDaoImple implements FWLDao {
 		int res = 0;
 		try {
 			res = sqlSession.insert(nameSpace+"fwlInsert", dto);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+
+	@Override
+	public int FWLSuccess(int fwlNo) {
+		int res = 0;;
+		try {
+			res = sqlSession.update(nameSpace+"FWLSuccess", fwlNo);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+
+	@Override
+	public int FWLDelete(int fwlNo) {
+		int res = 0;
+		try {
+			res = sqlSession.insert(nameSpace+"FWLDelete", fwlNo);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+
+	@Override
+	public int FWLBInsert(String memberNickName) {
+		int res = 0;
+		try {
+			res = sqlSession.insert(nameSpace+"FWLBInsert", memberNickName);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	
