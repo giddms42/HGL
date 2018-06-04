@@ -13,5 +13,17 @@
 	<insert id="fwlInsert" parameterType="fwlDto">
 		INSERT INTO FWL VALUES(#{memberNo}, FWLNO_SEQ.NEXTVAL, #{fwlItem}, 'N')
 	</insert>
+	
+	<update id="fwlFWLSuccess" parameterType="int">
+		UPDATE FWL SET FWLCHK='Y' WHERE FWLNO=#{fwlNo}
+	</update>
+	
+	<delete id="FWLDelete" parameterType="int">
+		DELETE FROM FWL WHERE FWLNO=#{fwlNo}
+	</delete>
+	
+	<insert id="FWLBInsert" parameterType="String">
+		INSERT INTO FWLB VALUES()
+	</insert>
 
 </mapper>

@@ -39,9 +39,29 @@ public class FWLController {
 	      return "FWLInsert";
 	   }
 	   
+	   
+	   @RequestMapping(value="FWLSuccess.do")
+	   public String FWLSuccess(int fwlNo) {
+		   bizz.FWLSuccess(fwlNo);
+		   return "redirect:FWLList.do";
+	   }
+	   
+	   @RequestMapping(value="FWLDelete.do")
+	   public String FwlDelete(int fwlNo) {
+		   return "redirect:FWLList.do";
+	   }
+	   
+	   @RequestMapping(value="FWLShare.do")
+	   public String FWLShare(String memberNickName) {
+		   bizz.FWLShare(memberNickName); 
+		   
+		   return null;
+	   }
+	   
+	   
 		
 	   @RequestMapping(value="FWLBList.do")
-	   public String FWLList() {
+	   public String FWLBList() {
 /*			//전체 글 갯수 구하기
 			int postCount = ownBizz.RecipeBoardPostCount();
 			//내가 한페이지에 출력하고자 하는 글 갯수 정하기

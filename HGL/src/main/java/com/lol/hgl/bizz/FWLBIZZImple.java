@@ -24,4 +24,20 @@ public class FWLBIZZImple implements FWLBizz {
 		return dao.fwlInsert(dto);
 	}
 
+	@Override
+	public int FWLSuccess(int fwlNo) {
+		return dao.FWLSuccess(fwlNo);
+	}
+
+	@Override
+	public int FWLDelete(int fwlNo) {
+		return dao.FWLDelete(fwlNo);
+	}
+
+	@Override
+	public int FWLShare(String memberNickName) {
+		dao.FWLBInsert(memberNickName);
+		return 0;
+	}
+
 }
