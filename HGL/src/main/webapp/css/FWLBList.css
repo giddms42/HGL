@@ -1,1 +1,9 @@
 @charset "UTF-8";
+
+#FWLB_Paging{
+	 width: 50%; 
+	 margin: auto; 
+	 border: 1px dotted blue; 
+	 text-align: center;
+	 padding: 10px;
+}

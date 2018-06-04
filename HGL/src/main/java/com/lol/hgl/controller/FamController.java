@@ -77,7 +77,6 @@ public class FamController {
 	     return "redirect:MemberInfoForm.do";
 	  }  
 	  
-	 
       @RequestMapping(value=" FamDelete.do")
 	  public String FamDelete(int famNo, int memberNo, Model model) {
 		  bizz.famDelete(famNo);

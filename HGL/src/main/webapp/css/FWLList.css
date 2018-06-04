@@ -1,1 +1,12 @@
 @charset "UTF-8";
+#container{
+	text-align: center;
+	min-width: 800px; 
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	border: 1px dotted red; 
+}
+#topbutton{
+	padding:20px;
+}

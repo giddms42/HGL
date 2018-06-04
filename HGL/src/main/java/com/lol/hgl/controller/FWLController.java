@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lol.hgl.bizz.FWLBizz;
@@ -39,10 +41,11 @@ public class FWLController {
 		  
 	      return "FWLInsert";
 	   }
-	   
-	   
-	   @RequestMapping(value="FWLSuccess.do")
+
+	   @RequestMapping(value="FWLSuccess.do", method= RequestMethod.POST)
+	   @ResponseBody
 	   public String FWLSuccess(String checkValue) {
+		   System.out.println(checkValue);
 		   int fwlNo = Integer.parseInt(checkValue);
 		   bizz.FWLSuccess(fwlNo);
 		   return "redirect:FWLList.do";

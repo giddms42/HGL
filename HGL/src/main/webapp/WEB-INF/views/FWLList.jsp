@@ -8,29 +8,71 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/FWLList.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
-	function MemberSearch(){
-		var popupX = (window.screen.width/2) - (440 / 2);
-		var popupY= (window.screen.height/2)- (240/2);
+$(function(){
+	$("input[type=checkbox]").click(function(){
+		 var checkValue = $(this).val();
+		 if($(this).is(":checked")){
+			 var wishChk=confirm("위시리스트를 달성하셨나요?")
+			 if(wishChk == true){
+				 $.ajax({
+		               type:"post",
+		               url : "FWLSuccess.do",
+		               data: {checkValue : checkValue},
+		               success : function() {
+		            	   alert("축하드립니다.");
+		               },
+		               error:function(){
+		             	   alert("ajax error");
+		               }
+		            });
+			 }else{
+				 alert("취소되었습니다");
+			 }
+		 }else{
+			 $(this).prop("checked",false);
+			 alert(checkValue);
+			 $.ajax({
+	               type:"post",
+	               url : "FWLSuccess.do",
+	               data: {checkValue : checkValue},
+	               success : function() {
+	            	   alert("취소되었습니다.");
+	               },
+	               error:function(){
+	             	   alert("ajax error");
+	               }
+	            });
+		 }
+	});
+})
+
+	function FWLinsert(){
+		var popupX = (window.screen.width/2) - (600 / 2);
+		var popupY= (window.screen.height/2)- (150);
 		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		window.name="Parent";
-		window.open("MemberSearchForm.do","", 'status=no, width=440, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
-		}
+		window.open("FWLInsertForm.do","위시리스트추가하기", 'status=no, width=600, height=150, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	}
 
 </script>
 </head>
 <body>
 
-	<div style="width: 800px; border: 1px dotted red; margin: auto;">
-		<input type="button" value="공유하기" style="margin-left: 75px;">
-		<input type="button" value="+위시리스트 추가하기" onclick="window.open('FWLInsertForm.do?memberNo='+${memberNo},'위시리스트추가하기','width=600,height=150,location=no,status=no,scrollbars=yes')" style="margin-left: 425px;">
+	<div id="container">
+	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
+		<div id="topbutton">
+			<button type="button">공유하기</button>
+			<button type="button" onclick="FWLinsert();" style="margin-left: 425px;">+위시리스트 추가하기</button>
+		</div>
 		
 		<form>
 		<table border="1" style="width:650px; margin: auto;">
 			<tr>
-				<th>달성여부</th>
+				<th>달성</th>
 				<th style="text-align: center;">위 시 리 스 트</th>
 			</tr>
 				<c:choose>
@@ -45,10 +87,10 @@
 						<tr>
 							<c:choose>
 								<c:when test="${FwlDto.fwlChk eq 'Y'}">
-								<td>	<input type="checkbox" checked="checked"> </td>
+								<td><input type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
 								</c:when>
 								<c:otherwise>
-								<td>	<input type="checkbox" >	</td>
+								<td>	<input type="checkbox" value="${FwlDto.fwlNo}">	</td>
 								</c:otherwise>
 							</c:choose>
 							<td>${FwlDto.fwlItem}</td>
