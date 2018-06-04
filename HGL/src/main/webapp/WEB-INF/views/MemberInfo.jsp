@@ -67,30 +67,31 @@ function famDelete(famNo){
 				<input class="info" type="text" value="${dto.memberDo}" readonly="readonly"><br>
 				<input class="info" type="text" value="${dto.memberCity}" readonly="readonly" style="margin-left: 52px;"><br>
 				<input class="info" type="text" value="${dto.memberAddr}" readonly="readonly" style="margin-left: 52px;">
-				<div>문자알림
+				</div>
+				<div style="margin-bottom: 40px;">
 					<c:choose>
 						<c:when test="${dto.memberSMS eq 'Y'}">
 							<input class="smsChk" type="checkbox" checked="checked" readonly="readonly">
 						</c:when>
 						<c:otherwise>
-						<input class="smsChk" type="checkbox" readonly="readonly">	
+							<input class="smsChk" type="checkbox" readonly="readonly">	
 						</c:otherwise>
 					</c:choose>
-				</div>
+					문자알림
 				</div>
 			</div>
 			
 				
 			<div class="famInfo">
 				<h2>가족정보</h2>
-				<button type="button" onclick="goFamInsert();" style="margin-left:80%; margin-bottom: 10px;">추가</button>
+				<button type="button" onclick="goFamInsert();" style="margin-left:80%; margin-bottom: 30px;">추가</button>
 		 		<c:choose>
 					<c:when test="${empty list }">
 						<div style="margin-top:30px; margin-bottom: 30px;">등록한 가족구성원이 없습니다! 등록해주세요 </div>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${list}" var="famDto">
-							<div style="margin: auto; width: 300px;">
+							<div style="margin: auto; width: 300px; margin-bottom: 20px;">
 							<input class="famMember" type="text" value="${famDto.famName}" readonly="readonly" onclick="goFamDetail(${famDto.famNo});">님
 							<button class="famDelete" type="button" style="margin-left: 5px;" onclick="famDelete(${famDto.famNo});"><img class="famDelete-img" src="image/menu_close.png"></button>
 							<hr>
@@ -99,13 +100,12 @@ function famDelete(famNo){
 					</c:otherwise>
 				</c:choose>
 			</div>
-	</div>
 		
-				
-		<div class="threeButton">
-			<button type="button" onclick="getOut();" style="margin-left: 1.5%">탈퇴하기</button>
-			<button type="button" onclick="goUpdate();" style="margin-left: 37%">수정하기</button>
-		</div>
+			<div class="threeButton">
+				<button type="button" onclick="getOut();" style="margin-left: 1.5%">탈퇴하기</button>
+				<button type="button" onclick="goUpdate();" style="margin-left: 37%">수정하기</button>
+			</div>
+	</div>
 
 	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 	</div>

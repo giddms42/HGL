@@ -14,6 +14,7 @@ h2{
 	margin: auto;
 	width: 1000px;
 	height: 580px;
+	margin-bottom: 120px;
 }
 .userInfo{
 	text-align: center;
@@ -46,7 +47,6 @@ h2{
      font-size: 14pt;
 	 border:0px;
 	 width: 80px;
-	 
 }
 .famMember:hover{
 	cursor: pointer;
@@ -63,11 +63,11 @@ h2{
 	line-height: 30px;
 	list-style: none;
 	padding: 5px 10px;
-	margin-bottom: 2px;
+	margin-bottom: 5px;;
 	
 }
 .smsChk{
-	margin-top: -10px;
+	margin-left: -130px;
 	margin-bottom: 0px;
 	font-size: 12pt;
 	vertical-align: top;
@@ -77,8 +77,8 @@ h2{
 .threeButton{
 	position:absolute;
 	margin: auto;
-	margin-left: 15%;
-	margin-top: -15px;
+	margin-left: 53px;
+	margin-top: 47%;
 	width: 950px;
 }
 .famDelete-img{
