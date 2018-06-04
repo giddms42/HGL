@@ -53,8 +53,7 @@ public class GGBizzImple implements GGBizz {
 
 	@Override
 	public int repleyUpdate(ggcmDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.repleyUpdate(dto);
 	}
 
 	@Override

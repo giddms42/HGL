@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class calDto {
 	
-	private int memberNo;
+	private String memberId;
 	private int calNo;
 	private String calTitle;
 	private String calSch;
@@ -16,8 +16,13 @@ public class calDto {
 		
 	}
 	
+<<<<<<< HEAD
 	public calDto(int memberNo, int calNo, String calTitle, String calSch, Date calDate, String calMemo, String calSMS) {
 		this.memberNo = memberNo;
+=======
+	public calDto(String memberId, int calNo, String calTitle, String calSch, Date calDate, String calMemo, String calSMS) {
+		this.memberId = memberId;
+>>>>>>> branch 'jh' of https://github.com/giddms42/HGL.git
 		this.calNo = calNo;
 		this.calTitle = calTitle;
 		this.calSch = calSch;
@@ -26,12 +31,12 @@ public class calDto {
 		this.calSMS = calSMS;
 	}
 
-	public int getMemberNo() {
-		return memberNo;
+	public String getMemberId() {
+		return memberId;
 	}
 
-	public void setMemberNo(int memberNo) {
-		this.memberNo = memberNo;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 	public int getCalNo() {
