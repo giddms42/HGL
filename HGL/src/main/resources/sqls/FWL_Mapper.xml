@@ -9,5 +9,9 @@
 	<select id="fwlList" parameterType="int" resultMap="fwlDto">
 		SELECT * FROM FWL WHERE MEMBERNO=#{memberNo}
 	</select>
+	
+	<insert id="fwlInsert" parameterType="fwlDto">
+		INSERT INTO FWL VALUES(#{memberNo}, FWLNO_SEQ.NEXTVAL, #{fwlItem}, 'N')
+	</insert>
 
 </mapper>

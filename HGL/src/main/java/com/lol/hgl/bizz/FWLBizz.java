@@ -7,5 +7,6 @@ import com.lol.hgl.dto.fwlDto;
 public interface FWLBizz {
 	
 	public List<fwlDto> fwlList(int memberNo);
+	public int fwlInsert(String fwlItem, int memberNo);
 
 }

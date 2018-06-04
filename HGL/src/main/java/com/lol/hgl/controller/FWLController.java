@@ -21,19 +21,21 @@ public class FWLController {
 	   public String FWLList(int memberNo, Model model) {
 		 List<fwlDto> list = bizz.fwlList(memberNo);
 		 model.addAttribute("FWLList", list);
+		 model.addAttribute("memberNo", memberNo);
 	      return "FWLList";
 	   }
 	   
 	   
 	   @RequestMapping(value="FWLInsertForm.do")
-	   public String FWLInsertForm() {   
+	   public String FWLInsertForm(int memberNo, Model model) {
+		  model.addAttribute("memberNo", memberNo);
 	      return "FWLInsert";
 	   }
 	   
 	   @RequestMapping(value="FWLInsert.do")
 	   @ResponseBody
-	   public String FWLInsert(String wishContent) {
-		   System.out.println(wishContent);
+	   public String FWLInsert(String fwlItem, int memberNo) {
+		  bizz.fwlInsert(fwlItem, memberNo); 
 	      return "FWLInsert";
 	   }
 	   

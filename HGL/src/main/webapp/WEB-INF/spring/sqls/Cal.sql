@@ -9,7 +9,7 @@ CREATE TABLE CAL
     MEMBERNO    NUMBER           NOT NULL, 
     CALNO       NUMBER           NOT NULL, 
     CALTITLE    VARCHAR2(200)    NOT NULL, 
-    CALSCH      DATE             NOT NULL, 
+    CALSCH      VARCHAR2(200)    NOT NULL, 
     CALDATE     DATE             NOT NULL, 
     CALMEMO     VARCHAR2(200)    NULL, 
     CALSMS      VARCHAR2(20)     NULL, 

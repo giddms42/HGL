@@ -7,7 +7,7 @@ public class calDto {
 	private int memberNo;
 	private int calNo;
 	private String calTitle;
-	private Date calSch;
+	private String calSch;
 	private Date calDate;
 	private String calMemo;
 	private String calSMS;
@@ -16,7 +16,7 @@ public class calDto {
 		
 	}
 	
-	public calDto(int memberNo, int calNo, String calTitle, Date calSch, Date calDate, String calMemo, String calSMS) {
+	public calDto(int memberNo, int calNo, String calTitle, String calSch, Date calDate, String calMemo, String calSMS) {
 		this.memberNo = memberNo;
 		this.calNo = calNo;
 		this.calTitle = calTitle;
@@ -50,11 +50,11 @@ public class calDto {
 		this.calTitle = calTitle;
 	}
 
-	public Date getCalSch() {
+	public String getCalSch() {
 		return calSch;
 	}
 
-	public void setCalSch(Date calSch) {
+	public void setCalSch(String calSch) {
 		this.calSch = calSch;
 	}
 

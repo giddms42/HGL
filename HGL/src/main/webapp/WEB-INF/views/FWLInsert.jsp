@@ -19,6 +19,7 @@ function fn_editFL()
 		data : params,
 		success : function(xh)
 				{		
+					alert("추가되었습니다.");
 					opener.parent.location.reload();
 					self.close();
 				}
@@ -28,12 +29,13 @@ function fn_editFL()
 </script>
 </head>
 <body>
-	
+
 	<div style="margin: auto; width: 500px;">
 		<h3>위시리스트 추가하기</h3>
 		<form id="wishInsert">
 			<div>
-				<input type="text" name="wishContent" placeholder="위시리스트를 입력해주세요" style="width: 500px;">
+				<input type="text" name="fwlItem" placeholder="위시리스트를 입력해주세요" style="width: 500px;">
+				<input type="hidden" name="memberNo" value="${memberNo}"/>
 			</div>
 			<br>
 			<button type="button" onclick="self.close()" style="float:right; margin-left: 10px;">취소하기</button>

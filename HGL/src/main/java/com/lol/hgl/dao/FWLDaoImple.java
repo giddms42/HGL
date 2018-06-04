@@ -28,4 +28,16 @@ public class FWLDaoImple implements FWLDao {
 		return list;
 	}
 
+
+	@Override
+	public int fwlInsert(fwlDto dto) {
+		int res = 0;
+		try {
+			res = sqlSession.insert(nameSpace+"fwlInsert", dto);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
 }

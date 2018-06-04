@@ -30,40 +30,41 @@
 		
 		<form>
 		<table border="1" style="width:650px; margin: auto;">
-         <tr>
-            <th>달성</th>
-            <th style="text-align: center;">위 시 리 스 트</th>
-         </tr>
-         <tr>
-            <c:choose>
-               <c:when test="${empty FWLList}">
-                  <td width= 60px; style="text-align: center;"></td>
-                  <td style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
-               </c:when>
-               <c:otherwise>
-                  <c:forEach items="${FWLList}" var="FwlDto">
-                  <tr>
-                     <c:choose>
-                        <c:when test="${FwlDto.fwlChk eq 'Y'}">
-                        <td width= 60px; style="text-align: center;"><input type="checkbox" checked="checked" style="width: 25px; height: 25px;"></td>
-                        </c:when>
-                        <c:otherwise>
-                        <td width= 60px; style="text-align: center;"><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                        </c:otherwise>
-                     </c:choose>
-                     <td>${FwlDto.fwlItem}</td>
-                    </tr> 
-                  </c:forEach>
-               </c:otherwise>
-            </c:choose>
-         </tr>
-         <tr>
-            <td colspan="2">
-               <input type="button" value="삭제" style="float:right;">  
-               <input type="submit" value="달성여부 저장" style="float:right;"><!-- 추가하기하고 저장을 누르기위해서 -->
-            </td>
-         </tr>
-      </table>
+			<tr>
+				<th>달성여부</th>
+				<th style="text-align: center;">위 시 리 스 트</th>
+			</tr>
+				<c:choose>
+					<c:when test="${empty FWLList}">
+					<tr>
+						<td></td>
+						<td style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
+					</tr>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${FWLList}" var="FwlDto">
+						<tr>
+							<c:choose>
+								<c:when test="${FwlDto.fwlChk eq 'Y'}">
+								<td>	<input type="checkbox" checked="checked" > </td>
+								</c:when>
+								<c:otherwise>
+								<td>	<input type="checkbox" >	</td>
+								</c:otherwise>
+							</c:choose>
+							<td>${FwlDto.fwlItem}</td>
+						</tr>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+		
+			<tr>
+				<td colspan="2">
+					<input type="button" value="삭제" style="float:right;">  
+					<input type="submit" value="달성여부 저장" style="float:right;"><!-- 추가하기하고 저장을 누르기위해서 -->
+				</td>
+			</tr>
+		</table>
 		</form>	
 	
 	</div>
