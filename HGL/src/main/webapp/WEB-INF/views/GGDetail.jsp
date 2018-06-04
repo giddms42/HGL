@@ -69,7 +69,7 @@ html {
 					</div>
 				</form>
 
-				<form action="" id="form2">
+				<!-- <form action="" id="form2"> -->
 					<br />
 					<c:if test="${!empty dto2}">
 						<div id="cml">댓글 목록</div><br/>
@@ -86,13 +86,12 @@ html {
 								</div>
 							</div>
 							<div class="dv1">
-								<input type="submit" value="댓글수정" class="Cbtn2">
-								<input type="button" onclick="location.href='GGRepleyDelete.do?ggcmNo='+${ggcmDto.ggcmNo}+'&ggNo='+${ggcmDto.ggNo}" value="댓글삭제" class="Cbtn2">
+								<input type="button" onclick="location.href='GGRepleyDelete.do?ggcmNo='+${ggcmDto.ggcmNo}+'&ggNo='+${ggcmDto.ggNo}" value="댓글삭제" id="Cbtn2">
 							</div><br/>								
 							</c:forEach>
 						</table>
 					</c:if>
-				</form>
+				<!-- </form> -->
 
 				<div id="comment">
 					<div>

@@ -146,10 +146,11 @@ a:visited {
 	height: 99%
 }
 
-.Cbtn2{
+#Cbtn2{
+	text-align: center;
+	align-content: center;
 	margin-top: 5px;
-	height: 99%;
-	width: 40%;
+	height: 30px;
 }
 
 #cmtd{
@@ -162,10 +163,10 @@ a:visited {
 	font-size: 13pt;
 }
 
-#form2{
+/* #form2{
 	margin-left: 18.5px;
 	width: 100%;
-}
+} */
 
 .dv0{
 	width: 97.5%;
@@ -192,7 +193,7 @@ a:visited {
 
 .dv1{
 	height: 30px;
-	margin-left: 81%;
+	margin-left: 88%;
 }
 .th{
 	text-align: center;

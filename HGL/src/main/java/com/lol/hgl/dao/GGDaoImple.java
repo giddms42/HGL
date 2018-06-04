@@ -93,7 +93,7 @@ public class GGDaoImple implements GGDao {
 	public int repleyDelete(int seq) {
 		int res = 0;
 		try {
-			res = sqlSession.insert(namespace+"repleyDelete", seq);
+			res = sqlSession.delete(namespace+"repleyDelete", seq);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	
@@ -102,8 +102,13 @@ public class GGDaoImple implements GGDao {
 
 	@Override
 	public int repleyUpdate(ggcmDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = 0;
+		try {
+			res = sqlSession.update(namespace+"repleyUpdate", dto);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
 	}
 
 	@Override

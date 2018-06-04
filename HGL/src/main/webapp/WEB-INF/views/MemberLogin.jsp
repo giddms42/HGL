@@ -41,10 +41,6 @@ window.onpopstate = function(event) {
 	history.go(1);
 };
 
-
-
-출처: http://vicki.tistory.com/1487 [불친절한자수씨]
-
 function MemberSearch(){
 /* 	var popupX = (window.screen.width/2) - (500 / 2);
 	var popupY= (window.screen.height/2)- (240/2); */

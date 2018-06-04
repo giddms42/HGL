@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class calDto {
 	
-	private int memberNo;
+	private String memberId;
 	private int calNo;
 	private String calTitle;
-	private Date calSch;
+	private String calSch;
 	private Date calDate;
 	private String calMemo;
 	private String calSMS;
@@ -16,8 +16,8 @@ public class calDto {
 		
 	}
 	
-	public calDto(int memberNo, int calNo, String calTitle, Date calSch, Date calDate, String calMemo, String calSMS) {
-		this.memberNo = memberNo;
+	public calDto(String memberId, int calNo, String calTitle, String calSch, Date calDate, String calMemo, String calSMS) {
+		this.memberId = memberId;
 		this.calNo = calNo;
 		this.calTitle = calTitle;
 		this.calSch = calSch;
@@ -26,12 +26,12 @@ public class calDto {
 		this.calSMS = calSMS;
 	}
 
-	public int getMemberNo() {
-		return memberNo;
+	public String getMemberId() {
+		return memberId;
 	}
 
-	public void setMemberNo(int memberNo) {
-		this.memberNo = memberNo;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 	public int getCalNo() {
@@ -50,11 +50,11 @@ public class calDto {
 		this.calTitle = calTitle;
 	}
 
-	public Date getCalSch() {
+	public String getCalSch() {
 		return calSch;
 	}
 
-	public void setCalSch(Date calSch) {
+	public void setCalSch(String calSch) {
 		this.calSch = calSch;
 	}
 
