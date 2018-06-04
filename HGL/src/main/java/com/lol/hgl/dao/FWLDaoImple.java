@@ -47,7 +47,7 @@ public class FWLDaoImple implements FWLDao {
 	public int FWLSuccess(int fwlNo) {
 		int res = 0;;
 		try {
-			res = sqlSession.update(nameSpace+"FWLSuccess", fwlNo);			
+			res = sqlSession.update(nameSpace+"fwlFWLSuccess", fwlNo);			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

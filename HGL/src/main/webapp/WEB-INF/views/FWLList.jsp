@@ -9,45 +9,43 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/FWLList.css">
-
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
-function checkClick(chkbox){
-	if(chkbox.checked == true){
-		alert($(this).val());
-	}else{
-		
-	}
-}
-
-
 $(function(){
 	$("input[type=checkbox]").click(function(){
-		 var checkValue = $("input[type=checkbox]").val();
-		 alert(checkValue)
+		 var checkValue = $(this).val();
 		 if($(this).is(":checked")){
 			 var wishChk=confirm("위시리스트를 달성하셨나요?")
-			 if(wishChk==true){
+			 if(wishChk == true){
 				 $.ajax({
 		               type:"post",
 		               url : "FWLSuccess.do",
-		               data:checkValue,
-		               success : function(res) {
-		                  var r = $.trim(res);
-		                  alert(r)
-		                  if (r == "t") {  
-		                     $("input[type=checkbox]").prop('name','');
-		                  }else{
-		                	 $("#unId").css("display", "inline");
-		                	 $("#useId").css("display", "none");
-		                	 $("input[name=memberId]").attr('title','n');
-		                  }
+		               data: {checkValue : checkValue},
+		               success : function() {
+		            	   alert("축하드립니다.");
+		               },
+		               error:function(){
+		             	   alert("ajax error");
 		               }
 		            });
 			 }else{
-				 
+				 alert("취소되었습니다");
 			 }
+		 }else{
+			 $(this).prop("checked",false);
+			 alert(checkValue);
+			 $.ajax({
+	               type:"post",
+	               url : "FWLSuccess.do",
+	               data: {checkValue : checkValue},
+	               success : function() {
+	            	   alert("취소되었습니다.");
+	               },
+	               error:function(){
+	             	   alert("ajax error");
+	               }
+	            });
 		 }
 	});
 })
@@ -89,10 +87,10 @@ $(function(){
 						<tr>
 							<c:choose>
 								<c:when test="${FwlDto.fwlChk eq 'Y'}">
-								<td><input type="checkbox" checked="checked" value="${fwlDto.fwlNo}" onclick="checkClick(this)"></td>
+								<td><input type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
 								</c:when>
 								<c:otherwise>
-								<td>	<input type="checkbox" >	</td>
+								<td>	<input type="checkbox" value="${FwlDto.fwlNo}">	</td>
 								</c:otherwise>
 							</c:choose>
 							<td>${FwlDto.fwlItem}</td>

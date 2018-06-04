@@ -361,7 +361,7 @@
 		            	 $("#useId").css("display", "none");
 	                     $("#unId").css("display", "none");
 		            }else{
-/*		            	  $.ajax({
+		            	  $.ajax({
 				               type:"post",
 				               url : "IDChk.do",
 				               data:"id="+idVal,
@@ -377,7 +377,7 @@
 				                	 $("input[name=memberId]").attr('title','n');
 				                  }
 				               }
-				            });*/
+				            });
 		            }
 		         })
 		         
