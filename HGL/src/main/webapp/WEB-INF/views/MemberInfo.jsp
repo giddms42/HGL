@@ -81,7 +81,6 @@ function famDelete(famNo){
 				</div>
 			</div>
 			
-				
 			<div class="famInfo">
 				<h2>가족정보</h2>
 				<button type="button" onclick="goFamInsert();" style="margin-left:80%; margin-bottom: 30px;">추가</button>

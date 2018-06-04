@@ -8,11 +8,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/FWLBList.css">
 </head>
 <body>
 	<div style="width: 1024px; margin: auto; border: 1px solid black;">
 		<h2 style="text-align: center;">위시리스트 게시판</h2>
 		<table border="1" style="margin: auto;">
+				<col width="70">
+				<col width="100">
+				<col width="250">
+				<col width="100">
+				<col width="120">
 			<tr>
 				<th>글번호</th>
 				<th>작성자</th>
@@ -23,7 +29,7 @@
 			<c:choose>
 				<c:when test="${empty FWLBList }">
 				<tr>
-					<td colspan="5">-------------공유된 위시리스트가 없습니다------------</td>
+					<td colspan="5" style="text-align:center;">----------- 공유된 위시리스트가 없습니다 ------------</td>
 				</tr>
 				</c:when>
 				<c:otherwise>
@@ -39,7 +45,7 @@
 				</c:otherwise>
 			</c:choose>
 		</table>
-		<div style="width: 50%; margin: auto; border: 1px dotted blue; text-align: center;">
+		<div id="FWLB_Paging">
 			<c:choose>
 				<c:when test="${nowPage eq 1}">
 						◀
