@@ -16,13 +16,9 @@ public class calDto {
 		
 	}
 	
-<<<<<<< HEAD
-	public calDto(int memberNo, int calNo, String calTitle, String calSch, Date calDate, String calMemo, String calSMS) {
-		this.memberNo = memberNo;
-=======
+	
 	public calDto(String memberId, int calNo, String calTitle, String calSch, Date calDate, String calMemo, String calSMS) {
 		this.memberId = memberId;
->>>>>>> branch 'jh' of https://github.com/giddms42/HGL.git
 		this.calNo = calNo;
 		this.calTitle = calTitle;
 		this.calSch = calSch;
