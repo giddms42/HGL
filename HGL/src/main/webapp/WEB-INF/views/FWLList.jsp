@@ -55,7 +55,7 @@ $(function(){
 		var popupY= (window.screen.height/2)- (150);
 		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		window.name="Parent";
-		window.open("FWLInsertForm.do","위시리스트추가하기", 'status=no, width=600, height=150, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		window.open("FWLInsertForm.do?memberNo="+${login.memberNo},"위시리스트추가하기", 'status=no, width=600, height=150, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 
 </script>
@@ -74,12 +74,14 @@ $(function(){
 			<tr>
 				<th>달성</th>
 				<th style="text-align: center;">위 시 리 스 트</th>
+				<th></th>
 			</tr>
 				<c:choose>
 					<c:when test="${empty FWLList}">
 					<tr>
 						<td></td>
 						<td style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
+						<td></td>
 					</tr>
 					</c:when>
 					<c:otherwise>
@@ -94,6 +96,7 @@ $(function(){
 								</c:otherwise>
 							</c:choose>
 							<td>${FwlDto.fwlItem}</td>
+							<td><button class="FWLDelete"><img class="FWLDelete-img" src="image/xButton.png"></button></td>
 						</tr>
 						</c:forEach>
 					</c:otherwise>
@@ -101,9 +104,9 @@ $(function(){
 		
 			<tr>
 				<td colspan="2">
-					<input type="button" value="삭제" style="float:right;">  
 					<input type="submit" value="달성여부 저장" style="float:right;"><!-- 추가하기하고 저장을 누르기위해서 -->
 				</td>
+				<td><input type="button" value="삭제"></td>
 			</tr>
 		</table>
 		</form>	

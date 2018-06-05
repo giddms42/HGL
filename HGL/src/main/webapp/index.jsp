@@ -26,6 +26,7 @@
 <br>
 
 <h1>작성자 : 경식</h1>
+<a href="Map.do">Map</a>
 <a href="FamHealthInsertForm.do">FamHealthInsert</a>
 <a href="MemberInfo.do">MemberInfo</a>
 <a href="FamInsert.do">FamInsert</a>
@@ -35,6 +36,7 @@
 <a href="FWLBList.do">FWLBList</a>
 <a href="FWLBDetail.do">FWLBDetail</a>
 <a href="MemberInfoUpdate.do">MemberInfoUpdate</a><br>
+
 
 
 </body>

@@ -37,6 +37,7 @@ public class FWLController {
 	   @RequestMapping(value="FWLInsert.do")
 	   @ResponseBody
 	   public String FWLInsert(String fwlItem, int memberNo) {
+		   //int memberno = Integer.parseInt(memberNo);
 		  bizz.fwlInsert(fwlItem, memberNo); 
 	      return "FWLInsert";
 	   }
