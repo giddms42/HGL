@@ -44,6 +44,11 @@ public class CalBizzImple implements CalBizz {
 		return dao.getCalViewCount(memberId, yyyyMMdd);
 	}
 
+	@Override
+	public calDto getCalBoard(int seq) {
+		return dao.getCalBoard(seq);
+	}
+
 	
 
 }

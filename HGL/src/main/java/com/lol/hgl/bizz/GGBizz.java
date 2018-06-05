@@ -12,6 +12,7 @@ public interface GGBizz {
 	public int insert(ggDto dto);
 	public int delete(int seq);
 	public int update(ggDto dto);
+	public int updateReadCount(int seq);
 	
 	public List<ggcmDto> repleySelectOne(int seq);
 	public int repleyInsert(ggcmDto dto);

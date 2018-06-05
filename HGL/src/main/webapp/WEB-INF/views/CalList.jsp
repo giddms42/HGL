@@ -40,7 +40,7 @@
 				success:function(val){
 					  var r = $.trim(val);	
 				//	var count=val.calCount;
-					aCountView.after("<div class='cPreview'>"+r+"</div>");
+					aCountView.after("<div class='cPreview'>"+r+"개의 일정이 있습니다</div>");
 				},
 				error:function(){
 					alert("서버통신실패!!");
@@ -57,10 +57,15 @@
 </script>
 <body>
 
+<h1>캘린더</h1><br>
+
 <%
 	String paramYear = request.getParameter("year");
 	String paramMonth = request.getParameter("month");
-
+	System.out.println("CalList.jsp : " + paramYear);
+	System.out.println("CalList.jsp : " + paramMonth);
+	
+	List<calDto> cList = (List<calDto>)request.getAttribute("cList");
 	Calendar cal =Calendar.getInstance();
 	//현재 년도
 	int year = cal.get(Calendar.YEAR);
@@ -94,26 +99,24 @@
 	
 	//마지막날 구하기
 	int lastDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-	
 	//달력에 일정을 표현하기
 	CalDao dao = new CalDaoImple();
 	calDto dto = new calDto();
 	String yyyyMM = year + Util.isTwo(String.valueOf(month));
-	List<calDto> cList= dao.selectAll(dto.getMemberId(), yyyyMM);
+	//List<calDto> cList= dao.selectAll(paramMemberId, yyyyMM);
 %>
-
 <body>
 <input type="hidden" id="memberId" value="${login.memberId}"/>
 	<table id="calendar">
 		<caption>
-			<a href="CalListForm.do?year=<%=year-1%>&month=<%=month%>">◁</a>
-			<a href="CalListForm.do?year=<%=year%>&month=<%=month-1%>">◀</a>
+			<a href="CalListForm.do?year=<%=year-1%>&month=<%=month%>&memberId=${login.memberId}">◁</a>
+			<a href="CalListForm.do?year=<%=year%>&month=<%=month-1%>&memberId=${login.memberId}">◀</a>
 			
 			<span class="y"><%=year %></span>년
 			<span class="m"><%=month %></span>월
 			
-			<a href="CalListForm.do?year=<%=year%>&month=<%=month+1%>">▶</a>
-			<a href="CalListForm.do?year=<%=year+1%>&month=<%=month%>">▷</a>
+			<a href="CalListForm.do?year=<%=year%>&month=<%=month+1%>&memberId=${login.memberId}">▶</a>
+			<a href="CalListForm.do?year=<%=year+1%>&month=<%=month%>&memberId=${login.memberId}">▷</a>
 		</caption>
 		
 		<tr>
@@ -130,11 +133,11 @@
 			for(int i = 1; i <= lastDay; i++){
 %>
 			<td>
-				<a class="countView" style="color:<%=Util.fontColor(i,dayOfWeek)%>" href="CalController.do?command=calList&year=<%=year%>&month=<%=month%>&date=<%=i%>">
+				<a class="countView" style="color:<%=Util.fontColor(i,dayOfWeek)%>">
 					<%=i %>
 				</a>
-				<a href="insertCalboard.jsp?year=<%=year%>&month=<%=month%>&date=<%=i%>&lastday=<%=lastDay%>">
-					<img alt="일정추가" src="img/pen.png" style="with:15px;height:15px;">
+				<a href="CalInsertForm.do?year=<%=year%>&month=<%=month%>&date=<%=i%>&lastday=<%=lastDay%>&memberId=${login.memberId}">
+					<img alt="일정추가" src="image/pen.png" style="with:15px;height:15px;">
 				</a>
 				<div class="cList">
 					<%=Util.getCalView(i, cList) %>

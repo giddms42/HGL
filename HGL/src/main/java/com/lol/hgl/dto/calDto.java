@@ -25,6 +25,14 @@ public class calDto {
 		this.calMemo = calMemo;
 		this.calSMS = calSMS;
 	}
+	
+	public calDto(String memberId, String calTitle, String calSch, String calMemo, String calSMS) {
+		this.memberId = memberId;
+		this.calTitle = calTitle;
+		this.calSch = calSch;
+		this.calMemo = calMemo;
+		this.calSMS = calSMS;
+	}
 
 	public String getMemberId() {
 		return memberId;
