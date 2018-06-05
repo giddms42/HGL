@@ -23,7 +23,8 @@ $(function(){
 		               url : "FWLSuccess.do",
 		               data: {checkValue : checkValue},
 		               success : function() {
-		            	   alert("축하드립니다.");
+		            	   alert("위시리스트 달성을 축하드립니다.");
+		            	   location.reload();
 		               },
 		               error:function(){
 		             	   alert("ajax error");
@@ -31,22 +32,32 @@ $(function(){
 		            });
 			 }else{
 				 alert("취소되었습니다");
+				 $(this).prop("checked","false");
 			 }
+		 
+		 
 		 }else{
-			 $(this).prop("checked",false);
-			 alert(checkValue);
-			 $.ajax({
-	               type:"post",
-	               url : "FWLSuccess.do",
-	               data: {checkValue : checkValue},
-	               success : function() {
-	            	   alert("취소되었습니다.");
-	               },
-	               error:function(){
-	             	   alert("ajax error");
-	               }
-	            });
+			 var wishChk=confirm("취소하시겠습니까?")
+			 if(wishChk == true){
+				 $.ajax({
+		               type:"post",
+		               url : "FWLSuccessCancel.do",
+		               data: {checkValue : checkValue},
+		               success : function() {
+		            	   alert("취소되었습니다.");
+		            	   $(this).prop("checked","false");
+		            	   location.reload();
+		               },
+		               error:function(){
+		             	   alert("ajax error");
+		               }
+		            });
+			 }else{
+				 $(this).prop("checked","true");
+			 }
 		 }
+	
+	
 	});
 })
 
@@ -66,7 +77,7 @@ $(function(){
 	<div id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 		<div id="topbutton">
-			<button type="button" onclick="location.href='FWLShare.do?memberNo='+${login.memberNo}+'&memberNickName='+${login.memberNickName}">공유하기</button>
+			<button type="button" onclick="location.href='FWLShare.do?memberNo='+${login.memberNo}+'&memberNickName=${login.memberNickname}'">공유하기</button>
 			<button type="button" onclick="FWLinsert();" style="margin-left: 425px;">+위시리스트 추가하기</button>
 		</div>
 		

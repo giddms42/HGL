@@ -47,7 +47,7 @@ public class FWLDaoImple implements FWLDao {
 
 	@Override
 	public int FWLSuccess(int fwlNo) {
-		int res = 0;;
+		int res = 0;
 		try {
 			res = sqlSession.update(nameSpace+"fwlFWLSuccess", fwlNo);			
 		}catch(Exception e) {
@@ -101,6 +101,45 @@ public class FWLDaoImple implements FWLDao {
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	
+		return list;
+	}
+
+
+	@Override
+	public int FWLSuccessCancel(int fwlNo) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"FWLSuccessCancel", fwlNo);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+
+	@Override
+	public int FWLBListCount() {
+		int res = 0;
+		try {
+			res = sqlSession.selectOne(nameSpace+"FWLBListCount");			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+
+	@Override
+	public List<fwlbDto> FwlbList(int startPost, int endPost) {
+		List<fwlbDto> list = new ArrayList<>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startPost", startPost);
+		map.put("endPost", endPost);
+		try {
+			list = sqlSession.selectList(nameSpace+"FwlbList", map);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 

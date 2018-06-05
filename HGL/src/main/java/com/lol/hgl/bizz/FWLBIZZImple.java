@@ -55,4 +55,19 @@ public class FWLBIZZImple implements FWLBizz {
 		return dao.fwlbcmList(fwlbNO);
 	}
 
+	@Override
+	public int FWLSuccessCancel(int fwlNo) {
+		return dao.FWLSuccessCancel(fwlNo);
+	}
+
+	@Override
+	public int FWLBListCount() {
+		return dao.FWLBListCount();
+	}
+
+	@Override
+	public List<fwlbDto> FwlbList(int startPost, int endPost) {
+		return dao.FwlbList(startPost, endPost);
+	}
+
 }

@@ -36,6 +36,10 @@
 		UPDATE FWL SET FWLCHK='Y' WHERE FWLNO=#{fwlNo}
 	</update>
 	
+	<update id="FWLSuccessCancel" parameterType="int">
+		UPDATE FWL SET FWLCHK='N' WHERE FWLNO=#{fwlNo}
+	</update>
+	
 	<delete id="FWLDelete" parameterType="int">
 		DELETE FROM FWL WHERE FWLNO=#{fwlNo}
 	</delete>
@@ -50,6 +54,25 @@
 	
 	<select id="fwlbcmList" parameterType="int" resultMap="fwlbcmDto">
 		SELECT * FROM FWLBCM WHERE FWLBNO=#{fwlbNo}
+	</select>
+	
+	<select id="FWLBListCount" resultType="int">
+		SELECT COUNT(*) FROM FWLB
+	</select>
+	
+	<select id="FwlbList" parameterType="map" resultMap="fwlbDto">
+	<![CDATA[
+	select *
+	from ( 
+    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from FWLB ORDER BY FWLBNO DESC) A
+    where ROWNUM <= #{endPost}) X
+	where X.RN >= #{startPost}
+	ORDER BY X.BOARDNO DESC
+	]]>
 	</select>
 
 </mapper>
