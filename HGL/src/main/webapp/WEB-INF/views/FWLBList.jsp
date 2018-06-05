@@ -3,6 +3,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +43,7 @@
 						<td>${fwlbDto.fwlbWriter}</td>
 						<td>${fwlbDto.fwlbTitle}</td>
 						<td>${fwlbDto.fwlbReadcnt}</td>
-						<td>${fwlbDto.fwlbDate}</td>
+						<td><fmt:formatDate value="${fwlbDto.fwlbDate}" pattern="yyyy-MM-dd"/></td>
 					</tr>
 					</c:forEach>
 				</c:otherwise>
@@ -69,20 +70,23 @@
 					</c:otherwise>
 					</c:choose>
 				</a>
-			</c:forEach> <c:choose>
+			</c:forEach> 
+			<c:choose>
 				<c:when test="${nowPage eq pageCount}">
 				▶
 			</c:when>
 				<c:otherwise>
 					<a
-						href="TrioController?command=OwnRecipeBoardList&nowPage=${nowPage + 1}">▶</a>
+						href="FWLBList.do?nowPage=${nowPage + 1}">▶</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
 		
-		<form action="FWLBList.do" method="post">
+		<form action="FWLBListSearch.do" method="post">
+			<input type="hidden" name="nowpage" value="1"/>
 			<div style="width: 50%; margin: auto; border: 1px dotted green; text-align: center;">
-				닉네임&nbsp<input type="search" placeholder="검색할 닉네임을 입력해주세요"><button>검색</button>
+				닉네임&nbsp<input type="search" name="searchNickName" placeholder="검색할 닉네임을 입력해주세요">
+				<button>검색</button>
 			</div>
 		</form>
 	</div>

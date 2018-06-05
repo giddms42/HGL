@@ -37,11 +37,23 @@ CREATE TABLE FWLB
     CONSTRAINT FWLB_PK PRIMARY KEY (FWLBNO)
 )
 
-INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, '관리자', '관리자 님의 위시리스트 입니다.', '맛있는거 먹으러 가기', 0, SYSDATE);
+INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, '관리자', '관리자 님의 위시리스트 입니다.', 0, SYSDATE);
 
 SELECT * FROM FWLB;
 
 SELECT COUNT(*) FROM FWLB
+
+	select X.RN
+	from ( 
+    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from FWLB ORDER BY FWLBNO DESC) A
+    where ROWNUM <= 10) X
+	where X.RN >= 1
+	ORDER BY X.FWLBNO 
+
 
 --------------------------------------------------
 

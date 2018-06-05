@@ -18,5 +18,8 @@ public interface FWLBizz {
 	public List<fwlbcmDto> fwlbcmList(int fwlbNO);
 	public int FWLBListCount();
 	public List<fwlbDto> FwlbList(int startPost, int endPost);
+	public int FWLBListSearchCount(String searchNickName);
+	public List<fwlbDto> FwlbListSearch(int startPost, int endPost, String searchNickName);
+
 
 }

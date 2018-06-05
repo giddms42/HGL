@@ -60,6 +60,10 @@
 		SELECT COUNT(*) FROM FWLB
 	</select>
 	
+	<select id="FWLBListSearchCount" parameterType="">
+		SLECT COUNT(*) FROM FWLB WHERE FWLBWRITER LIKE #{searchNickName}
+	</select>
+	
 	<select id="FwlbList" parameterType="map" resultMap="fwlbDto">
 	<![CDATA[
 	select *
@@ -71,8 +75,55 @@
         from FWLB ORDER BY FWLBNO DESC) A
     where ROWNUM <= #{endPost}) X
 	where X.RN >= #{startPost}
-	ORDER BY X.BOARDNO DESC
+	ORDER BY X.FWLBNO DESC
 	]]>
+	</select>
+	
+	
+	<select id="ListRowNum" parameterType="map" resultType="int">
+	<![CDATA[
+	select X.RN
+	from ( 
+    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from FWLB ORDER BY FWLBNO DESC) A
+    where ROWNUM <= #{endPost}) X
+	where X.RN >= #{startPost}
+	ORDER BY X.FWLBNO
+	]]>
+	</select>
+	
+	<select id="FwlbListSearch" parameterType="map" resultType="fwlbDto">
+		<![CDATA[
+	select *
+	from ( 
+    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from FWLB WHERE FWLBWRITER=#{searchNickName} ORDER BY FWLBNO DESC) A
+   where ROWNUM <= TO_NUMBER(#{endPost})) X
+	where X.RN >= TO_NUMBER(#{startPost})
+	ORDER BY X.FWLBNO DESC
+	]]>
+	</select>
+	
+	<select id="SearchListrowNum" parameterType="map" resultType="int">
+			<![CDATA[
+	select X.RN
+	from ( 
+    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from FWLB WHERE FWLBWRITER=#{searchNickName} ORDER BY FWLBNO DESC) A
+   where ROWNUM <= TO_NUMBER(#{endPost})) X
+	where X.RN >= TO_NUMBER(#{startPost})
+	ORDER BY X.FWLBNO
+	]]>
+	
 	</select>
 
 </mapper>

@@ -143,4 +143,69 @@ public class FWLDaoImple implements FWLDao {
 		return list;
 	}
 
+
+	@Override
+	public List<Integer> ListRowNum(int startPost, int endPost) {
+		List<Integer> list = new ArrayList<>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startPost", startPost);
+		map.put("endPost", endPost);
+		try {
+			list = sqlSession.selectList(nameSpace+"ListRowNum", map);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+
+	@Override
+	public int FWLBListSearchCount(String searchNickName) {
+		int res = 0;
+		searchNickName = "%"+searchNickName+"%";
+		try {
+			res = sqlSession.selectOne(nameSpace+"FWLBListSearchCount", searchNickName);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+
+	@Override
+	public List<fwlbDto> FwlbListSearch(int startPost, int endPost, String searchNickName) {
+		List<fwlbDto> list = new ArrayList<>();
+		Map<String, String> map = new HashMap<String, String>();
+		searchNickName = "%"+searchNickName+"%";
+		map.put("startPost", String.valueOf(startPost));
+		map.put("endPost", String.valueOf(endPost));
+		map.put("searchNickName", searchNickName);
+		try {
+			list = sqlSession.selectList(nameSpace+"FwlbListSearch", map);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+
+	@Override
+	public List<Integer> SearchListrowNum(int startPost, int endPost, String searchNickName) {
+		List<Integer> list = new ArrayList<>();
+		Map<String, String> map = new HashMap<String, String>();
+		searchNickName = "%"+searchNickName+"%";
+		map.put("startPost", String.valueOf(startPost));
+		map.put("endPost", String.valueOf(endPost));
+		map.put("searchNickName", searchNickName);
+		try {
+			list = sqlSession.selectList(nameSpace+"SearchListrowNum", map);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 }
