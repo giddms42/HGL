@@ -14,7 +14,7 @@
 	
 	<insert id="insert" parameterType="CalDto" >
 		INSERT INTO CAL
-		VALUES(#{memberId},CALNO_SEQ.NEXTVAL,#{calTitle},#{calSch},SYSDATE,#{calMemo},#{calSms})
+		VALUES(#{memberId},CALNO_SEQ.NEXTVAL,#{calTitle},#{calSch},SYSDATE,#{calMemo},#{calSMS})
 	</insert>
 	
 	<delete id="delete">
@@ -45,7 +45,7 @@
 	<select id="getCalViewCount" parameterType="map" resultType="int">
 		   SELECT COUNT(*)
     	    FROM CAL
-      		WHERE MEMBERID=#{memberId} AND CALSCH=#{yyyyMMdd}
+      		WHERE MEMBERID=#{memberId} AND SUBSTR(CALSCH,1,8)=#{yyyyMMdd}
 	</select>
 	
 	<select id="getCalBoard" parameterType="int" resultMap="CalDtoMap">

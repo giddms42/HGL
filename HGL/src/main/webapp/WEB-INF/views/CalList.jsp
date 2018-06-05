@@ -40,7 +40,7 @@
 				success:function(val){
 					  var r = $.trim(val);	
 				//	var count=val.calCount;
-					aCountView.after("<div class='cPreview'>"+r+"개의 일정이 있습니다</div>");
+					aCountView.after("<div class='cPreview'>"+r+"개의 스케줄이 있습니다</div>");
 				},
 				error:function(){
 					alert("서버통신실패!!");

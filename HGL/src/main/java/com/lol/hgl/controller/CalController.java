@@ -85,7 +85,7 @@ public class CalController {
 	public String calDetail(Model model, int calNo) {
 		calDto dto = bizz.getCalBoard(calNo);
 		model.addAttribute("dto", dto);
-		return "calDetail";
+		return "CalDetail";
 	}
 
 }

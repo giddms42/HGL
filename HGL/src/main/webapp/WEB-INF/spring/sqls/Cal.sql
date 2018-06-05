@@ -29,3 +29,5 @@ SELECT *
 			FROM CAL
 			WHERE MEMBERID = 'a' AND SUBSTR(CALSCH,1,6)='201806')
 		WHERE RN BETWEEN 1 AND 3
+
+		select * from cal;
