@@ -162,6 +162,7 @@ public class FWLDaoImple implements FWLDao {
 
 	@Override
 	public int FWLBListSearchCount(String searchNickName) {
+		System.out.println(searchNickName);
 		int res = 0;
 		searchNickName = "%"+searchNickName+"%";
 		try {
@@ -186,6 +187,7 @@ public class FWLDaoImple implements FWLDao {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 		
 		return list;
 	}

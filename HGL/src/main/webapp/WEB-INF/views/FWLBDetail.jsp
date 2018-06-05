@@ -52,20 +52,26 @@
 	
 			<c:if test="${!empty fwlbcmList}">
 				<c:forEach items="${fwlbcmList}" var="fwlbcmDto">
-				<div style="width:600px; margin: auto;  margin-top: 20px;">
-					<span>작성자: ${fwlbcmDto.fwlbcmWriter}</span>
-					<span style="float:right;">작성일:　<fmt:formatDate value="${fwlbcmDto.fwlbcmDate}" pattern="yyyy-MM-dd"/></span>
-	       		<div style="border-bottom: 1px solid #BDBDBD; margin-bottom: 10px; margin-top: 15px;"> ${fwlbcmDto.fwlbCont}</div>
-	      		<button type="button" style="float:right;">삭제</button>
-	      		<button type="button" style="float:right;">수정</button>
-			</div>
+					<div style="width:600px; margin: auto;  margin-top: 20px;">
+						<span>작성자: ${fwlbcmDto.fwlbcmWriter}</span>
+						<span style="float:right;">작성일:　<fmt:formatDate value="${fwlbcmDto.fwlbcmDate}" pattern="yyyy-MM-dd"/></span>
+	       			<div style="border-bottom: 1px solid #BDBDBD; margin-bottom: 10px; margin-top: 15px;"> ${fwlbcmDto.fwlbCont}</div>
+	      			<button type="button" style="float:right;">삭제</button>
+	      			<button type="button" style="float:right;">수정</button>
+				</div>
 				</c:forEach>	
 			</c:if>
+	
+	
+	
 			<div style="margin:auto; width: 600px; margin-bottom: 10px;"><br>
 				<h3>댓글작성</h3>
-				<input type="text" value="로그인 ID의 닉네임" style="margin-bottom: 10px;"><br>
-				<textarea placeholder="입력할 댓글을 작성해주세요" style="width: 500px; height:120px; overflow:visible; resize:none;"></textarea>
-				<button style="width:80px; height:50px; vertical-align: top;">댓글작성</button>
+				<form action="">
+				<input type="hidden" name="fwlbNo" value="${dto.fwlbNo}" >
+				<input type="text" name="fwlbcmWriter" value="로그인 ID의 닉네임" style="margin-bottom: 10px;"><br>
+				<textarea name="fwlbcmCont" placeholder="입력할 댓글을 작성해주세요" style="width: 500px; height:120px; overflow:visible; resize:none;"></textarea>
+				<button style="width:80px; height:50px; vertical-align:top;">댓글작성</button>
+				</form>
 			</div>
 		</div>
 	</div>

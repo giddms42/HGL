@@ -5,25 +5,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lol.hgl.bizz.FWLBizz;
+import com.lol.hgl.bizz.MemberBizz;
 import com.lol.hgl.dto.fwlDto;
 import com.lol.hgl.dto.fwlbDto;
 import com.lol.hgl.dto.fwlbcmDto;
+import com.lol.hgl.dto.memberDto;
 
 @Controller
 public class FWLController {
 	
 	@Autowired
-	private FWLBizz bizz;
+	private FWLBizz fwlBizz;
+	
+	@Autowired
+	private MemberBizz memberBizz;
 	
 	   @RequestMapping(value="FWLList.do")
 	   public String FWLList(int memberNo, Model model) {
-		 List<fwlDto> list = bizz.fwlList(memberNo);
+		 List<fwlDto> list = fwlBizz.fwlList(memberNo);
 		 model.addAttribute("FWLList", list);
 		 model.addAttribute("memberNo", memberNo);
 	      return "FWLList";
@@ -39,7 +45,7 @@ public class FWLController {
 	   @RequestMapping(value="FWLInsert.do")
 	   @ResponseBody
 	   public String FWLInsert(String fwlItem, int memberNo, Model model) {
-		  bizz.fwlInsert(fwlItem, memberNo); 
+		  fwlBizz.fwlInsert(fwlItem, memberNo); 
 	      return "FWLInsert";
 	   }
 
@@ -48,7 +54,7 @@ public class FWLController {
 	   public String FWLSuccess(String checkValue) {
 		   System.out.println(checkValue);
 		   int fwlNo = Integer.parseInt(checkValue);
-		   bizz.FWLSuccess(fwlNo);
+		   fwlBizz.FWLSuccess(fwlNo);
 		   return "redirect:FWLList.do";
 	   }
 	   
@@ -57,7 +63,7 @@ public class FWLController {
 	   public String FWLSuccessCancel(String checkValue) {
 		   System.out.println(checkValue);
 		   int fwlNo = Integer.parseInt(checkValue);
-		   bizz.FWLSuccessCancel(fwlNo);
+		   fwlBizz.FWLSuccessCancel(fwlNo);
 		   return "redirect:FWLList.do";
 	   }
 	   
@@ -65,13 +71,13 @@ public class FWLController {
 	   
 	   @RequestMapping(value="FWLDelete.do")
 	   public String FwlDelete(int fwlNo) {
-		   bizz.FWLDelete(fwlNo);
+		   fwlBizz.FWLDelete(fwlNo);
 		   return "redirect:FWLList.do";
 	   }
 	   
 	   @RequestMapping(value="FWLShare.do")
 	   public String FWLShare(String memberNickName, int memberNo, Model model) {
-		   bizz.FWLShare(memberNickName); 
+		   fwlBizz.FWLShare(memberNickName); 
 		   model.addAttribute("memberNo", memberNo);
 		   model.addAttribute("memberNickName", memberNickName);
 		   return "redirect:FWLBDetail.do";
@@ -82,7 +88,7 @@ public class FWLController {
 	   @RequestMapping(value="FWLBList.do")
 	   public String FWLBList(String nowpage, Model model) {
 			//전체 글 갯수 구하기
-			int postCount = bizz.FWLBListCount();
+			int postCount = fwlBizz.FWLBListCount();
 			//내가 한페이지에 출력하고자 하는 글 갯수 정하기
 			int wantPost = 10;
 			//전체 페이지 갯수 구하기
@@ -103,7 +109,7 @@ public class FWLController {
 			int endPost = (nowPage*10) ; 
 			
 			//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
-			List<fwlbDto> list = bizz.FwlbList(startPost, endPost);	
+			List<fwlbDto> list = fwlBizz.FwlbList(startPost, endPost);	
 			model.addAttribute("startPage", startPage);
 			model.addAttribute("endPage", endPage);
 			model.addAttribute("nowPage", nowPage);
@@ -115,7 +121,7 @@ public class FWLController {
 	   @RequestMapping(value="FWLBListSearch.do")
 	   public String FWLBListSearch(String searchNickName, String nowpage, Model model) {
 			//전체 글 갯수 구하기
-			int postCount = bizz.FWLBListSearchCount(searchNickName);
+			int postCount = fwlBizz.FWLBListSearchCount(searchNickName);
 			//내가 한페이지에 출력하고자 하는 글 갯수 정하기
 			int wantPost = 10;
 			//전체 페이지 갯수 구하기
@@ -136,7 +142,9 @@ public class FWLController {
 			int endPost = (nowPage*10) ; 
 			
 			//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
-			List<fwlbDto> list = bizz.FwlbListSearch(startPost, endPost, searchNickName);
+			List<fwlbDto> list = fwlBizz.FwlbListSearch(startPost, endPost, searchNickName);
+			
+			model.addAttribute("keyword", searchNickName);
 			model.addAttribute("startPage", startPage);
 			model.addAttribute("endPage", endPage);
 			model.addAttribute("nowPage", nowPage);
@@ -148,14 +156,20 @@ public class FWLController {
 	   
 	   
 	   @RequestMapping(value="FWLBDetail.do")
-	   public String FWLBDetail(String memberNickName, int memberNo, Model model) {
-		   fwlbDto dto = bizz.FWLBDetail(memberNickName);
-		   List<fwlDto> fwlList = bizz.fwlList(memberNo);
-		   List<fwlbcmDto> fwlbcmList = bizz.fwlbcmList(dto.getFwlbNo());
-		   model.addAttribute("dto",dto);
+	   public String FWLBDetail(String memberNickName, Model model) {
+		   fwlbDto fwldto = fwlBizz.FWLBDetail(memberNickName);
+		   memberDto memberdto = memberBizz.searchMember(memberNickName);
+		   List<fwlDto> fwlList = fwlBizz.fwlList(memberdto.getMemberNo());
+		   List<fwlbcmDto> fwlbcmList = fwlBizz.fwlbcmList(fwldto.getFwlbNo());
+		   model.addAttribute("dto",fwldto);
 		   model.addAttribute("fwlList",fwlList);
 		   model.addAttribute("fwlbcmList",fwlbcmList);   
 	      return "FWLBDetail";
+	   }
+	   
+	   @RequestMapping(value="FWLBCMInsert.do")
+	   public String FWLBCMInsert(@ModelAttribute fwlbcmDto dto, Model model) {
+		   return null;
 	   }
 	   
 }

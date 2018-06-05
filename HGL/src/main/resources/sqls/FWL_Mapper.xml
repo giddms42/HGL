@@ -60,8 +60,8 @@
 		SELECT COUNT(*) FROM FWLB
 	</select>
 	
-	<select id="FWLBListSearchCount" parameterType="">
-		SLECT COUNT(*) FROM FWLB WHERE FWLBWRITER LIKE #{searchNickName}
+	<select id="FWLBListSearchCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM FWLB WHERE FWLBWRITER LIKE #{searchNickName}
 	</select>
 	
 	<select id="FwlbList" parameterType="map" resultMap="fwlbDto">
@@ -95,7 +95,7 @@
 	]]>
 	</select>
 	
-	<select id="FwlbListSearch" parameterType="map" resultType="fwlbDto">
+	<select id="FwlbListSearch" parameterType="map" resultMap="fwlbDto">
 		<![CDATA[
 	select *
 	from ( 
@@ -103,7 +103,7 @@
     ROWNUM AS RN
     from (
         select *
-        from FWLB WHERE FWLBWRITER=#{searchNickName} ORDER BY FWLBNO DESC) A
+        from FWLB WHERE FWLBWRITER LIKE #{searchNickName} ORDER BY FWLBNO DESC) A
    where ROWNUM <= TO_NUMBER(#{endPost})) X
 	where X.RN >= TO_NUMBER(#{startPost})
 	ORDER BY X.FWLBNO DESC
@@ -118,7 +118,7 @@
     ROWNUM AS RN
     from (
         select *
-        from FWLB WHERE FWLBWRITER=#{searchNickName} ORDER BY FWLBNO DESC) A
+        from FWLB WHERE FWLBWRITER LIKE #{searchNickName} ORDER BY FWLBNO DESC) A
    where ROWNUM <= TO_NUMBER(#{endPost})) X
 	where X.RN >= TO_NUMBER(#{startPost})
 	ORDER BY X.FWLBNO

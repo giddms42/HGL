@@ -69,6 +69,11 @@
 	<update id="getOut" parameterType="int">
 		UPDATE MEMBER SET MEMBERJOIN='N' WHERE MEMBERNO=#{memberNo}
 	</update>
+	
+	<select id="searchMember" parameterType="String" resultType="memberDto">
+		SELECT * FROM MEMBER WHERE MEMBERNICKNAME = #{memberNickName}
+	
+	</select>
 
 
 </mapper>

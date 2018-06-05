@@ -41,6 +41,8 @@ INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, '관리자', '관리자 님의 위�
 
 SELECT * FROM FWLB;
 
+select * from fwlb WHERE FWLBWRITER LIKE '%히히%'
+
 SELECT COUNT(*) FROM FWLB
 
 	select X.RN
@@ -77,5 +79,6 @@ INSERT INTO FWLBCM VALUES(1, FWLBCMNO_SEQ.NEXTVAL, '관리자', '응원할게요
 
 SELECT * FROM FWLBCM;
 
+select * from KINDSTORE;
 
 

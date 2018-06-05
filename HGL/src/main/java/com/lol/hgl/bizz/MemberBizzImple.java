@@ -155,6 +155,11 @@ public class MemberBizzImple implements MemberBizz {
 		return res;
 	}
 
+	@Override
+	public memberDto searchMember(String memberNickName) {
+		return dao.searchMember(memberNickName);
+	}
+
 
 
 	

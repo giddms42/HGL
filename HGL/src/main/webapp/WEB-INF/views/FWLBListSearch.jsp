@@ -56,12 +56,13 @@
 					</c:when>
 				<c:otherwise>
 					<a
-						href="FWLBList.do?nowPage=${nowPage - 1}">◀
+						href="FWLBListSearch.do?nowPage=${nowPage - 1}&searchNickName=${keyword}">◀
 					</a>
 				</c:otherwise>
 			</c:choose> 
 			<c:forEach begin="${startPage}" end="${endPage}" var="i">
-				<a href="FWLBList.do?nowPage=${i}"> <c:choose>
+				<a href="FWLBListSearch.do?nowPage=${i}&searchNickName=${keyword}"> 
+				<c:choose>
 						<c:when test="${i eq nowPage}">
 							<strong>${i}</strong>
 						</c:when>
@@ -77,7 +78,7 @@
 			</c:when>
 				<c:otherwise>
 					<a
-						href="FWLBList.do?nowPage=${nowPage + 1}">▶</a>
+						href="FWLBListSearch.do?nowPage=${nowPage + 1}&searchNickName=${keyword}">▶</a>
 				</c:otherwise>
 			</c:choose>
 		</div>

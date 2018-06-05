@@ -17,4 +17,5 @@ public interface MemberBizz {
 	public int pwChange(memberDto dto);
 	public int updateMemberInfo(memberDto dto);
 	public int getOut(int memberNo);
+	public memberDto searchMember(String memberNickName);
 }

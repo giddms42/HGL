@@ -152,6 +152,17 @@ public class MemeberDaoImple implements MemberDao {
 		return res;
 	}
 
+	@Override
+	public memberDto searchMember(String memberNickName) {
+		memberDto dto = new memberDto();
+		try {
+			dto = sqlSession.selectOne(nameSpace+"searchMember", memberNickName);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return dto;
+	}
+
 
 
 }
