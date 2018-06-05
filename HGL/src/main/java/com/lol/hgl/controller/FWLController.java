@@ -7,11 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lol.hgl.bizz.FWLBizz;
 import com.lol.hgl.dto.fwlDto;
+import com.lol.hgl.dto.fwlbDto;
+import com.lol.hgl.dto.fwlbcmDto;
 
 @Controller
 public class FWLController {
@@ -36,12 +37,11 @@ public class FWLController {
 	   
 	   @RequestMapping(value="FWLInsert.do")
 	   @ResponseBody
-	   public String FWLInsert(String fwlItem, int memberNo) {
-		   //int memberno = Integer.parseInt(memberNo);
+	   public String FWLInsert(String fwlItem, int memberNo, Model model) {
 		  bizz.fwlInsert(fwlItem, memberNo); 
 	      return "FWLInsert";
 	   }
-	   
+
 	   @RequestMapping(value="FWLSuccess.do", method= RequestMethod.POST)
 	   @ResponseBody
 	   public String FWLSuccess(String checkValue) {
@@ -51,33 +51,43 @@ public class FWLController {
 		   return "redirect:FWLList.do";
 	   }
 	   
+	   @RequestMapping(value="FWLSuccessCancel.do", method= RequestMethod.POST)
+	   @ResponseBody
+	   public String FWLSuccessCancel(String checkValue) {
+		   System.out.println(checkValue);
+		   int fwlNo = Integer.parseInt(checkValue);
+		   bizz.FWLSuccessCancel(fwlNo);
+		   return "redirect:FWLList.do";
+	   }
+	   
+	   
+	   
 	   @RequestMapping(value="FWLDelete.do")
 	   public String FwlDelete(int fwlNo) {
+		   bizz.FWLDelete(fwlNo);
 		   return "redirect:FWLList.do";
 	   }
 	   
 	   @RequestMapping(value="FWLShare.do")
-	   public String FWLShare(String memberNickName) {
+	   public String FWLShare(String memberNickName, int memberNo, Model model) {
 		   bizz.FWLShare(memberNickName); 
-		   
-		   return null;
+		   model.addAttribute("memberNo", memberNo);
+		   model.addAttribute("memberNickName", memberNickName);
+		   return "redirect:FWLBDetail.do";
 	   }
 	   
 	   
 		
 	   @RequestMapping(value="FWLBList.do")
-	   public String FWLBList() {
-/*			//전체 글 갯수 구하기
-			int postCount = ownBizz.RecipeBoardPostCount();
+	   public String FWLBList(String nowpage, Model model) {
+			//전체 글 갯수 구하기
+			int postCount = bizz.FWLBListCount();
 			//내가 한페이지에 출력하고자 하는 글 갯수 정하기
 			int wantPost = 10;
 			//전체 페이지 갯수 구하기
 			int pageCount = (int)(Math.ceil((double)postCount/wantPost));
 			//시작 페이지
-			int nowPage = 1;
-			if(request.getParameter("nowPage")!=null){
-				nowPage = Integer.parseInt(request.getParameter("nowPage"));
-				}
+			int nowPage = Integer.parseInt(nowpage);			
 			//block 시작 페이지 숫자
 			int startPage = (int)(Math.ceil((double)nowPage/5))*5-4;
 			//block 마지막 페이지 숫자
@@ -92,23 +102,23 @@ public class FWLController {
 			int endPost = (nowPage*10) ; 
 			
 			//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
-			List<OwnRecipeDto> list = ownBizz.RecipeBoardAllList(startPost, endPost);			
-			request.setAttribute("startPage", startPage);
-			request.setAttribute("endPage", endPage);
-			request.setAttribute("nowPage", nowPage);
-			request.setAttribute("pageCount", pageCount);
-			request.setAttribute("AllList", list);
-			
-			List<OwnRecipeDto> bestList = ownBizz.RecipeBoardBestList();
-			request.setAttribute("BestList", bestList);		
-			
-			dispatch("OwnRecipeBoardList.jsp", request, response);*/
-			
+			List<fwlbDto> list = bizz.FwlbList(startPost, endPost);	
+			model.addAttribute("startPage", startPage);
+			model.addAttribute("endPage", endPage);
+			model.addAttribute("nowPage", nowPage);
+			model.addAttribute("pageCount", pageCount);
+			model.addAttribute("FWLBList", list);
 	      return "FWLBList";
 	   }
 	   
 	   @RequestMapping(value="FWLBDetail.do")
-	   public String FWLBDetail() {   
+	   public String FWLBDetail(String memberNickName, int memberNo, Model model) {
+		   fwlbDto dto = bizz.FWLBDetail(memberNickName);
+		   List<fwlDto> fwlList = bizz.fwlList(memberNo);
+		   List<fwlbcmDto> fwlbcmList = bizz.fwlbcmList(dto.getFwlbNo());
+		   model.addAttribute("dto",dto);
+		   model.addAttribute("fwlList",fwlList);
+		   model.addAttribute("fwlbcmList",fwlbcmList);   
 	      return "FWLBDetail";
 	   }
 	   

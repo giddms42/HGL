@@ -41,6 +41,8 @@ INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, '관리자', '관리자 님의 위�
 
 SELECT * FROM FWLB;
 
+SELECT COUNT(*) FROM FWLB
+
 --------------------------------------------------
 
 -- FWLBCM SEQUENCE SQL

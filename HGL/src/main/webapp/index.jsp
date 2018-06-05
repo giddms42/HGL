@@ -20,6 +20,7 @@
 <a href="GGListForm.do">좋은글게시판</a>
 <a href="GGUpdateForm.do">좋은글수정</a>
 <a href="ys.do">연습장</a>
+<a href="CalListForm.do">캘린더</a>
 
 <br>
 <br>

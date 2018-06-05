@@ -2,8 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="fwl">
 	<resultMap type="com.lol.hgl.dto.fwlDto" id="fwlDto">
+		<result column="MEMBERNO" property="memberNo"/>
+		<result column="FWLNO" property="fwlNo"/>	
+		<result column="FWLITEM" property="fwlItem"/>	
 		<result column="FWLCHK" property="fwlChk"/>
-		<result column = "FWLITEM" property="fwlItem"/>	
+	</resultMap>
+	
+	<resultMap type="com.lol.hgl.dto.fwlbDto" id="fwlbDto">
+		<result column="FWLBNO" property="fwlbNo"/>
+		<result column="FWLBWRITER" property="fwlbWriter"/>	
+		<result column="FWLBTITLE" property="fwlbTitle"/>	
+		<result column="FWLBREADCNT" property="fwlbReadcnt"/>
+		<result column="FWLBDATE" property="fwlbDate"/>
+	</resultMap>
+	
+	<resultMap type="com.lol.hgl.dto.fwlbcmDto" id="fwlbcmDto">
+		<result column="FWLBNO" property="fwlbNo"/>
+		<result column="FWLBCMNO" property="fwlbcmNo"/>	
+		<result column="FWLBCMWRITER" property="fwlbcmWriter"/>	
+		<result column="FWLBCMCONT" property="fwlbcmCont"/>
+		<result column="FWLBCMDATE" property="fwlbcmDate"/>
 	</resultMap>
 	
 	<select id="fwlList" parameterType="int" resultMap="fwlDto">
@@ -18,12 +36,43 @@
 		UPDATE FWL SET FWLCHK='Y' WHERE FWLNO=#{fwlNo}
 	</update>
 	
+	<update id="FWLSuccessCancel" parameterType="int">
+		UPDATE FWL SET FWLCHK='N' WHERE FWLNO=#{fwlNo}
+	</update>
+	
 	<delete id="FWLDelete" parameterType="int">
 		DELETE FROM FWL WHERE FWLNO=#{fwlNo}
 	</delete>
 	
-	<insert id="FWLBInsert" parameterType="String">
-		INSERT INTO FWLB VALUES()
+	<insert id="FWLBInsert" parameterType="fwlbDto">
+		INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, #{fwlbWriter}, #{fwlbTitle}, 0, SYSDATE)
 	</insert>
+	
+	<select id="FWLBDetail" parameterType="String" resultType="fwlbDto">
+		SELECT* FROM FWLB WHERE FWLBWRITER=#{memberNickName}
+	</select>
+	
+	<select id="fwlbcmList" parameterType="int" resultMap="fwlbcmDto">
+		SELECT * FROM FWLBCM WHERE FWLBNO=#{fwlbNo}
+	</select>
+	
+	<select id="FWLBListCount" resultType="int">
+		SELECT COUNT(*) FROM FWLB
+	</select>
+	
+	<select id="FwlbList" parameterType="map" resultMap="fwlbDto">
+	<![CDATA[
+	select *
+	from ( 
+    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from FWLB ORDER BY FWLBNO DESC) A
+    where ROWNUM <= #{endPost}) X
+	where X.RN >= #{startPost}
+	ORDER BY X.BOARDNO DESC
+	]]>
+	</select>
 
 </mapper>

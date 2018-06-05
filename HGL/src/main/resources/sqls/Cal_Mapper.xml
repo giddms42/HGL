@@ -1,4 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cal">
+
+<resultMap type="com.lol.hgl.dto.calDto" id="CalDtoMap">
+		<result column="MEMBERID" property="memberId"/>
+		<result column="CALNO" property="calNo"/>
+		<result column="CALTITLE" property="calTitle"/>
+		<result column="CALSCH" property="calSch"/>
+		<result column="CALDATE" property="calDate"/>
+		<result column="CALMEMO" property="calMemo"/>
+		<result column="CALSMS" property="calSMS"/>
+	</resultMap>
+	
+	<insert id="insert" parameterType="CalDto" >
+		INSERT INTO CAL
+		VALUES(#{memberId},CALNO_SEQ.NEXTVAL,#{calTitle},#{calSch},SYSDATE,#{calMemo},#{calSms})
+	</insert>
+	
+	<delete id="delete">
+		DELETE FROM CAL WHERE CALNO = #{calNo}
+	</delete>
+		
+	<update id="update">
+		UPDATE CAL
+		SET CALTITLE = #{calTitle}, CALMEMO = #{calMemo}, CALSCH = #{calSch}, CALDATE = SYSDATE
+		WHERE CALNO = #{calNo}
+	</update>
+	
+	<select id="selectAll" resultMap="CalDtoMap">
+		SELECT *
+		FROM
+			(SELECT (ROW_NUMBER() OVER(PARTITION BY SUBSTR(CALSCH,1,8) ORDER BY CALSCH)) RN,MEMBERID,CALNO,CALTITLE,CALSCH,CALDATE,CALMEMO,CALSMS
+			FROM CAL
+			WHERE MEMBERID = #{memberId} AND SUBSTR(CALSCH,1,6)=#{yyyyMM})
+		WHERE RN BETWEEN 1 AND 3
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultMap="CalDtoMap">
+		SELECT *
+		FROM CAL
+		WHERE CALNO = #{calNo}
+	</select>
+	
+	<select id="getCalViewCount" parameterType="map" resultType="int">
+		   SELECT COUNT(*)
+    	    FROM CAL
+      		WHERE MEMBERID=#{memberId} AND CALSCH=#{yyyyMMdd}
+	</select>
+	
 </mapper>

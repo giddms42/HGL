@@ -36,7 +36,7 @@
 				</tr>
 				</c:when>
 				<c:otherwise>
-					<c:forEach items="${FWLBList }" var="fwlbDto">
+					<c:forEach items="${FWLBList}" var="fwlbDto">
 					<tr>
 						<td>${fwlbDto.fwlbNo}</td>
 						<td>${fwlbDto.fwlbWriter}</td>
@@ -55,16 +55,17 @@
 					</c:when>
 				<c:otherwise>
 					<a
-						href="TrioController?command=OwnRecipeBoardList&nowPage=${nowPage - 1}">◀
+						href="FWLBList.do?nowPage=${nowPage - 1}">◀
 					</a>
 				</c:otherwise>
-			</c:choose> <c:forEach begin="${startPage}" end="${endPage}" var="i">
-				<a href="TrioController?command=OwnRecipeBoardList&nowPage=${i}"> <c:choose>
+			</c:choose> 
+			<c:forEach begin="${startPage}" end="${endPage}" var="i">
+				<a href="FWLBList.do?nowPage=${i}"> <c:choose>
 						<c:when test="${i eq nowPage}">
 							<strong>${i}</strong>
 						</c:when>
 						<c:otherwise>
-					${i}
+								${i}
 					</c:otherwise>
 					</c:choose>
 				</a>
