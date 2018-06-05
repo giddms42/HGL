@@ -61,10 +61,13 @@ public class FWLController {
 	   }
 	   
 	   
-	   
 	   @RequestMapping(value="FWLDelete.do")
-	   public String FwlDelete(int fwlNo) {
+	   public String FwlDelete(int fwlNo,int memberNo, Model model) {
+		   System.out.println("야");
+		   System.out.println("아이템 번호"+fwlNo);
+		  System.out.println("멤버 번호"+memberNo);
 		   bizz.FWLDelete(fwlNo);
+		   model.addAttribute("memberNo", memberNo);
 		   return "redirect:FWLList.do";
 	   }
 	   

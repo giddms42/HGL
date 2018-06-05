@@ -34,8 +34,6 @@ $(function(){
 				 alert("취소되었습니다");
 				 $(this).prop("checked","false");
 			 }
-		 
-		 
 		 }else{
 			 var wishChk=confirm("취소하시겠습니까?")
 			 if(wishChk == true){
@@ -56,11 +54,19 @@ $(function(){
 				 $(this).prop("checked","true");
 			 }
 		 }
-	
-	
 	});
+	
+	 $("td button[name=DeleteButton]").click(function(){
+		 var delIcon = $("button[name=DeleteButton]").attr("title");
+		 if(delIcon=="y"){
+			 $(".FWLDelete").css("display","inline");
+			 $("button[name=DeleteButton]").attr('title','n');
+		 }else if(delIcon=="n"){
+			 $("button[name=DeleteButton]").attr('title','y');
+			 $(".FWLDelete").css("display","none");
+		 }
+	 });
 })
-
 	function FWLinsert(){
 		var popupX = (window.screen.width/2) - (600 / 2);
 		var popupY= (window.screen.height/2)- (150);
@@ -68,7 +74,6 @@ $(function(){
 		window.name="Parent";
 		window.open("FWLInsertForm.do?memberNo="+${login.memberNo},"위시리스트추가하기", 'status=no, width=600, height=150, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
-
 
 </script>
 </head>
@@ -82,18 +87,15 @@ $(function(){
 		</div>
 		
 		<form>
-		<table border="1" style="width:650px; margin: auto;">
+		<table style="width:650px; margin: auto;">
 			<tr>
-				<th>달성</th>
-				<th style="text-align: center;">위 시 리 스 트</th>
-				<th></th>
+				<th width=40px; style="padding: 10px;">달성</th>
+				<th style="text-align: center; max-width:585px;">위 시 리 스 트</th>
 			</tr>
 				<c:choose>
 					<c:when test="${empty FWLList}">
 					<tr>
-						<td></td>
-						<td style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
-						<td></td>
+						<td colspan="2" style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
 					</tr>
 					</c:when>
 					<c:otherwise>
@@ -101,24 +103,21 @@ $(function(){
 						<tr>
 							<c:choose>
 								<c:when test="${FwlDto.fwlChk eq 'Y'}">
-								<td><input type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
+									<td><input type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
 								</c:when>
 								<c:otherwise>
-								<td>	<input type="checkbox" value="${FwlDto.fwlNo}">	</td>
+									<td><input type="checkbox" value="${FwlDto.fwlNo}"></td>
 								</c:otherwise>
 							</c:choose>
-							<td>${FwlDto.fwlItem}</td>
-							<td><button class="FWLDelete"><img class="FWLDelete-img" src="image/xButton.png"></button></td>
+							<td>${FwlDto.fwlItem}
+							<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}"><img class="FWLDelete-img" src="image/xButton.png"></button>
+							</td>
 						</tr>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
-		
 			<tr>
-				<td colspan="2">
-					<input type="submit" value="달성여부 저장" style="float:right;"><!-- 추가하기하고 저장을 누르기위해서 -->
-				</td>
-				<td><input type="button" value="삭제"></td>
+				<td colspan="3"><button type="button" name="DeleteButton" title="y" style="float:right; margin: 10px;">삭제</button></td>
 			</tr>
 		</table>
 		</form>	

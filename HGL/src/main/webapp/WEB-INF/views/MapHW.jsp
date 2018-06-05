@@ -5,37 +5,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>카테고리별 장소 검색하기</title>
-    <style>
-.map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-.map_wrap {position:relative;width:100%;height:350px;}
-
-#category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
-#category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
-#category li.on {background: #eee;}
-#category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
-#category li:last-child{margin-right:0;border-right:0;}
-#category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
-#category li .category_bg {background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;}
-#category li .bank {background-position: -10px 0;}
-#category li .mart {background-position: -10px -36px;}
-#category li .pharmacy {background-position: -10px -72px;}
-#category li .oil {background-position: -10px -108px;}
-#category li .cafe {background-position: -10px -144px;}
-#category li .store {background-position: -10px -180px;}
-#category li.on .category_bg {background-position-x:-46px;}
-
-.placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
-.placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
-.placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
-.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-.placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
-.placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-.placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
-.placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
-.placeinfo .tel {color:#0f7833;}
-.placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
+<meta charset="utf-8">
+<title>카테고리별 장소 검색하기</title>
+<style>
+	.map_wrap, .map_wrap * {margin:auto; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+	.map_wrap {position:relative;width:100%;height:700px;}
+	
+	#category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
+	#category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
+	#category li.on {background: #eee;}
+	#category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
+	#category li:last-child{margin-right:0;border-right:0;}
+	#category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
+	#category li .category_bg {background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;}
+	#category li .bank {background-position: -10px 0;}
+	#category li .mart {background-position: -10px -36px;}
+	#category li .pharmacy {background-position: -10px -72px;}
+	#category li .oil {background-position: -10px -108px;}
+	#category li .cafe {background-position: -10px -144px;}
+	#category li .store {background-position: -10px -180px;}
+	#category li.on .category_bg {background-position-x:-46px;}
+	
+	.placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
+	.placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+	.placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+	.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+	.placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
+	.placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+	.placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
+	.placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+	.placeinfo .tel {color:#0f7833;}
+	.placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
 </style>
 </head>
 <body>
@@ -46,8 +46,7 @@
             <span class="category_bg bank"></span>
             문화
         </li>       
-
-        <li id="HP8" data-order="2"> 
+        <li id="HP8" data-order="1"> 
             <span class="category_bg pharmacy"></span>
        	병원
         </li>   
@@ -73,6 +72,28 @@ var map = new daum.maps.Map(mapContainer, mapOption);
 
 // 장소 검색 객체를 생성합니다
 var ps = new daum.maps.services.Places(map); 
+
+//주소-좌표 변환 객체를 생성합니다
+var geocoder = new daum.maps.services.Geocoder();
+
+//주소로 좌표를 검색합니다
+geocoder.addressSearch('${login.memberDo} ${login.memberCity}', function(result, status) {
+
+ // 정상적으로 검색이 완료됐으면 
+  if (status === daum.maps.services.Status.OK) {
+     var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+
+     // 결과값으로 받은 위치를 마커로 표시합니다
+     var marker = new daum.maps.Marker({
+         map: map,
+         position: coords
+     });
+  }; 
+//지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+map.setCenter(coords);
+
+});
+
 
 // 지도에 idle 이벤트를 등록합니다
 daum.maps.event.addListener(map, 'idle', searchPlaces);
@@ -136,8 +157,6 @@ function displayPlaces(places) {
     // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
     // 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
     var order = document.getElementById(currCategory).getAttribute('data-order');
-
-    
 
     for ( var i=0; i<places.length; i++ ) {
 

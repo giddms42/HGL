@@ -10,22 +10,25 @@
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	
-function fn_editFL()
-{
-	var params = $("#wishInsert").serialize();
-	$.ajax(
-	{
-		url : "FWLInsert.do",
-		data : params,
-		success : function(xh)
-				{		
-					alert("추가되었습니다.");
-					opener.parent.location.reload();
-					self.close();
-				}
-	});
+function fn_editFL(){
+	var Wish = document.getElementsByName("fwlItem")[0].value;
+	if(!Wish==""){
+		var params = $("#wishInsert").serialize();
+		$.ajax(
+		{
+			url : "FWLInsert.do",
+			data : params,
+			success : function(xh)
+					{		
+						alert("추가되었습니다.");
+						opener.parent.location.reload();
+						self.close();
+					}
+		});
+	}else{
+		alert("위시리스트를 적어주세요")
+	}
 }
-
 </script>
 </head>
 <body>
@@ -34,7 +37,7 @@ function fn_editFL()
 		<h3>위시리스트 추가하기</h3>
 		<form id="wishInsert">
 			<div>
-				<input type="text" name="fwlItem" placeholder="위시리스트를 입력해주세요" style="width: 500px;">
+				<textarea name="fwlItem" placeholder="위시리스트를 입력해주세요" maxlength="60" style="width: 500px; height: 30px;"></textarea>
 				<input type="hidden" name="memberNo" value="${memberNo}"/>
 			</div>
 			<br>
