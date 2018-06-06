@@ -61,4 +61,9 @@ public class GGBizzImple implements GGBizz {
 		return dao.repleySelectOne(seq);
 	}
 
+	@Override
+	public int updateReadCount(int seq) {
+		return dao.updateReadCount(seq);
+	}
+
 }

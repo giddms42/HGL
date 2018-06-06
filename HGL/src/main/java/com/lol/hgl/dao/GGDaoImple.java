@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -119,6 +120,17 @@ public class GGDaoImple implements GGDao {
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}		
+		return res;
+	}
+
+	@Override
+	public int updateReadCount(int seq) {
+		int res = 0;
+		try {
+			res = sqlSession.update(namespace + "updateReadCount", seq);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return res;
 	}
 

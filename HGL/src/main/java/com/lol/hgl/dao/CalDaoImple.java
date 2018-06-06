@@ -67,6 +67,9 @@ public class CalDaoImple implements CalDao {
 
 	@Override
 	public List<calDto> selectAll(String memberId, String yyyyMM) {
+		System.out.println("컨트롤러 셀렉트올 : " + yyyyMM );
+		System.out.println("컨트롤러 셀렉트올 : " + memberId );
+		
 		List<calDto>res = new ArrayList<calDto>();
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("memberId", memberId);
@@ -74,9 +77,12 @@ public class CalDaoImple implements CalDao {
 		
 		try {
 			res = sqlSession.selectList(namespace + "selectAll",map);
-			}catch(Exception e ) {
-				e.printStackTrace();
-			}	
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(res.size());
+		
 		return res;
 	}
 
@@ -96,6 +102,18 @@ public class CalDaoImple implements CalDao {
 				e.printStackTrace();
 			}
 		System.out.println(res);
+		return res;
+	}
+
+	@Override
+	public calDto getCalBoard(int seq) {
+		calDto res = new calDto();
+		
+		try {
+			res = sqlSession.selectOne(namespace+"getCalBoard", seq);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		return res;
 	}
 

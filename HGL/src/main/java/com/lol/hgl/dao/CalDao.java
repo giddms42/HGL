@@ -20,5 +20,6 @@ public interface CalDao {
 	public List<calDto> selectAll(String memberId, String yyyyMM);
 	//일정개수를 구하는 기능
 	public int getCalViewCount(String memberId, String yyyyMMdd);
-	
+	//달력에 일정출력
+	public calDto getCalBoard(int seq);
 }
