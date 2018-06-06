@@ -1,4 +1,12 @@
 @charset "UTF-8";
+input[type="checkbox"]{
+	width:20px; 
+	height:20px;"
+}
+td{
+	height: 30px;
+}
+
 #container{
 	text-align: center;
 	min-width: 800px; 
@@ -9,4 +17,21 @@
 }
 #topbutton{
 	padding:20px;
+}
+
+.FWLDelete-img{
+	width: 18px;
+	height: 18px;
+	vertical-align: bottom;
+	margin-top: 1px;
+	cursor: pointer;
+}
+
+.FWLDelete{
+	padding:0;
+	border:0;
+	background-color: white;
+	vertical-align: bottom;
+	color:red;
+	display: none;
 }

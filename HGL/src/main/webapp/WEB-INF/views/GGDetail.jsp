@@ -89,7 +89,6 @@ html {
 								<input type="button" onclick="location.href='GGRepleyDelete.do?ggcmNo='+${ggcmDto.ggcmNo}+'&ggNo='+${ggcmDto.ggNo}" value="댓글삭제" id="Cbtn2">
 							</div><br/>								
 							</c:forEach>
-						</table>
 					</c:if>
 				<!-- </form> -->
 
@@ -110,7 +109,7 @@ html {
 											</tr>
 											<tr>
 												<td><input type="text" name="ggcmWriter" value="${login.memberNickname}" id="cmtd"></td>
-												<td><textarea rows="3" cols=~" name="ggcmCont" style="resize: none; overflow: hidden;" placeholder="댓글 내용을 입력해주세요~" ></textarea></td>
+												<td><textarea rows="3" cols="" name="ggcmCont" style="resize: none; overflow: hidden;" placeholder="댓글 내용을 입력해주세요~" ></textarea></td>
 												<td><input type="submit" value="댓글달기" id="Cbtn1"></td>
 											</tr>
 										</table>

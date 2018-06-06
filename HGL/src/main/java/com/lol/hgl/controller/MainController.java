@@ -39,5 +39,10 @@ public class MainController {
 		return "Main";
 	}
 	
+	@RequestMapping(value="Map.do")
+	public String Map() {
+		return "Map";
+	}
+	
 	
 }

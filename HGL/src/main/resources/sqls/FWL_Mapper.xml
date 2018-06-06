@@ -25,7 +25,7 @@
 	</resultMap>
 	
 	<select id="fwlList" parameterType="int" resultMap="fwlDto">
-		SELECT * FROM FWL WHERE MEMBERNO=#{memberNo}
+		SELECT * FROM FWL WHERE MEMBERNO=#{memberNo} ORDER BY FWLNO DESC
 	</select>
 	
 	<insert id="fwlInsert" parameterType="fwlDto">
