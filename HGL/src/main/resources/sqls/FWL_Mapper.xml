@@ -125,5 +125,21 @@
 	]]>
 	
 	</select>
+	
+	<insert id="FWLBCMInsert" parameterType="fwlbDto">
+	INSERT INTO FWLBCM VALUES(#{fwlbNo}, FWLBCMNO_SEQ.NEXTVAL, #{fwlbcmWriter}, #{fwlbcmCont}, SYSDATE)
+	</insert>
+	
+	<delete id="FWLBCMDelete" parameterType="int">
+	DELETE FROM FWLBCM WHERE FWLBCMNO=#{fwlbcmNo}
+	</delete>
+	
+	<update id="FWLBUpdateReadCount" parameterType="int">
+	UPDATE FWLB SET FWLBREADCNT = FWLBREADCNT + 1 WHERE FWLBNO=#{fwlbNo}
+	</update>
+	
+	<delete id="FWLBDelete" parameterType="int">
+	DELETE FROM FWLB WHERE FWLBNO=#{fwlbNo}
+	</delete>
 
 </mapper>

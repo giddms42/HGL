@@ -39,9 +39,9 @@
 				</table>
 			</div>
 			<div style="margin: auto; width: 700px;">
-				<button type="button">목록으로</button>
+				<button type="button" onclick="location.href='FWLBList.do?nowpage=1'">목록으로</button>
 				<c:if test="${login.memberNickname eq dto.fwlbWriter}">
-				<button type="button" style="float:right">삭제하기</button>				
+				<button type="button" style="float:right" onclick="location.href='FWLBDelete.do?fwlbNo=${dto.fwlbNo}'">삭제하기</button>				
 				</c:if>
 			</div>
 		</div>
@@ -55,9 +55,10 @@
 					<div style="width:600px; margin: auto;  margin-top: 20px;">
 						<span>작성자: ${fwlbcmDto.fwlbcmWriter}</span>
 						<span style="float:right;">작성일:　<fmt:formatDate value="${fwlbcmDto.fwlbcmDate}" pattern="yyyy-MM-dd"/></span>
-	       			<div style="border-bottom: 1px solid #BDBDBD; margin-bottom: 10px; margin-top: 15px;"> ${fwlbcmDto.fwlbCont}</div>
-	      			<button type="button" style="float:right;">삭제</button>
-	      			<button type="button" style="float:right;">수정</button>
+	       			<div style="border-bottom: 1px solid #BDBDBD; margin-bottom: 10px; margin-top: 15px;"> ${fwlbcmDto.fwlbcmCont}</div>
+	      		<c:if test="${fwlbcmDto.fwlbcmWriter eq login.memberNickname}">	
+	      			<button type="button" style="float:right;" onclick="location.href='FWLBCMDelete.do?fwlbcmNo=${fwlbcmDto.fwlbcmNo}&fwlbWriter=${dto.fwlbWriter}&count=0'" >삭제</button>
+				</c:if>
 				</div>
 				</c:forEach>	
 			</c:if>
@@ -66,9 +67,11 @@
 	
 			<div style="margin:auto; width: 600px; margin-bottom: 10px;"><br>
 				<h3>댓글작성</h3>
-				<form action="">
+				<form action="FWLBCMInsert.do">
 				<input type="hidden" name="fwlbNo" value="${dto.fwlbNo}" >
-				<input type="text" name="fwlbcmWriter" value="로그인 ID의 닉네임" style="margin-bottom: 10px;"><br>
+				<input type="hidden" name="fwlbWriter" value="${dto.fwlbWriter}">
+				<input type="hidden" name="count" value="0"/>
+				<input type="text" name="fwlbcmWriter" value="${login.memberNickname}" style="margin-bottom: 10px;" readonly="readonly"><br>
 				<textarea name="fwlbcmCont" placeholder="입력할 댓글을 작성해주세요" style="width: 500px; height:120px; overflow:visible; resize:none;"></textarea>
 				<button style="width:80px; height:50px; vertical-align:top;">댓글작성</button>
 				</form>

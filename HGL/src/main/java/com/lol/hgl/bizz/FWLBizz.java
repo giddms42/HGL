@@ -15,11 +15,15 @@ public interface FWLBizz {
 	public int FWLDelete(int fwlNo);
 	public int FWLShare(String memberNickName);
 	public fwlbDto FWLBDetail(String memberNickName);
+	public int FWLBUpdateReadCount(int fwlbNo);
 	public List<fwlbcmDto> fwlbcmList(int fwlbNO);
 	public int FWLBListCount();
 	public List<fwlbDto> FwlbList(int startPost, int endPost);
 	public int FWLBListSearchCount(String searchNickName);
 	public List<fwlbDto> FwlbListSearch(int startPost, int endPost, String searchNickName);
+	public int FWLBCMInsert(fwlbcmDto dto);
+	public int FWLBCMDelete(int fwlbcmNo);
+	public int FWLBDelete(int fwlbNo);
 
 
 }

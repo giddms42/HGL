@@ -75,10 +75,10 @@ public class FWLController {
 	   }
 	   
 	   @RequestMapping(value="FWLShare.do")
-	   public String FWLShare(String memberNickName, int memberNo, Model model) {
+	   public String FWLShare(String memberNickName, Model model) {
 		   fwlBizz.FWLShare(memberNickName); 
-		   model.addAttribute("memberNo", memberNo);
-		   model.addAttribute("memberNickName", memberNickName);
+		   model.addAttribute("count", 1);
+		   model.addAttribute("fwlbWriter", memberNickName);
 		   return "redirect:FWLBDetail.do";
 	   }
 	   
@@ -155,9 +155,12 @@ public class FWLController {
 	   
 	   
 	   @RequestMapping(value="FWLBDetail.do")
-	   public String FWLBDetail(String memberNickName, Model model) {
-		   fwlbDto fwldto = fwlBizz.FWLBDetail(memberNickName);
-		   memberDto memberdto = memberBizz.searchMember(memberNickName);
+	   public String FWLBDetail(String fwlbWriter, int count, Model model) {
+		   fwlbDto fwldto = fwlBizz.FWLBDetail(fwlbWriter);
+		   if(count == 1) {
+			   fwlBizz.FWLBUpdateReadCount(fwldto.getFwlbNo());
+		   }
+		   memberDto memberdto = memberBizz.searchMember(fwlbWriter);
 		   List<fwlDto> fwlList = fwlBizz.fwlList(memberdto.getMemberNo());
 		   List<fwlbcmDto> fwlbcmList = fwlBizz.fwlbcmList(fwldto.getFwlbNo());
 		   model.addAttribute("dto",fwldto);
@@ -167,8 +170,26 @@ public class FWLController {
 	   }
 	   
 	   @RequestMapping(value="FWLBCMInsert.do")
-	   public String FWLBCMInsert(@ModelAttribute fwlbcmDto dto, Model model) {
-		   return null;
+	   public String FWLBCMInsert(@ModelAttribute fwlbcmDto dto, String fwlbWriter, Model model) {
+		   fwlBizz.FWLBCMInsert(dto);
+		   model.addAttribute("fwlbWriter", fwlbWriter);
+		   model.addAttribute("count", 0);
+		   return "redirect:FWLBDetail.do";
+	   }
+	   
+	   @RequestMapping(value="FWLBCMDelete.do")
+	   public String FWLBCMDelete(String fwlbWriter, int fwlbcmNo, Model model) {
+		   fwlBizz.FWLBCMDelete(fwlbcmNo);
+		   model.addAttribute("fwlbWriter",fwlbWriter);
+		   model.addAttribute("count", 0);
+		   return "redirect:FWLBDetail.do";
+	   }
+	   
+	   @RequestMapping(value="FWLBDelete.do")
+	   public String FWLBDelete(int fwlbNo, Model model) {
+		   fwlBizz.FWLBDelete(fwlbNo);
+		   model.addAttribute("nowpage", 1);
+		   return "redirect:FWLBList.do";
 	   }
 	   
 }

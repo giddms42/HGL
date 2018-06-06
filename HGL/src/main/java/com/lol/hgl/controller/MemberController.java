@@ -95,8 +95,7 @@ public class MemberController {
 	      return "MemberLogin";  
 	  }else {
 	   memberDto login = memberBizz.Login(memberId);
-		    session.setAttribute("login", login);
-			session.setMaxInactiveInterval(10 * 60); 	
+	   session.setAttribute("login", login);
 	  }   
       return "Main";
    }
@@ -149,10 +148,9 @@ public class MemberController {
 
    @RequestMapping(value="memberLoginOut.do")
    public String memberLoginOut(HttpSession session, Model model) {
-		session.invalidate(); 
-		
-		 String msg = "로그아웃 되었습니다. 다음에 또 와주세요!";
-		  model.addAttribute("msg", msg);
+		session.invalidate(); 		
+		String msg = "로그아웃 되었습니다. 다음에 또 와주세요!";
+		model.addAttribute("msg", msg);
 	    return "MemberLogin";
    }
 

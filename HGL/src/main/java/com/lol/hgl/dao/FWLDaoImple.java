@@ -210,4 +210,52 @@ public class FWLDaoImple implements FWLDao {
 		return list;
 	}
 
+
+	@Override
+	public int FWLBCMInsert(fwlbcmDto dto) {
+		int res = 0;
+		try {
+			res = sqlSession.insert(nameSpace+"FWLBCMInsert", dto);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+
+	@Override
+	public int FWLBCMDelete(int fwlbcmNo) {
+		int res = 0;
+		try {
+			res = sqlSession.delete(nameSpace+"FWLBCMDelete", fwlbcmNo);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+
+	@Override
+	public int FWLBUpdateReadCount(int fwlbNo) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"FWLBUpdateReadCount", fwlbNo);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+
+	@Override
+	public int FWLBDelete(int fwlbNo) {
+		int res = 0;
+		try {
+			res = sqlSession.delete(nameSpace+"FWLBDelete", fwlbNo);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 }

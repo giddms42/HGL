@@ -91,6 +91,26 @@ public class FWLBIZZImple implements FWLBizz {
 		return list;
 	}
 
+	@Override
+	public int FWLBCMInsert(fwlbcmDto dto) {
+		return dao.FWLBCMInsert(dto);
+	}
+
+	@Override
+	public int FWLBCMDelete(int fwlbcmNo) {
+		return dao.FWLBCMDelete(fwlbcmNo);
+	}
+
+	@Override
+	public int FWLBUpdateReadCount(int fwlbNo) {
+		return dao.FWLBUpdateReadCount(fwlbNo);
+	}
+
+	@Override
+	public int FWLBDelete(int fwlbNo) {
+		return dao.FWLBDelete(fwlbNo);
+	}
+
 
 
 }

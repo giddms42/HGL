@@ -18,6 +18,8 @@ CREATE TABLE FWL
 SELECT * FROM FWL;
 INSERT INTO FWL VALUES(2, FWLNO_SEQ.NEXTVAL, '맛있는거 먹으러 가기', 'N');
 
+select * from member;
+
 
 -------------------------------------------------------------------------
 

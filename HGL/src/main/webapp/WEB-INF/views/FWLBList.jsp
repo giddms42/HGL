@@ -41,7 +41,7 @@
 					<tr>
 						<td>${fwlbDto.fwlbNo}</td>
 						<td>${fwlbDto.fwlbWriter}</td>
-						<td><a href="FWLBDetail.do?memberNickName=${fwlbDto.fwlbWriter}">${fwlbDto.fwlbTitle}</a></td>
+						<td><a href="FWLBDetail.do?fwlbWriter=${fwlbDto.fwlbWriter}&count=1">${fwlbDto.fwlbTitle}</a></td>
 						<td>${fwlbDto.fwlbReadcnt}</td>
 						<td><fmt:formatDate value="${fwlbDto.fwlbDate}" pattern="yyyy-MM-dd"/></td>
 					</tr>
