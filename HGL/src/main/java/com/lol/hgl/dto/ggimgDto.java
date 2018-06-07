@@ -2,6 +2,8 @@ package com.lol.hgl.dto;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ggimgDto {
 	
 	private int ggNo;
@@ -9,6 +11,7 @@ public class ggimgDto {
 	private String ggimgUser;
 	private String ggimgName;
 	private Date ggimgDate;
+	private MultipartFile file;
 	
 	public ggimgDto() {
 		
@@ -60,6 +63,14 @@ public class ggimgDto {
 
 	public void setGgimgDate(Date ggimgDate) {
 		this.ggimgDate = ggimgDate;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 
 	
