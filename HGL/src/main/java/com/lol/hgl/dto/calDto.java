@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class calDto {
 	
+	private String memberNick;
 	private String memberId;
 	private int calNo;
 	private String calTitle;
@@ -28,6 +29,15 @@ public class calDto {
 	}
 	
 	public calDto(String memberId, String calTitle, String calSch, String calMemo, String calSMS) {
+		this.memberId = memberId;
+		this.calTitle = calTitle;
+		this.calSch = calSch;
+		this.calMemo = calMemo;
+		this.calSMS = calSMS;
+	}
+	
+	public calDto(int calNo, String memberId, String calTitle, String calSch, String calMemo, String calSMS) {
+		this.calNo = calNo;
 		this.memberId = memberId;
 		this.calTitle = calTitle;
 		this.calSch = calSch;

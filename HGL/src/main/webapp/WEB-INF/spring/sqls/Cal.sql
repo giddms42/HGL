@@ -31,3 +31,5 @@ SELECT *
 		WHERE RN BETWEEN 1 AND 3
 
 		select * from cal;
+		
+SELECT * FROM CAL;
