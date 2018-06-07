@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class calDto {
 	
-	private String memberNick;
+	private String memberNickname;
 	private String memberId;
 	private int calNo;
 	private String calTitle;
@@ -28,6 +28,17 @@ public class calDto {
 		this.calSMS = calSMS;
 	}
 	
+	public calDto(int calNo, String memberId, String calTitle, String calSch, String calMemo, String calSMS, String memberNickname) {
+		this.calNo = calNo;
+		this.memberId = memberId;
+		this.calTitle = calTitle;
+		this.calSch = calSch;
+		this.calDate = calDate;
+		this.calMemo = calMemo;
+		this.calSMS = calSMS;
+		this.memberNickname = memberNickname;
+	}
+	
 	public calDto(String memberId, String calTitle, String calSch, String calMemo, String calSMS) {
 		this.memberId = memberId;
 		this.calTitle = calTitle;
@@ -43,6 +54,26 @@ public class calDto {
 		this.calSch = calSch;
 		this.calMemo = calMemo;
 		this.calSMS = calSMS;
+	}
+	
+
+
+	public calDto(String memberId, String calTitle, String calSch, String calMemo, String calSMS, String memberNickname) {
+		this.memberId = memberId;
+		this.calTitle = calTitle;
+		this.calSch = calSch;
+		this.calMemo = calMemo;
+		this.calSMS = calSMS;
+		this.memberNickname = memberNickname;
+	}
+
+	public String getMemberNickname() {
+		return memberNickname;
+	}
+	
+	
+	public void setMemberNickname(String memberNickname) {
+		this.memberNickname = memberNickname;
 	}
 
 	public String getMemberId() {

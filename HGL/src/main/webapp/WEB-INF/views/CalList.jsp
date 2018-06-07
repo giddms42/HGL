@@ -136,7 +136,7 @@
 				<a class="countView" style="color:<%=Util.fontColor(i,dayOfWeek)%>">
 					<%=i %>
 				</a>
-				<a href="CalInsertForm.do?year=<%=year%>&month=<%=month%>&date=<%=i%>&lastday=<%=lastDay%>&memberId=${login.memberId}&memberNick=${login.memberNick}">
+				<a href="CalInsertForm.do?year=<%=year%>&month=<%=month%>&date=<%=i%>&lastday=<%=lastDay%>&memberId=${login.memberId}&memberNickname=${login.memberNickname}">
 					<img alt="일정추가" src="image/pen.png" style="with:15px;height:15px;">
 				</a>
 				<div class="cList">

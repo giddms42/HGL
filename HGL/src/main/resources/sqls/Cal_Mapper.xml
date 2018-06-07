@@ -10,11 +10,16 @@
 		<result column="CALDATE" property="calDate"/>
 		<result column="CALMEMO" property="calMemo"/>
 		<result column="CALSMS" property="calSMS"/>
+		<result column="MEMBERNICKNAME" property="memberNickname"/>
 	</resultMap>
 	
-	<insert id="insert" parameterType="CalDto" >
+	<!-- <insert id="insert" parameterType="CalDto" >
 		INSERT INTO CAL
 		VALUES(#{memberId},CALNO_SEQ.NEXTVAL,#{calTitle},#{calSch},SYSDATE,#{calMemo},#{calSMS})
+	</insert> -->
+	<insert id="insert" parameterType="CalDto" >
+		INSERT INTO CAL
+		VALUES(#{memberId},CALNO_SEQ.NEXTVAL,#{calTitle},#{calSch},SYSDATE,#{calMemo},#{calSMS},#{memberNickname})
 	</insert>
 	
 	<delete id="delete">
@@ -23,14 +28,14 @@
 		
 	<update id="update">
 		UPDATE CAL
-		SET CALTITLE = #{calTitle}, CALMEMO = #{calMemo}, CALSCH = #{calSch}, CALDATE = SYSDATE
+		SET CALTITLE = #{calTitle}, CALMEMO = #{calMemo}, CALSCH = #{calSch}, CALDATE = SYSDATE, CALSMS = #{calSMS}
 		WHERE CALNO = #{calNo}
 	</update>
 	
 	<select id="selectAll" parameterType="map" resultMap="CalDtoMap">
 		SELECT *
 		FROM
-			(SELECT (ROW_NUMBER() OVER(PARTITION BY SUBSTR(CALSCH,1,8) ORDER BY CALSCH)) RN,CALNO,MEMBERID,CALTITLE,CALMEMO,CALSCH,CALDATE,CALSMS
+			(SELECT (ROW_NUMBER() OVER(PARTITION BY SUBSTR(CALSCH,1,8) ORDER BY CALSCH)) RN,CALNO,MEMBERID,CALTITLE,CALMEMO,CALSCH,CALDATE,CALSMS,MEMBERNICKNAME
 			FROM CAL
 			WHERE MEMBERID = #{memberId} AND SUBSTR(CALSCH,1,6)=#{yyyyMM})
 		WHERE RN BETWEEN 1 AND 3

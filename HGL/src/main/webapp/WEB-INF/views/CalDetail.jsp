@@ -50,8 +50,8 @@ function setInterval2(){
 <h1>지옥의문</h1>
 	<table border="1">
 		<tr>
-			<th>ID</th>
-			<td><%=dto.getMemberId()%></td>
+			<th>닉넴</th>
+			<td><%=dto.getMemberNickname()%></td>
 		</tr>
 		<tr>
 			<th>일정</th>
@@ -64,6 +64,9 @@ function setInterval2(){
 		<tr>
 			<th>내용</th>
 			<td><textarea rows="10" cols="60" readonly="readonly"><%=dto.getCalMemo()%></textarea> </td>
+		</tr>
+		<tr>
+			<td colspan="2">문자수신여부 : <%=dto.getCalSMS() %></td>
 		</tr>
 		<tr>
 			<td colspan="2">
@@ -82,10 +85,11 @@ function setInterval2(){
 	<form action="CalUpdate.do" method="post">
 		<input type="hidden" name="calNo" value="<%=dto.getCalNo()%>"/>
 		<input type="hidden" name="memberId" value="<%=dto.getMemberId()%>"/>
+		<input type="hidden" name="memberNickname" value="<%=dto.getMemberNickname()%>"/>
 		<table border="1">
 			<tr>
-				<th>ID</th>
-				<td><%=dto.getMemberId()%></td>
+				<th>닉넴</th>
+				<td><%=dto.getMemberNickname()%></td>
 			</tr>
 			<tr>
 				<th>일정</th>
@@ -144,6 +148,9 @@ function setInterval2(){
 			<tr>
 				<th>내용</th>
 				<td><textarea rows="10" cols="60" name="calMemo"><%=dto.getCalMemo()%></textarea> </td>
+			</tr>
+			<tr>
+				<td colspan="2">문자수신여부 : Y<input type="radio" value="Y" name="calSMS"/>N<input type="radio" value="N" name="calSMS"/></td>
 			</tr>
 			<tr>
 				<td colspan="2">
