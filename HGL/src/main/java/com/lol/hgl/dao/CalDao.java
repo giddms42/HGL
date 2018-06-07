@@ -7,7 +7,6 @@ import com.lol.hgl.dto.calDto;
 public interface CalDao {
 	
 
-	
 	//일정추가
 	public int insert(calDto dto);
 	//일정 상세조회
