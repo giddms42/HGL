@@ -7,7 +7,8 @@ import com.lol.hgl.dto.ggcmDto;
 
 public interface GGBizz {
 	
-	public List<ggDto> selectAll();
+	public int ggListCount();
+	public List<ggDto> selectAll(int startPost, int endPost);
 	public ggDto selectOne(int seq);
 	public int insert(ggDto dto);
 	public int delete(int seq);

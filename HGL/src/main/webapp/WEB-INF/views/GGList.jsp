@@ -41,7 +41,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                     <th>조회수</th>
 	                     <th>등록일</th>
 	                  </tr>
-	                  <c:forEach items="${list }" var="dto">
+	                  <c:forEach items="${list}" var="dto">
 	                  <tr>
 						<td>${dto.ggNo }</td>
 						<td>
@@ -54,9 +54,51 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 				</c:forEach>
 	               </table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
-	               <div id="paging">페이징<br>자리</div>
+	           <div id="paging">
+	          		<c:choose>
+						<c:when test="${nowPage eq 1}">
+							◀
+						</c:when>
+						<c:otherwise>
+							<a href="GGListForm.do?nowpage=${nowPage - 1}">◀</a>
+						</c:otherwise>
+					</c:choose> 
+					<c:forEach begin="${startPage}" end="${endPage}" var="i">
+						<a href="GGListForm.do?nowpage=${i}"> 
+						<c:choose>
+							<c:when test="${i eq nowPage}">
+								<strong>${i}</strong>
+							</c:when>
+							<c:otherwise>
+								${i}
+							</c:otherwise>
+						</c:choose>
+						</a>
+					</c:forEach> 
+					<c:choose>
+						<c:when test="${nowPage eq pageCount}">
+							▶
+						</c:when>
+						<c:otherwise>
+							<a href="GGListForm.do?nowPage=${nowPage + 1}">▶</a>
+						</c:otherwise>
+					</c:choose>
+	            </div>
 	               <br/>
-	               <div id="paging">페이징<br>자리</div>
+	               <div id="paging">
+	               	<form action="FWLBListSearch.do" method="post">
+						<input type="hidden" name="nowpage" value="1"/>
+						<div style="width: 50%; margin: auto; border: 1px dotted green; text-align: center;">
+							<select style="height: 28px; border: 0;" name="topic">
+								<option value="제목">제목</option>
+								<option value="내용">내용</option>
+								<option value="작성자">작성자</option>
+							</select>
+							<input type="search" name="keyword" placeholder="검색어를 입력해주세요">
+							<button>검색</button>
+						</div>
+					</form>
+	               </div>
 	      </div>
 	   </div>
 	   

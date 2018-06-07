@@ -39,9 +39,9 @@
 				<c:otherwise>
 					<c:forEach items="${FWLBList}" var="fwlbDto">
 					<tr>
-						<td>${fwlbDto.fwlbNo}</td>
+						<td>${fwlbDto.fwlbRowNum}</td>
 						<td>${fwlbDto.fwlbWriter}</td>
-						<td><a href="FWLBDetail.do?fwlbWriter=${fwlbDto.fwlbWriter}&count=1">${fwlbDto.fwlbTitle}</a></td>
+						<td><a href="FWLBDetail.do?fwlbWriter=${fwlbDto.fwlbWriter}&count=1&fwlbNo=${fwlbDto.fwlbNo}">${fwlbDto.fwlbTitle}</a></td>
 						<td>${fwlbDto.fwlbReadcnt}</td>
 						<td><fmt:formatDate value="${fwlbDto.fwlbDate}" pattern="yyyy-MM-dd"/></td>
 					</tr>
@@ -56,12 +56,12 @@
 					</c:when>
 				<c:otherwise>
 					<a
-						href="FWLBList.do?nowPage=${nowPage - 1}">◀
+						href="FWLBList.do?nowpage=${nowPage - 1}">◀
 					</a>
 				</c:otherwise>
 			</c:choose> 
 			<c:forEach begin="${startPage}" end="${endPage}" var="i">
-				<a href="FWLBList.do?nowPage=${i}"> <c:choose>
+				<a href="FWLBList.do?nowpage=${i}"> <c:choose>
 						<c:when test="${i eq nowPage}">
 							<strong>${i}</strong>
 						</c:when>
@@ -77,7 +77,7 @@
 			</c:when>
 				<c:otherwise>
 					<a
-						href="FWLBList.do?nowPage=${nowPage + 1}">▶</a>
+						href="FWLBList.do?nowpage=${nowPage + 1}">▶</a>
 				</c:otherwise>
 			</c:choose>
 		</div>

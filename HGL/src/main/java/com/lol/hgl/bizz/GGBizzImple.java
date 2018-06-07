@@ -17,8 +17,18 @@ public class GGBizzImple implements GGBizz {
 	private GGDao dao;
 	
 	@Override
-	public List<ggDto> selectAll() {
-		return dao.selectAll();
+	public int ggListCount() {
+		return dao.ggListCount();
+	}
+	
+	@Override
+	public List<ggDto> selectAll(int startPost, int endPost) {
+		List<ggDto> res = dao.selectAll(startPost, endPost);
+		List<Integer> rowNum = dao.ggListRowNum(startPost, endPost);
+		for(int i=0; i<rowNum.size(); i++) {
+			res.get(i).setGgRowNum(rowNum.get(i));
+		}
+		return res;
 	}
 
 	@Override
@@ -65,5 +75,7 @@ public class GGBizzImple implements GGBizz {
 	public int updateReadCount(int seq) {
 		return dao.updateReadCount(seq);
 	}
+
+	
 
 }

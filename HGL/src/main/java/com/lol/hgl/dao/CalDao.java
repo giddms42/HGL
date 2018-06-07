@@ -6,7 +6,7 @@ import com.lol.hgl.dto.calDto;
 
 public interface CalDao {
 	
-	String namespace = "cal";
+
 	
 	//일정추가
 	public int insert(calDto dto);

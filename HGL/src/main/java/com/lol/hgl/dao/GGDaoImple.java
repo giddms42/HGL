@@ -1,8 +1,9 @@
 package com.lol.hgl.dao;
 
 import java.util.ArrayList;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.ggcmDto;
+
 @Repository
 public class GGDaoImple implements GGDao {
 	
@@ -20,10 +22,39 @@ public class GGDaoImple implements GGDao {
 	private String namespace = "gg.";
 
 	@Override
-	public List<ggDto> selectAll() {
-		List<ggDto> res = new ArrayList<ggDto>();
+	public int ggListCount() {
+		int res = 0;
+		try {
+			res = sqlSession.selectOne(namespace + "ggListCount");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public List<Integer> ggListRowNum(int startPost, int endPost) {
+		List<Integer> res = new ArrayList<Integer>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startPost", startPost);
+		map.put("endPost", endPost);
 		   try {
-			   res = sqlSession.selectList(namespace+"selectAll");
+			   res = sqlSession.selectList(namespace+"ggListRowNum", map);
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      }
+		      return res;
+	}
+	
+	
+	@Override
+	public List<ggDto> selectAll(int startPost, int endPost) {
+		List<ggDto> res = new ArrayList<ggDto>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startPost", startPost);
+		map.put("endPost", endPost);
+		   try {
+			   res = sqlSession.selectList(namespace+"selectAll", map);
 		      } catch (Exception e) {
 		         e.printStackTrace();
 		      }
@@ -133,5 +164,7 @@ public class GGDaoImple implements GGDao {
 		}
 		return res;
 	}
+
+
 
 }

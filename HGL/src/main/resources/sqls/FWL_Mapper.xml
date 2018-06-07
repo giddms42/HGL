@@ -10,6 +10,7 @@
 	
 	<resultMap type="com.lol.hgl.dto.fwlbDto" id="fwlbDto">
 		<result column="FWLBNO" property="fwlbNo"/>
+		<result column="FWLBROWNUM" property="fwlbRowNum"/>
 		<result column="FWLBWRITER" property="fwlbWriter"/>	
 		<result column="FWLBTITLE" property="fwlbTitle"/>	
 		<result column="FWLBREADCNT" property="fwlbReadcnt"/>
@@ -45,11 +46,11 @@
 	</delete>
 	
 	<insert id="FWLBInsert" parameterType="fwlbDto">
-		INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, #{fwlbWriter}, #{fwlbTitle}, 0, SYSDATE)
+		INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, null, #{fwlbWriter}, #{fwlbTitle}, 0, SYSDATE)
 	</insert>
 	
-	<select id="FWLBDetail" parameterType="String" resultType="fwlbDto">
-		SELECT* FROM FWLB WHERE FWLBWRITER=#{memberNickName}
+	<select id="FWLBDetail" parameterType="fwlbDto" resultType="fwlbDto">
+		SELECT* FROM FWLB WHERE FWLBWRITER=#{fwlbWriter} AND FWLBNO=#{fwlbNo}
 	</select>
 	
 	<select id="fwlbcmList" parameterType="int" resultMap="fwlbcmDto">

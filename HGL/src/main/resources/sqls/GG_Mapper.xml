@@ -4,6 +4,7 @@
 
 	<resultMap type="com.lol.hgl.dto.ggDto" id="ggDtoMap">
 		<result column="GGNO" property="ggNo"/>
+		<result column="GGROWNUM" property="ggRowNum"/>
 		<result column="GGWRITER" property="ggWriter"/>
 		<result column="GGTITLE" property="ggTitle"/>
 		<result column="GGCONT" property="ggCont"/>
@@ -20,9 +21,44 @@
 		<result column="GGCMDATE" property="ggcmDate"/>
 	</resultMap>
 	
-	<select id="selectAll" resultMap="ggDtoMap">
-		SELECT * FROM GG ORDER BY GGNO DESC
+	<select id="ggListCount" resultType="int">
+	 SELECT COUNT(*) FROM GG 
 	</select>
+	
+	<select id="ggListRowNum" parameterType="map" resultType="int">
+	<![CDATA[
+	select X.RN
+	from ( 
+    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE, A.GGIMGNAME,
+    ROWNUM AS RN
+    from (
+        select *
+        from GG ORDER BY GGNO DESC) A
+    where ROWNUM <= #{endPost}) X
+	where X.RN >= #{startPost}
+	ORDER BY X.GGNO
+	]]>
+	</select>
+	
+	
+	
+	<select id="selectAll" parameterType="map" resultMap="ggDtoMap">
+	<![CDATA[
+	select *
+	from ( 
+    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE, A.GGIMGNAME,
+    ROWNUM AS RN
+    from (
+        select *
+        from GG ORDER BY GGNO DESC) A
+    where ROWNUM <= #{endPost}) X
+	where X.RN >= #{startPost}
+	ORDER BY X.GGNO DESC
+	]]>
+	</select>
+	
+	
+	
 	
 	<select id="selectOne" resultType="ggDto" parameterType="int">
 		SELECT * FROM GG WHERE GGNO=#{ggNo}
@@ -34,7 +70,7 @@
 	
 	<insert id="insert" parameterType="ggDto">
 		INSERT INTO GG VALUES(
-		GGNO_SEQ.NEXTVAL, #{ggWriter}, #{ggTitle}, #{ggCont}, 0, SYSDATE, ''
+		GGNO_SEQ.NEXTVAL,null, #{ggWriter}, #{ggTitle}, #{ggCont}, 0, SYSDATE, ''
 		)
 	</insert>
 	
