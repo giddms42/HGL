@@ -9,11 +9,15 @@ public interface GGBizz {
 	
 	public int ggListCount();
 	public List<ggDto> selectAll(int startPost, int endPost);
+	
+	public int ggListSerchCount(String topic, String keyword);
+	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword);
+	
 	public ggDto selectOne(int seq);
 	public int insert(ggDto dto);
 	public int delete(int seq);
 	public int update(ggDto dto);
-	public int updateReadCount(int seq);
+	public int updateReadCount(int ggNo);
 	
 	public List<ggcmDto> repleySelectOne(int seq);
 	public int repleyInsert(ggcmDto dto);

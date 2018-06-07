@@ -41,7 +41,6 @@
 	</select>
 	
 	
-	
 	<select id="selectAll" parameterType="map" resultMap="ggDtoMap">
 	<![CDATA[
 	select *
@@ -57,8 +56,44 @@
 	]]>
 	</select>
 	
+	<select id="ggListSerchCount" parameterType="map" resultType="int">
+	SELECT COUNT(*) FROM GG WHERE ${topic} LIKE #{keyword}
+	</select>
+	
+	<select id="selectSearchAll" parameterType="map" resultMap="ggDtoMap">
+	<![CDATA[
+	select *
+	from ( 
+    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE, A.GGIMGNAME,
+    ROWNUM AS RN
+    from (
+        select *
+        from GG 
+        WHERE ${topic} LIKE #{keyword}
+        ORDER BY GGNO DESC) A
+    where ROWNUM <= TO_NUMBER(#{endPost})) X
+	where X.RN >= TO_NUMBER(#{startPost})
+	ORDER BY X.GGNO DESC
+	]]>
+	</select>
 	
 	
+	<select id="ggListSearchRowNum" parameterType="map" resultType="int">
+	<![CDATA[
+	select X.RN
+	from ( 
+    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE, A.GGIMGNAME,
+    ROWNUM AS RN
+    from (
+        select *
+        from GG 
+        WHERE ${topic} LIKE #{keyword}
+        ORDER BY GGNO DESC) A
+    where ROWNUM <= TO_NUMBER(#{endPost})) X
+	where X.RN >= TO_NUMBER(#{startPost})
+	ORDER BY X.GGNO
+	]]>
+	</select>
 	
 	<select id="selectOne" resultType="ggDto" parameterType="int">
 		SELECT * FROM GG WHERE GGNO=#{ggNo}
@@ -91,6 +126,10 @@
 	<select id="repleyDelete" parameterType="int">
 		DELETE FROM GGCM WHERE GGCMNO = #{ggcmNo}
 	</select>
+	
+	<update id="updateReadCount" parameterType="int">
+		UPDATE GG SET GGREADCNT = GGREADCNT + 1 WHERE GGNO=#{ggNo}
+	</update>
 
 
 </mapper>

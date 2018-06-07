@@ -155,14 +155,65 @@ public class GGDaoImple implements GGDao {
 	}
 
 	@Override
-	public int updateReadCount(int seq) {
+	public int updateReadCount(int ggNo) {
 		int res = 0;
 		try {
-			res = sqlSession.update(namespace + "updateReadCount", seq);
+			res = sqlSession.update(namespace + "updateReadCount", ggNo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return res;
+	}
+
+	@Override
+	public int ggListSerchCount(String topic, String keyword) {
+		int res = 0;
+		keyword = "%"+keyword+"%";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("topic", topic);
+		map.put("keyword", keyword);
+		try {
+			res = sqlSession.selectOne(namespace + "ggListSerchCount", map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword) {
+		List<ggDto> list = new ArrayList<ggDto>();
+		keyword = "%"+keyword+"%";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("startPost", String.valueOf(startPost));
+		map.put("endPost", String.valueOf(endPost));
+		map.put("topic", topic);
+		map.put("keyword", keyword);
+		try {
+			list = sqlSession.selectList(namespace+"selectSearchAll", map);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<Integer> ggListSearchRowNum(int startPost, int endPost, String topic, String keyword) {
+		List<Integer> list = new ArrayList<Integer>();
+		keyword = "%"+keyword+"%";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("startPost", String.valueOf(startPost));
+		map.put("endPost", String.valueOf(endPost));
+		map.put("topic", topic);
+		map.put("keyword", keyword);
+		try {
+			list = sqlSession.selectList(namespace+"ggListSearchRowNum", map);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 
