@@ -150,12 +150,14 @@ function setInterval2(){
 				<td><textarea rows="10" cols="60" name="calMemo"><%=dto.getCalMemo()%></textarea> </td>
 			</tr>
 			<tr>
-				<td colspan="2">문자수신여부 : Y<input type="radio" value="Y" name="calSMS"/>N<input type="radio" value="N" name="calSMS"/></td>
+				<td colspan="2">문자수신여부 : 
+				Y<input type="radio" value="Y" name="calSMS"/>
+				N<input type="radio" value="N" name="calSMS"/></td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="수정완료"/>
-					<input type="button" value="돌아가기" onclick="location.href='calendar.jsp'"/>
+					<input type="button" value="돌아가기" onclick="location.href='CalListForm.do?memberId=${login.memberId }&year=<%=year %>&month=<%=month %>'"/>
 				</td>
 			</tr>
 		</table>

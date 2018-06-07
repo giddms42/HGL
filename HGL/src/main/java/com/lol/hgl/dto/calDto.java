@@ -33,7 +33,6 @@ public class calDto {
 		this.memberId = memberId;
 		this.calTitle = calTitle;
 		this.calSch = calSch;
-		this.calDate = calDate;
 		this.calMemo = calMemo;
 		this.calSMS = calSMS;
 		this.memberNickname = memberNickname;
