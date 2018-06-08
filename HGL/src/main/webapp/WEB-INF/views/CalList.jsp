@@ -133,6 +133,7 @@
 			for(int i = 1; i <= lastDay; i++){
 %>
 			<td>
+				<input type="hidden" value="<%=i%>" id="i"/>
 				<a class="countView" style="color:<%=Util.fontColor(i,dayOfWeek)%>">
 					<%=i %>
 				</a>

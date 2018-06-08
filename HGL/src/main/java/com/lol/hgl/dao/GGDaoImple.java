@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lol.hgl.dto.ggDto;
+import com.lol.hgl.dto.ggImgDto;
 import com.lol.hgl.dto.ggcmDto;
 
 @Repository
@@ -214,6 +215,28 @@ public class GGDaoImple implements GGDao {
 		}
 		
 		return list;
+	}
+
+	@Override
+	public int newGgNo() {
+		int res = 0;
+		try {
+			res = sqlSession.selectOne(namespace+"newGgNo");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int insertGgImage(ggImgDto dto) {
+		int res = 0;
+		try {
+			res = sqlSession.insert(namespace+"insertGgImage", dto);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 

@@ -2,6 +2,8 @@ package com.lol.hgl.bizz;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.ggcmDto;
 
@@ -14,7 +16,7 @@ public interface GGBizz {
 	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword);
 	
 	public ggDto selectOne(int seq);
-	public int insert(ggDto dto);
+	public int insert(ggDto dto,  HttpServletRequest request) throws Exception;
 	public int delete(int seq);
 	public int update(ggDto dto);
 	public int updateReadCount(int ggNo);

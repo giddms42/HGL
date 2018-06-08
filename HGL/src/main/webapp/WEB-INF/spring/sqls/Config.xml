@@ -10,7 +10,7 @@
 		<typeAlias type="com.lol.hgl.dto.fwlDto" alias="fwlDto"/>
 		<typeAlias type="com.lol.hgl.dto.ggDto" alias="ggDto"/>
 		<typeAlias type="com.lol.hgl.dto.ggcmDto" alias="ggcmDto"/>
-		<typeAlias type="com.lol.hgl.dto.ggimgDto" alias="ggimgDto"/>
+		<typeAlias type="com.lol.hgl.dto.ggImgDto" alias="ggImgDto"/>
 		<typeAlias type="com.lol.hgl.dto.healthDto" alias="healthDto"/>
 		<typeAlias type="com.lol.hgl.dto.kindstoreDto" alias="kindstoreDto"/>
 		<typeAlias type="com.lol.hgl.dto.memberDto" alias="memberDto"/>

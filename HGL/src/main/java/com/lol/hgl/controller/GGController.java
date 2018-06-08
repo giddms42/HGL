@@ -2,6 +2,8 @@ package com.lol.hgl.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,9 +59,6 @@ public class GGController {
 		int startPost = (nowPage*10)-9;
 		//한 페이지내에서 끝나는 글 번호
 		int endPost = (nowPage*10) ; 
-		System.out.println("컨트롤러"+startPage);
-		System.out.println("컨트롤러"+endPage);
-		System.out.println("컨트롤러"+pageCount);
 		//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
 		List<ggDto> list = bizz.selectAll(startPost, endPost);
 		model.addAttribute("startPage", startPage);
@@ -126,8 +125,8 @@ public class GGController {
 	}
 	
 	@RequestMapping(value="GGinsert.do",  method = {RequestMethod.GET,RequestMethod.POST})
-	public String insert(Model model, ggDto dto) {
-		int res = bizz.insert(dto);
+	public String insert(Model model, ggDto dto,  HttpServletRequest request) throws Exception {
+		int res = bizz.insert(dto, request);
 		if (res > 0) {
 			model.addAttribute("nowpage", 1);
 			return "redirect:GGListForm.do";

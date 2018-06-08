@@ -3,6 +3,7 @@ package com.lol.hgl.dao;
 import java.util.List;
 
 import com.lol.hgl.dto.ggDto;
+import com.lol.hgl.dto.ggImgDto;
 import com.lol.hgl.dto.ggcmDto;
 
 public interface GGDao {
@@ -25,5 +26,8 @@ public interface GGDao {
 	public int repleyInsert(ggcmDto dto);
 	public int repleyDelete(int seq);
 	public int repleyUpdate(ggcmDto dto);
+	public int newGgNo();
+	public int insertGgImage(ggImgDto dto);
+	
 
 }
