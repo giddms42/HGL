@@ -17,7 +17,7 @@ CREATE TABLE GG
     CONSTRAINT GG_PK PRIMARY KEY (GGNO)
 );
 
-INSERT INTO GG VALUES(GGNO_SEQ.NEXTVAL, '관리자', '좋은 글 게시판 1', '테스트 페이지에용', 0, SYSDATE, '');
+INSERT INTO GG VALUES(GGNO_SEQ.NEXTVAL,null, '관리자', '좋은 글 게시판 1', '테스트 페이지에용', 0, SYSDATE, '');
 
 SELECT * FROM GG;
 

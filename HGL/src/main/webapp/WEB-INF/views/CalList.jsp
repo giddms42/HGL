@@ -17,6 +17,14 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/CalList.css">
+<style>
+html { background: url("image/img.jpg") no-repeat center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -55,10 +63,6 @@
 		return n.length<2?"0"+n:n;
 	}
 </script>
-<body>
-
-<h1>캘린더</h1><br>
-
 <%
 	String paramYear = request.getParameter("year");
 	String paramMonth = request.getParameter("month");
@@ -106,9 +110,14 @@
 	//List<calDto> cList= dao.selectAll(paramMemberId, yyyyMM);
 %>
 <body>
-<input type="hidden" id="memberId" value="${login.memberId}"/>
+
+	<div id="container">
+	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
+	<br/>
+	<div id="b">
+		<input type="hidden" id="memberId" value="${login.memberId}"/>
 	<table id="calendar">
-		<caption>
+		<caption id="caption">
 			<a href="CalListForm.do?year=<%=year-1%>&month=<%=month%>&memberId=${login.memberId}">◁</a>
 			<a href="CalListForm.do?year=<%=year%>&month=<%=month-1%>&memberId=${login.memberId}">◀</a>
 			
@@ -156,6 +165,14 @@
 %>
 		</tr>
 	</table>
+	<div id="CalBtn">
+		<input type="button" value="일정추가" onclick=""/ id="InBtn">
+	</div>
+	</div>
+	<br/>
+	
+	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
+	</div>
 
 </body>
 </html>

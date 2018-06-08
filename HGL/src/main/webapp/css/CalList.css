@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 #calendar{
 		border-collapse: collapse; 
 		border: 1px solid gray; 
@@ -40,4 +41,31 @@
 		text-align: center;
 		line-height: 40px;
 		border-radius: 40px 40px 40px 1px;
+	}
+	
+	table{
+		background-color: white;
+	}
+	
+	#b{
+		height: 500px;
+		display: -webkit-flex;
+	  display:         flex;
+	  -webkit-align-items: center;
+	          align-items: center;
+	  -webkit-justify-content: center;
+	          justify-content: center;
+	  flex-direction: column;
+	}
+	
+	#caption{
+		background-color: white;
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+		border-top: 1px solid black;
+	}
+	
+	#CalBtn{
+		margin-left: 40%;
+		padding-top: 10px;
 	}
