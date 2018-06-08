@@ -57,7 +57,7 @@
 						<span style="float:right;">작성일:　<fmt:formatDate value="${fwlbcmDto.fwlbcmDate}" pattern="yyyy-MM-dd"/></span>
 	       			<div style="border-bottom: 1px solid #BDBDBD; margin-bottom: 10px; margin-top: 15px;"> ${fwlbcmDto.fwlbcmCont}</div>
 	      		<c:if test="${fwlbcmDto.fwlbcmWriter eq login.memberNickname}">	
-	      			<button type="button" style="float:right;" onclick="location.href='FWLBCMDelete.do?fwlbcmNo=${fwlbcmDto.fwlbcmNo}&fwlbWriter=${dto.fwlbWriter}&count=0'" >삭제</button>
+	      			<button type="button" style="float:right;" onclick="location.href='FWLBCMDelete.do?fwlbcmNo=${fwlbcmDto.fwlbcmNo}&fwlbWriter=${dto.fwlbWriter}&count=0&fwlbNo=${dto.fwlbNo}'" >삭제</button>
 				</c:if>
 				</div>
 				</c:forEach>	

@@ -6,7 +6,8 @@ CREATE SEQUENCE GGNO_SEQ;
 DROP TABLE GG;
 CREATE TABLE GG
 (
-    GGNO         NUMBER            NOT NULL, 
+    GGNO         NUMBER            NOT NULL,
+    GGROWNUM     NUMBER			   NULL,
     GGWRITER     VARCHAR2(100)     NOT NULL, 
     GGTITLE      VARCHAR2(200)     NOT NULL, 
     GGCONT       VARCHAR2(4000)    NOT NULL, 
@@ -20,7 +21,7 @@ INSERT INTO GG VALUES(GGNO_SEQ.NEXTVAL, '관리자', '좋은 글 게시판 1', '
 
 SELECT * FROM GG;
 
-
+	 
 ------------------------------------------------
 
 --GGCM SEQUENCE SQL
@@ -46,8 +47,8 @@ SELECT * FROM GGCM;
 ------------------------------------------------
 
 --GGIMG SEQUENCE SQL
-DROP SEQUENCE GGIMNO_SEQ;
-CREATE SEQUENCE GGIMNO_SEQ;
+DROP SEQUENCE GGIMGNO_SEQ;
+CREATE SEQUENCE GGIMGNO_SEQ;
 
 --GGIMG TABLE SQL
 DROP TABLE GGIMG;

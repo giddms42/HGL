@@ -2,6 +2,8 @@ package com.lol.hgl.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,46 +22,40 @@ public class CalController {
 	private CalBizz bizz;
 	
 	@RequestMapping(value = "CalListForm.do")
-	   public String CalListForm(Model model, String memberId, int year, int month) {
-		String month2 = "";
-		if(month < 10) {
-			month2 = month2 + "0" + month;
-		} else {
-			month2 = month2 + month;
-		}
+	   public String CalListForm(Model model, String memberNickname, String memberId, int year, int month) {
 		
-		String yyyyMM = ""+year+month2;
+		String month2 = String.valueOf(month);
+		String yyyyMM = ""+year+Util.isTwo(month2);
 		List<calDto> cList= bizz.selectAll(memberId, yyyyMM);
 		model.addAttribute("year", year);
-		model.addAttribute("month", month2);
+		model.addAttribute("month", month);
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("cList", cList);
+		model.addAttribute("memberNickname", memberNickname);
 	      return "CalList";
 	   }
 	
 	@RequestMapping(value="CalListCountAjax.do")
 	@ResponseBody
 	public String CalListCountAjax(Model model, String memberId, String yyyyMMdd) {
-		System.out.println("컨트롤러"+yyyyMMdd);
-		System.out.println("컨트롤러"+memberId);
 		int r = bizz.getCalViewCount(memberId, yyyyMMdd);
-		System.out.println("일정 횟수"+r);
 		String res = String.valueOf(r);
 		return res;
 	}
 		
 	@RequestMapping(value="CalInsertForm.do")
-	public String CalInsertForm(Model model, String year, String month, String date, String lastday, String memberId) {
+	public String CalInsertForm(Model model, String year, String month, String date, String lastday, String memberId, String memberNickname) {
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("date", date);
 		model.addAttribute("lastday", lastday);
 		model.addAttribute("memberId", memberId);
+		model.addAttribute("memberNickname", memberNickname);
 		return "CalInsert";
 	}
 	
 	@RequestMapping(value="CalInsert.do")
-	public String CalInsert(Model model, String year, String month, String date, String memberId, String hour, String min, String calTitle, String calMemo) {
+	public String CalInsert(Model model, String year, String month, String date, String memberId, String hour, String min, String calTitle, String calMemo, String calSMS, String memberNickname) {
 		int Cyear = Integer.parseInt(year);
 		int Cmonth = Integer.parseInt(month);
 		
@@ -72,7 +68,7 @@ public class CalController {
 			+Util.isTwo(hour)
 			+Util.isTwo(min);
 		
-		int res = bizz.insert(new calDto(memberId,calTitle,calSch,calMemo,"Y"));
+		int res = bizz.insert(new calDto(memberId,calTitle,calSch,calMemo,calSMS,memberNickname));
 
 		if(res > 0) {
 			return "redirect:CalListForm.do";		
@@ -87,5 +83,41 @@ public class CalController {
 		model.addAttribute("dto", dto);
 		return "CalDetail";
 	}
-
+	
+	@RequestMapping(value="CalDelete.do")
+	public String CalDelete(Model model, int calNo, String year, String month, String memberId) {
+		
+		model.addAttribute("year", year);
+		model.addAttribute("month", month);
+		model.addAttribute("memberId", memberId);
+		
+		int res =bizz.delete(calNo);
+		
+		if(res > 0){
+			return "redirect:CalListForm.do";
+		}else {
+			return "redirect:CalListForm.do";
+		}
+	}
+	
+	@RequestMapping(value="CalUpdate.do")
+	public String CalUpdate(Model model, int calNo, String year, String month, String date, String hour, String min, String memberId, String calTitle, String calMemo, String calSMS, String memberNickname) {
+		
+		model.addAttribute("year", year);
+		model.addAttribute("month", month);
+		model.addAttribute("memberId", memberId);
+		
+		String calSch=year+Util.isTwo(month)
+		+Util.isTwo(date)
+		+Util.isTwo(hour)
+		+Util.isTwo(min);
+		
+		int res =bizz.update(new calDto(calNo,memberId,calTitle,calSch,calMemo,calSMS,memberNickname));
+		
+		if(res > 0){
+			return "redirect:CalListForm.do";
+		}else {
+			return "redirect:CalListForm.do";
+		}
+	}	
 }

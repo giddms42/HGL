@@ -18,8 +18,9 @@ CREATE TABLE FWL
 SELECT * FROM FWL;
 INSERT INTO FWL VALUES(2, FWLNO_SEQ.NEXTVAL, '맛있는거 먹으러 가기', 'N');
 
-select * from member;
+SELECT* FROM FWLB WHERE FWLBWRITER='히히';
 
+SELECT * FROM KINDSTORE WHERE KINDNO = 25;
 
 -------------------------------------------------------------------------
 
@@ -32,6 +33,7 @@ DROP TABLE FWLB;
 CREATE TABLE FWLB
 (
     FWLBNO         NUMBER            NOT NULL, 
+    FWLBROWNUM     NUMBER			 NULL,
     FWLBWRITER     VARCHAR2(100)     NOT NULL, 
     FWLBTITLE      VARCHAR2(200)     NOT NULL, 
     FWLBREADCNT    NUMBER            NOT NULL, 

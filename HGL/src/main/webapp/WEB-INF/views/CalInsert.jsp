@@ -18,19 +18,20 @@
 	String Cyear = request.getParameter("year");
 	String Cmonth = request.getParameter("month");
 	String memberId = request.getParameter("memberId");
+	String memberNickname = request.getParameter("memberNickname");
 	
 	Calendar cal=Calendar.getInstance();
 	int hour=cal.get(Calendar.HOUR_OF_DAY);
 	int min=cal.get(Calendar.MINUTE);
 %>
 <body>
-<h1>일정작성하기~</h1>
-
+<h1>일정작성하기</h1>
 	<form action="CalInsert.do" method="post">
+	<input type="hidden" name="memberId" value="<%=memberId %>"/>
 		<table border="1">
 			<tr>
-				<th>ID</th>
-				<td><input type="text" name="memberId" value="<%=memberId %>" readonly="readonly" /></td>
+				<th>닉넴</th>
+				<td><input type="text" name="memberNickname" value="<%=memberNickname %>" readonly="readonly" /></td>
 			</tr>
 			<tr>
 				<th>일정</th>
@@ -89,6 +90,9 @@
 			<tr>
 				<th>내용</th>
 				<td><textarea rows="10" cols="60" name="calMemo"></textarea> </td>
+			</tr>
+			<tr>
+				<td colspan="2">문자수신여부 : Y<input type="radio" value="Y" name="calSMS"/>N<input type="radio" value="N" name="calSMS"/></td>
 			</tr>
 			<tr>
 				<td colspan="2">

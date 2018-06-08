@@ -1,8 +1,9 @@
 package com.lol.hgl.dao;
 
 import java.util.ArrayList;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.ggcmDto;
+
 @Repository
 public class GGDaoImple implements GGDao {
 	
@@ -20,10 +22,39 @@ public class GGDaoImple implements GGDao {
 	private String namespace = "gg.";
 
 	@Override
-	public List<ggDto> selectAll() {
-		List<ggDto> res = new ArrayList<ggDto>();
+	public int ggListCount() {
+		int res = 0;
+		try {
+			res = sqlSession.selectOne(namespace + "ggListCount");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public List<Integer> ggListRowNum(int startPost, int endPost) {
+		List<Integer> res = new ArrayList<Integer>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startPost", startPost);
+		map.put("endPost", endPost);
 		   try {
-			   res = sqlSession.selectList(namespace+"selectAll");
+			   res = sqlSession.selectList(namespace+"ggListRowNum", map);
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      }
+		      return res;
+	}
+	
+	
+	@Override
+	public List<ggDto> selectAll(int startPost, int endPost) {
+		List<ggDto> res = new ArrayList<ggDto>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startPost", startPost);
+		map.put("endPost", endPost);
+		   try {
+			   res = sqlSession.selectList(namespace+"selectAll", map);
 		      } catch (Exception e) {
 		         e.printStackTrace();
 		      }
@@ -124,14 +155,67 @@ public class GGDaoImple implements GGDao {
 	}
 
 	@Override
-	public int updateReadCount(int seq) {
+	public int updateReadCount(int ggNo) {
 		int res = 0;
 		try {
-			res = sqlSession.update(namespace + "updateReadCount", seq);
+			res = sqlSession.update(namespace + "updateReadCount", ggNo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return res;
 	}
+
+	@Override
+	public int ggListSerchCount(String topic, String keyword) {
+		int res = 0;
+		keyword = "%"+keyword+"%";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("topic", topic);
+		map.put("keyword", keyword);
+		try {
+			res = sqlSession.selectOne(namespace + "ggListSerchCount", map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword) {
+		List<ggDto> list = new ArrayList<ggDto>();
+		keyword = "%"+keyword+"%";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("startPost", String.valueOf(startPost));
+		map.put("endPost", String.valueOf(endPost));
+		map.put("topic", topic);
+		map.put("keyword", keyword);
+		try {
+			list = sqlSession.selectList(namespace+"selectSearchAll", map);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<Integer> ggListSearchRowNum(int startPost, int endPost, String topic, String keyword) {
+		List<Integer> list = new ArrayList<Integer>();
+		keyword = "%"+keyword+"%";
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("startPost", String.valueOf(startPost));
+		map.put("endPost", String.valueOf(endPost));
+		map.put("topic", topic);
+		map.put("keyword", keyword);
+		try {
+			list = sqlSession.selectList(namespace+"ggListSearchRowNum", map);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+
 
 }

@@ -14,7 +14,7 @@ public interface FWLBizz {
 	public int FWLSuccessCancel(int fwlNo);
 	public int FWLDelete(int fwlNo);
 	public int FWLShare(String memberNickName);
-	public fwlbDto FWLBDetail(String memberNickName);
+	public fwlbDto FWLBDetail(String memberNickName, int fwlbNo);
 	public int FWLBUpdateReadCount(int fwlbNo);
 	public List<fwlbcmDto> fwlbcmList(int fwlbNO);
 	public int FWLBListCount();

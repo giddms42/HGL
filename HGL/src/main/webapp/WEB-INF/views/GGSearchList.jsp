@@ -60,11 +60,11 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 							◀
 						</c:when>
 						<c:otherwise>
-							<a href="GGListForm.do?nowpage=${nowPage - 1}">◀</a>
+							<a href="GGListSearch.do?nowpage=${nowPage - 1}&topic=${topic}&keyword=${keyword}">◀</a>
 						</c:otherwise>
 					</c:choose> 
 					<c:forEach begin="${startPage}" end="${endPage}" var="i">
-						<a href="GGListForm.do?nowpage=${i}"> 
+						<a href="GGListSearch.do?nowpage=${i}&topic=${topic}&keyword=${keyword}"> 
 						<c:choose>
 							<c:when test="${i eq nowPage}">
 								<strong>${i}</strong>
@@ -80,7 +80,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 							▶
 						</c:when>
 						<c:otherwise>
-							<a href="GGListForm.do?nowpage=${nowPage + 1}">▶</a>
+							<a href="GGListSearch.do?nowpage=${nowPage + 1}&topic=${topic}&keyword=${keyword}">▶</a>
 						</c:otherwise>
 					</c:choose>
 	            </div>

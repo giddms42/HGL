@@ -44,13 +44,13 @@ public class CalDaoImple implements CalDao {
 
 	@Override
 	public int update(calDto dto) {
+		
 		int res = 0;
 		try {
 			res = sqlSession.update(namespace+"update", dto);
 			}catch(Exception e ) {
 				e.printStackTrace();
-			}	
-		System.out.println(res);
+			}
 		return res;
 	}
 	
@@ -67,8 +67,6 @@ public class CalDaoImple implements CalDao {
 
 	@Override
 	public List<calDto> selectAll(String memberId, String yyyyMM) {
-		System.out.println("컨트롤러 셀렉트올 : " + yyyyMM );
-		System.out.println("컨트롤러 셀렉트올 : " + memberId );
 		
 		List<calDto>res = new ArrayList<calDto>();
 		Map<String,String> map = new HashMap<String,String>();
@@ -81,15 +79,12 @@ public class CalDaoImple implements CalDao {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(res.size());
 		
 		return res;
 	}
 
 	@Override
 	public int getCalViewCount(String memberId, String yyyyMMdd) {
-		System.out.println("다오"+memberId);
-		System.out.println("다오"+yyyyMMdd);
 
 		int res = 0;
 		Map<String,String> map = new HashMap<String,String>();
@@ -101,7 +96,6 @@ public class CalDaoImple implements CalDao {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-		System.out.println(res);
 		return res;
 	}
 

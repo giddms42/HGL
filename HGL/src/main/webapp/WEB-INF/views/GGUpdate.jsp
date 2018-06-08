@@ -50,7 +50,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	               </table>
 	               <div class="btn">
 	               		<input type="button" value="파일첨부" onclick="" class="btn1">
-	               		<input type="button" value="취소" onclick="location.href='GGListForm.do'" class="btn2">
+	               		<input type="button" value="취소" onclick="location.href='GGListForm.do?nowpage=1'" class="btn2">
 		                <input type="submit" value="글수정" class="btn3">
 	               </div>
 	               <div id="paging">　<br>　</div>

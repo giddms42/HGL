@@ -39,5 +39,11 @@
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemplate">
 		<constructor-arg ref="sqlSession"/>
 	</bean>	
+	
+	<!--CommonsMultipartResolver : 임시 파일을 서블릿 컨테이너의 임시 디렉토리에 저장하는 클래스. 응용 프로그램 컨텍스트 또는 ServletContext (독립 실행 형 사용)를 사용하는 생성자를 통해 초기화해야합니다.-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000"/> <!-- 서버에 업로드할 수 있는 첨부파일의 최대 크기-->		
+		<property name="defaultEncoding" value="UTF-8"/> <!-- 기본 인코딩 --> 
+	</bean>
 		
 </beans>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	   <div id="b">
 	      <div id="bodyMain">
 	         <img src="image/sadad.png" id="content">
-	         <form action="insert.do" id="form" method="post">
+	         <form:form method="post" enctype="multipart/form-data" modelAttribute="uploadFile" id="form" action="GGinsert.do">
 	         	   <div id="boardName">정말 좋은글 글쓰기</div>
 		           <br/>
 	               <table border="1" bordercolor="white">
@@ -43,17 +44,17 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                     <td><textarea rows="20" cols="50" placeholder="엄청 좋은글의 내용을 입력해주세요" name="ggCont" style="resize: none;"></textarea></td>
 	                  </tr>
 	                  <tr>
-	                     <td>파일첨부</td>
+	                     <td>파일첨부 </td>
 						<td><textarea rows="5" placeholder="파일첨부 표시되는곳" style="resize: none;"></textarea></td>
 					</tr>
 	               </table>
-	               <div class="btn">
-	               		<input type="button" value="파일첨부" onclick="" class="btn1">
+	               <div class="btn">               
+	             		<input type="file" name="file" value="파일첨부" class="btn1"/>
 	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do'" class="btn2">
 		                <input type="submit" value="글작성" class="btn3">
 	               </div>
-	               <div id="paging">　<br>　</div>
-	      </form>
+	      </form:form>
+	               
 	      </div>
 	   </div>
 	   

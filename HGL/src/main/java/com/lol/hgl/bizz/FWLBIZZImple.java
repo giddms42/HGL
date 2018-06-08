@@ -46,8 +46,8 @@ public class FWLBIZZImple implements FWLBizz {
 	}
 
 	@Override
-	public fwlbDto FWLBDetail(String memberNickName) {
-		return dao.FWLBDetail(memberNickName);
+	public fwlbDto FWLBDetail(String memberNickName, int fwlbNo) {
+		return dao.FWLBDetail(memberNickName, fwlbNo);
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class FWLBIZZImple implements FWLBizz {
 		List<fwlbDto> list = dao.FwlbList(startPost, endPost);
 		List<Integer> rowNum = dao.ListRowNum(startPost, endPost);
 		for(int i=0; i<list.size(); i++) {
-			list.get(i).setFwlbNo(rowNum.get(i));
+			list.get(i).setFwlbRowNum((rowNum.get(i)));
 		}
 		
 		return list;
