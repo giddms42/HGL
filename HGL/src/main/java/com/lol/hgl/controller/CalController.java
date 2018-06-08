@@ -3,6 +3,7 @@ package com.lol.hgl.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,17 +52,24 @@ public class CalController {
 		model.addAttribute("lastday", lastday);
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("memberNickname", memberNickname);
+		System.out.println(year + " , " +month + " , " +date + " , " +lastday + " , " +memberId + " , " +memberNickname);
 		return "CalInsert";
 	}
 	
 	@RequestMapping(value="CalInsert.do")
-	public String CalInsert(Model model, String year, String month, String date, String memberId, String hour, String min, String calTitle, String calMemo, String calSMS, String memberNickname) {
+	@ResponseBody
+	public int CalInsert(Model model, String year, String month, String date, String memberId, String hour, String min, String calTitle, String calMemo, String calSMS, String memberNickname) {
 		int Cyear = Integer.parseInt(year);
 		int Cmonth = Integer.parseInt(month);
 		
+/*		session.setAttribute("year", Cyear);
+		session.setAttribute("month", Cmonth);
+		session.setAttribute("memberId", memberId);
+		session.setAttribute("memberNickname", memberNickname);*/
 		model.addAttribute("year", Cyear);
 		model.addAttribute("month", Cmonth);
 		model.addAttribute("memberId", memberId);
+		model.addAttribute("memberNickname", memberNickname);
 		
 		String calSch=year+Util.isTwo(month)
 			+Util.isTwo(date)
@@ -71,9 +79,11 @@ public class CalController {
 		int res = bizz.insert(new calDto(memberId,calTitle,calSch,calMemo,calSMS,memberNickname));
 
 		if(res > 0) {
-			return "redirect:CalListForm.do";		
+			System.out.println("성공");
+			return 0;		
 		}else {
-			return "redirect:CalListForm.do";
+			System.out.println("실패");
+			return 1;
 		}
 	}
 	
