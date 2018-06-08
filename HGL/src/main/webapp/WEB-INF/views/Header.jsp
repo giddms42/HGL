@@ -48,6 +48,10 @@ int month = cal.get(Calendar.MONTH)+1;
 				<div class="up2" id="up24"><a href="memberLoginOut.do">로그아웃</a></div>
 			</div>
 			<div id="down">
+				<div>
+					<div onclick="location.href='MapHW.do'">카테고리지도&nbsp/</div>
+					<div onclick="location.href='MapK.do'">&nbsp착한가게</div>
+				</div>
 				<div class="menu" id="admin">
 					<div onclick="AdminMange()">관리자-회원제재</div>
 					<div onclick="location.href='AdminSearchUserForm.do'">관리자-회원목록</div>

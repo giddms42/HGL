@@ -39,10 +39,16 @@ public class MainController {
 		return "Main";
 	}
 	
-	@RequestMapping(value="Map.do")
-	public String Map() {
-		return "Map";
+	@RequestMapping(value="MapHW.do")
+	public String MapHW() {
+		return "MapHW";
 	}
+	
+	@RequestMapping(value="MapK.do")
+	public String MapK() {
+		return "MapK";
+	}
+	
 	
 	
 }
