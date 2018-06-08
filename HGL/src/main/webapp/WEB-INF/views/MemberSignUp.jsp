@@ -80,7 +80,7 @@
 			      	<option value="제주도">제주도</option>
 			      </select>
 		     	 </label>
-		      <select class="memberCity" name=""  onChange="test(this.options[this.selectedIndex].value);" id="seoul" style="display: none;" required="required">
+		      <select class="memberCity" name="" id="seoul" style="display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강남구">강남구</option>
 		      	<option value="강동구">강동구</option>

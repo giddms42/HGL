@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kindstore">
+	
+	<resultMap type="com.lol.hgl.dto.kindstoreDto" id="kindstoreDtoMap">
+		<result column="KINDNUMBER" property="kindNumber"/>
+		<result column="KINDDO" property="kindDo"/>
+		<result column="KINDCITY" property="kindCity"/>
+		<result column="KINDTYPE" property="kindType"/>
+		<result column="KINDNAME" property="kindName"/>
+		<result column="KINDPHONE" property="kindPhone"/>
+		<result column="KINDADDR" property="kindAddr"/>
+		<result column="KINDDELIVERY" property="kindDelivery"/>
+		<result column="KINDPARKING" property="kindParking"/>
+		<result column="KINDMENU" property="kindMenu"/>
+	</resultMap>
+	
+	<select id="kindstoreListSerchCount" parameterType="map" resultType="int">
+		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kinddo} AND KINDCITY LIKE #{kindcity}
+	</select>
+	
+	<select id="selectSearchAll" parameterType="map" resultMap="kindstoreDtoMap">
+	<![CDATA[
+		select *
+		from ( 
+	    select A.KINDNUMBER, A.KINDDO, A.KINDCITY, A.KINDTYPE, A.KINDNAME, A.KINDPHONE, A.KINDADDR, A.KINDDELIVERY, A.KINDPARKING, A.KINDMENU,
+	    ROWNUM AS RN
+	    from (
+	        select *
+	        from KINDSTORE 
+	        WHERE KINDDO LIKE #{kinddo} AND KINDCITY LIKE #{kindcity}
+	        ORDER BY KINDNUMBER DESC) A
+	    where ROWNUM <= TO_NUMBER(#{endPost})) X
+		where X.RN >= TO_NUMBER(#{startPost})
+		ORDER BY X.KINDNUMBER DESC
+	]]>
+	</select>
+	
+</mapper>

@@ -31,7 +31,6 @@ public class GGBizzImple implements GGBizz {
 		return res;
 	}
 	
-
 	@Override
 	public int ggListSerchCount(String topic, String keyword) {
 		return dao.ggListSerchCount(topic, keyword);
