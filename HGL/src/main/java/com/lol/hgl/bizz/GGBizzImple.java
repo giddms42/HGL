@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.util.WebUtils;
 
-import com.lol.hgl.util.FileUtil;
+/*import com.lol.hgl.util.FileUtil;*/
 import com.lol.hgl.dao.GGDao;
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.ggImgDto;
@@ -29,8 +29,8 @@ public class GGBizzImple implements GGBizz {
 	@Autowired
 	private GGDao dao;
 	
-	 @Autowired
-	  private FileUtil fileUtils;
+/*	 @Autowired
+	  private FileUtil fileUtils;*/
 
 	
 	@Override
@@ -48,7 +48,6 @@ public class GGBizzImple implements GGBizz {
 		return res;
 	}
 	
-
 	@Override
 	public int ggListSerchCount(String topic, String keyword) {
 		return dao.ggListSerchCount(topic, keyword);
@@ -71,7 +70,7 @@ public class GGBizzImple implements GGBizz {
 		return dao.selectOne(seq);
 	}
 
-	@Override
+/*	@Override
 	public int insert(ggDto dto, HttpServletRequest request) throws Exception {
 		dao.insert(dto); 
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
@@ -96,7 +95,7 @@ public class GGBizzImple implements GGBizz {
 	
 	    		
 		return dao.insert(dto);
-	}
+	}*/
 
 	@Override
 	public int delete(int seq) {

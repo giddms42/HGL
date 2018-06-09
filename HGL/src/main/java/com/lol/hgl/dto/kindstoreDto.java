@@ -9,7 +9,7 @@ public class kindstoreDto {
 	private String kindStorename;
 	private String kindPhone;
 	private String kindAddr;
-	private String kindDeleviery;
+	private String kindDelivery;
 	private String kindParking;
 	private String kindMenu;
 	private String kindPrice;
@@ -20,7 +20,7 @@ public class kindstoreDto {
 	}
 	
 	public kindstoreDto(int kindNum, String kindDo, String kindCity, String kindType, String kindStorename,
-			String kindPhone, String kindAddr, String kindDeleviery, String kindParking, String kindMenu,
+			String kindPhone, String kindAddr, String kindDelivery, String kindParking, String kindMenu,
 			String kindPrice) {
 		this.kindNum = kindNum;
 		this.kindDo = kindDo;
@@ -29,7 +29,7 @@ public class kindstoreDto {
 		this.kindStorename = kindStorename;
 		this.kindPhone = kindPhone;
 		this.kindAddr = kindAddr;
-		this.kindDeleviery = kindDeleviery;
+		this.kindDelivery = kindDelivery;
 		this.kindParking = kindParking;
 		this.kindMenu = kindMenu;
 		this.kindPrice = kindPrice;
@@ -91,12 +91,12 @@ public class kindstoreDto {
 		this.kindAddr = kindAddr;
 	}
 
-	public String getKindDeleviery() {
-		return kindDeleviery;
+	public String getKindDelivery() {
+		return kindDelivery;
 	}
 
-	public void setKindDeleviery(String kindDeleviery) {
-		this.kindDeleviery = kindDeleviery;
+	public void setKindDelivery(String kindDelivery) {
+		this.kindDelivery = kindDelivery;
 	}
 
 	public String getKindParking() {

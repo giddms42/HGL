@@ -28,15 +28,15 @@ function AdminMange(){
 
 <body>
 <%
-Calendar cal =Calendar.getInstance();
+Calendar cal2 =Calendar.getInstance();
 //현재 년도
-int year = cal.get(Calendar.YEAR);
+int year2 = cal2.get(Calendar.YEAR);
 //현재 월 (0~11)
-int month = cal.get(Calendar.MONTH)+1;
+int month2 = cal2.get(Calendar.MONTH)+1;
 %>
 	<div>
 		<div id="header">
-		<div id="header2"><img src="image/sadad.png"></div>
+		<div id="header2"><img src="image/sadad.png" id="img"></div>
 			<div id="up">
 				<div class="up2" id="up21"><a href="MainForm.do">홈버튼 로고</a></div>
 				<div class="up2" id="up22">
@@ -48,13 +48,17 @@ int month = cal.get(Calendar.MONTH)+1;
 				<div class="up2" id="up24"><a href="memberLoginOut.do">로그아웃</a></div>
 			</div>
 			<div id="down">
+				<div>
+					<div onclick="location.href='MapHW.do'">카테고리지도&nbsp/</div>
+					<div onclick="location.href='MapK.do'">&nbsp착한가게</div>
+				</div>
 				<div class="menu" id="admin">
 					<div onclick="AdminMange()">관리자-회원제재</div>
 					<div onclick="location.href='AdminSearchUserForm.do'">관리자-회원목록</div>
 				</div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">홈페이지 소개</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MemberInfoForm.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn2">내정보</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="CalListForm.do?memberId=${login.memberId }&year=<%=year %>&month=<%=month %>&memberNickname=${login.memberNickname }" class="btn btn-sm animated-button thar-three" id="btn2">캘린더</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="CalListForm.do?memberId=${login.memberId }&year=<%=year2 %>&month=<%=month2 %>&memberNickname=${login.memberNickname }" class="btn btn-sm animated-button thar-three" id="btn2">캘린더</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLBList.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn2">지도</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn2">위시리스트</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="GGListForm.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn2">좋은글</a></div></div>

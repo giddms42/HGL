@@ -44,7 +44,7 @@
 	      	<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
 	      </div>
 	      <br><div class="registinfo">
-	      	<label>연락처<br><input class="info" type="number" name="memberPhone" 
+	      	<label>연락처<br><input class="info" type="phone" name="memberPhone" 
 	      	required="required" placeholder="연락가능한 번호를 숫자만 입력해주세요"></label>
 	      	<p style="margin-top:-2px;"><input class="checkbox" type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y">
 	      	<a class="sns" onclick="snsChecked();">문자알림을 받으시겠습니까?</a></p>
@@ -80,7 +80,7 @@
 			      	<option value="제주도">제주도</option>
 			      </select>
 		     	 </label>
-		      <select class="memberCity" name=""  onChange="test(this.options[this.selectedIndex].value);" id="seoul" style="display: none;" required="required">
+		      <select class="memberCity" name="" id="seoul" style="display: none;" required="required">
 		      	<option value="">구,시,군을 선택해주세요</option>
 		      	<option value="강남구">강남구</option>
 		      	<option value="강동구">강동구</option>

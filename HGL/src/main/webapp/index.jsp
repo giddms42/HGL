@@ -27,7 +27,6 @@
 <br>
 
 <h1>작성자 : 경식</h1>
-<a href="Map.do">Map</a>
 <a href="FamHealthInsertForm.do">FamHealthInsert</a>
 <a href="MemberInfo.do">MemberInfo</a>
 <a href="FamInsert.do">FamInsert</a>

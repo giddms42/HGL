@@ -17,6 +17,14 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/CalList.css">
+<style>
+html { background: url("image/img.jpg") no-repeat center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -54,11 +62,23 @@
 	function isTwo(n){
 		return n.length<2?"0"+n:n;
 	}
+	
+	function addSCH(num){
+		var year2 = $("#year").val();
+		var month2 = $("#month").val();
+		var date2 = num;
+		var lastDay2 = $("#lastDay").val();
+		var memberId2 = $("#memberId").val();
+		var memberNickname2 = $("#memberNickname").val();
+		
+		alert(lastDay2);
+	 	var popupX = (window.screen.width/2) - (515 / 2);
+		var popupY= (window.screen.height/2)- (465/2);
+		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+		window.name="Parent";
+		window.open("CalInsertForm.do?year="+year2+"&month="+month2+"&date="+date2+"&lastday="+lastDay2+"&memberId="+memberId2+"&memberNickname="+memberNickname2,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		}
 </script>
-<body>
-
-<h1>캘린더</h1><br>
-
 <%
 	String paramYear = request.getParameter("year");
 	String paramMonth = request.getParameter("month");
@@ -66,11 +86,14 @@
 	System.out.println("CalList.jsp : " + paramMonth);
 	
 	List<calDto> cList = (List<calDto>)request.getAttribute("cList");
+	
 	Calendar cal =Calendar.getInstance();
 	//현재 년도
 	int year = cal.get(Calendar.YEAR);
 	//현재 월 (0~11)
 	int month = cal.get(Calendar.MONTH)+1;
+	
+	int date = cal.get(Calendar.DATE);
 	
 	//년도와 열 변경
 	if(paramYear != null){
@@ -106,9 +129,21 @@
 	//List<calDto> cList= dao.selectAll(paramMemberId, yyyyMM);
 %>
 <body>
-<input type="hidden" id="memberId" value="${login.memberId}"/>
+
+	<input type="hidden" value="<%=year %>" id="year"/>
+	<input type="hidden" value="<%=month %>" id="month"/>
+	<input type="hidden" value="<%=date %>" id="date"/>
+	<input type="hidden" value="<%=lastDay %>" id="lastDay"/>
+	<input type="hidden" value="${login.memberNickname }" id="memberNickname"/>
+	
+
+	<div id="container">
+	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
+	<br/>
+	<div id="b">
+		<input type="hidden" id="memberId" value="${login.memberId}"/>
 	<table id="calendar">
-		<caption>
+		<caption id="caption">
 			<a href="CalListForm.do?year=<%=year-1%>&month=<%=month%>&memberId=${login.memberId}">◁</a>
 			<a href="CalListForm.do?year=<%=year%>&month=<%=month-1%>&memberId=${login.memberId}">◀</a>
 			
@@ -137,7 +172,7 @@
 				<a class="countView" style="color:<%=Util.fontColor(i,dayOfWeek)%>">
 					<%=i %>
 				</a>
-				<a href="CalInsertForm.do?year=<%=year%>&month=<%=month%>&date=<%=i%>&lastday=<%=lastDay%>&memberId=${login.memberId}&memberNickname=${login.memberNickname}">
+				<a href="#" onclick="addSCH(<%=i%>);">
 					<img alt="일정추가" src="image/pen.png" style="with:15px;height:15px;">
 				</a>
 				<div class="cList">
@@ -157,6 +192,14 @@
 %>
 		</tr>
 	</table>
+	<div id="CalBtn">
+		<input type="button" value="일정추가" onclick="location.href='CalInsertForm.do?year=<%=year%>&month=<%=month%>&date=<%=date%>&lastday=<%=lastDay%>&memberId=${login.memberId}&memberNickname=${login.memberNickname}'" id="InBtn"/>
+	</div>
+	</div>
+	<br/>
+	
+	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
+	</div>
 
 </body>
 </html>
