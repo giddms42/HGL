@@ -32,15 +32,17 @@ public class kindstoreDaoImple implements kindstoreDao {
 	}
 	
 	@Override
-	public List<kindstoreDto> selectSearchAll(int startPost, int endPost, String kinddo, String kindcity) {
+	public List<kindstoreDto> selectSearchAll(int startPost, int endPost, String kindDo, String kindCity) {
 		List<kindstoreDto> list = new ArrayList<kindstoreDto>();
-		kinddo = "%"+kinddo+"%";
-		kindcity = "%"+kindcity+"%";
+		kindDo = "%"+kindDo+"%";
+		kindCity = "%"+kindCity+"%";
+		System.out.println(kindDo);
+		System.out.println(kindCity);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("startPost", String.valueOf(startPost));
 		map.put("endPost", String.valueOf(endPost));
-		map.put("kinddo", kinddo);
-		map.put("kindcity", kindcity);
+		map.put("kindDo", kindDo);
+		map.put("kindCity", kindCity);
 		try {
 			list = sqlSession.selectList(namespace+"selectSearchAll",map);
 		} catch (Exception e) {
@@ -55,6 +57,7 @@ public class kindstoreDaoImple implements kindstoreDao {
 		kinddo = "%"+kinddo+"%";
 		kindcity = "%"+kindcity+"%";
 		Map<String, String> map = new HashMap<String, String>();
+		System.out.println(map);
 		map.put("kinddo",kinddo);
 		map.put("kindcity", kindcity);
 		try {

@@ -3,11 +3,11 @@
 <mapper namespace="kindstore">
 	
 	<resultMap type="com.lol.hgl.dto.kindstoreDto" id="kindstoreDtoMap">
-		<result column="KINDNUMBER" property="kindNumber"/>
+		<result column="KINDNUMBER" property="kindNum"/>
 		<result column="KINDDO" property="kindDo"/>
 		<result column="KINDCITY" property="kindCity"/>
 		<result column="KINDTYPE" property="kindType"/>
-		<result column="KINDNAME" property="kindName"/>
+		<result column="KINDNAME" property="kindStorename"/>
 		<result column="KINDPHONE" property="kindPhone"/>
 		<result column="KINDADDR" property="kindAddr"/>
 		<result column="KINDDELIVERY" property="kindDelivery"/>
@@ -16,7 +16,7 @@
 	</resultMap>
 	
 	<select id="kindstoreListSerchCount" parameterType="map" resultType="int">
-		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kinddo} AND KINDCITY LIKE #{kindcity}
+		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kindDo} AND KINDCITY LIKE #{kindCity} KINDDO = #{kindDo, jdbcType=VARCHAR}
 	</select>
 	
 	<select id="selectSearchAll" parameterType="map" resultMap="kindstoreDtoMap">
@@ -28,7 +28,7 @@
 	    from (
 	        select *
 	        from KINDSTORE 
-	        WHERE KINDDO LIKE #{kinddo} AND KINDCITY LIKE #{kindcity}
+	        WHERE KINDDO LIKE #{kindDo} AND KINDCITY LIKE #{kindCity}
 	        ORDER BY KINDNUMBER DESC) A
 	    where ROWNUM <= TO_NUMBER(#{endPost})) X
 		where X.RN >= TO_NUMBER(#{startPost})

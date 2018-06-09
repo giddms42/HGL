@@ -2,7 +2,6 @@ package com.lol.hgl.bizz;
 
 import java.util.List;
 
-import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.kindstoreDto;
 
 public interface kindstoreBizz {

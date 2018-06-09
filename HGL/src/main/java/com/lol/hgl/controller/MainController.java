@@ -59,8 +59,6 @@ public class MainController {
 	}
 	@RequestMapping(value = "kindListSearch.do")
 	public String kindListSearch(String nowpage, String kinddo, String kindcity,  Model model) {
-		System.out.println(kinddo);
-		System.out.println(kindcity);
 		//전체 글 갯수 구하기
 		int postCount = kindBizz.kindstoreListSerchCount(kinddo, kindcity);
 		System.out.println(postCount);

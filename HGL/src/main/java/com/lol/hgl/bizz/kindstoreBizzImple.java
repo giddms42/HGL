@@ -21,8 +21,11 @@ public class kindstoreBizzImple implements kindstoreBizz {
 
 	//검색할 조건에 맞는게 몇개있는지 전체적으로 세어주는것
 	@Override
-	public int kindstoreListSerchCount(String kinddo, String kindcity) {
-		return dao.kindstoreListSerchCount(kinddo, kindcity);
+	
+	public int kindstoreListSerchCount(String kindDo, String kindCity) {
+		System.out.println(kindDo);
+		System.out.println(kindCity);
+		return dao.kindstoreListSerchCount(kindDo, kindCity);
 	}
 
 	@Override

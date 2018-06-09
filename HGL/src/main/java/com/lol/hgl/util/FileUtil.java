@@ -1,4 +1,4 @@
-package com.lol.hgl.util;
+/*package com.lol.hgl.util;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -51,12 +51,12 @@ public class FileUtil {
 	                //file = new File(filePath + storedFileName);
 	                multipartFile.transferTo(file);
 	                dto.setGgImgSize((multipartFile.getSize()));
-	                /*listMap = new HashMap<String,Object>();
+	                listMap = new HashMap<String,Object>();
 	                listMap.put("BOARD_IDX", ggNo);
 	                listMap.put("ORIGINAL_FILE_NAME", originalFileName);
 	                listMap.put("STORED_FILE_NAME", storedFileName);
 	                listMap.put("FILE_SIZE", multipartFile.getSize());
-	                list.add(listMap);*/
+	                list.add(listMap);
 	            }
 	        }
 	        return dto;
@@ -65,3 +65,4 @@ public class FileUtil {
 
 	
 
+*/
