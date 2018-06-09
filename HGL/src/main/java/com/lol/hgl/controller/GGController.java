@@ -124,7 +124,7 @@ public class GGController {
 		return "redirect:GGListForm.do";
 	}
 	
-/*	@RequestMapping(value="GGinsert.do",  method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="GGinsert.do",  method = {RequestMethod.GET,RequestMethod.POST})
 	public String insert(Model model, ggDto dto,  HttpServletRequest request) throws Exception {
 		int res = bizz.insert(dto, request);
 		if (res > 0) {
@@ -134,7 +134,7 @@ public class GGController {
 			model.addAttribute("nowpage", 1);
 			return "redirect:GGInsertForm.do";
 		}	
-	}*/
+	}
 	
 	@RequestMapping(value = "GGUpdateForm.do", method = {RequestMethod.GET,RequestMethod.POST})
 	public String GGUpdateForm(Model model, int ggNo) {

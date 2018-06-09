@@ -72,6 +72,7 @@ public class MainController {
 		int startPage = (int)(Math.ceil((double)nowPage/5))*5-4;
 		//block 마지막 페이지 숫자
 		int endPage = (int)(Math.ceil((double)nowPage/5))*5;
+		System.out.println(endPage);
 		if(pageCount<endPage) {
 			endPage=pageCount;
 		}

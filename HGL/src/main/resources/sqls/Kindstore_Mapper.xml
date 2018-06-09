@@ -16,7 +16,7 @@
 	</resultMap>
 	
 	<select id="kindstoreListSerchCount" parameterType="map" resultType="int">
-		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kindDo} AND KINDCITY LIKE #{kindCity} KINDDO = #{kindDo, jdbcType=VARCHAR}
+		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kinddo} AND KINDCITY LIKE #{kindcity}
 	</select>
 	
 	<select id="selectSearchAll" parameterType="map" resultMap="kindstoreDtoMap">

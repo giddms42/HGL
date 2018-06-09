@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/GGInsert.css">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <style>
 html { background: url("image/img.jpg") no-repeat center fixed;
  -webkit-background-size: cover;
@@ -18,8 +19,34 @@ html { background: url("image/img.jpg") no-repeat center fixed;
  background-size: cover;
  }
 </style>
-<body>
+<script type="text/javascript">
+var gfv_count = 1;
+$(document).ready(function(){
+    $("#addFile").on("click", function(e){ //파일 추가 버튼
+        e.preventDefault();
+        fn_addFile();
+    });
+     
+    $("a[name='delete']").on("click", function(e){ //삭제 버튼
+        e.preventDefault();
+        fn_deleteFile($(this));
+    });
+});
 
+function fn_addFile(){
+    var str = "<p><input type='file' name='file_"+(gfv_count++)+"'><a href='#this' class='btn' name='delete'>삭제</a></p>";
+    $("#fileDiv").append(str);
+    $("a[name='delete']").on("click", function(e){ //삭제 버튼
+        e.preventDefault();
+        fn_deleteFile($(this));
+    });
+}
+ 
+function fn_deleteFile(obj){
+    obj.parent().remove();
+}
+</script>
+<body>
 	<div id="container">
 	   <div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	   
@@ -45,11 +72,19 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                  </tr>
 	                  <tr>
 	                     <td>파일첨부 </td>
-						<td><textarea rows="5" placeholder="파일첨부 표시되는곳" style="resize: none;"></textarea></td>
+						<td>
+						<div id="fileDiv">
+						 <p>
+                			<input type="file" id="file" name="file_0">
+               				<a href="#this" class="btn" id="delete" name="delete">삭제</a>
+           				 </p>
+						</div>
+						<textarea rows="5" placeholder="파일첨부 표시되는곳" style="resize: none;"></textarea>
+						</td>
 					</tr>
 	               </table>
 	               <div class="btn">               
-	             		<input type="file" name="file" value="파일첨부" class="btn1"/>
+	             		<a href="#this" class="btn" id="addFile">파일 추가</a>
 	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do'" class="btn2">
 		                <input type="submit" value="글작성" class="btn3">
 	               </div>

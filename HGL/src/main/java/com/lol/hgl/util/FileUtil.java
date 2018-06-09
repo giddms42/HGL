@@ -1,4 +1,4 @@
-/*package com.lol.hgl.util;
+package com.lol.hgl.util;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -18,22 +18,16 @@ import com.lol.hgl.dto.ggImgDto;
 @Component("fileUtils")
 public class FileUtil {
 
-	 private static final String filePath = "C:\\Users\\Hankyung_EDU\\git\\HGL\\HGL\\src\\main\\webapp\\image\\";
+	 private static final String filePath = "C:\\Users\\이향은\\git\\HGL\\HGL\\src\\main\\webapp\\image\\";
      
-	    public ggImgDto parseInsertFileInfo(HttpServletRequest request) throws Exception{
+	    public List<ggImgDto> parseInsertFileInfo(HttpServletRequest request) throws Exception{
 	        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
 	        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-	       
+
 	        MultipartFile multipartFile = null;
-	        ggImgDto dto = new ggImgDto();
-	        //String originalFileName = null;
+	        List<ggImgDto> list = new ArrayList<ggImgDto>();
 	        String originalFileExtension = null; // 확장자
-	       // String storedFileName = null;
-	         
-	        //List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
-	       // Map<String, Object> listMap = null;
-	         
-	         
+      
 	        File file = new File(filePath);
 	        if(file.exists() == false){
 	            file.mkdirs();
@@ -42,6 +36,8 @@ public class FileUtil {
 	        while(iterator.hasNext()){
 	            multipartFile = multipartHttpServletRequest.getFile(iterator.next());
 	            if(multipartFile.isEmpty() == false){
+	            	ggImgDto dto = new ggImgDto();
+	       	
 	            	dto.setGgOriginalName(multipartFile.getOriginalFilename());
 	                //originalFileName = multipartFile.getOriginalFilename();               
 	            	originalFileExtension = dto.getGgOriginalName().substring(dto.getGgOriginalName().lastIndexOf("."));
@@ -51,18 +47,18 @@ public class FileUtil {
 	                //file = new File(filePath + storedFileName);
 	                multipartFile.transferTo(file);
 	                dto.setGgImgSize((multipartFile.getSize()));
-	                listMap = new HashMap<String,Object>();
+	              /*  listMap = new HashMap<String,Object>();
 	                listMap.put("BOARD_IDX", ggNo);
 	                listMap.put("ORIGINAL_FILE_NAME", originalFileName);
 	                listMap.put("STORED_FILE_NAME", storedFileName);
 	                listMap.put("FILE_SIZE", multipartFile.getSize());
-	                list.add(listMap);
+	                list.add(listMap);*/
+	                list.add(dto);
 	            }
 	        }
-	        return dto;
+	        return list;
 	    }
 	}
 
 	
 
-*/

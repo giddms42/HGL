@@ -8,16 +8,15 @@ import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.util.WebUtils;
 
-/*import com.lol.hgl.util.FileUtil;*/
+
+import com.lol.hgl.util.FileUtil;
 import com.lol.hgl.dao.GGDao;
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.ggImgDto;
@@ -29,8 +28,8 @@ public class GGBizzImple implements GGBizz {
 	@Autowired
 	private GGDao dao;
 	
-/*	 @Autowired
-	  private FileUtil fileUtils;*/
+	 @Autowired
+	  private FileUtil fileUtils;
 
 	
 	@Override
@@ -70,9 +69,8 @@ public class GGBizzImple implements GGBizz {
 		return dao.selectOne(seq);
 	}
 
-/*	@Override
+	@Override
 	public int insert(ggDto dto, HttpServletRequest request) throws Exception {
-		dao.insert(dto); 
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
 		 Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
 		 MultipartFile multipartFile = null;
@@ -84,18 +82,22 @@ public class GGBizzImple implements GGBizz {
 		            System.out.println("filename : "+multipartFile.getOriginalFilename());
 		            System.out.println("size : "+multipartFile.getSize());
 		            System.out.println("-------------- file end --------------\n");
-		            ggImgDto imgDto = fileUtils.parseInsertFileInfo(request);
-		    	    int ggNo = dao.newGgNo();
-		    	    imgDto.setGgNo(ggNo);
-		    	    imgDto.setGgCreatUser(dto.getGgWriter());
-		    	    dao.insertGgImage(imgDto);
+		            
+		            List<ggImgDto> list = fileUtils.parseInsertFileInfo(request);
+		            int ggNo = dao.newGgNo();
+		            for(int i=0; i<list.size(); i++) {
+		            	list.get(i).setGgNo(ggNo);
+		            	list.get(i).setGgCreatUser(dto.getGgWriter());
+		            	dao.insertGgImage(list.get(i));
+		            }
+	
 		        }
 		    }
 	    
 	
 	    		
 		return dao.insert(dto);
-	}*/
+	}
 
 	@Override
 	public int delete(int seq) {
