@@ -26,7 +26,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	   <div id="b">
 	      <div id="bodyMain">
 	         <img src="image/sadad.png" id="content">
-	         <form:form method="post" enctype="multipart/form-data" modelAttribute="uploadFile" id="form" action="GGinsert.do">
+	         <form:form method="post" enctype="multipart/form-data" id="form" action="GGinsert.do">
 	         	   <div id="boardName">정말 좋은글 글쓰기</div>
 		           <br/>
 	               <table border="1" bordercolor="white">

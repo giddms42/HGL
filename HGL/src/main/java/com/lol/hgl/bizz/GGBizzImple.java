@@ -1,13 +1,26 @@
 package com.lol.hgl.bizz;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Iterator;
 import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.util.WebUtils;
 
+import com.lol.hgl.util.FileUtil;
 import com.lol.hgl.dao.GGDao;
-import com.lol.hgl.dao.GGDaoImple;
 import com.lol.hgl.dto.ggDto;
+import com.lol.hgl.dto.ggImgDto;
 import com.lol.hgl.dto.ggcmDto;
 
 @Service
@@ -15,6 +28,10 @@ public class GGBizzImple implements GGBizz {
 
 	@Autowired
 	private GGDao dao;
+	
+	 @Autowired
+	  private FileUtil fileUtils;
+
 	
 	@Override
 	public int ggListCount() {
@@ -54,7 +71,29 @@ public class GGBizzImple implements GGBizz {
 	}
 
 	@Override
-	public int insert(ggDto dto) {
+	public int insert(ggDto dto, HttpServletRequest request) throws Exception {
+		dao.insert(dto); 
+		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+		 Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+		 MultipartFile multipartFile = null;
+		    while(iterator.hasNext()){
+		        multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+		        if(multipartFile.isEmpty() == false){
+		            System.out.println("------------- file start -------------");
+		            System.out.println("name : "+multipartFile.getName());
+		            System.out.println("filename : "+multipartFile.getOriginalFilename());
+		            System.out.println("size : "+multipartFile.getSize());
+		            System.out.println("-------------- file end --------------\n");
+		            ggImgDto imgDto = fileUtils.parseInsertFileInfo(request);
+		    	    int ggNo = dao.newGgNo();
+		    	    imgDto.setGgNo(ggNo);
+		    	    imgDto.setGgCreatUser(dto.getGgWriter());
+		    	    dao.insertGgImage(imgDto);
+		        }
+		    }
+	    
+	
+	    		
 		return dao.insert(dto);
 	}
 

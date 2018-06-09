@@ -21,6 +21,16 @@
 		<result column="GGCMDATE" property="ggcmDate"/>
 	</resultMap>
 	
+	<resultMap type="com.lol.hgl.dto.ggImgDto" id="ggImgDtoMap">
+		<result column="GGIMGNO" property="ggImgNo"/>
+		<result column="GGNO" property="ggNo"/>
+		<result column="GGORIGINALNAME" property="ggOriginalName"/>
+		<result column="GGSTORENAME" property="ggStoreName"/>
+		<result column="GGIMGSIZE" property="ggImgSize"/>
+		<result column="GGIMGDATE" property="ggImgDate"/>
+		<result column="GGCREATUSER" property="ggCreatUser"/>
+	</resultMap>
+	
 	<select id="ggListCount" resultType="int">
 	 SELECT COUNT(*) FROM GG 
 	</select>
@@ -131,5 +141,15 @@
 		UPDATE GG SET GGREADCNT = GGREADCNT + 1 WHERE GGNO=#{ggNo}
 	</update>
 
+
+	<select id="newGgNo" resultType="int">
+	SELECT * FROM(
+	SELECT * FROM GG ORDER BY GGDATE DESC)
+	WHERE ROWNUM=1
+	</select>
+	
+	<insert id="insertGgImage" parameterType="ggImgDto">
+		INSERT INTO GGIMG VALUES(GGIMGNO_SEQ.NEXTVAL, #{ggNo}, #{ggOriginalName}, #{ggStoreName}, #{ggImgSize}, SYSDATE, #{ggCreatUser})
+	</insert>
 
 </mapper>
