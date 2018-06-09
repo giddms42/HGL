@@ -17,6 +17,7 @@
 		INSERT INTO CAL
 		VALUES(#{memberId},CALNO_SEQ.NEXTVAL,#{calTitle},#{calSch},SYSDATE,#{calMemo},#{calSMS})
 	</insert> -->
+	
 	<insert id="insert" parameterType="CalDto" >
 		INSERT INTO CAL
 		VALUES(#{memberId},CALNO_SEQ.NEXTVAL,#{calTitle},#{calSch},SYSDATE,#{calMemo},#{calSMS},#{memberNickname})

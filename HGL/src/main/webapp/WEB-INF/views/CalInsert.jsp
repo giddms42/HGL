@@ -8,6 +8,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+function schAdd(){
+	var SMS = document.getElementsByName("calSMS")[0].value;
+	if(!SMS==""){
+		var params = $("#CalForm").serialize();
+		alert(params);
+		$.ajax(
+		{
+			url : "CalInsert.do",
+			data : params,
+			type : 'POST',
+			success : function()
+					{		
+						alert("에이작스 성공~! : ");
+						opener.location.reload();
+						opener.parent.location.reload();
+						//self.close();
+					}, error : function(statusCode){
+						alert(statusCode.status);
+					}
+		});
+	}else{
+		alert("에이작스 실패~!")
+	}
+}
+</script>
 </head>
 <%
 	int year=Integer.parseInt(request.getParameter("year"));
@@ -26,7 +53,7 @@
 %>
 <body>
 <h1>일정작성하기</h1>
-	<form action="CalInsert.do" method="post">
+	<form id="CalForm">
 	<input type="hidden" name="memberId" value="<%=memberId %>"/>
 		<table border="1">
 			<tr>
@@ -96,7 +123,8 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="일정작성"/>
+					<button onclick="schAdd();">일정작성</button>
+					<!-- <input type="submit" value="일정작성"/> -->
 					<input type="button" value="돌아가기" 
 					onclick="location.href='CalListForm.do?year=<%=Cyear %>&month=<%=Cmonth %>&memberId=${login.memberId }'"/>
 				</td>

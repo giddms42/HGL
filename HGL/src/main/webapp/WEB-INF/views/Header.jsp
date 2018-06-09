@@ -28,15 +28,15 @@ function AdminMange(){
 
 <body>
 <%
-Calendar cal =Calendar.getInstance();
+Calendar cal2 =Calendar.getInstance();
 //현재 년도
-int year = cal.get(Calendar.YEAR);
+int year2 = cal2.get(Calendar.YEAR);
 //현재 월 (0~11)
-int month = cal.get(Calendar.MONTH)+1;
+int month2 = cal2.get(Calendar.MONTH)+1;
 %>
 	<div>
 		<div id="header">
-		<div id="header2"><img src="image/sadad.png"></div>
+		<div id="header2"><img src="image/sadad.png" id="img"></div>
 			<div id="up">
 				<div class="up2" id="up21"><a href="MainForm.do">홈버튼 로고</a></div>
 				<div class="up2" id="up22">
@@ -58,7 +58,7 @@ int month = cal.get(Calendar.MONTH)+1;
 				</div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">홈페이지 소개</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MemberInfoForm.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn2">내정보</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="CalListForm.do?memberId=${login.memberId }&year=<%=year %>&month=<%=month %>&memberNickname=${login.memberNickname }" class="btn btn-sm animated-button thar-three" id="btn2">캘린더</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="CalListForm.do?memberId=${login.memberId }&year=<%=year2 %>&month=<%=month2 %>&memberNickname=${login.memberNickname }" class="btn btn-sm animated-button thar-three" id="btn2">캘린더</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLBList.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn2">지도</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn2">위시리스트</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="GGListForm.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn2">좋은글</a></div></div>

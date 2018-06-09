@@ -23,7 +23,7 @@ public class MemeberDaoImple implements MemberDao {
 			res = sqlSession.selectOne(nameSpace+"idChk", id);
 			}catch(Exception e ) {
 				e.printStackTrace();
-			}	
+			}
 		return res;
 	}
 
