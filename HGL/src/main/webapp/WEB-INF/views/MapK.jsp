@@ -386,7 +386,7 @@ function showSub(obj){ //주소 셀렉트박스
 		    	<option value="강북구">강북구</option>
 		    	<option value="강서구">강서구</option>
 		    	<option value="관악구">관악구</option>
-		    	<option selected value="광진구">광진구</option>
+		    	<option value="광진구">광진구</option>
 		    	<option value="구로구">구로구</option>
 		    	<option value="금천구">금천구</option>
 		    	<option value="노원구">노원구</option>
