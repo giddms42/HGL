@@ -12,14 +12,12 @@ public class ggDto {
 	private String ggCont;
 	private int ggReadcnt;
 	private Date ggDate;
-	private String ggImgname;
 	
 	public ggDto() {
 		
 	}
 	
-	public ggDto(int ggNo, int ggRowNum, String ggWriter, String ggTitle, String ggCont, int ggReadcnt, Date ggDate,
-			String ggImgname) {
+	public ggDto(int ggNo, int ggRowNum, String ggWriter, String ggTitle, String ggCont, int ggReadcnt, Date ggDate) {
 		this.ggNo = ggNo;
 		this.ggRowNum = ggRowNum;
 		this.ggWriter = ggWriter;
@@ -27,7 +25,6 @@ public class ggDto {
 		this.ggCont = ggCont;
 		this.ggReadcnt = ggReadcnt;
 		this.ggDate = ggDate;
-		this.ggImgname = ggImgname;
 	}
 
 	public int getGgNo() {
@@ -76,14 +73,6 @@ public class ggDto {
 
 	public void setGgDate(Date ggDate) {
 		this.ggDate = ggDate;
-	}
-
-	public String getGgImgname() {
-		return ggImgname;
-	}
-
-	public void setGgImgname(String ggImgname) {
-		this.ggImgname = ggImgname;
 	}
 
 	public int getGgRowNum() {

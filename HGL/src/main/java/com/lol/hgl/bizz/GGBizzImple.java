@@ -1,10 +1,6 @@
 package com.lol.hgl.bizz;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -71,7 +67,8 @@ public class GGBizzImple implements GGBizz {
 
 	@Override
 	public int insert(ggDto dto, HttpServletRequest request) throws Exception {
-		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+		int res = dao.insert(dto);
+		 MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
 		 Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
 		 MultipartFile multipartFile = null;
 		    while(iterator.hasNext()){
@@ -83,27 +80,24 @@ public class GGBizzImple implements GGBizz {
 		            System.out.println("size : "+multipartFile.getSize());
 		            System.out.println("-------------- file end --------------\n");
 		            
-		            List<ggImgDto> list = fileUtils.parseInsertFileInfo(request);
+		            ggImgDto imgDto = fileUtils.parseInsertFileInfo(multipartFile);
 		            int ggNo = dao.newGgNo();
-		            for(int i=0; i<list.size(); i++) {
-		            	list.get(i).setGgNo(ggNo);
-		            	list.get(i).setGgCreatUser(dto.getGgWriter());
-		            	dao.insertGgImage(list.get(i));
-		            }
-	
+		            imgDto.setGgNo(ggNo);
+		            imgDto.setGgImgCreatUser(dto.getGgWriter());
+		            dao.insertGgImage(imgDto);
 		        }
 		    }
-	    
-	
-	    		
-		return dao.insert(dto);
+		return res;
 	}
 
 	@Override
-	public int delete(int seq) {
-		return dao.delete(seq);
+	public int delete(int ggNo) {
+		List<ggImgDto> list = dao.imgSelectOne(ggNo);
+		fileUtils.deleteFile(list);
+		dao.deleteImg(ggNo);
+		int res = dao.delete(ggNo);
+		return res;
 	}
-
 	@Override
 	public int update(ggDto dto) {
 		return dao.update(dto);
@@ -132,6 +126,11 @@ public class GGBizzImple implements GGBizz {
 	@Override
 	public int updateReadCount(int ggNo) {
 		return dao.updateReadCount(ggNo);
+	}
+
+	@Override
+	public List<ggImgDto> imgSelectOne(int ggNo) {
+		return dao.imgSelectOne(ggNo);
 	}
 
 	

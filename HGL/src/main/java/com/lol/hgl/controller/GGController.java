@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.lol.hgl.bizz.GGBizz;
 import com.lol.hgl.dto.fwlbDto;
 import com.lol.hgl.dto.ggDto;
+import com.lol.hgl.dto.ggImgDto;
 import com.lol.hgl.dto.ggcmDto;
 
 @Controller
@@ -110,10 +111,10 @@ public class GGController {
 		}
 		ggDto dto = bizz.selectOne(ggNo);
 		List<ggcmDto> dto2 = bizz.repleySelectOne(ggNo);
-		
+		List<ggImgDto> list = bizz.imgSelectOne(ggNo);
 		model.addAttribute("dto",dto);
 		model.addAttribute("dto2",dto2);
-		
+		model.addAttribute("imgList", list);
 		return "GGDetail";
 	}
 	
@@ -139,7 +140,9 @@ public class GGController {
 	@RequestMapping(value = "GGUpdateForm.do", method = {RequestMethod.GET,RequestMethod.POST})
 	public String GGUpdateForm(Model model, int ggNo) {
 		ggDto dto = bizz.selectOne(ggNo);
+		List<ggImgDto> list = bizz.imgSelectOne(ggNo);
 		model.addAttribute("dto", dto);
+		model.addAttribute("list", list);
 		return "GGUpdate";
 	}
 	

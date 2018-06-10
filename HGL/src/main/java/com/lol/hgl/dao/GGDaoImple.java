@@ -239,6 +239,28 @@ public class GGDaoImple implements GGDao {
 		return res;
 	}
 
+	@Override
+	public List<ggImgDto> imgSelectOne(int ggNo) {
+		List<ggImgDto> list = new ArrayList<ggImgDto>();
+		try {
+			list = sqlSession.selectList(namespace+"imgSelectOne",ggNo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public int deleteImg(int ggNo) {
+		int res=0;
+		try {
+			res = sqlSession.delete(namespace+"deleteImg",ggNo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 
 
 }

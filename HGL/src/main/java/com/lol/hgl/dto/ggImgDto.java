@@ -6,26 +6,27 @@ public class ggImgDto {
 	
 	private int ggImgNo;
 	private int ggNo;
-	private String ggOriginalName;
-	private String ggStoreName;
+	private String ggImgOrginalName;
+	private String ggImgStoreName;
 	private long ggImgSize;
 	private Date ggImgDate;
-	private String ggCreatUser;
+	private String ggImgCreatUser;
+	private String ggImgDel;
 	
 	public ggImgDto() {
 		
 	}
 	
-	public ggImgDto(int ggImgNo, int ggNo, String ggOriginalName, String ggStoreName, long ggImgSize, Date ggImgDate,
-			String ggCreatUser) {
-		super();
+	public ggImgDto(int ggImgNo, int ggNo, String ggImgOrginalName, String ggImgStoreName, long ggImgSize,
+			Date ggImgDate, String ggImgCreatUser, String ggImgDel) {
 		this.ggImgNo = ggImgNo;
 		this.ggNo = ggNo;
-		this.ggOriginalName = ggOriginalName;
-		this.ggStoreName = ggStoreName;
+		this.ggImgOrginalName = ggImgOrginalName;
+		this.ggImgStoreName = ggImgStoreName;
 		this.ggImgSize = ggImgSize;
 		this.ggImgDate = ggImgDate;
-		this.ggCreatUser = ggCreatUser;
+		this.ggImgCreatUser = ggImgCreatUser;
+		this.ggImgDel = ggImgDel;
 	}
 
 	public int getGgImgNo() {
@@ -44,20 +45,20 @@ public class ggImgDto {
 		this.ggNo = ggNo;
 	}
 
-	public String getGgOriginalName() {
-		return ggOriginalName;
+	public String getGgImgOrginalName() {
+		return ggImgOrginalName;
 	}
 
-	public void setGgOriginalName(String ggOriginalName) {
-		this.ggOriginalName = ggOriginalName;
+	public void setGgImgOrginalName(String ggImgOrginalName) {
+		this.ggImgOrginalName = ggImgOrginalName;
 	}
 
-	public String getGgStoreName() {
-		return ggStoreName;
+	public String getGgImgStoreName() {
+		return ggImgStoreName;
 	}
 
-	public void setGgStoreName(String ggStoreName) {
-		this.ggStoreName = ggStoreName;
+	public void setGgImgStoreName(String ggImgStoreName) {
+		this.ggImgStoreName = ggImgStoreName;
 	}
 
 	public long getGgImgSize() {
@@ -76,14 +77,23 @@ public class ggImgDto {
 		this.ggImgDate = ggImgDate;
 	}
 
-	public String getGgCreatUser() {
-		return ggCreatUser;
+	public String getGgImgCreatUser() {
+		return ggImgCreatUser;
 	}
 
-	public void setGgCreatUser(String ggCreatUser) {
-		this.ggCreatUser = ggCreatUser;
+	public void setGgImgCreatUser(String ggImgCreatUser) {
+		this.ggImgCreatUser = ggImgCreatUser;
 	}
 
+	public String getGgImgDel() {
+		return ggImgDel;
+	}
+
+	public void setGgImgDel(String ggImgDel) {
+		this.ggImgDel = ggImgDel;
+	}
+	
+	
 	
 	
 }

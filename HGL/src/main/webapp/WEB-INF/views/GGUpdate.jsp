@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +27,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	   <div id="b">
 	      <div id="bodyMain">
 	         <img src="image/sadad.png" id="content">
-	         <form action="update.do" id="form" method="post">
+	          <form id="frm" name="frm" enctype="multipart/form-data" action="update.do" method="post">
 	      		   <input type="hidden" name="ggNo" value="${dto.ggNo }">   	   
 	         	   <div id="boardName">정말 좋은글 수정하기</div>
 		           <br/>
@@ -44,8 +46,19 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                     <td><textarea rows="20" cols="50" style="resize: none;" name="ggCont">${dto.ggCont }</textarea></td>
 	                  </tr>
 	                  <tr>
-	                     <td>파일첨부</td>
-						<td><textarea rows="5" placeholder="파일첨부 표시되는곳" style="resize: none;"></textarea></td>
+	                  	<td>
+	                      <div id="fileDiv">               
+                            <c:forEach items="${list}" var="ggImgDto" varStatus="i">
+                                <p>
+                                    <input type="hidden" id="IDX" name="IDX_${var.index }" value="${row.IDX }">
+                                    <a href="#this" id="name_${var.index }" name="name_${var.index }">${row.ORIGINAL_FILE_NAME }</a>
+                                    <input type="file" id="file_${var.index }" name="file_${var.index }">
+                                    (${row.FILE_SIZE }kb)
+                                    <a href="#this" class="btn" id="delete_${var.index }" name="delete_${var.index }">삭제</a>
+                                </p>
+                            </c:forEach>
+                        </div>
+						</td>
 					</tr>
 	               </table>
 	               <div class="btn">
