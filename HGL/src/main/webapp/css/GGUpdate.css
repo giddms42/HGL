@@ -43,8 +43,8 @@ display: -webkit-flex;
      flex-direction: column;
  }
  
- #form{
- 	 display: -webkit-flex;
+ #frm{
+ 	display: -webkit-flex;
      display:         flex;
      -webkit-align-items: center;
              align-items: center;
@@ -111,16 +111,19 @@ display: -webkit-flex;
  }
  
  a:link{
+ 	font-size: 12pt;
  	color: white;
  	text-decoration: none;
  }
  
  a:hover {
+ 	font-size: 12pt;
 	color: white;
 	text-decoration: none;
 }
 
 a:visited {
+	font-size: 12pt;
 	color: white;
 	text-decoration: none;
 }

@@ -34,7 +34,7 @@ $(document).ready(function(){
 });
 
 function fn_addFile(){
-    var str = "<p><input type='file' name='file_"+(gfv_count++)+"'><a href='#this' class='btn' name='delete'>삭제</a></p>";
+    var str = "<p><input type='file' id='file' name='file_"+(gfv_count++)+"'><a href='#this' class='btn' id='delete' name='delete'><button>삭제</button></a></p>";
     $("#fileDiv").append(str);
     $("a[name='delete']").on("click", function(e){ //삭제 버튼
         e.preventDefault();
@@ -49,10 +49,9 @@ function fn_deleteFile(obj){
 <body>
 	<div id="container">
 	   <div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
-	   
+	   <br/>
 	   <div id="b">
 	      <div id="bodyMain">
-	         <img src="image/sadad.png" id="content">
 	         <form:form method="post" enctype="multipart/form-data" id="form" action="GGinsert.do">
 	         	   <div id="boardName">정말 좋은글 글쓰기</div>
 		           <br/>
@@ -73,19 +72,17 @@ function fn_deleteFile(obj){
 	                  <tr>
 	                     <td>파일첨부 </td>
 						<td>
-						<div id="fileDiv">
-						 <p>
-                			<input type="file" id="file" name="file_0">
-               				<a href="#this" class="btn" id="delete" name="delete">삭제</a>
-           				 </p>
-						</div>
-						<textarea rows="5" placeholder="파일첨부 표시되는곳" style="resize: none;"></textarea>
+							<div id="fileDiv">
+							 <p>
+	                			<input type="file" id="file" name="file_0"><a href="#this" class="btn" id="delete" name="delete"><button>삭제</button></a>
+	           				 </p>
+							</div>
 						</td>
 					</tr>
 	               </table>
 	               <div class="btn">               
-	             		<a href="#this" class="btn" id="addFile">파일 추가</a>
-	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do'" class="btn2">
+	             		<a href="#this" class="btn" id="addFile"><button class="btn">파일 추가</button></a>
+	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn2">
 		                <input type="submit" value="글작성" class="btn3">
 	               </div>
 	      </form:form>

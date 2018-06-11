@@ -79,7 +79,7 @@ display: -webkit-flex;
 	width: 10%;
 }
 
-strong{
+#header strong{
 	font-size: 20pt;
 	color: orange;
 }

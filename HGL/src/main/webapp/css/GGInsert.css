@@ -19,7 +19,7 @@ width: 100%;
 #b{
 color: white;
 border: 1px dashed red;
-height: 650px;
+height: 100%;
 width: 100%; 
 display: -webkit-flex;
      display:         flex;
@@ -110,22 +110,26 @@ display: -webkit-flex;
  }
  
  a:link{
+ 	font-size: 12pt;
  	color: white;
  	text-decoration: none;
  }
  
  a:hover {
+ 	font-size: 12pt;
 	color: white;
 	text-decoration: none;
 }
 
 a:visited {
+	font-size: 12pt;
 	color: white;
 	text-decoration: none;
 }
 .btn{
 	position: relative;
 	padding: 5px;
+	height: 30px;
 }
 
 .btn1{
@@ -137,12 +141,12 @@ a:visited {
 .btn2{
 	position: absolute;
 	height: 30px;
-	left: 315px;
-	top: 17px;
+	left: 360px;
+	top: 5px;
 }
 .btn3{
 	position: absolute;
 	height: 30px;
-	left: 375px;
-	top: 17px;	
+	left: 420px;
+	top: 5px;	
 }

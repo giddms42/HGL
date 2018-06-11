@@ -24,7 +24,7 @@ public class CalController {
 	
 	@RequestMapping(value = "CalListForm.do")
 	   public String CalListForm(Model model, String memberNickname, String memberId, int year, int month) {
-		
+		System.out.println("리스트폼 컨트롤러");
 		String month2 = String.valueOf(month);
 		String yyyyMM = ""+year+Util.isTwo(month2);
 		List<calDto> cList= bizz.selectAll(memberId, yyyyMM);
@@ -98,7 +98,7 @@ public class CalController {
 	
 	@RequestMapping(value="CalDelete.do")
 	public String CalDelete(Model model, int calNo, String year, String month, String memberId) {
-		
+		System.out.println("delete컨트롤러");
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("memberId", memberId);
@@ -114,7 +114,7 @@ public class CalController {
 	
 	@RequestMapping(value="CalUpdate.do")
 	public String CalUpdate(Model model, int calNo, String year, String month, String date, String hour, String min, String memberId, String calTitle, String calMemo, String calSMS, String memberNickname) {
-		
+		System.out.println("칼업뎃");
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("memberId", memberId);

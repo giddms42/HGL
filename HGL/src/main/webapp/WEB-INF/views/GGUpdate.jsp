@@ -26,7 +26,6 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	   
 	   <div id="b">
 	      <div id="bodyMain">
-	         <img src="image/sadad.png" id="content">
 	          <form id="frm" name="frm" enctype="multipart/form-data" action="update.do" method="post">
 	      		   <input type="hidden" name="ggNo" value="${dto.ggNo }">   	   
 	         	   <div id="boardName">정말 좋은글 수정하기</div>
@@ -46,6 +45,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                     <td><textarea rows="20" cols="50" style="resize: none;" name="ggCont">${dto.ggCont }</textarea></td>
 	                  </tr>
 	                  <tr>
+	                  	<td>파일첨부 </td>
 	                  	<td>
 	                      <div id="fileDiv">               
                             <c:forEach items="${list}" var="ggImgDto" varStatus="i">
@@ -54,7 +54,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
                                     <a href="#this" id="name_${var.index }" name="name_${var.index }">${row.ORIGINAL_FILE_NAME }</a>
                                     <input type="file" id="file_${var.index }" name="file_${var.index }">
                                     (${row.FILE_SIZE }kb)
-                                    <a href="#this" class="btn" id="delete_${var.index }" name="delete_${var.index }">삭제</a>
+                                    <a href="#this" class="btn" id="delete_${var.index }" name="delete_${var.index }"><button>삭제</button></a>
                                 </p>
                             </c:forEach>
                         </div>

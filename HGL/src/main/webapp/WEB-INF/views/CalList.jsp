@@ -78,6 +78,16 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 		window.name="Parent";
 		window.open("CalInsertForm.do?year="+year2+"&month="+month2+"&date="+date2+"&lastDay="+lastDay2+"&memberId="+memberId2+"&memberNickname="+memberNickname2,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 		}
+	
+	function DetSCH(num){
+		
+		alert(num);
+	 	var popupX = (window.screen.width/2) - (515 / 2);
+		var popupY= (window.screen.height/2)- (465/2);
+		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+		window.name="Parent";
+		window.open("calDetail.do?calNo="+num,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		}
 </script>
 <%
 	String paramYear = request.getParameter("year");
