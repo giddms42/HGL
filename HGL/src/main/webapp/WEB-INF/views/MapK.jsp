@@ -658,6 +658,7 @@ function showSub(obj){ //주소 셀렉트박스
 	 	  	<button>검색</button>
 	    </div>
 	</form>
+	<div>${kinddo} ${kindcity}에 위치한 착한가게 입니다</div>
 	<table border="1" style="text-align: left;">
 		<col width=200px;>
 		<col width=150px;>
