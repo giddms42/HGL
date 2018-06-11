@@ -67,22 +67,22 @@ public class kindstoreDaoImple implements kindstoreDao {
 	}
 
 	@Override
-	public int kindstoreListSerchCount(String kinddo, String kindcity) {
+	public int kindstoreListSerchCount(String kindDo, String kindCity) {
 		int res = 0;
-		if(kinddo.equals("세종특별자치시")) {
-			kinddo = "%"+kinddo+"%";
+		if(kindDo.equals("세종특별자치시")) {
+			kindDo = "%"+kindDo+"%";
 			try {
-				res = sqlSession.selectOne(namespace+"kindstoreListSerchCountOne",kinddo);
+				res = sqlSession.selectOne(namespace+"kindstoreListSerchCountOne",kindDo);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			return res;
 		}else { 
 			Map<String, String> map = new HashMap<String, String>();
-			kinddo = "%"+kinddo+"%";
-			kindcity = "%"+kindcity+"%";
-			map.put("kindDo", kinddo);
-			map.put("kindCity", kindcity);
+			kindDo = "%"+kindDo+"%";
+			kindCity = "%"+kindCity+"%";
+			map.put("kindDo", kindDo);
+			map.put("kindCity", kindCity);
 			try {
 				res = sqlSession.selectOne(namespace+"kindstoreListSerchCountAll",map);
 			} catch (Exception e) {

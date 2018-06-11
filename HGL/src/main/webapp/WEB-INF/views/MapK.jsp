@@ -353,11 +353,19 @@ function showSub(obj){ //주소 셀렉트박스
 	}
 }
 </script>
+<script type="text/javascript">//기타 조건
+	function SearchCheck(kinddo){
+		if(kinddo==""){
+			alert("검색할지역을 선택해주세요");
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
-	<form action="kindListSearch.do" method="post" novalidate>
+	<form action="kindListSearch.do" method="post" onsubmit="return SearchCheck(kinddo.value)"novalidate>
 	<input type="hidden" name="nowpage" value="1"/>
-		<div class="registinfo" style="border:1px dotted red;">
+		<div class="registinfo" style="width:330px; display: inline-block;">
 		    <select name="kinddo" onChange="showSub(this.options[this.selectedIndex].value);" required="required" style="width:150px;">
 		    	<option value="">도를 선택해주세요</option>
 		    	<option value="서울특별시">서울특별시</option>
@@ -654,29 +662,38 @@ function showSub(obj){ //주소 셀렉트박스
 		    	<option value="제주시">제주시</option>
 		    </select>
 		</div>
-	    <div>
+	    <div style="display: inline-block;">
 	 	  	<button>검색</button>
 	    </div>
 	</form>
 	<div>${kinddo} ${kindcity}에 위치한 착한가게 입니다</div>
-	<table border="1" style="text-align: left;">
+	<table border="1" style="text-align: center;">
+		<col width=180px;>
+		<col width=130px;>
 		<col width=200px;>
 		<col width=150px;>
+		<col width=100px;>
+		<col width=100px;>
 		<tr>
 			<th>가게명</th>
 			<th>전화번호</th>
 			<th>주소</th>
+			<th>주메뉴</th>
+			<th>배달여부</th>
+			<th>주차여부</th>
 		</tr>
 		<c:forEach items="${list}" var="kindstoreDto">
 		    <tr>
-				<td>${kindstoreDto.kindStorename}</td>
+				<td onclick="SeachMap('${kindstoreDto.kindAddr}','${kindstoreDto.kindStorename}');">${kindstoreDto.kindStorename}</td>
 				<td>${kindstoreDto.kindPhone}</td>
-				<td colspan="2">${kindstoreDto.kindAddr}</td>
+				<td>${kindstoreDto.kindAddr}</td>
+				<td>${kindstoreDto.kindMenu}</td>
+				<td>${kindstoreDto.kindDelivery}</td>
+				<td>${kindstoreDto.kindParking}</td>
 			</tr>
 		</c:forEach>
 	</table>
--------------------------------------------------------------------------------	
-	           <div id="paging">
+	           <div id="paging" style="margin: auto;">
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
 							◀
@@ -706,49 +723,52 @@ function showSub(obj){ //주소 셀렉트박스
 						</c:otherwise>
 					</c:choose>
 	            </div>
-	
---------------------------------------------------------------------------------
-
-<div id="map" style="float:right; width:55%;height:400px;"></div>
+	            
+	            <hr/>
+	            
+<div id="map" style="margin:auto; width:100%;height:500px;">위치를 볼 가게명을 클릭해주세요</div>
+<hr>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ba70f18b82582ffb72e4e43aa8c40fbb&libraries=services"></script>
 <script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = {
-        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };  
 
-// 지도를 생성합니다    
-var map = new daum.maps.Map(mapContainer, mapOption); 
-
-// 주소-좌표 변환 객체를 생성합니다
-var geocoder = new daum.maps.services.Geocoder();
-
-// 주소로 좌표를 검색합니다
-geocoder.addressSearch('부산광역시 동래구 아시아드대로233', function(result, status) {
-
-    // 정상적으로 검색이 완료됐으면 
-     if (status === daum.maps.services.Status.OK) {
-
-        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-
-        // 결과값으로 받은 위치를 마커로 표시합니다
-        var marker = new daum.maps.Marker({
-            map: map,
-            position: coords
-        });
-
-        // 인포윈도우로 장소에 대한 설명을 표시합니다
-        var infowindow = new daum.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">착한가게</div>'
-        });
-        infowindow.open(map, marker);
-
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        map.setCenter(coords);
-    } 
-});    
+function SeachMap(SeachAddr,SeachKindName){
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = {
+	        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };  
+	
+	// 지도를 생성합니다    
+	var map = new daum.maps.Map(mapContainer, mapOption); 
+	
+	// 주소-좌표 변환 객체를 생성합니다
+	var geocoder = new daum.maps.services.Geocoder();
+	
+	// 주소로 좌표를 검색합니다
+	geocoder.addressSearch(SeachAddr, function(result, status) {
+	    // 정상적으로 검색이 완료됐으면 
+	     if (status === daum.maps.services.Status.OK) {
+	
+	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+	
+	        // 결과값으로 받은 위치를 마커로 표시합니다
+	        var marker = new daum.maps.Marker({
+	            map: map,
+	            position: coords
+	        });
+	
+	        // 인포윈도우로 장소에 대한 설명을 표시합니다
+	        var infowindow = new daum.maps.InfoWindow({
+	            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+SeachKindName+'</div>'
+	        });
+	        infowindow.open(map, marker);
+	
+	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+	        map.setCenter(coords);
+	    } 
+	});    
+}
 </script>
 </body>
 </html>

@@ -18,12 +18,8 @@
 	#category li:last-child{margin-right:0;border-right:0;}
 	#category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
 	#category li .category_bg {background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;}
-	#category li .bank {background-position: -10px 0;}
-	#category li .mart {background-position: -10px -36px;}
 	#category li .pharmacy {background-position: -10px -72px;}
-	#category li .oil {background-position: -10px -108px;}
 	#category li .cafe {background-position: -10px -144px;}
-	#category li .store {background-position: -10px -180px;}
 	#category li.on .category_bg {background-position-x:-46px;}
 	
 	.placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
@@ -42,13 +38,13 @@
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
     <ul id="category">
-        <li id="CT1" data-order="0"> 
-            <span class="category_bg bank"></span>
-            문화
-        </li>       
-        <li id="HP8" data-order="1"> 
+        <li id="HP8" data-order="2"> 
             <span class="category_bg pharmacy"></span>
-       	병원
+            병원
+        </li> 
+        <li id="CT1" data-order="4"> 
+       		<span class="category_bg cafe"></span>
+       	문화
         </li>   
     </ul>
 </div>
