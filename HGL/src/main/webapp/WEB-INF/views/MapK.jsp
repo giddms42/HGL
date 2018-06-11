@@ -363,6 +363,8 @@ function showSub(obj){ //주소 셀렉트박스
 </script>
 </head>
 <body>
+	<div id="container" style="text-align: center;">
+	
 	<form action="kindListSearch.do" method="post" onsubmit="return SearchCheck(kinddo.value)"novalidate>
 	<input type="hidden" name="nowpage" value="1"/>
 		<div class="registinfo" style="width:330px; display: inline-block;">
@@ -667,7 +669,7 @@ function showSub(obj){ //주소 셀렉트박스
 	    </div>
 	</form>
 	<div>${kinddo} ${kindcity}에 위치한 착한가게 입니다</div>
-	<table border="1" style="text-align: center;">
+	<table border="1" style="text-align: center; margin: auto;">
 		<col width=180px;>
 		<col width=130px;>
 		<col width=200px;>
@@ -725,7 +727,7 @@ function showSub(obj){ //주소 셀렉트박스
 	            </div>
 	            
 	            <hr/>
-	            
+	            </div>
 <div id="map" style="margin:auto; width:100%;height:500px;">위치를 볼 가게명을 클릭해주세요</div>
 <hr>
 
