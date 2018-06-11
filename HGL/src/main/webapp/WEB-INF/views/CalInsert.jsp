@@ -24,10 +24,11 @@ function schAdd(){
 					{		
 						alert("에이작스 성공~! : " + str);
 						opener.location.reload();
-						/* opener.parent.location.reload(); */
 						self.close();
 					}, error : function(statusCode){
-						alert(statusCode.status);
+						alert("error 코드 : " + statusCode.status + " / 입력은 되는데 서버응답이 없는것같음");
+						opener.location.reload();
+						self.close();
 					}
 		});
 	}else{
