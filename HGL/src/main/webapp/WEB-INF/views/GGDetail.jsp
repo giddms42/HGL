@@ -55,19 +55,18 @@ html {
 						</tr>
 						<tr>
 							<td>글내용</td>
-							<td><textarea rows="20" cols="50" readonly="readonly" style="resize: none;">${dto.ggCont}</textarea></td>
-						</tr>
-						<c:if test="${!empty imgList}">
-							<c:forEach items="${imgList}" var="ggImgDto">
-						<tr>
-							<td>이미지</td>
 							<td>
-								<img src="GGimg/${ggImgDto.ggImgStoreName}">
+							<textarea rows="20" cols="50" readonly="readonly" style="resize: none;">${dto.ggCont}</textarea>
+							<div style="max-width:300px; height: 300px;">
+								<c:if test="${!empty imgList}">
+								<c:forEach items="${imgList}" var="ggImgDto">
+									<img src="ggImg/${ggImgDto.ggImgStoreName}">
+								</c:forEach>
+							</c:if>
+							</div>
 							</td>
 						</tr>
-							</c:forEach>
-						</c:if>
-						
+				
 					</table>
 					<div class="btn">
 						<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn1">

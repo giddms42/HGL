@@ -72,3 +72,5 @@ CREATE TABLE GGIMG
 
 SELECT * FROM GGIMG;
 ALTER TABLE GGIMG MODIFY(GGSTORENAME VARCHAR2(50));
+
+select * from kindstore where kinddo='세종특별자치시' and kindcity = '%null%';
