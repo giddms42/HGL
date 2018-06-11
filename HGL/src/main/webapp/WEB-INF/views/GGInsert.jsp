@@ -85,7 +85,7 @@ function fn_deleteFile(obj){
 	               </table>
 	               <div class="btn">               
 	             		<a href="#this" class="btn" id="addFile">파일 추가</a>
-	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do'" class="btn2">
+	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn2">
 		                <input type="submit" value="글작성" class="btn3">
 	               </div>
 	      </form:form>

@@ -28,8 +28,11 @@ public interface GGDao {
 	public int repleyUpdate(ggcmDto dto);
 	public int newGgNo();
 	public int insertGgImage(ggImgDto dto);
-	public List<ggImgDto> imgSelectOne(int ggNo);
+	public List<ggImgDto> imgSelectList(int ggNo);
 	public int deleteImg(int ggNo);
+	public int updeateImgDelY(int ggNo);
+	public int updeateImgDelN(String[] ggimgNo);
+	public int deleteImgDelY();
 	
 
 }

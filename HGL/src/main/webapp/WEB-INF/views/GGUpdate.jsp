@@ -8,7 +8,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <title>Insert title here</title>
+<script type="text/javascript">
+var gfv_count = 1;
+
+$(function(){
+
+	 $("#addFile").on("click", function(e){ //파일 추가 버튼
+         e.preventDefault();
+         fn_addFile();
+     });
+      
+     $("a[name^='delete']").on("click", function(e){ //삭제 버튼
+         e.preventDefault();
+         fn_deleteFile($(this));
+     });
+
+});
+
+function fn_deleteFile(obj){
+    obj.parent().remove();
+}
+
+function fn_addFile(){
+    var str = "<p>" +
+            "<input type='file' name='file_"+(gfv_count++)+"'>"+
+            "<input type='button' name='delete' value='삭제'/>" +
+              "</p>";
+    $("#fileDiv").append(str);
+    $("a[name^='delete']").on("click", function(e){ //삭제 버튼
+        e.preventDefault();
+        fn_deleteFile($(this));
+    });
+}
+
+</script>
 </head>
 <link rel="stylesheet" type="text/css" href="css/GGUpdate.css">
 <style>
@@ -28,7 +63,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	      <div id="bodyMain">
 	         <img src="image/sadad.png" id="content">
 	          <form id="frm" name="frm" enctype="multipart/form-data" action="update.do" method="post">
-	      		   <input type="hidden" name="ggNo" value="${dto.ggNo }">   	   
+	      		   <input type="hidden" name="ggNo" value="${dto.ggNo }">  
 	         	   <div id="boardName">정말 좋은글 수정하기</div>
 		           <br/>
 	               <table border="1" bordercolor="white">
@@ -43,18 +78,22 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                  </tr>
 	                  <tr>
 	                     <td>글내용</td>
-	                     <td><textarea rows="20" cols="50" style="resize: none;" name="ggCont">${dto.ggCont }</textarea></td>
+	                     <td>
+	                     <textarea rows="20" cols="50" style="resize: none;" name="ggCont">${dto.ggCont }</textarea></td>
 	                  </tr>
 	                  <tr>
+	                  	<td>파일첨부</td>
 	                  	<td>
 	                      <div id="fileDiv">               
                             <c:forEach items="${list}" var="ggImgDto" varStatus="i">
                                 <p>
-                                    <input type="hidden" id="IDX" name="IDX_${var.index }" value="${row.IDX }">
-                                    <a href="#this" id="name_${var.index }" name="name_${var.index }">${row.ORIGINAL_FILE_NAME }</a>
-                                    <input type="file" id="file_${var.index }" name="file_${var.index }">
-                                    (${row.FILE_SIZE }kb)
-                                    <a href="#this" class="btn" id="delete_${var.index }" name="delete_${var.index }">삭제</a>
+                                <!-- 이미지 번호 -->
+                                <input type="hidden" id="IDX" class="file" name="IDX" value="${ggImgDto.ggImgNo}"/>
+                                <!-- 원 제목 -->
+                                ${ggImgDto.ggImgOrginalName}
+                                <!-- 이미지 사이즈 -->
+                                (${ggImgDto.ggImgSize}kb)
+                                 <a href="#this" class="btn" id="delete_${i.index }" name="delete_${i.index }">삭제</a>
                                 </p>
                             </c:forEach>
                         </div>
@@ -62,7 +101,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 					</tr>
 	               </table>
 	               <div class="btn">
-	               		<input type="button" value="파일첨부" onclick="" class="btn1">
+	               		<a href="#this" class="btn" id="addFile">파일 추가</a>
 	               		<input type="button" value="취소" onclick="location.href='GGListForm.do?nowpage=1'" class="btn2">
 		                <input type="submit" value="글수정" class="btn3">
 	               </div>

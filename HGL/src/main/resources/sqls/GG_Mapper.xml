@@ -46,7 +46,7 @@
         from GG ORDER BY GGNO DESC) A
     where ROWNUM <= #{endPost}) X
 	where X.RN >= #{startPost}
-	ORDER BY X.GGNO
+	ORDER BY X.GGNO 
 	]]>
 	</select>
 	
@@ -62,7 +62,7 @@
         from GG ORDER BY GGNO DESC) A
     where ROWNUM <= #{endPost}) X
 	where X.RN >= #{startPost}
-	ORDER BY X.GGNO DESC
+	ORDER BY X.GGNO
 	]]>
 	</select>
 	
@@ -83,7 +83,7 @@
         ORDER BY GGNO DESC) A
     where ROWNUM <= TO_NUMBER(#{endPost})) X
 	where X.RN >= TO_NUMBER(#{startPost})
-	ORDER BY X.GGNO DESC
+	ORDER BY X.GGNO 
 	]]>
 	</select>
 	
@@ -159,5 +159,21 @@
 	<delete id="deleteImg" parameterType="int">
 		DELETE FROM GGIMG WHERE GGNO=#{ggNo}
 	</delete>
+	
+	<update id="updeateImgDelY" parameterType="int">
+		UPDATE GGIMG SET GGIMGDEL='Y' WHERE GGNO=#{ggNo}
+	</update>
 
+	<update id="updeateImgDelN" parameterType="map">
+		UPDATE GGIMG SET GGIMGDEL='N' WHERE GGIMGNO IN 
+		<foreach collection="ggImgNos" item="ggImgNo" open="(" separator="," close=")">
+		#{ggImgNo}
+		</foreach>
+	</update>
+	
+	<delete id="deleteImgDelY" >
+		DELETE FROM GGIMG WHERE GGIMGDEL='Y'
+	</delete>
+	
+	
 </mapper>

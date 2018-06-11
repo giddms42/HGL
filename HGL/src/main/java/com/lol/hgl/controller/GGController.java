@@ -1,5 +1,6 @@
 package com.lol.hgl.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -147,8 +148,8 @@ public class GGController {
 	}
 	
 	@RequestMapping(value = "update.do", method = {RequestMethod.GET,RequestMethod.POST})
-	public String update(Model model, ggDto dto) {
-		int res = bizz.update(dto);
+	public String update(Model model, ggDto dto, HttpServletRequest request) throws Exception {		
+		int res = bizz.update(dto, request);
 		if (res > 0) {
 			model.addAttribute("ggNo", dto.getGgNo());
 			model.addAttribute("count", 0);
