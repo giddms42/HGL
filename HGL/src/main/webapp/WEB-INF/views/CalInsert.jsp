@@ -20,12 +20,12 @@ function schAdd(){
 			url : "CalInsert.do",
 			data : params,
 			type : 'POST',
-			success : function()
+			success : function(str)
 					{		
-						alert("에이작스 성공~! : ");
+						alert("에이작스 성공~! : " + str);
 						opener.location.reload();
-						opener.parent.location.reload();
-						//self.close();
+						/* opener.parent.location.reload(); */
+						self.close();
 					}, error : function(statusCode){
 						alert(statusCode.status);
 					}
@@ -40,10 +40,7 @@ function schAdd(){
 	int year=Integer.parseInt(request.getParameter("year"));
 	int month=Integer.parseInt(request.getParameter("month"));
 	int date=Integer.parseInt(request.getParameter("date"));
-	int lastDay=Integer.parseInt(request.getParameter("lastday"));
-	
-	String Cyear = request.getParameter("year");
-	String Cmonth = request.getParameter("month");
+	int lastDay=Integer.parseInt(request.getParameter("lastDay"));
 	String memberId = request.getParameter("memberId");
 	String memberNickname = request.getParameter("memberNickname");
 	
@@ -55,6 +52,7 @@ function schAdd(){
 <h1>일정작성하기</h1>
 	<form id="CalForm">
 	<input type="hidden" name="memberId" value="<%=memberId %>"/>
+	<input type="hidden" name="lastDay" value="<%=lastDay %>">
 		<table border="1">
 			<tr>
 				<th>닉넴</th>
@@ -126,7 +124,7 @@ function schAdd(){
 					<button onclick="schAdd();">일정작성</button>
 					<!-- <input type="submit" value="일정작성"/> -->
 					<input type="button" value="돌아가기" 
-					onclick="location.href='CalListForm.do?year=<%=Cyear %>&month=<%=Cmonth %>&memberId=${login.memberId }'"/>
+					onclick="location.href='CalListForm.do?year=<%=year %>&month=<%=month %>&memberId=${login.memberId }'"/>
 				</td>
 			</tr>
 		</table>

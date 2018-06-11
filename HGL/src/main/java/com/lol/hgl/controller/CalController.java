@@ -28,6 +28,7 @@ public class CalController {
 		String month2 = String.valueOf(month);
 		String yyyyMM = ""+year+Util.isTwo(month2);
 		List<calDto> cList= bizz.selectAll(memberId, yyyyMM);
+		System.out.println("칼리스트폼.두 - cList : " + cList);
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("memberId", memberId);
@@ -45,45 +46,46 @@ public class CalController {
 	}
 		
 	@RequestMapping(value="CalInsertForm.do")
-	public String CalInsertForm(Model model, String year, String month, String date, String lastday, String memberId, String memberNickname) {
+	public String CalInsertForm(Model model, String year, String month, String date, String lastDay, String memberId, String memberNickname) {
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("date", date);
-		model.addAttribute("lastday", lastday);
+		model.addAttribute("lastDay", lastDay);
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("memberNickname", memberNickname);
-		System.out.println(year + " , " +month + " , " +date + " , " +lastday + " , " +memberId + " , " +memberNickname);
+		System.out.println(year + " , " +month + " , " +date + " , " +lastDay + " , " +memberId + " , " +memberNickname);
 		return "CalInsert";
 	}
 	
 	@RequestMapping(value="CalInsert.do")
 	@ResponseBody
-	public int CalInsert(Model model, String year, String month, String date, String memberId, String hour, String min, String calTitle, String calMemo, String calSMS, String memberNickname) {
-		int Cyear = Integer.parseInt(year);
-		int Cmonth = Integer.parseInt(month);
-		
-/*		session.setAttribute("year", Cyear);
-		session.setAttribute("month", Cmonth);
-		session.setAttribute("memberId", memberId);
-		session.setAttribute("memberNickname", memberNickname);*/
-		model.addAttribute("year", Cyear);
-		model.addAttribute("month", Cmonth);
+	public String CalInsert(Model model, String year, String month, String date, String lastDay, String memberId, String hour, String min, String calTitle, String calMemo, String calSMS, String memberNickname) {
+		System.out.println("칼인서트 컨트롤러 시작");
+		model.addAttribute("year", year);
+		model.addAttribute("month", month);
+		model.addAttribute("date", date);
+		model.addAttribute("lastDay", lastDay);
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("memberNickname", memberNickname);
-		
+		System.out.println("칼인서트컨트롤러 어트리뷰트끝"+lastDay);
 		String calSch=year+Util.isTwo(month)
 			+Util.isTwo(date)
 			+Util.isTwo(hour)
 			+Util.isTwo(min);
-		
+		System.out.println("칼인서트컨트롤러 calSch완성");
 		int res = bizz.insert(new calDto(memberId,calTitle,calSch,calMemo,calSMS,memberNickname));
-
+		System.out.println("칼인서트컨트롤러 비즈.인서트 결과값 : " + res);
 		if(res > 0) {
-			System.out.println("성공");
-			return 0;		
+			System.out.println("인서트 성공");
+			String yyyyMM = ""+year+Util.isTwo(month);
+			System.out.println("칼인서트컨트롤러 yyyyMM : " + yyyyMM);
+			List<calDto> cList= bizz.selectAll(memberId, yyyyMM);
+			System.out.println("칼인서트컨트롤러 비즈.셀렉트올 cList : " + cList);
+			model.addAttribute("cList", cList);
+			return "Y";		
 		}else {
 			System.out.println("실패");
-			return 1;
+			return "N";
 		}
 	}
 	
