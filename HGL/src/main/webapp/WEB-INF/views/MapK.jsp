@@ -10,7 +10,6 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 function showSub(obj){ //주소 셀렉트박스
-	var optionNull = document.getElementById("optionNull");
 	var seoul = document.getElementById("seoul");
 	var gyeonggi = document.getElementById("gyeonggi");
 	var incheon = document.getElementById("incheon");
