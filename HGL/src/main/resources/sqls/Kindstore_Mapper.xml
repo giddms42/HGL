@@ -15,8 +15,12 @@
 		<result column="KINDMENU" property="kindMenu"/>
 	</resultMap>
 	
-	<select id="kindstoreListSerchCount" parameterType="map" resultType="int">
+	<select id="kindstoreListSerchCountAll" parameterType="map" resultType="int">
 		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kinddo} AND KINDCITY LIKE #{kindcity}
+	</select>
+	
+	<select id="kindstoreListSerchCountOne" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kinddo}
 	</select>
 	
 	<select id="selectSearchAll" parameterType="map" resultMap="kindstoreDtoMap">
@@ -29,6 +33,23 @@
 	        select *
 	        from KINDSTORE 
 	        WHERE KINDDO LIKE #{kindDo} AND KINDCITY LIKE #{kindCity}
+	        ORDER BY KINDNUMBER DESC) A
+	    where ROWNUM <= TO_NUMBER(#{endPost})) X
+		where X.RN >= TO_NUMBER(#{startPost})
+		ORDER BY X.KINDNUMBER DESC
+	]]>
+	</select>
+	
+		<select id="selectSearchOne" parameterType="map" resultMap="kindstoreDtoMap">
+	<![CDATA[
+		select *
+		from ( 
+	    select A.KINDNUMBER, A.KINDDO, A.KINDCITY, A.KINDTYPE, A.KINDNAME, A.KINDPHONE, A.KINDADDR, A.KINDDELIVERY, A.KINDPARKING, A.KINDMENU,
+	    ROWNUM AS RN
+	    from (
+	        select *
+	        from KINDSTORE 
+	        WHERE KINDDO LIKE #{kindDo}
 	        ORDER BY KINDNUMBER DESC) A
 	    where ROWNUM <= TO_NUMBER(#{endPost})) X
 		where X.RN >= TO_NUMBER(#{startPost})
