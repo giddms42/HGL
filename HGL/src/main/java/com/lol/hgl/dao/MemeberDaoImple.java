@@ -14,7 +14,7 @@ public class MemeberDaoImple implements MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	private String nameSpace = "member.";
+	private String nameSpace = "admin.";
 
 	@Override
 	public String IDChk(String id) {

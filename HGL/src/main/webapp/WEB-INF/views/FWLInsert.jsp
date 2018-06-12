@@ -26,7 +26,7 @@ function fn_editFL(){
 					}
 		});
 	}else{
-		alert("위시리스트를 적어주세요")
+		alert("위시리스트를 입력해주세요")
 	}
 }
 </script>
