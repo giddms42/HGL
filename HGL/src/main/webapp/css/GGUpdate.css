@@ -32,7 +32,7 @@ display: -webkit-flex;
  
  #bodyMain{
     position: relative;
-    width: 100%;
+    width: 70%;
     height: 95%;
     display: -webkit-flex;
      display:         flex;
@@ -43,8 +43,8 @@ display: -webkit-flex;
      flex-direction: column;
  }
  
- #form{
- 	 display: -webkit-flex;
+ #frm{
+ 	display: -webkit-flex;
      display:         flex;
      -webkit-align-items: center;
              align-items: center;
@@ -111,39 +111,42 @@ display: -webkit-flex;
  }
  
  a:link{
+ 	font-size: 12pt;
  	color: white;
  	text-decoration: none;
  }
  
  a:hover {
+ 	font-size: 12pt;
 	color: white;
 	text-decoration: none;
 }
 
 a:visited {
+	font-size: 12pt;
 	color: white;
 	text-decoration: none;
 }
-.btn{
+.btn00{
 	position: relative;
 	padding: 5px;
 }
 
-.btn1{
+.btn001{
 	position: absolute;
 	height: 30px;
 	right: 355px;
 	top: 17px;
 }
-.btn2{
+.btn002{
 	position: absolute;
 	height: 30px;
-	left: 328px;
-	top: 17px;
+	left: 373px;
+	top: 39px;
 }
-.btn3{
+.btn003{
 	position: absolute;
 	height: 30px;
-	left: 375px;
-	top: 17px;	
+	left: 420px;
+	top: 39px;	
 }

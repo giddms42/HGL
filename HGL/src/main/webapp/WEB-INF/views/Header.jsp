@@ -24,6 +24,62 @@ function AdminMange(){
 	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 	window.open("AdminMangeForm.do","", 'width=440, height=310, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
+	
+$(function(){
+	   $("#menu0 #hoverZero").css("display","none");
+
+	   $("#menu0").hover(function(){
+	    	$("#hoverZero").stop().fadeToggle(400)});
+	   
+	});
+	
+$(function(){
+	   $("#menu1 #hoverOne").css("display","none");
+
+	   $("#menu1").hover(function(){
+	    	$("#hoverOne").stop().fadeToggle(400)});
+	   
+	});
+	
+$(function(){
+	   $("#menu2 #hoverTwo").css("display","none");
+
+	    $("#menu2").hover(function(){
+	    	$("#hoverTwo").stop().fadeToggle(400)});
+	   
+	});
+	
+$(function(){
+	   $("#menu3 #hoverSam").css("display","none");
+
+	   $("#menu3").hover(function(){
+	    	$("#hoverSam").stop().fadeToggle(400)});
+	   
+	});
+	
+$(function(){
+	   $("#menu4 #hoverFour").css("display","none");
+
+	   $("#menu4").hover(function(){
+	    	$("#hoverFour").stop().fadeToggle(400)});
+	   
+	});
+	
+$(function(){
+	   $("#menu5 #hoverFive").css("display","none");
+
+	   $("#menu5").hover(function(){
+	    	$("#hoverFive").stop().fadeToggle(400)});
+	   
+	});
+	
+$(function(){
+	   $("#menu6 #hoverSix").css("display","none");
+
+	   $("#menu6").hover(function(){
+	    	$("#hoverSix").stop().fadeToggle(400)});
+	   
+	});
 
 </script>
 
@@ -49,23 +105,54 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				<div class="up2" id="up24"><a href="memberLoginOut.do">로그아웃</a></div>
 			</div>
 			<div id="down">
-				<div>
-					<div onclick="location.href='FWLBList.do?nowpage=1'">위시리스트 게시판</div>
+				<div class="menu" id="menu0">
+					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"><a href="#" class="btn btn-sm animated-button thar-three" id="btn1">관리자</a></div>
+					<div class="hoverAll" id="hoverZero">
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" onclick="AdminMange()" class="btn btn-sm animated-button thar-three sp" id="btn3">회원 제재</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="AdminSearchUserForm.do?nowpage=1" class="btn btn-sm animated-button thar-three sp" id="btn3">회원 목록</a></div>
+					</div>
+				</div>				
+				<div class="menu" id="menu1">
+					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"><a href="#" class="btn btn-sm animated-button thar-three" id="btn1">홈페이지 소개</a></div>
+					<div class="hoverAll" id="hoverOne">
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">오시는 길</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">가시는 길</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">개리와 길</a></div>
+					</div>
 				</div>
-				<div>
-					<div onclick="location.href='MapHW.do'">카테고리지도&nbsp/</div>
-					<div onclick="location.href='MapK.do'">&nbsp착한가게</div>
+				<div class="menu" id="menu2">
+					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MemberInfoForm.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn1">내정보</a></div>
+					<div class="hoverAll" id="hoverTwo">
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">오시는 길</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">가시는 길</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">개리와 길</a></div>
+					</div>
 				</div>
-				<div class="menu" id="admin">
-					<div onclick="AdminMange()">관리자-회원제재</div>
-					<div onclick="location.href='AdminSearchUserForm.do'">관리자-회원목록</div>
+				
+				<div class="menu" id="menu3">
+					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="CalListForm.do?memberId=${login.memberId }&year=<%=year2 %>&month=<%=month2 %>&memberNickname=${login.memberNickname }" class="btn btn-sm animated-button thar-three" id="btn1">캘린더</a></div>
 				</div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">홈페이지 소개</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MemberInfoForm.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn2">내정보</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="CalListForm.do?memberId=${login.memberId }&year=<%=year2 %>&month=<%=month2 %>&memberNickname=${login.memberNickname }" class="btn btn-sm animated-button thar-three" id="btn2">캘린더</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MapHW.do" class="btn btn-sm animated-button thar-three" id="btn2">지도</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn2">위시리스트</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="GGListForm.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn2">좋은글</a></div></div>
+				<div class="menu" id="menu4">
+					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLBList.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn1">지도</a></div>
+					<div class="hoverAll" id="hoverFour">
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MapHW.do" class="btn btn-sm animated-button thar-three sp" id="btn3">카테고리지도</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MapK.do" class="btn btn-sm animated-button thar-three sp" id="btn3">착한가게</a></div>
+					</div>
+				</div>
+				
+				<div class="menu" id="menu5">
+					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn1">위시리스트</a></div>
+					<div class="hoverAll" id="hoverFive">
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">오시는 길</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">가시는 길</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">개리와 길</a></div>
+					</div>
+				</div>
+				
+				<div class="menu" id="menu6">
+					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="GGListForm.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn1">좋은글</a></div>
+				</div>
+>>>>>>> branch 'jh' of https://github.com/giddms42/HGL.git
 			</div>
 		</div>
 	</div>

@@ -63,20 +63,45 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 		return n.length<2?"0"+n:n;
 	}
 	
-	function addSCH(num){
+	function addSCH(num){ // num도 클릭한 날짜 잘 들어옴
 		var year2 = $("#year").val();
 		var month2 = $("#month").val();
 		var date2 = num;
-		var lastDay2 = $("#lastDay").val();
+		var lastDay2 = $("#lastDay").val(); // 값 잘들어옴
 		var memberId2 = $("#memberId").val();
 		var memberNickname2 = $("#memberNickname").val();
 		
-		alert(lastDay2);
+		alert(num);
 	 	var popupX = (window.screen.width/2) - (515 / 2);
 		var popupY= (window.screen.height/2)- (465/2);
 		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		window.name="Parent";
-		window.open("CalInsertForm.do?year="+year2+"&month="+month2+"&date="+date2+"&lastday="+lastDay2+"&memberId="+memberId2+"&memberNickname="+memberNickname2,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		window.open("CalInsertForm.do?year="+year2+"&month="+month2+"&date="+date2+"&lastDay="+lastDay2+"&memberId="+memberId2+"&memberNickname="+memberNickname2,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		}
+	
+	function DetSCH(num){
+		
+		alert(num);
+	 	var popupX = (window.screen.width/2) - (515 / 2);
+		var popupY= (window.screen.height/2)- (465/2);
+		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+		window.name="Parent";
+		window.open("calDetail.do?calNo="+num,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		}
+	
+	function addSCH2(){
+		var year = $("#year").val();
+		var month = $("#month").val();
+		var date = $("#date").val();
+		var lastDay = $("#lastDay").val(); // 값 잘들어옴
+		var memberId = $("#memberId").val();
+		var memberNickname = $("#memberNickname").val();
+		
+		var popupX = (window.screen.width/2) - (515 / 2);
+		var popupY= (window.screen.height/2)- (465/2);
+
+		window.name="Parent";
+		window.open("CalInsertForm.do?year="+year+"&month="+month+"&date="+date+"&lastDay="+lastDay+"&memberId="+memberId+"&memberNickname="+memberNickname,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 		}
 </script>
 <%
@@ -193,7 +218,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 		</tr>
 	</table>
 	<div id="CalBtn">
-		<input type="button" value="일정추가" onclick="location.href='CalInsertForm.do?year=<%=year%>&month=<%=month%>&date=<%=date%>&lastday=<%=lastDay%>&memberId=${login.memberId}&memberNickname=${login.memberNickname}'" id="InBtn"/>
+		<input type="button" value="일정추가" onclick="addSCH2();" id="InBtn"/>
 	</div>
 	</div>
 	<br/>

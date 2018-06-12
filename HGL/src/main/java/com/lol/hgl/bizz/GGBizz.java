@@ -17,9 +17,9 @@ public interface GGBizz {
 	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword);
 	
 	public ggDto selectOne(int seq);
-	public int insert(ggDto dto,  HttpServletRequest request) throws Exception;
+	public int insert(ggDto dto, HttpServletRequest request) throws Exception;
 	public int delete(int ggNo);
-	public int update(ggDto dto);
+	public int update(ggDto dto, HttpServletRequest request) throws Exception;
 	public int updateReadCount(int ggNo);
 	
 	public List<ggcmDto> repleySelectOne(int seq);

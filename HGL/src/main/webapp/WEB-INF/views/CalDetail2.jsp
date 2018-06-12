@@ -41,50 +41,6 @@ function setInterval2(){
 	$("#Dt").show();
 }
 
-function back(){ //멤버 닉네임 추가해서
-	alert("창모드뒤로가기");
-	var memberNickname = $("#memberNickname").val();
-	var memberId = $("#memberId").val();
-	var year = $("#year").val(); // 값 잘들어옴
-	var month = $("#month").val();
-	window.opener.top.location.href="CalListForm.do?memberNickname="+memberNickname+"&memberId="+memberId+"&year="+year+"&month="+month;
-	window.close()
-	/* location.href="CalListForm.do?memberNickname="+memberNickname+"&memberId="+memberId+"&year="+year+"&month="+month; */
-	/* opener.location.reload(); */
-	/* self.close(); */
-}
-
-function del(){
-	alert("창모드델리트");
-	var calNo = $("#calNo").val();
-	var memberId = $("#memberId").val();
-	var year = $("#year").val(); // 값 잘들어옴
-	var month = $("#month").val();
-	alert(calNo);
-	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
-	window.close()
-	/* location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
-	opener.location.reload();
-	self.close(); */
-}
-
-function upOk(){
-	alert("창모드업데이트");
-	var calNo = $("#calNo").val();
-	var year = $("#year").val(); // 값 잘들어옴
-	var month = $("#month").val();
-	var date = $("#date").val();
-	var hour = $("#hour").val();
-	var min = $("#min").val();
-	var calTitle = $("#calTitle").val();
-	var calMemo = $("#calMemo").val();
-	var calSMS = $("#calSMS").val();
-	var memberId = $("#memberId").val();
-	alert(calNo);
-	window.opener.top.location.href="CalUpdate.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&date="+date+"&hour="+hour+"&min="+min+"&calTitle="+calTitle+"&calMemo="+calMemo+"&calSMS="+calSMS;
-	window.close()
-}
-
 </script>
 <link rel="stylesheet" type="text/css" href="css/CalDetail.css">
 </head>	
@@ -114,9 +70,11 @@ function upOk(){
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="button" value="수정" onclick="Up();"/>
-				<input type="button" value="삭제"	 onclick="del();"/>
-				<input type="button" value="돌아가기" onclick="back();"/>
+				<input type="button" value="수정" 
+				onclick="Up();"/>
+				<input type="button" value="삭제" 
+				onclick="location.href='CalDelete.do?calNo=<%=dto.getCalNo()%>&memberId=${login.memberId }&year=<%=year %>&month=<%=month %>'"/>
+				<input type="button" value="돌아가기" onclick="location.href='CalListForm.do?memberId=${login.memberId }&year=<%=year %>&month=<%=month %>'"/>
 			</td>
 		</tr>
 	</table>
@@ -125,11 +83,9 @@ function upOk(){
 <div id="Up">
 <h1>일정수정하기</h1>
 	<form action="CalUpdate.do" method="post">
-		<input type="hidden" id="calNo" name="calNo" value="<%=dto.getCalNo()%>"/>
-		<input type="hidden" id="year" name="year" value="<%=year%>"/>
-		<input type="hidden" id="month" name="month" value="<%=month%>"/>
-		<input type="hidden" id="memberId" name="memberId" value="<%=dto.getMemberId()%>"/>
-		<input type="hidden" id="memberNickname" name="memberNickname" value="<%=dto.getMemberNickname()%>"/>
+		<input type="hidden" name="calNo" value="<%=dto.getCalNo()%>"/>
+		<input type="hidden" name="memberId" value="<%=dto.getMemberId()%>"/>
+		<input type="hidden" name="memberNickname" value="<%=dto.getMemberNickname()%>"/>
 		<table border="1">
 			<tr>
 				<th>닉넴</th>
@@ -156,7 +112,7 @@ function upOk(){
 							}
 						%>
 					</select>월
-					<select name="date" id="date">
+					<select name="date">
 						<%
 							for(int i=1;i<=31;i++){
 								%>
@@ -165,7 +121,7 @@ function upOk(){
 							}
 						%>
 					</select>일
-					<select name="hour" id="hour">
+					<select name="hour">
 						<%
 							for(int i=0;i<24;i++){
 								%>
@@ -174,7 +130,7 @@ function upOk(){
 							}
 						%>
 					</select>시
-					<select name="min" id="min">
+					<select name="min">
 						<%
 							for(int i=0;i<60;i++){
 								%>
@@ -187,21 +143,21 @@ function upOk(){
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" id="calTitle" name="calTitle" value="<%=dto.getCalTitle()%>"/></td>
+				<td><input type="text" name="calTitle" value="<%=dto.getCalTitle()%>"/></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea rows="10" cols="60" id="calMemo" name="calMemo"><%=dto.getCalMemo()%></textarea> </td>
+				<td><textarea rows="10" cols="60" name="calMemo"><%=dto.getCalMemo()%></textarea> </td>
 			</tr>
 			<tr>
 				<td colspan="2">문자수신여부 : 
-				Y<input type="radio" value="Y" name="calSMS" id="calSMS"/>
-				N<input type="radio" value="N" name="calSMS" id="calSMS"/></td>
+				Y<input type="radio" value="Y" name="calSMS"/>
+				N<input type="radio" value="N" name="calSMS"/></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="수정완료"/ onclick="upOk();">
-					<input type="button" value="돌아가기" onclick="back();"/>
+					<input type="submit" value="수정완료"/>
+					<input type="button" value="돌아가기" onclick="location.href='CalListForm.do?memberId=${login.memberId }&year=<%=year %>&month=<%=month %>'"/>
 				</td>
 			</tr>
 		</table>

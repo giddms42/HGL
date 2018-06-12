@@ -1,6 +1,7 @@
 package com.lol.hgl.bizz;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -36,9 +37,9 @@ public class GGBizzImple implements GGBizz {
 	@Override
 	public List<ggDto> selectAll(int startPost, int endPost) {
 		List<ggDto> res = dao.selectAll(startPost, endPost);
-		List<Integer> rowNum = dao.ggListRowNum(startPost, endPost);
-		for(int i=0; i<rowNum.size(); i++) {
-			res.get(i).setGgRowNum(rowNum.get(i));
+		for(int i=0; i<res.size(); i++) { // 10번
+			res.get(i).setGgRowNum(startPost);
+			startPost++;
 		}
 		return res;
 	}
@@ -51,10 +52,6 @@ public class GGBizzImple implements GGBizz {
 	@Override
 	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword) {
 		List<ggDto> list = dao.selectSearchAll(startPost, endPost, topic, keyword);
-		List<Integer> rowNum = dao.ggListSearchRowNum(startPost, endPost, topic, keyword);
-		for(int i=0; i<list.size(); i++) {
-			list.get(i).setGgRowNum(rowNum.get(i));
-		}
 		return list;
 	}
 
@@ -92,14 +89,64 @@ public class GGBizzImple implements GGBizz {
 
 	@Override
 	public int delete(int ggNo) {
-		List<ggImgDto> list = dao.imgSelectOne(ggNo);
+		List<ggImgDto> list = dao.imgSelectList(ggNo);
 		fileUtils.deleteFile(list);
 		dao.deleteImg(ggNo);
 		int res = dao.delete(ggNo);
 		return res;
 	}
 	@Override
-	public int update(ggDto dto) {
+	public int update(ggDto dto, HttpServletRequest request) throws Exception {
+		List<ggImgDto> list = dao.imgSelectList(dto.getGgNo());
+		int imgListCount = list.size();
+		if(imgListCount==0) {  // 처음부터 등록한 이미지가 없다면
+			 MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+			 Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+			 MultipartFile multipartFile = null;
+			    while(iterator.hasNext()){
+			        multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+			        if(multipartFile.isEmpty() == false){
+			            System.out.println("------------- file start -------------");
+			            System.out.println("name : "+multipartFile.getName());
+			            System.out.println("filename : "+multipartFile.getOriginalFilename());
+			            System.out.println("size : "+multipartFile.getSize());
+			            System.out.println("-------------- file end --------------\n");			            
+			            ggImgDto imgDto = fileUtils.parseInsertFileInfo(multipartFile);
+			            imgDto.setGgNo(dto.getGgNo());
+			            imgDto.setGgImgCreatUser(dto.getGgWriter());
+			            dao.insertGgImage(imgDto);
+			        }
+			    }
+		}else {//등록한 파일이 있엇다면
+			dao.updeateImgDelY(dto.getGgNo());
+			if(request.getParameterValues("IDX")!=null) { // 기존 파일을 유지함. 
+				String[] IDX = request.getParameterValues("IDX");
+				for(int i=0; i<IDX.length; i++) {
+					System.out.println("기존 파일 이미지 번호:"+IDX[i]);
+				}
+				dao.updeateImgDelN(IDX);		
+			}
+			dao.deleteImgDelY();
+			 MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+			 Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+			 MultipartFile multipartFile = null;
+			    while(iterator.hasNext()){
+			        multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+			        if(multipartFile.isEmpty() == false){
+			            System.out.println("------------- file start -------------");
+			            System.out.println("name : "+multipartFile.getName());
+			            System.out.println("filename : "+multipartFile.getOriginalFilename());
+			            System.out.println("size : "+multipartFile.getSize());
+			            System.out.println("-------------- file end --------------\n");			            
+			            ggImgDto imgDto = fileUtils.parseInsertFileInfo(multipartFile);
+			            imgDto.setGgNo(dto.getGgNo());
+			            imgDto.setGgImgCreatUser(dto.getGgWriter());
+			            dao.insertGgImage(imgDto);
+			        }
+			    }
+		}
+
+		
 		return dao.update(dto);
 	}
 
@@ -130,7 +177,7 @@ public class GGBizzImple implements GGBizz {
 
 	@Override
 	public List<ggImgDto> imgSelectOne(int ggNo) {
-		return dao.imgSelectOne(ggNo);
+		return dao.imgSelectList(ggNo);
 	}
 
 	

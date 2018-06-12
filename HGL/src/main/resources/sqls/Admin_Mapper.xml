@@ -1,4 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="admin">
+	<resultMap type="com.lol.hgl.dto.memberDto" id="memberDtoMap"> 
+		<result column="MEMBERNO" property="memberNo"/>
+		<result column="MEMBERID" property="memberId"/>
+		<result column="MEMBERPW" property="memberPw"/>
+		<result column="MEMBERNICKNAME" property="memberNickname"/>
+		<result column="MEMBEREMAIL" property="memberEmail"/>
+		<result column="MEMBERPHONE" property="memberPhone"/>
+		<result column="MEMBERDO" property="memberDo"/>
+		<result column="MEMBERCITY" property="memberCity"/>	
+		<result column="MEMBERADDR" property="memberAddr"/>	
+		<result column="MEMBERROLE" property="memberRole"/>	
+		<result column="MEMBERPROHIBIT" property="memberProhibit"/>	
+		<result column="MEMBERJOIN" property="memberJoin"/>	
+		<result column="MEMBERSMS" property="memberSMS"/>	
+	</resultMap>
+	
+	<resultMap type="com.lol.hgl.dto.ggDto" id="ggDtoMap">
+		<result column="GGNO" property="ggNo"/>
+		<result column="GGROWNUM" property="ggRowNum"/>
+		<result column="GGWRITER" property="ggWriter"/>
+		<result column="GGTITLE" property="ggTitle"/>
+		<result column="GGCONT" property="ggCont"/>
+		<result column="GGREADCNT" property="ggReadcnt"/>
+		<result column="GGDATE" property="ggDate"/>
+	</resultMap>
+	
+	<select id="memberAllListCount" resultType="int">
+		SELECT COUNT(*) FROM MEMBER
+	</select>
+	
+	<select id="memberAllList" parameterType="map" resultMap="memberDtoMap">
+	<![CDATA[
+	select *
+	from ( 
+    select A.MEMBERNO, A.MEMBERID, A.MEMBERPW, A.MEMBERNICKNAME, A.MEMBEREMAIL, A.MEMBERPHONE, A.MEMBERDO,
+  		   A.MEMBERCITY, A.MEMBERADDR, A.MEMBERROLE, A.MEMBERPROHIBIT, A.MEMBERJOIN, A.MEMBERSMS, 
+    ROWNUM AS RN
+    from (
+        select *
+        from MEMBER ORDER BY MEMBERNO DESC) A
+    where ROWNUM <= #{endPost}) X
+	where X.RN >= #{startPost}
+	ORDER BY X.MEMBERNO
+	]]>
+	</select>
+	
+	<select id="memberSelectOne" parameterType="String" resultType="memberDto">
+		SELECT * FROM MEMBER WHERE MEMBERNICKNAME=#{memberNickName}
+	</select>
+	
+	<select id="ggCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM GG WHERE GGWRITER = #{memberNickName}
+	</select>
+	
+	<select id="fwlbCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM FWLB WHERE FWLBWRITER = #{memberNickName}
+	</select>
+	
+	<select id="memberGGList" parameterType="map" resultMap="ggDtoMap">
+	<![CDATA[
+	select *
+	from ( 
+    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from GG 
+        WHERE GGWRITER = #{memberNickName}
+        ORDER BY GGNO DESC) A
+    where ROWNUM <= TO_NUMBER(#{endPost})) X
+	where X.RN >= TO_NUMBER(#{startPost})
+	ORDER BY X.GGNO desc
+	]]>
+	</select>
+
+
 </mapper>

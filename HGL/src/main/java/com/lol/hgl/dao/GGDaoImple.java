@@ -32,21 +32,6 @@ public class GGDaoImple implements GGDao {
 		}
 		return res;
 	}
-
-	@Override
-	public List<Integer> ggListRowNum(int startPost, int endPost) {
-		List<Integer> res = new ArrayList<Integer>();
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("startPost", startPost);
-		map.put("endPost", endPost);
-		   try {
-			   res = sqlSession.selectList(namespace+"ggListRowNum", map);
-		      } catch (Exception e) {
-		         e.printStackTrace();
-		      }
-		      return res;
-	}
-	
 	
 	@Override
 	public List<ggDto> selectAll(int startPost, int endPost) {
@@ -84,6 +69,14 @@ public class GGDaoImple implements GGDao {
 		return res;
 		
 	}
+	
+
+	@Override
+	public int downRowNum() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 	@Override
 	public int delete(int seq) {
@@ -98,9 +91,6 @@ public class GGDaoImple implements GGDao {
 
 	@Override
 	public int update(ggDto dto) {
-		System.out.println(dto.getGgCont());
-		System.out.println(dto.getGgTitle());
-		System.out.println(dto.getGgNo());
 		int res = 0;
 		try {
 			res = sqlSession.update(namespace+"update", dto);
@@ -200,24 +190,6 @@ public class GGDaoImple implements GGDao {
 	}
 
 	@Override
-	public List<Integer> ggListSearchRowNum(int startPost, int endPost, String topic, String keyword) {
-		List<Integer> list = new ArrayList<Integer>();
-		keyword = "%"+keyword+"%";
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("startPost", String.valueOf(startPost));
-		map.put("endPost", String.valueOf(endPost));
-		map.put("topic", topic);
-		map.put("keyword", keyword);
-		try {
-			list = sqlSession.selectList(namespace+"ggListSearchRowNum", map);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
-
-	@Override
 	public int newGgNo() {
 		int res = 0;
 		try {
@@ -240,7 +212,7 @@ public class GGDaoImple implements GGDao {
 	}
 
 	@Override
-	public List<ggImgDto> imgSelectOne(int ggNo) {
+	public List<ggImgDto> imgSelectList(int ggNo) {
 		List<ggImgDto> list = new ArrayList<ggImgDto>();
 		try {
 			list = sqlSession.selectList(namespace+"imgSelectOne",ggNo);
@@ -260,6 +232,44 @@ public class GGDaoImple implements GGDao {
 		}
 		return res;
 	}
+
+	@Override
+	public int updeateImgDelY(int ggNo) {
+		int res=0;
+		try {
+			res = sqlSession.update(namespace+"updeateImgDelY",ggNo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+		
+	}
+
+	@Override
+	public int updeateImgDelN(String[] ggImgNo) {
+		int res = 0;
+		Map<String,String[]> map = new HashMap<String,String[]>();
+		map.put("ggImgNos", ggImgNo);
+		try {
+			res = sqlSession.update(namespace+"updeateImgDelN",map);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int deleteImgDelY() {
+		int res=0;
+		try {
+			res = sqlSession.delete(namespace+"deleteImgDelY");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	
 
 
 

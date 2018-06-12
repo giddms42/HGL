@@ -41,19 +41,30 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                     <th>조회수</th>
 	                     <th>등록일</th>
 	                  </tr>
-	                  <c:forEach items="${list}" var="dto">
-	                  <tr>
-						<td>${dto.ggRowNum}</td>
-						<td>
-							<a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a>
-						</td>
-						<td>${dto.ggWriter }</td>
-						<td>${dto.ggReadcnt }</td>
-						<td>${dto.ggDate }</td>
-					</tr>
-				</c:forEach>
+                 
+	                 <c:choose> 
+	                 	<c:when test="${empty list}">
+	                 		<c:forEach begin="0" end="9">
+	                 		<tr>
+	                 			<td>--------------글이 없습니다.--------------</td>
+	                 		</tr>
+	                 		</c:forEach>         	
+	                 	</c:when>
+	                 	<c:otherwise>
+	                 		  <c:forEach items="${list}" var="dto">
+	                		  <tr>
+								<td>${dto.ggRowNum}</td>
+								<td><a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a></td>
+								<td>${dto.ggWriter }</td>
+								<td>${dto.ggReadcnt }</td>
+								<td>${dto.ggDate }</td>
+								</tr>
+								</c:forEach>
+	                 	</c:otherwise>
+	                 </c:choose>
 	               </table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
+	               <br/>
 	           <div id="paging">
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
@@ -88,8 +99,8 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	               <div id="paging">
 	               	<form action="GGListSearch.do" method="post">
 						<input type="hidden" name="nowpage" value="1"/>
-						<div style="width: 50%; margin: auto; border: 1px dotted green; text-align: center;">
-							<select style="height: 28px; border: 0;" name="topic">
+						<div style="width: 50%; margin: auto; text-align: center;">
+							<select style="height: 22px;" name="topic">
 								<option value="GGTITLE">제목</option>
 								<option value="GGCONT">내용</option>
 								<option value="GGWRITER">작성자</option>
