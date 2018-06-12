@@ -2,6 +2,7 @@ package com.lol.hgl.bizz;
 
 import java.util.List;
 
+import com.lol.hgl.dto.fwlbDto;
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.memberDto;
 
@@ -13,5 +14,7 @@ public interface AdminBizz {
 	public int ggCount(String memberNickName);
 	public int fwlbCount(String memberNickName);
 	public List<ggDto> memberGGList(int startPost, int endPost, String memberNickName);
-
+	public List<fwlbDto> memberFwlbList(int startPost, int endPost, String memberNickName);
+	public int ggDelete(int ggNo);
+	public int fwlbDelete(int fwlbNo);
 }

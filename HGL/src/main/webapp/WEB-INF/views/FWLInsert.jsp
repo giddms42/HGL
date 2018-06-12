@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 	
 function fn_editFL(){
@@ -20,13 +21,13 @@ function fn_editFL(){
 			data : params,
 			success : function(xh)
 					{		
-						alert("추가되었습니다.");
+						alert("추가되었습니다.","success");
 						opener.parent.location.reload();
 						self.close();
 					}
 		});
 	}else{
-		alert("위시리스트를 입력해주세요")
+		alert("위시리스트를 입력해주세요.")
 	}
 }
 </script>

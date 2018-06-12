@@ -25,7 +25,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
    
    <div id="b">
       <div id="bodyMain">
-         <div id="boardName">정현이님의 좋은글 게시판 상세</div>
+         <div id="boardName">${memberNickName}님의 좋은글 게시판 상세</div>
          <br/>
          <img src="image/sadad.png" id="content">
                <table border="1" bordercolor="white">
@@ -39,69 +39,65 @@ html { background: url("image/img.jpg") no-repeat center fixed;
                      <th>작성일</th>
                      <th>글삭제</th>
                   </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
+              	  <c:choose> 
+	                 	<c:when test="${empty list}">
+	                 		<c:forEach begin="0" end="9">
+	                 		<tr>
+	                 			<td colspan="4">--------------글이 없습니다.--------------</td>
+	                 		</tr>
+	                 		</c:forEach>         	
+	                 	</c:when>
+	                 	<c:otherwise>
+	                 		  <c:forEach items="${list}" var="dto" varStatus="i">
+	                		  	<c:choose>
+	                		  		<c:when test="${nowPage eq 1}">
+	                		  <tr>
+										<td>${i.index+1}</td>
+	                		  		</c:when>
+	                		   		<c:otherwise>
+	                		  <tr>
+	                		   			<td>${i.index+1+(nowPage-1)*10}</td>
+	                		   		</c:otherwise>
+								</c:choose>
+								<td><a href="GGDetailForm.do?ggNo=${dto.ggNo}&count=1">${dto.ggTitle}</a></td>
+								<td>${dto.ggDate }</td>
+								<td><input type="button" onclick="location.href='AdminGGDelete.do?ggNo=${dto.ggNo}&memberNickName=${memberNickName}'" value="삭제"></td>
+								</tr>
+								</c:forEach>
+	                 	</c:otherwise>
+	                 </c:choose>
                </table>
                <br/>
-               <div id="paging">페이징<br>자리~!</div>
+                <div id="paging">
+	          		<c:choose>
+						<c:when test="${nowPage eq 1}">
+							◀
+						</c:when>
+						<c:otherwise>
+							<a href="AdminSearchGG.do?nowpage=${nowPage - 1}&memberNickName=${memberNickName}">◀</a>
+						</c:otherwise>
+					</c:choose> 
+					<c:forEach begin="${startPage}" end="${endPage}" var="i">
+						<a href="AdminSearchGG.do?nowpage=${i}&memberNickName=${memberNickName}"> 
+						<c:choose>
+							<c:when test="${i eq nowPage}">
+								<strong>${i}</strong>
+							</c:when>
+							<c:otherwise>
+								${i}
+							</c:otherwise>
+						</c:choose>
+						</a>
+					</c:forEach> 
+					<c:choose>
+						<c:when test="${nowPage eq pageCount}">
+							▶
+						</c:when>
+						<c:otherwise>
+							<a href="AdminSearchGG.do?nowpage=${nowPage + 1}&memberNickName=${memberNickName}">▶</a>
+						</c:otherwise>
+					</c:choose>
+	            </div>
       </div>
    </div>
    

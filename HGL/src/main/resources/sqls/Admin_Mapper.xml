@@ -27,6 +27,15 @@
 		<result column="GGDATE" property="ggDate"/>
 	</resultMap>
 	
+	<resultMap type="com.lol.hgl.dto.fwlbDto" id="fwlbDtoMap">
+		<result column="FWLBNO" property="fwlbNo"/>
+		<result column="FWLBROWNUM" property="fwlbRowNum"/>
+		<result column="FWLBWRITER" property="fwlbWriter"/>	
+		<result column="FWLBTITLE" property="fwlbTitle"/>	
+		<result column="FWLBREADCNT" property="fwlbReadcnt"/>
+		<result column="FWLBDATE" property="fwlbDate"/>
+	</resultMap>
+	
 	<select id="memberAllListCount" resultType="int">
 		SELECT COUNT(*) FROM MEMBER
 	</select>
@@ -75,6 +84,30 @@
 	ORDER BY X.GGNO desc
 	]]>
 	</select>
+	
+	<select id="memberFwlbList" parameterType="map" resultMap="fwlbDtoMap">
+	<![CDATA[
+	select *
+	from ( 
+    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from FWLB WHERE FWLBWRITER = #{memberNickName} 
+        ORDER BY FWLBNO DESC) A
+    where ROWNUM <= TO_NUMBER(#{endPost})) X
+	where X.RN >= TO_NUMBER(#{startPost})
+	ORDER BY X.FWLBNO DESC
+	]]>
+	</select>
+	
+	<delete id="ggDelete" parameterType="int">
+	DELETE FROM GG WHERE GGNO=#{ggNo}
+	</delete>
+	
+	<delete id="fwlbDelete" parameterType="int">
+	DELETE FROM FWLB WHERE FWLBNO=#{fwlbNo}
+	</delete>
 
 
 </mapper>

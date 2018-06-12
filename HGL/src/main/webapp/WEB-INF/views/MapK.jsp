@@ -364,6 +364,7 @@ function showSub(obj){ //주소 셀렉트박스
 </head>
 <body>
 	<div id="container" style="text-align: center;">
+	  <div id="a" style="margin-bottom: 3%;"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	
 	<form action="kindListSearch.do" method="post" onsubmit="return SearchCheck(kinddo.value)"novalidate>
 	<input type="hidden" name="nowpage" value="1"/>
@@ -728,7 +729,7 @@ function showSub(obj){ //주소 셀렉트박스
 	            
 	            <hr/>
 	            </div>
-<div id="map" style="margin:auto; width:100%;height:500px;">위치를 볼 가게명을 클릭해주세요</div>
+<div id="map" style="margin:auto; width:100%;height:300px;">위치를 볼 가게명을 클릭해주세요</div>
 <hr>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ba70f18b82582ffb72e4e43aa8c40fbb&libraries=services"></script>

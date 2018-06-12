@@ -6,7 +6,6 @@ input[type="checkbox"]{
 td{
 	height: 30px;
 }
-
 #container{
 	text-align: center;
 	min-width: 800px; 
@@ -15,8 +14,24 @@ td{
 	margin-bottom: 40px;
 	border: 1px dotted red; 
 }
+#FWLListCenter{
+	display: -webkit-flex;
+	display:         flex;
+	  -webkit-align-items: center;
+	          align-items: center;
+	  -webkit-justify-content: center;
+	          justify-content: center;
+	          flex-direction:column;
+    min-height: 750px;
+    max-height: 100%;
+}
 #topbutton{
 	padding:20px;
+}
+#FWLList{
+	border: 1px dotted black;
+	width: 800px;
+	height: 500px;
 }
 
 .FWLDelete-img{
@@ -34,4 +49,30 @@ td{
 	vertical-align: bottom;
 	color:red;
 	display: none;
+}
+
+button {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	color: black;
+	background-color: white;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+button:hover {
+	text-decoration: none;
+}
+button:active {
+	position: relative;
+	top: 2px;
 }

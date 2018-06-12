@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.lol.hgl.dto.fwlbDto;
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.memberDto;
 
@@ -88,6 +89,43 @@ public class AdminDaoImple implements AdminDao {
 		try {
 			res = sqlSession.selectList(nameSpace+"memberGGList",map);
 		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public List<fwlbDto> memberFwlbList(int startPost, int endPost, String memberNickName) {
+		List<fwlbDto> res = new ArrayList<fwlbDto>();
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("startPost", String.valueOf(startPost));
+		map.put("endPost", String.valueOf(endPost));
+		map.put("memberNickName", memberNickName);
+		try {
+			res = sqlSession.selectList(nameSpace+"memberFwlbList",map);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int ggDelete(int ggNo) {
+		int res = 0;
+		try {
+			res = sqlSession.delete(nameSpace+"ggDelete",ggNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int fwlbDelete(int fwlbNo) {
+		int res = 0;
+		try {
+			res = sqlSession.delete(nameSpace+"fwlbDelete",fwlbNo);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return res;

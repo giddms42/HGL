@@ -4,7 +4,7 @@
     <% request.setCharacterEncoding("UTF-8"); %>
     <% response.setContentType("text/html; charset=UTF-8"); %>
     <%@page import="java.util.Calendar"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/Header.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -100,10 +101,20 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 					<strong>가</strong>족의
 					미<strong>래</strong></div>
 				</div>
-				<div class="up2" id="up23">${login.memberNickname} 님 환영합니다</div>
-				<div class="up2" id="up24"><a href="memberLoginOut.do"><button>로그아웃</button></a></div>
+				<c:choose>
+					<c:when test="${login == null}">
+						<div class="up2" id="up23"></div>
+						<div class="up2" id="up24"><a href="memberLoginOut.do">로그아웃</a></div>
+					</c:when>
+					<c:when test="${login != null}">
+						<div class="up2" id="up23">${login.memberNickname} 님 환영합니다</div>
+						<div class="up2" id="up24"><a href="memberLoginOut.do">로그아웃</a></div>
+					</c:when>	
+				</c:choose>
 			</div>
+
 			<div id="down">
+				<c:if test="${login.memberRole eq 'ADMIN'}">
 				<div class="menu" id="menu0">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"><a href="#" class="btn btn-sm animated-button thar-three" id="btn1">관리자</a></div>
 					<div class="hoverAll" id="hoverZero">
@@ -111,6 +122,7 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="AdminSearchUserForm.do?nowpage=1" class="btn btn-sm animated-button thar-three sp" id="btn3">회원 목록</a></div>
 					</div>
 				</div>				
+				</c:if>
 				<div class="menu" id="menu1">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"><a href="#" class="btn btn-sm animated-button thar-three" id="btn1">홈페이지 소개</a></div>
 					<div class="hoverAll" id="hoverOne">
@@ -121,17 +133,12 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				</div>
 				<div class="menu" id="menu2">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MemberInfoForm.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn1">내정보</a></div>
-					<div class="hoverAll" id="hoverTwo">
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">오시는 길</a></div>
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">가시는 길</a></div>
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">개리와 길</a></div>
-					</div>
 				</div>
 				
 				<div class="menu" id="menu3">
+
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="CalListForm.do?memberId=${login.memberId }&year=<%=year2 %>&month=<%=month2 %>&memberNickname=${login.memberNickname }" class="btn btn-sm animated-button thar-three" id="btn1">캘린더</a></div>
 				</div>
-				
 				<div class="menu" id="menu4">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLBList.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn1">지도</a></div>
 					<div class="hoverAll" id="hoverFour">
@@ -139,13 +146,13 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MapK.do" class="btn btn-sm animated-button thar-three sp" id="btn3">착한가게</a></div>
 					</div>
 				</div>
+
 				
 				<div class="menu" id="menu5">
-					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn1">위시리스트</a></div>
+					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn1">위시리스트</a></div>
 					<div class="hoverAll" id="hoverFive">
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">오시는 길</a></div>
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">가시는 길</a></div>
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">개리와 길</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three sp" id="btn3">내 위시리스트</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLBList.do?nowpage=1" class="btn btn-sm animated-button thar-three sp" id="btn3">공유게시판</a></div>
 					</div>
 				</div>
 				

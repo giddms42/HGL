@@ -15,7 +15,11 @@
 </script>
 </head>
 <body>
-	<div style="width: 1024px; margin: auto; border: 1px solid black;">
+
+<div id="container">
+	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
+	<div id="FWLBListCenter">
+		<div>
 		<h2 style="text-align: center;">위시리스트 게시판</h2>
 		<table border="1" style="margin: auto;">
 				<col width="70">
@@ -84,11 +88,13 @@
 		
 		<form action="FWLBListSearch.do" method="post">
 			<input type="hidden" name="nowpage" value="1"/>
-			<div style="width: 50%; margin: auto; border: 1px dotted green; text-align: center;">
+			<div style="border: 1px dotted green; text-align: center;">
 				닉네임&nbsp<input type="search" name="searchNickName" placeholder="검색할 닉네임을 입력해주세요">
 				<button>검색</button>
 			</div>
 		</form>
+		</div>
+	</div>
 	</div>
 </body>
 </html>

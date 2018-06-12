@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lol.hgl.dao.AdminDao;
+import com.lol.hgl.dto.fwlbDto;
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.memberDto;
 
@@ -44,6 +45,21 @@ public class AdminBizzImple implements AdminBizz {
 	@Override
 	public List<ggDto> memberGGList(int startPost, int endPost, String memberNickName) {
 		return dao.memberGGList(startPost, endPost, memberNickName);
+	}
+
+	@Override
+	public List<fwlbDto> memberFwlbList(int startPost, int endPost, String memberNickName) {
+		return dao.memberFwlbList(startPost, endPost, memberNickName);
+	}
+
+	@Override
+	public int ggDelete(int ggNo) {
+		return dao.ggDelete(ggNo);
+	}
+
+	@Override
+	public int fwlbDelete(int fwlbNo) {
+		return dao.fwlbDelete(fwlbNo);
 	}
 
 

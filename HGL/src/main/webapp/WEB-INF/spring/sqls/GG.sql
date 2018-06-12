@@ -24,6 +24,18 @@ SELECT * FROM(
 SELECT * FROM GG ORDER BY GGDATE DESC)
 WHERE ROWNUM=1;
 
+select *
+	from ( 
+    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from GG 
+        WHERE GGWRITER = '히히'
+        ORDER BY GGNO DESC) A
+    where ROWNUM <= 10) X
+	where X.RN >= 1
+	ORDER BY X.GGNO desc
 
 ------------------------------------------------
 
