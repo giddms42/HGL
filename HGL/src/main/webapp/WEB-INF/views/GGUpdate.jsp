@@ -34,7 +34,7 @@ function fn_deleteFile(obj){
 function fn_addFile(){
     var str = "<p>" +
             "<input type='file' name='file_"+(gfv_count++)+"'>"+
-            "<input type='button' name='delete' value='삭제'/>" +
+            "<a href='#this' class='btn' id='delete_${i.index }' name='delete_${i.index }'><button>삭제</button></a>" +
               "</p>";
     $("#fileDiv").append(str);
     $("a[name^='delete']").on("click", function(e){ //삭제 버튼

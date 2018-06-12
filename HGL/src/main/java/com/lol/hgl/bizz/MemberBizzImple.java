@@ -18,8 +18,6 @@ public class MemberBizzImple implements MemberBizz {
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
 
-	
-
 	@Override
 	public String IDChk(String id) {
 		String res = dao.IDChk(id);

@@ -10,16 +10,15 @@ public interface GGDao {
 	
 	
 	public int ggListCount();
-	public List<Integer> ggListRowNum(int startPost, int endPost);
-	public List<ggDto> selectAll(int startPost, int endPost);
+	public List<ggDto> selectAll(int startPost, int endPost);	
 	
 	public int ggListSerchCount(String topic, String keyword);
 	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword);
-	public List<Integer> ggListSearchRowNum(int startPost, int endPost, String topic, String keyword);
 	
 	public ggDto selectOne(int seq);
 	public int insert(ggDto dto);
-	public int delete(int seq);
+	public int delete(int ggNo);
+	public int downRowNum();
 	public int update(ggDto dto);
 	public int updateReadCount(int ggNo);	
 	public List<ggcmDto> repleySelectOne(int seq);

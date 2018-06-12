@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,13 +20,12 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
-function AdminUserInfo(){
+function AdminUserInfo(nickName){
    var popupX = (window.screen.width / 2) - (440 / 2);
    // 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
-
    var popupY= (window.screen.height /2) - (220 / 2);
    // 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-   window.open("AdminUserInfoForm.do","", 'width=440, height=220, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+   window.open("AdminUserInfoForm.do?memberNickName="+nickName,"", 'width=440, height=220, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
    }
 
 </script>
@@ -35,7 +35,7 @@ function AdminUserInfo(){
    
    <div id="b">
       <div id="bodyMain">
-         <div id="boardName">전체회원목록</div>
+         <div id="boardName">전체회원목록                                        총 회원 수 : ${memberCount}</div>
          <br/>
          <img src="image/sadad.png" id="content">
                <table border="1" bordercolor="white">
@@ -51,87 +51,69 @@ function AdminUserInfo(){
                      <th>이메일</th>
                      <th>제재횟수</th>
                   </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a onclick="AdminUserInfo()" href="#">chlwjdgus</a></td>
-                     <td class="div1" id="res">정현이</td>
-                     <td class="div1" id="res">chljh90@gmail.com</td>
-                     <td class="div1" id="res">0</td>
-                  </tr>
+           			   <c:choose> 
+	                 	<c:when test="${empty list}">
+	                 		<c:forEach begin="0" end="9">
+	                 		<tr>
+	                 			<td colspan="5">--------------회원이 없습니다.--------------</td>
+	                 		</tr>
+	                 		</c:forEach>         	
+	                 	</c:when>
+	                 	<c:otherwise>
+	                 		  <c:forEach items="${list}" var="dto" varStatus="i">
+	                		  <tr onclick="AdminUserInfo('${dto.memberNickname }');">
+	                		  	<c:choose>
+	                		  		<c:when test="${nowPage eq 1}">
+										<td>${i.index+1}</td>
+	                		  		</c:when>
+	                		   		<c:otherwise>
+	                		   			<td>${i.index+1+(nowPage-1)*10}</td>
+	                		   		</c:otherwise>
+								</c:choose>
+								<td>${dto.memberId}</td>
+								<td>${dto.memberNickname }</td>
+								<td>${dto.memberEmail }</td>
+								<td>${dto.memberProhibit }</td>
+								</tr>
+								</c:forEach>
+	                 	</c:otherwise>
+	                 </c:choose>
                </table>
                <br/>
-               <div id="paging">페이징<br>자리~!</div>
-               <br/>
-               <div id="paging">페이징<br>자리~!</div>
+                <div id="paging">
+	          		<c:choose>
+						<c:when test="${nowPage eq 1}">
+							◀
+						</c:when>
+						<c:otherwise>
+							<a href="AdminSearchUserForm.do?nowpage=${nowPage - 1}">◀</a>
+						</c:otherwise>
+					</c:choose> 
+					<c:forEach begin="${startPage}" end="${endPage}" var="i">
+						<a href="AdminSearchUserForm.do?nowpage=${i}"> 
+						<c:choose>
+							<c:when test="${i eq nowPage}">
+								<strong>${i}</strong>
+							</c:when>
+							<c:otherwise>
+								${i}
+							</c:otherwise>
+						</c:choose>
+						</a>
+					</c:forEach> 
+					<c:choose>
+						<c:when test="${nowPage eq pageCount}">
+							▶
+						</c:when>
+						<c:otherwise>
+							<a href="AdminSearchUserForm.do?nowpage=${nowPage + 1}">▶</a>
+						</c:otherwise>
+					</c:choose>
+	            </div>
       </div>
    </div>
    
    <div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
    </div>
->>>>>>> branch 'jh' of https://github.com/giddms42/HGL.git
-
 </body>
 </html>

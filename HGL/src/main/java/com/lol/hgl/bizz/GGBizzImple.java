@@ -37,9 +37,9 @@ public class GGBizzImple implements GGBizz {
 	@Override
 	public List<ggDto> selectAll(int startPost, int endPost) {
 		List<ggDto> res = dao.selectAll(startPost, endPost);
-		List<Integer> rowNum = dao.ggListRowNum(startPost, endPost);
-		for(int i=0; i<rowNum.size(); i++) {
-			res.get(i).setGgRowNum(rowNum.get(i));
+		for(int i=0; i<res.size(); i++) { // 10번
+			res.get(i).setGgRowNum(startPost);
+			startPost++;
 		}
 		return res;
 	}
@@ -52,10 +52,6 @@ public class GGBizzImple implements GGBizz {
 	@Override
 	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword) {
 		List<ggDto> list = dao.selectSearchAll(startPost, endPost, topic, keyword);
-		List<Integer> rowNum = dao.ggListSearchRowNum(startPost, endPost, topic, keyword);
-		for(int i=0; i<list.size(); i++) {
-			list.get(i).setGgRowNum(rowNum.get(i));
-		}
 		return list;
 	}
 
