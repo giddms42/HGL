@@ -38,10 +38,10 @@ public class AdminController {
 		//시작 페이지
 		int nowPage = Integer.parseInt(nowpage);			
 		//block 시작 페이지 숫자
-		int startPage = (int)(Math.ceil((double)nowPage/5))*5-4;
+		int startPage = (int)(Math.ceil((double)nowPage/10))*10-9;
 		//block 마지막 페이지 숫자
 		//int endPage = ((nowPage/5)+1)*5;
-		int endPage = (int)(Math.ceil((double)nowPage/5))*5;
+		int endPage = (int)(Math.ceil((double)nowPage/10))*10;
 		if(pageCount<endPage){
 			endPage=pageCount;
 			}
@@ -50,7 +50,7 @@ public class AdminController {
 		//한 페이지내에서 끝나는 글 번호
 		int endPost = (nowPage*10) ; 
 		//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
-		List<memberDto> list = bizz.memberAllList();
+		List<memberDto> list = bizz.memberAllList(startPost, endPost);
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		model.addAttribute("nowPage", nowPage);

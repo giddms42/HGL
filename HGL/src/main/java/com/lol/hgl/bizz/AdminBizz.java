@@ -7,6 +7,6 @@ import com.lol.hgl.dto.memberDto;
 public interface AdminBizz {
 	
 	public int memberAllListCount();
-	public List<memberDto> memberAllList();
+	public List<memberDto> memberAllList(int startPost, int endPost);
 
 }

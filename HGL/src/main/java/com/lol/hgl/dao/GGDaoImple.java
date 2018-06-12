@@ -32,21 +32,6 @@ public class GGDaoImple implements GGDao {
 		}
 		return res;
 	}
-
-	@Override
-	public List<Integer> ggListRowNum(int startPost, int endPost) {
-		List<Integer> res = new ArrayList<Integer>();
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("startPost", startPost);
-		map.put("endPost", endPost);
-		   try {
-			   res = sqlSession.selectList(namespace+"ggListRowNum", map);
-		      } catch (Exception e) {
-		         e.printStackTrace();
-		      }
-		      return res;
-	}
-	
 	
 	@Override
 	public List<ggDto> selectAll(int startPost, int endPost) {
@@ -84,6 +69,14 @@ public class GGDaoImple implements GGDao {
 		return res;
 		
 	}
+	
+
+	@Override
+	public int downRowNum() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 	@Override
 	public int delete(int seq) {
@@ -197,24 +190,6 @@ public class GGDaoImple implements GGDao {
 	}
 
 	@Override
-	public List<Integer> ggListSearchRowNum(int startPost, int endPost, String topic, String keyword) {
-		List<Integer> list = new ArrayList<Integer>();
-		keyword = "%"+keyword+"%";
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("startPost", String.valueOf(startPost));
-		map.put("endPost", String.valueOf(endPost));
-		map.put("topic", topic);
-		map.put("keyword", keyword);
-		try {
-			list = sqlSession.selectList(namespace+"ggListSearchRowNum", map);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
-
-	@Override
 	public int newGgNo() {
 		int res = 0;
 		try {
@@ -293,6 +268,8 @@ public class GGDaoImple implements GGDao {
 		}
 		return res;
 	}
+
+	
 
 
 

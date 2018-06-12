@@ -21,8 +21,8 @@ public class AdminBizzImple implements AdminBizz {
 	}
 	
 	@Override
-	public List<memberDto> memberAllList() {
-		return dao.memberAllList();
+	public List<memberDto> memberAllList(int startPost, int endPost) {
+		return dao.memberAllList(startPost, endPost);
 	}
 
 

@@ -18,7 +18,23 @@
 	</resultMap>
 	
 	<select id="memberAllListCount">
-	
+		SELECT COUNT(*) FROM MEMBER
 	</select>
+	
+	<select id="memberAllList" parameterType="map" resultMap="memberDto">
+	<![CDATA[
+	select *
+	from ( 
+    select *
+    ROWNUM AS RN
+    from (
+        select *
+        from MEMBER ORDER BY MEMBERNO DESC) A
+    where ROWNUM <= #{endPost}) X
+	where X.RN >= #{startPost}
+	ORDER BY X.MEMBERNO
+	]]>
+	</select>
+	
 
 </mapper>

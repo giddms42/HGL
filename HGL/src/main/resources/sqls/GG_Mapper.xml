@@ -35,22 +35,6 @@
 	 SELECT COUNT(*) FROM GG 
 	</select>
 	
-	<select id="ggListRowNum" parameterType="map" resultType="int">
-	<![CDATA[
-	select X.RN
-	from ( 
-    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE,
-    ROWNUM AS RN
-    from (
-        select *
-        from GG ORDER BY GGNO DESC) A
-    where ROWNUM <= #{endPost}) X
-	where X.RN >= #{startPost}
-	ORDER BY X.GGNO 
-	]]>
-	</select>
-	
-	
 	<select id="selectAll" parameterType="map" resultMap="ggDtoMap">
 	<![CDATA[
 	select *
@@ -62,7 +46,7 @@
         from GG ORDER BY GGNO DESC) A
     where ROWNUM <= #{endPost}) X
 	where X.RN >= #{startPost}
-	ORDER BY X.GGNO
+	ORDER BY X.GGNO desc
 	]]>
 	</select>
 	
@@ -83,25 +67,7 @@
         ORDER BY GGNO DESC) A
     where ROWNUM <= TO_NUMBER(#{endPost})) X
 	where X.RN >= TO_NUMBER(#{startPost})
-	ORDER BY X.GGNO 
-	]]>
-	</select>
-	
-	
-	<select id="ggListSearchRowNum" parameterType="map" resultType="int">
-	<![CDATA[
-	select X.RN
-	from ( 
-    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE,
-    ROWNUM AS RN
-    from (
-        select *
-        from GG 
-        WHERE ${topic} LIKE #{keyword}
-        ORDER BY GGNO DESC) A
-    where ROWNUM <= TO_NUMBER(#{endPost})) X
-	where X.RN >= TO_NUMBER(#{startPost})
-	ORDER BY X.GGNO
+	ORDER BY X.GGNO desc
 	]]>
 	</select>
 	
@@ -115,7 +81,7 @@
 	
 	<insert id="insert" parameterType="ggDto">
 		INSERT INTO GG VALUES(
-		GGNO_SEQ.NEXTVAL,null, #{ggWriter}, #{ggTitle}, #{ggCont}, 0, SYSDATE
+		GGNO_SEQ.NEXTVAL, null, #{ggWriter}, #{ggTitle}, #{ggCont}, 0, SYSDATE
 		)
 	</insert>
 	

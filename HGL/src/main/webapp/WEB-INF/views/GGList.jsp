@@ -41,17 +41,27 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                     <th>조회수</th>
 	                     <th>등록일</th>
 	                  </tr>
-	                  <c:forEach items="${list}" var="dto">
-	                  <tr>
-						<td>${dto.ggRowNum}</td>
-						<td>
-							<a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a>
-						</td>
-						<td>${dto.ggWriter }</td>
-						<td>${dto.ggReadcnt }</td>
-						<td>${dto.ggDate }</td>
-					</tr>
-				</c:forEach>
+                 
+	                 <c:choose> 
+	                 	<c:when test="${empty list}">
+	                 		<c:forEach begin="0" end="9">
+	                 		<tr>
+	                 			<td>--------------글이 없습니다.--------------</td>
+	                 		</tr>
+	                 		</c:forEach>         	
+	                 	</c:when>
+	                 	<c:otherwise>
+	                 		  <c:forEach items="${list}" var="dto">
+	                		  <tr>
+								<td>${dto.ggRowNum}</td>
+								<td><a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a></td>
+								<td>${dto.ggWriter }</td>
+								<td>${dto.ggReadcnt }</td>
+								<td>${dto.ggDate }</td>
+								</tr>
+								</c:forEach>
+	                 	</c:otherwise>
+	                 </c:choose>
 	               </table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
 	               <br/>
