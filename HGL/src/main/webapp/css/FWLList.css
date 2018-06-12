@@ -6,7 +6,6 @@ input[type="checkbox"]{
 td{
 	height: 30px;
 }
-
 #container{
 	text-align: center;
 	min-width: 800px; 
@@ -15,13 +14,22 @@ td{
 	margin-bottom: 40px;
 	border: 1px dotted red; 
 }
+#FWLListCenter{
+	display: -webkit-flex;
+	display:         flex;
+	  -webkit-align-items: center;
+	          align-items: center;
+	  -webkit-justify-content: center;
+	          justify-content: center;
+	          flex-direction:column;
+    min-height: 750px;
+    max-height: 100%;
+}
 #topbutton{
 	padding:20px;
-	border: 1px solid blue;
 }
 #FWLList{
 	border: 1px dotted black;
-	margin: auto;
 	width: 800px;
 	height: 500px;
 }
