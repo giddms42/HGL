@@ -5,15 +5,16 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.lol.hgl.dto.memberDto;
-
+@Repository
 public class AdminDaoImple implements AdminDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	private String nameSpace = "member.";
+	private String nameSpace = "admin.";
 
 	@Override
 	public int memberAllListCount() {
