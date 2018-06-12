@@ -122,11 +122,6 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				</div>
 				<div class="menu" id="menu2">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MemberInfoForm.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn1">내정보</a></div>
-					<div class="hoverAll" id="hoverTwo">
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">오시는 길</a></div>
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">가시는 길</a></div>
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">개리와 길</a></div>
-					</div>
 				</div>
 				
 				<div class="menu" id="menu3">
@@ -141,18 +136,16 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				</div>
 				
 				<div class="menu" id="menu5">
-					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn1">위시리스트</a></div>
+					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn1">위시리스트</a></div>
 					<div class="hoverAll" id="hoverFive">
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">오시는 길</a></div>
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">가시는 길</a></div>
-						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three sp" id="btn3">개리와 길</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three sp" id="btn3">내 위시리스트</a></div>
+						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLBList.do?nowpage=1" class="btn btn-sm animated-button thar-three sp" id="btn3">공유게시판</a></div>
 					</div>
 				</div>
 				
 				<div class="menu" id="menu6">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="GGListForm.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn1">좋은글</a></div>
 				</div>
->>>>>>> branch 'jh' of https://github.com/giddms42/HGL.git
 			</div>
 		</div>
 	</div>

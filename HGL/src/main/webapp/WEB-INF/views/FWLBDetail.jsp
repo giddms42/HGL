@@ -20,7 +20,7 @@
 			<div style="float:right">작성자 ${dto.fwlbWriter}</div><br><br>
 			
 			<div style="text-align:center; margin:auto; width: 700px; min-height: 500px; height: 100%; border-top: 2px solid black; border-bottom: 2px solid black;">
-				<table style="text-align:center;">
+				<table style="margin:auto; margin-top:10%; text-align:center;">
 					<tr>
 						<th>항      목</th>
 					</tr>
