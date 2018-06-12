@@ -116,24 +116,24 @@ a:visited {
 	color: white;
 	text-decoration: none;
 }
-.btn{
+.btn00{
 	position: relative;
 	padding: 5px;
 }
 
-.btn1{
+.btn001{
 	position: absolute;
 	height: 30px;
 	left: 260px;
 	top: 17px;
 }
-.btn2{
+.btn002{
 	position: absolute;
 	height: 30px;
 	left: 321px;
 	top: 17px;
 }
-.btn3{
+.btn003{
 	position: absolute;
 	height: 30px;
 	left: 381px;
