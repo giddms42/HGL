@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/Header.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -49,6 +50,9 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 			</div>
 			<div id="down">
 				<div>
+					<div onclick="location.href='FWLBList.do?nowpage=1'">위시리스트 게시판</div>
+				</div>
+				<div>
 					<div onclick="location.href='MapHW.do'">카테고리지도&nbsp/</div>
 					<div onclick="location.href='MapK.do'">&nbsp착한가게</div>
 				</div>
@@ -59,7 +63,7 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="#" class="btn btn-sm animated-button thar-three" id="btn2">홈페이지 소개</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MemberInfoForm.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn2">내정보</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="CalListForm.do?memberId=${login.memberId }&year=<%=year2 %>&month=<%=month2 %>&memberNickname=${login.memberNickname }" class="btn btn-sm animated-button thar-three" id="btn2">캘린더</a></div></div>
-				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLBList.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn2">지도</a></div></div>
+				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MapHW.do" class="btn btn-sm animated-button thar-three" id="btn2">지도</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn2">위시리스트</a></div></div>
 				<div class="menu"><div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="GGListForm.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn2">좋은글</a></div></div>
 			</div>

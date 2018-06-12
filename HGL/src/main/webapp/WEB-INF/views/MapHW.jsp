@@ -9,7 +9,7 @@
 <title>카테고리별 장소 검색하기</title>
 <style>
 	.map_wrap, .map_wrap * {margin:auto; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-	.map_wrap {position:relative;width:100%;height:700px;}
+	.map_wrap {position:relative;width:70%;height:500px;}
 	
 	#category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
 	#category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
@@ -35,18 +35,21 @@
 </style>
 </head>
 <body>
-<div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    <ul id="category">
-        <li id="HP8" data-order="2"> 
-            <span class="category_bg pharmacy"></span>
-            병원
-        </li> 
-        <li id="CT1" data-order="4"> 
-       		<span class="category_bg cafe"></span>
-       	문화
-        </li>   
-    </ul>
+<div id="container" style="text-align: center;">
+	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
+	<div class="map_wrap" style="margin-top: 5%;">
+	    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+	    <ul id="category">
+	        <li id="HP8" data-order="2"> 
+	            <span class="category_bg pharmacy"></span>
+	            병원
+	        </li> 
+	        <li id="CT1" data-order="4"> 
+	       		<span class="category_bg cafe"></span>
+	       	문화
+	        </li>   
+	    </ul>
+	</div>
 </div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ba70f18b82582ffb72e4e43aa8c40fbb&libraries=services"></script>

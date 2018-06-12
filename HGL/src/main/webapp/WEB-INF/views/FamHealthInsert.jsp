@@ -41,7 +41,8 @@ $(function(){
 	<div id="addHealth">
 		<form id="healthForm" action="FamHealthInsert.do" method="post" name="myForm">
 			<input type="hidden" name="famNo" value="${famDto.famNo}">
-			<div>체중<input type="text" name="healthWeight" placeholder="kg. 체중을 입력해주세요"></div>
+			<div>체중<input type="text" name="healthWeight" placeholder="kg. 체중을 입력해주세요" 
+			onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"></div>
 
 			<div>혈압
 				<input class="healthInfoAdd" type="number" name="healthShrbp" placeholder="수축기를 숫자만 입력해주세요"><br>

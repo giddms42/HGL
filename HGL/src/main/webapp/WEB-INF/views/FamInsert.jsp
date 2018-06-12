@@ -69,6 +69,15 @@ $(function(){
          	 }
          }
 	 })
+	$(document).ready(function() {
+	    $('#height').on('keyup', function() {
+	        if($(this).val().length > 3) {
+	            $(this).val($(this).val().substring(0, 3));
+	        }
+	    });
+	});
+
+	 
 });
 
 	function change(obj){
@@ -109,7 +118,7 @@ $(function(){
 					<label><input class="radi" type="radio" name="famLunar" value="음력">음력</label>
 				</div>
 				<div>신장
-					<input class="famInfo" type="number" name="famHeight" required="required" placeholder="cm. 숫자만 인력해주세요">
+					<input class="famInfo" type="number" name="famHeight" required="required" placeholder="cm. 숫자만 인력해주세요" id="height">
 				</div>
 				
 				<div style="text-align: center;">

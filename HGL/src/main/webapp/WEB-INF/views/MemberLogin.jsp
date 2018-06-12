@@ -29,11 +29,9 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 <script type="text/javascript">
 
 window.onload = function() {
-	
 	if("${msg}" != null && "${msg}".length > 0){
-		alert("${msg}");
+		swal("${msg}");
 	}
-	
 };
 
 history.pushState(null, null, location.href);

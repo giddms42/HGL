@@ -27,12 +27,20 @@ $("input[type=checkbox]").click(function(){ //체크박스를 클릭할때마다
  });
 })
 
-function goSubmit(){
-	window.opener.name = "Parent"; // 부모창의 이름 설정
-    document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
-    self.close();
-}
-
+	$(function(){
+		$("#DiseaseForm").submit(function(){
+	       	 if($(".dis:checked").length < 1){
+		       	 alert("질병을 한개 이상 체크해주세요")
+		       	 return false;	
+	       	 }else{
+		       	 window.opener.name = "Parent"; // 부모창의 이름 설정
+			     document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
+			     self.close();
+	        	 }
+		 	 }
+		);
+	});
+	    	
 function change(obj){
 	document.getElementById("chkCancer").value=obj;
 	document.getElementById("chkCancer").checked=true;
@@ -56,8 +64,8 @@ function change(obj){
 <body>
 	
 	<div id="diseaseUpdate">
-		<form action="FamDiseaseUpdate.do" name="myForm">
-		<input type="hidden" name="famNo" value="${famNo}"/>
+		<form id="DiseaseForm" action="FamDiseaseUpdate.do" name="myForm">
+		<input type="hidden" name="famNo" value="${famDto.famNo}"/>
 		<div id="disList">	
 			<div style="text-align: center; margin-bottom: 10px;"><b>지병 항목 (최대 3개)</b></div>
 			<table style="margin: auto;">
@@ -89,7 +97,7 @@ function change(obj){
 			</table>
 		</div>
 		<div style="text-align:center; margin-top: 10px; margin-bottom: 20px;">
-			<input type="submit" onclick="goSubmit()" value="변경">
+			<button>변경</button>
 			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 			<button type="button" onclick="self.close()">취소</button>
 		</div>

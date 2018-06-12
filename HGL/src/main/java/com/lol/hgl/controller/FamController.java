@@ -53,9 +53,10 @@ public class FamController {
 	  
 	  @RequestMapping(value="FamDiseaseUpdateForm.do")
 	  public String FamDiseaseUpdateForm(String famNo, Model model) {
-		  System.out.println(famNo);
-		 model.addAttribute("famNo", famNo);
-	     return "FamDiseaseUpdate";
+		  int famno = Integer.parseInt(famNo);
+		  famDto famDto = bizz.famDetail(famno);
+		  model.addAttribute("famDto", famDto);
+		  return "FamDiseaseUpdate";
 	  }
 	  
 	  @RequestMapping(value="FamDiseaseUpdate.do")
