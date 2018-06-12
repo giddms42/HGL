@@ -60,29 +60,32 @@ display: -webkit-flex;
 	  -webkit-justify-content: center;
 	          justify-content: center;
 	height: 100%;
-	background-color: yellow;
-	color: black;
-	border: 1px solid green;
+	background-color: #F7CA18;
+	color: white;
+	/* border: 1px solid green; */
 }
 
 #up21{
+	background-color: green;
+	color: red;
 	width: 10%;
 }
 #up22{
 	width: 60%;
 	font-size: 20pt;
-	color: green;
+	color: black;
 }
 #up23{
 	width: 20%;
 }
 #up24{
+	color: green;
 	width: 10%;
 }
 
 #header strong{
 	font-size: 20pt;
-	color: orange;
+	color: white;
 }
 
 #hgl{
@@ -182,17 +185,17 @@ a.animated-button.thar-three:before {
 }
 
  #up a:link{
- 	color: black;
+ 	color: white;
  	text-decoration: none;
  }
  
  #up a:hover {
-	color: black;
+	color: white;
 	text-decoration: none;
  }
  
  #up a:visited {
-	color: black;
+	color: white;
 	text-decoration: none;
 }
 .hoverAll{

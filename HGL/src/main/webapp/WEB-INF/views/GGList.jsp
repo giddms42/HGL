@@ -27,7 +27,6 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	      <div id="bodyMain">
 	         <div id="boardName">좋은글 게시판</div>
 	         <br/>
-	         <img src="image/sadad.png" id="content">
 	               <table border="1" bordercolor="white">
 	                  <col width="50" class="ab">
 	                  <col width="350">

@@ -101,7 +101,7 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 					미<strong>래</strong></div>
 				</div>
 				<div class="up2" id="up23">${login.memberNickname} 님 환영합니다</div>
-				<div class="up2" id="up24"><a href="memberLoginOut.do">로그아웃</a></div>
+				<div class="up2" id="up24"><a href="memberLoginOut.do"><button>로그아웃</button></a></div>
 			</div>
 			<div id="down">
 				<div class="menu" id="menu0">
