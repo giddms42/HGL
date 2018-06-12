@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.memberDto;
 
 @Repository
@@ -43,6 +44,55 @@ public class AdminDaoImple implements AdminDao {
 		}
 		return list;
 	}
+
+	@Override
+	public memberDto memberSelectOne(String memberNickName) {
+		memberDto dto = new memberDto();
+		try {
+			dto=sqlSession.selectOne(nameSpace+"memberSelectOne",memberNickName);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
+
+	@Override
+	public int ggCount(String memberNickName) {
+		int res = 0;
+		try {
+			res = sqlSession.selectOne(nameSpace+"ggCount",memberNickName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int fwlbCount(String memberNickName) {
+		int res = 0;
+		try {
+			res = sqlSession.selectOne(nameSpace+"fwlbCount",memberNickName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public List<ggDto> memberGGList(int startPost, int endPost, String memberNickName) {
+		List<ggDto> res = new ArrayList<ggDto>();
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("startPost", String.valueOf(startPost));
+		map.put("endPost", String.valueOf(endPost));
+		map.put("memberNickName", memberNickName);
+		try {
+			res = sqlSession.selectList(nameSpace+"memberGGList",map);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 
 	
 
