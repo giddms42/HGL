@@ -4,7 +4,7 @@
     <% request.setCharacterEncoding("UTF-8"); %>
     <% response.setContentType("text/html; charset=UTF-8"); %>
     <%@page import="java.util.Calendar"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,10 +100,21 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 					<strong>가</strong>족의
 					미<strong>래</strong></div>
 				</div>
-				<div class="up2" id="up23">${login.memberNickname} 님 환영합니다</div>
-				<div class="up2" id="up24"><a href="memberLoginOut.do">로그아웃</a></div>
+				<c:choose>
+					<c:when test="${login == null}">
+						<div class="up2" id="up23"></div>
+						<div class="up2" id="up24"></div>
+					</c:when>
+					<c:when test="${login != null}">
+						<div class="up2" id="up23">${login.memberNickname} 님 환영합니다</div>
+						<div class="up2" id="up24"><a href="memberLoginOut.do">로그아웃</a></div>
+					</c:when>	
+				</c:choose>
+				
+			
 			</div>
 			<div id="down">
+				<c:if test="${login.memberRole eq 'ADMIN'}">
 				<div class="menu" id="menu0">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"><a href="#" class="btn btn-sm animated-button thar-three" id="btn1">관리자</a></div>
 					<div class="hoverAll" id="hoverZero">
@@ -111,6 +122,7 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="AdminSearchUserForm.do?nowpage=1" class="btn btn-sm animated-button thar-three sp" id="btn3">회원 목록</a></div>
 					</div>
 				</div>				
+				</c:if>
 				<div class="menu" id="menu1">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"><a href="#" class="btn btn-sm animated-button thar-three" id="btn1">홈페이지 소개</a></div>
 					<div class="hoverAll" id="hoverOne">

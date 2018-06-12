@@ -79,8 +79,7 @@
 	ORDER BY X.FWLBNO DESC
 	]]>
 	</select>
-	
-	
+		
 	<select id="ListRowNum" parameterType="map" resultType="int">
 	<![CDATA[
 	select X.RN
