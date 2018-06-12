@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/Header.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -152,6 +153,7 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 						<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="MapK.do" class="btn btn-sm animated-button thar-three sp" id="btn3">착한가게</a></div>
 					</div>
 				</div>
+
 				
 				<div class="menu" id="menu5">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="FWLList.do?memberNo=${login.memberNo}" class="btn btn-sm animated-button thar-three" id="btn1">위시리스트</a></div>
@@ -165,6 +167,7 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				<div class="menu" id="menu6">
 					<div class="col-md-3 col-sm-3 col-xs-6" id="btn"> <a href="GGListForm.do?nowpage=1" class="btn btn-sm animated-button thar-three" id="btn1">좋은글</a></div>
 				</div>
+
 			</div>
 		</div>
 	</div>

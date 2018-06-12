@@ -56,7 +56,7 @@ $(function(){
 		 }
 	});
 	
-	 $("td button[name=DeleteButton]").click(function(){
+	 $("button[name=DeleteButton]").click(function(){
 		 var delIcon = $("button[name=DeleteButton]").attr("title");
 		 if(delIcon=="y"){
 			 $(".FWLDelete").css("display","inline");
@@ -74,54 +74,64 @@ $(function(){
 		window.name="Parent";
 		window.open("FWLInsertForm.do?memberNo="+${login.memberNo},"위시리스트추가하기", 'status=no, width=600, height=150, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
-
+	
+	function shareWL(){
+		var shareWLChk=confirm("위시리스트 게시판에 공유하시겠습니까?")
+		if(shareWLChk==true){
+			location.href='FWLShare.do?memberNickName=${login.memberNickname}';
+		}else if(shareWLChk==false){
+			return false;
+		}
+	}
+	
 </script>
 </head>
 <body>
 
 	<div id="container">
-	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
-		<div id="topbutton">
-			<button type="button" onclick="location.href='FWLShare.do?memberNickName=${login.memberNickname}'">공유하기</button>
-			<button type="button" onclick="FWLinsert();" style="margin-left: 425px;">+위시리스트 추가하기</button>
-		</div>
-		
-		<form>
-		<table style="width:650px; margin: auto;">
-			<tr>
-				<th width=40px; style="padding: 10px;">달성</th>
-				<th style="text-align: center; max-width:585px;">위 시 리 스 트</th>
-			</tr>
-				<c:choose>
-					<c:when test="${empty FWLList}">
-					<tr>
-						<td colspan="2" style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
-					</tr>
-					</c:when>
-					<c:otherwise>
-						<c:forEach items="${FWLList}" var="FwlDto">
+		<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
+		<div id="FWLList">
+			<div id="topbutton">
+				<button type="button" onclick="shareWL();">공유하기</button>
+				<button type="button" onclick="FWLinsert();" style="margin-left: 425px;">+위시리스트 추가하기</button>
+			</div>
+			
+			<form>
+			<table style="width:650px; margin: auto;">
+				<tr>
+					<th width=40px; style="padding: 10px;">달성</th>
+					<th style="text-align: center; max-width:585px;">위 시 리 스 트</th>
+				</tr>
+					<c:choose>
+						<c:when test="${empty FWLList}">
 						<tr>
-							<c:choose>
-								<c:when test="${FwlDto.fwlChk eq 'Y'}">
-									<td><input type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
-								</c:when>
-								<c:otherwise>
-									<td><input type="checkbox" value="${FwlDto.fwlNo}"></td>
-								</c:otherwise>
-							</c:choose>
-							<td>${FwlDto.fwlItem}
-							<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}"><img class="FWLDelete-img" src="image/xButton.png"></button>
-							</td>
+							<td colspan="2" style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
 						</tr>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-			<tr>
-				<td colspan="3"><button type="button" name="DeleteButton" title="y" style="float:right; margin: 10px;">삭제</button></td>
-			</tr>
-		</table>
-		</form>	
-	
-	</div>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${FWLList}" var="FwlDto">
+							<tr>
+								<c:choose>
+									<c:when test="${FwlDto.fwlChk eq 'Y'}">
+										<td><input type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
+									</c:when>
+									<c:otherwise>
+										<td><input type="checkbox" value="${FwlDto.fwlNo}"></td>
+									</c:otherwise>
+								</c:choose>
+								<td style="border-bottom: 1px solid black;">${FwlDto.fwlItem}
+								<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}"><img class="FWLDelete-img" src="image/xButton.png"></button>
+								</td>
+							</tr>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				<tr>
+				</tr>
+			</table>
+			</form>	
+			</div>
+			<div style="margin: auto; width: 800px;"><button type="button" name="DeleteButton" title="y" style="float:right; margin: 10px;">삭제</button></div>
+		</div> 
 </body>
 </html>
