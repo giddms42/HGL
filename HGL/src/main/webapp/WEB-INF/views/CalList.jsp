@@ -88,6 +88,21 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 		window.name="Parent";
 		window.open("calDetail.do?calNo="+num,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 		}
+	
+	function addSCH2(){
+		var year = $("#year").val();
+		var month = $("#month").val();
+		var date = $("#date").val();
+		var lastDay = $("#lastDay").val(); // 값 잘들어옴
+		var memberId = $("#memberId").val();
+		var memberNickname = $("#memberNickname").val();
+		
+		var popupX = (window.screen.width/2) - (515 / 2);
+		var popupY= (window.screen.height/2)- (465/2);
+
+		window.name="Parent";
+		window.open("CalInsertForm.do?year="+year+"&month="+month+"&date="+date+"&lastDay="+lastDay+"&memberId="+memberId+"&memberNickname="+memberNickname,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		}
 </script>
 <%
 	String paramYear = request.getParameter("year");
@@ -203,7 +218,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 		</tr>
 	</table>
 	<div id="CalBtn">
-		<input type="button" value="일정추가" onclick="location.href='CalInsertForm.do?year=<%=year%>&month=<%=month%>&date=<%=date%>&lastDay=<%=lastDay%>&memberId=${login.memberId}&memberNickname=${login.memberNickname}'" id="InBtn"/>
+		<input type="button" value="일정추가" onclick="addSCH2();" id="InBtn"/>
 	</div>
 	</div>
 	<br/>
