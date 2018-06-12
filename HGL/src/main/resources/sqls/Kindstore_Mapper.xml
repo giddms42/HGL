@@ -16,11 +16,11 @@
 	</resultMap>
 	
 	<select id="kindstoreListSerchCountAll" parameterType="map" resultType="int">
-		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kinddo} AND KINDCITY LIKE #{kindcity}
+		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kindDo} AND KINDCITY LIKE #{kindCity}
 	</select>
 	
 	<select id="kindstoreListSerchCountOne" parameterType="String" resultType="int">
-		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kinddo}
+		SELECT COUNT(*) FROM KINDSTORE WHERE KINDDO LIKE #{kindDo}
 	</select>
 	
 	<select id="selectSearchAll" parameterType="map" resultMap="kindstoreDtoMap">

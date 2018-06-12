@@ -13,15 +13,26 @@
 <script src="js/MemberInfoUpdate.js"></script>
 <script type="text/javascript">
 
-function cancle(){
-	location.href="MemberInfoForm.do?memberId="${login.memberId};
-		
-}
+	function cancle(){
+		location.href="MemberInfoForm.do?memberId="+${login.memberId};
+	}
+	
+	$("#MemberupdateForm").submit(function(){
+		var memberPhone = memberPhone.value;
+			alert(memberPhone)
+		if (!isNumeric(memberPhone).val) {
+		    alert("주민번호는 숫자로 입력하세요.");
+		    document.f.my_num.value = ""
+		    document.f.my_num.focus()
+		    return false;
+		  }
+	})
+	
 </script>
 </head>
 <body>
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
-	<form action="MemberInfoUpdate.do" novalidate>
+	<form id="MemberupdateForm" action="MemberInfoUpdate.do" novalidate>
 	<div class="userInfo">
 		<h2>회원정보 수정</h2>
 			<input type="hidden" name="memberNo" value="${login.memberNo}"/>

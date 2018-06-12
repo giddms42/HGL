@@ -1,4 +1,10 @@
 @charset "UTF-8";
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 li{
 	list-style: none;
 }
@@ -16,12 +22,10 @@ label{
 	font-size: 12pt;
 }
 
-
-
 .radi{
 	width: 20px;
 	height: 20px;
-	vertical-align: middle;
+	vertical-align: top;
 	margin-bottom: 15px;
 }
 .dis{

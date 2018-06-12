@@ -10,53 +10,81 @@
 <link rel="stylesheet" type="text/css" href="css/FamInsert.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-
 $(function(){
-$("input[type=checkbox]").click(function(){ //체크박스를 클릭할때마다 
-	if($("input[type=checkbox]:checked").length > 3) {
-		   alert("지병은 최대 3개까지만 선택할 수 있습니다. 다시 확인해주세요");
-		   $(this).prop("checked", false);
-	}else{
-		$("input[type=checkbox]").each(function() { // 체크박스의 각자를 갖고와서 
-			 if($(this).is(":checked")){//checked의 속성이 checked 라면 
-				 $(this).prop("name","disease"); // name=disease 추가 
-			 }else{ //chekced 속성이 checked가 아니라면 	 
-				 $(this).removeAttr("name");
-			 }
-		 });	
-	}	
- });
-   
- $("input[type=radio]").click(function(){
-	 var radioValue = $(this).val();
-	 if(radioValue=="질병없음"){
-		 $("#disNo").prop("name","disease"); 
-		 $("#disYes").prop("checked",false);
-		 $("#disList").css("display","none");  
-	 }else if(radioValue=="질병있음"){
-		 $("#disList").css("display","block"); 
-		 $("#disNo").prop("checked",false);
-		 $("#disNo").removeAttr("name");
-	 }
-	 
- });
-
+	
+	$("input[type=checkbox]").click(function(){ //체크박스를 클릭할때마다 
+		if($("input[type=checkbox]:checked").length > 3) {
+			   alert("지병은 최대 3개까지만 선택할 수 있습니다. 다시 확인해주세요");
+			   $(this).prop("checked", false);
+		}else{
+			$("input[type=checkbox]").each(function() { // 체크박스의 각자를 갖고와서 
+				 if($(this).is(":checked")){//checked의 속성이 checked 라면 
+					 $(this).prop("name","disease"); // name=disease 추가 
+				 }else{ //chekced 속성이 checked가 아니라면 	 
+					 $(this).removeAttr("name");
+				 }
+			});	
+		}	
+	});
+ 
+	$("input[type=radio]").click(function(){
+		var radioValue = $(this).val();
+		 	if(radioValue=="질병없음"){
+		 		$("#disNo").prop("name","disease");
+		 		$("#disYes").removeAttr("name");
+				$("#disYes").prop("checked",false);
+				$("#disList").css("display","none");
+				$("input[type=checkbox]").each(function() { // 체크박스의 각자를 갖고와서 			 
+				$(this).removeAttr("name");				
+				});	
+			}else if(radioValue=="질병있음"){
+				$("#disList").css("display","block"); 
+				$("#disNo").prop("checked",false);
+				$("#disNo").removeAttr("name");
+			}
+	});
+	
+	 $("#myForm").submit(function(){
+		 var radioValue = $("#disYes").val(); 
+         if($("input[name=famName]").val() == ""){
+        	 alert("이름을 입력해주세요")
+        	 document.getElementsByName("famName")[0].focus();
+        	 return false;
+         }else if($("input[name=famBirth]").val() == ""){
+        	 alert("생일을 입력해주세요")
+        	 document.getElementsByName("famBirth")[0].focus();
+        	 return false;
+         }else if($("input[name=famLunar]:checked").length < 1){
+        	 alert("양력 또는 음력을 선택해주세요")
+        	 document.getElementsByName("famLunar")[0].focus();
+        	 return false;
+         }else if($("input[name=famHeight]").val() == ""){
+        	 alert("신장을 입력해주세요")
+        	 document.getElementsByName("famHeight")[0].focus();
+        	 return false;
+         }else if($("#disYes").is(":checked")){
+        	 if($(".dis:checked").length < 1){
+        	 alert("질병을 한개 이상 체크해주세요")
+        	 return false;	
+         	 }
+         }
+	 })
 });
 
-function change(obj){
-	document.getElementById("chkCancer").value=obj;
-	document.getElementById("chkCancer").checked=true;
-	document.getElementById("chkCancer").name="disease";
-	
-}
-
-//생일에 숫자입력제한
-function maxLengthCheck(object){
-	   if (object.value.length > object.maxLength){
-	    object.value = object.value.slice(0, object.maxLength);
-	   }
-}
+	function change(obj){
+		document.getElementById("chkCancer").value=obj;
+		document.getElementById("chkCancer").checked=true;
+		document.getElementById("chkCancer").name="disease";
+		
+	}
+	//생일에 숫자입력제한
+	function maxLengthCheck(object){
+		   if (object.value.length > object.maxLength){
+		    object.value = object.value.slice(0, object.maxLength);
+		   }
+	}
 	   
+
 </script>
 
 </head>
@@ -66,8 +94,7 @@ function maxLengthCheck(object){
 			<h3>가족정보 등록</h3>
 			<div class="signUpText">가정 정보를 입력하세요</div>
 		</header>
-		
-		<form name="myForm" action="FamInsert.do" method="post" class="userForm" novalidate>
+		<form id="myForm" action="FamInsert.do" method="post" class="userForm" novalidate>
 			<input type="hidden" name="memberNo" value="${login.memberNo}"/>
 			<div id="famInsert">
 				<div style="margin-top: 30px;">이름
@@ -85,9 +112,11 @@ function maxLengthCheck(object){
 					<input class="famInfo" type="number" name="famHeight" required="required" placeholder="cm. 숫자만 인력해주세요">
 				</div>
 				
-				<label><input class="radi" type="radio" name="t" value="질병없음" id="disNo">질병없음</label>
-          		<label><input class="radi" type="radio" name="t" value="질병있음" id="disYes">질병있음</label>
-				
+				<div style="text-align: center;">
+				<label><input class="radi" type="radio" value="질병없음" id="disNo" name="disease" checked="checked">질병없음</label>
+          		<label><input class="radi" type="radio" value="질병있음" id="disYes">질병있음</label>
+				</div>
+								
 				<div id="disList">	
 				<div style="text-align: center;">지병 항목 (최대 3개)</div>
 				<table style="margin: auto;">
