@@ -68,10 +68,10 @@ html {
 						</tr>
 				
 					</table>
-					<div class="btn">
-						<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn1">
-						<input type="submit" value="글수정" class="btn2">
-						<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" class="btn3">
+					<div class="btn00">
+						<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn001">
+						<input type="submit" value="글수정" class="btn002">
+						<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" class="btn003">
 					</div>
 					<div id="paging">
 					<br>

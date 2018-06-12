@@ -62,11 +62,12 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	   <div id="b">
 	      <div id="bodyMain">
 	          <form id="frm" name="frm" enctype="multipart/form-data" action="update.do" method="post">
-	      		   <input type="hidden" name="ggNo" value="${dto.ggNo }">  
-	         	   <div id="boardName">정말 좋은글 수정하기</div>
-		           <br/>
+	      		   <input type="hidden" name="ggNo" value="${dto.ggNo }">
 	               <table border="1" bordercolor="white">
 	               <col width="100">
+	               	  <tr>
+	               	  	<td colspan="2"><div>정말 좋은글 수정하기</div></td>
+	               	  </tr>
 	                  <tr>
 	                     <td>글제목</td>
 	                     <td><input type="text" class="td" value="${dto.ggTitle }" name="ggTitle"></td>
@@ -92,17 +93,17 @@ html { background: url("image/img.jpg") no-repeat center fixed;
                                 ${ggImgDto.ggImgOrginalName}
                                 <!-- 이미지 사이즈 -->
                                 (${ggImgDto.ggImgSize}kb)
-                                 <a href="#this" class="btn" id="delete_${i.index }" name="delete_${i.index }"><button>삭제</button></a>
+                                 <a href="#this" class="btn00" id="delete_${i.index }" name="delete_${i.index }"><button>삭제</button></a>
                                 </p>
                             </c:forEach>
                         </div>
 						</td>
 					</tr>
 	               </table>
-	               <div class="btn">
-	               		<a href="#this" class="btn" id="addFile">파일 추가</a>
-	               		<input type="button" value="취소" onclick="location.href='GGListForm.do?nowpage=1'" class="btn2">
-		                <input type="submit" value="글수정" class="btn3">
+	               <div class="btn00">
+	               		<a href="#this" class="btn00" id="addFile">파일 추가</a>
+	               		<input type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" class="btn002">
+		                <input type="submit" value="글수정" class="btn003">
 	               </div>
 	               <div id="paging">　<br>　</div>
 	      </form>

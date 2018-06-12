@@ -39,66 +39,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
                      <th>작성일</th>
                      <th>글삭제</th>
                   </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
-                  <tr>
-                     <td class="div2" id="ans">1</td>
-                     <td class="div1" id="res"><a href="#">정현이님이 쓴 눈물나게 좋은글</a></td>
-                     <td class="div1" id="res">2018-05-28 pm21:55</td>
-                     <td class="div1" id="res"><input type="button" value="삭제"></td>
-                  </tr>
+              
                </table>
                <br/>
                <div id="paging">페이징<br>자리~!</div>
