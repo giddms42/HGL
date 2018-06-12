@@ -54,16 +54,16 @@ html {
 							<td><input type="text" value="${dto.ggWriter }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
-							<td>글내용</td>
+							<td>글내용~</td>
 							<td>
 							<textarea rows="20" cols="50" readonly="readonly" style="resize: none;">${dto.ggCont}</textarea>
-							<div style="max-width:300px; height: 300px;">
 								<c:if test="${!empty imgList}">
-								<c:forEach items="${imgList}" var="ggImgDto">
-									<img src="ggImg/${ggImgDto.ggImgStoreName}">
-								</c:forEach>
+									<div>
+										<c:forEach items="${imgList}" var="ggImgDto">
+											<img src="ggImg/${ggImgDto.ggImgStoreName}" style="width:100%; max-height: 30%;">
+										</c:forEach>
+									</div>
 							</c:if>
-							</div>
 							</td>
 						</tr>
 				

@@ -54,6 +54,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 				</c:forEach>
 	               </table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
+	               <br/>
 	           <div id="paging">
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
@@ -88,8 +89,8 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	               <div id="paging">
 	               	<form action="GGListSearch.do" method="post">
 						<input type="hidden" name="nowpage" value="1"/>
-						<div style="width: 50%; margin: auto; border: 1px dotted green; text-align: center;">
-							<select style="height: 28px; border: 0;" name="topic">
+						<div style="width: 50%; margin: auto; text-align: center;">
+							<select style="height: 22px;" name="topic">
 								<option value="GGTITLE">제목</option>
 								<option value="GGCONT">내용</option>
 								<option value="GGWRITER">작성자</option>
