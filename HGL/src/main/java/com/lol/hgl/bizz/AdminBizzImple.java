@@ -52,6 +52,16 @@ public class AdminBizzImple implements AdminBizz {
 		return dao.memberFwlbList(startPost, endPost, memberNickName);
 	}
 
+	@Override
+	public int ggDelete(int ggNo) {
+		return dao.ggDelete(ggNo);
+	}
+
+	@Override
+	public int fwlbDelete(int fwlbNo) {
+		return dao.fwlbDelete(fwlbNo);
+	}
+
 
 
 

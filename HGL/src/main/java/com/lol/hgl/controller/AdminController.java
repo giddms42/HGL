@@ -135,4 +135,20 @@ public class AdminController {
 		model.addAttribute("list", list);
 		return "AdminSearchFWLB";
 	}
+	
+	@RequestMapping(value="AdminGGDelete.do")
+	public String AdminGGDelete(int ggNo, Model model, String memberNickName) {
+		bizz.ggDelete(ggNo);
+		model.addAttribute("memberNickName", memberNickName);
+		model.addAttribute("nowpage", "1");
+		return "redirect:AdminSearchGG.do";
+	}
+	
+	@RequestMapping(value="AdminFWLBDelete.do")
+	public String AdminFWLBDelete(int fwlbNo, Model model, String memberNickName) {
+		bizz.fwlbDelete(fwlbNo);
+		model.addAttribute("memberNickName", memberNickName);
+		model.addAttribute("nowpage", "1");
+		return "redirect:AdminSearchFWLB.do";
+	}
 }

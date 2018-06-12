@@ -61,7 +61,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 								</c:choose>
 								<td><a href="FWLBDetail.do?fwlbNo=${dto.fwlbNo}&count=1&fwlbWriter=${dto.fwlbWriter}">${dto.fwlbTitle}</a></td>
 								<td>${dto.fwlbDate }</td>
-								<td><input type="button" onclick="location.href='FWLBDelete.do?fwlbNo=${dto.fwlbNo}'" value="삭제"></td>
+								<td><input type="button" onclick="location.href='AdminFWLBDelete.do?fwlbNo=${dto.fwlbNo}&memberNickName=${memberNickName}'" value="삭제"></td>
 								</tr>
 								</c:forEach>
 	                 	</c:otherwise>

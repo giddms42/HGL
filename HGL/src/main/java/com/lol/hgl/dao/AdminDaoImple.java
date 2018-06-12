@@ -109,6 +109,28 @@ public class AdminDaoImple implements AdminDao {
 		return res;
 	}
 
+	@Override
+	public int ggDelete(int ggNo) {
+		int res = 0;
+		try {
+			res = sqlSession.delete(nameSpace+"ggDelete",ggNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int fwlbDelete(int fwlbNo) {
+		int res = 0;
+		try {
+			res = sqlSession.delete(nameSpace+"fwlbDelete",fwlbNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 
 	
 

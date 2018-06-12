@@ -103,7 +103,7 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				<c:choose>
 					<c:when test="${login == null}">
 						<div class="up2" id="up23"></div>
-						<div class="up2" id="up24"></div>
+						<div class="up2" id="up24"><a href="memberLoginOut.do">로그아웃</a></div>
 					</c:when>
 					<c:when test="${login != null}">
 						<div class="up2" id="up23">${login.memberNickname} 님 환영합니다</div>

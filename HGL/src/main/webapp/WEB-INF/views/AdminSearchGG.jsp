@@ -61,7 +61,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 								</c:choose>
 								<td><a href="GGDetailForm.do?ggNo=${dto.ggNo}&count=1">${dto.ggTitle}</a></td>
 								<td>${dto.ggDate }</td>
-								<td><input type="button" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" value="삭제"></td>
+								<td><input type="button" onclick="location.href='AdminGGDelete.do?ggNo=${dto.ggNo}&memberNickName=${memberNickName}'" value="삭제"></td>
 								</tr>
 								</c:forEach>
 	                 	</c:otherwise>

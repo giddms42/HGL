@@ -100,6 +100,14 @@
 	ORDER BY X.FWLBNO DESC
 	]]>
 	</select>
+	
+	<delete id="ggDelete" parameterType="int">
+	DELETE FROM GG WHERE GGNO=#{ggNo}
+	</delete>
+	
+	<delete id="fwlbDelete" parameterType="int">
+	DELETE FROM FWLB WHERE FWLBNO=#{fwlbNo}
+	</delete>
 
 
 </mapper>

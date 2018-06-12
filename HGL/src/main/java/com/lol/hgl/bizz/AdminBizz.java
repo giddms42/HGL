@@ -15,4 +15,6 @@ public interface AdminBizz {
 	public int fwlbCount(String memberNickName);
 	public List<ggDto> memberGGList(int startPost, int endPost, String memberNickName);
 	public List<fwlbDto> memberFwlbList(int startPost, int endPost, String memberNickName);
+	public int ggDelete(int ggNo);
+	public int fwlbDelete(int fwlbNo);
 }
