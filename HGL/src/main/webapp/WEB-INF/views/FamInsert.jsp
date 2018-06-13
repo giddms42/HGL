@@ -98,6 +98,7 @@ $(function(){
 
 </head>
 <body>
+ <div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 <div class="famRegistForm">
 	    <header>
 			<h3>가족정보 등록</h3>

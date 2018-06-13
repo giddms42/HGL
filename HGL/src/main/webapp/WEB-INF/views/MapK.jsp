@@ -8,351 +8,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-function showSub(obj){ //주소 셀렉트박스
-	var seoul = document.getElementById("seoul");
-	var gyeonggi = document.getElementById("gyeonggi");
-	var incheon = document.getElementById("incheon");
-	var gangwon = document.getElementById("gangwon");
-	var chungbuk = document.getElementById("chungbuk");
-	var chungnam = document.getElementById("chungnam");
-	var daejeon = document.getElementById("daejeon");
-	var gyeongbug = document.getElementById("gyeongbug");
-	var daegu = document.getElementById("daegu");
-	var ulsan = document.getElementById("ulsan");
-	var gyeongnam = document.getElementById("gyeongnam");
-	var busan = document.getElementById("busan");
-	var jeonbug = document.getElementById("jeonbug");
-	var jeonnam = document.getElementById("jeonnam");
-	var gwangju = document.getElementById("gwangju");
-	var jeju = document.getElementById("jeju");
-	
-	switch(obj){
-		case "서울특별시" :
-			seoul.style.display = "";
-			seoul.setAttribute( 'name', 'kindcity' );
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "경기도" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "";
-			gyeonggi.setAttribute( 'name', 'kindcity' );
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "인천광역시" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "";
-			incheon.setAttribute( 'name', 'kindcity' );
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "강원도" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "";
-			gangwon.setAttribute( 'name', 'kindcity' );
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "충청북도" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "";
-			chungbuk.setAttribute( 'name', 'kindcity' );
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "충청남도" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "";
-			chungnam.setAttribute( 'name', 'kindcity' );
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "대전광역시" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "";
-			daejeon.setAttribute( 'name', 'kindcity' );
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "세종특별자치시" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;	
-		case "경상북도" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "";
-			gyeongbug.setAttribute( 'name', 'kindcity' );
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "대구광역시" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "";
-			daegu.setAttribute( 'name', 'kindcity' );
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "울산광역시" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "";
-			ulsan.setAttribute( 'name', 'kindcity' );
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "경상남도" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "";
-			gyeongnam.setAttribute( 'name', 'kindcity' );
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "부산광역시" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "";
-			busan.setAttribute( 'name', 'kindcity' );
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "전라북도" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "";
-			jeonbug.setAttribute( 'name', 'kindcity' );
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "전라남도" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "";
-			jeonnam.setAttribute( 'name', 'kindcity' );
-			gwangju.style.display = "none";
-			jeju.style.display = "none";
-			break;
-		case "광주광역시" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "";
-			gwangju.setAttribute( 'name', 'kindcity' );
-			jeju.style.display = "none";
-			break;
-		case "제주도" :
-			seoul.style.display = "none";
-			gyeonggi.style.display = "none";
-			incheon.style.display = "none";
-			gangwon.style.display = "none";
-			chungbuk.style.display = "none";
-			chungnam.style.display = "none";
-			daejeon.style.display = "none";
-			gyeongbug.style.display = "none";
-			daegu.style.display = "none";
-			ulsan.style.display = "none";
-			gyeongnam.style.display = "none";
-			busan.style.display = "none";
-			jeonbug.style.display = "none";
-			jeonnam.style.display = "none";
-			gwangju.style.display = "none";
-			jeju.style.display = "";
-			jeju.setAttribute( 'name', 'kindcity' );
-			break;
-	}
-}
-</script>
+<link rel="stylesheet" type="text/css" href="css/MapK.css">
+<script src="js/MapK.js"></script>
 <script type="text/javascript">//기타 조건
 	function SearchCheck(kinddo){
 		if(kinddo==""){
@@ -670,32 +327,41 @@ function showSub(obj){ //주소 셀렉트박스
 	    </div>
 	</form>
 	<div>${kinddo} ${kindcity}에 위치한 착한가게 입니다</div>
-	<table border="1" style="text-align: center; margin: auto;">
-		<col width=180px;>
-		<col width=130px;>
-		<col width=200px;>
-		<col width=150px;>
-		<col width=100px;>
-		<col width=100px;>
-		<tr>
-			<th>가게명</th>
-			<th>전화번호</th>
-			<th>주소</th>
-			<th>주메뉴</th>
-			<th>배달여부</th>
-			<th>주차여부</th>
-		</tr>
-		<c:forEach items="${list}" var="kindstoreDto">
-		    <tr>
-				<td onclick="SeachMap('${kindstoreDto.kindAddr}','${kindstoreDto.kindStorename}');">${kindstoreDto.kindStorename}</td>
-				<td>${kindstoreDto.kindPhone}</td>
-				<td>${kindstoreDto.kindAddr}</td>
-				<td>${kindstoreDto.kindMenu}</td>
-				<td>${kindstoreDto.kindDelivery}</td>
-				<td>${kindstoreDto.kindParking}</td>
-			</tr>
-		</c:forEach>
-	</table>
+	<c:choose>
+		<c:when test="${empty FWLList}">
+			<h1>착한가게를 검색해주세요!</h1>
+		</c:when>
+		<c:otherwise>	
+			<table id="rounded-corner" style="text-align: center; margin: auto; margin-bottom: 1%;">
+				<col width=180px;>
+				<col width=130px;>
+				<col width=200px;>
+				<col width=100px;>
+				<thead>
+				<tr>
+					<th>가게명</th>
+					<th>전화번호</th>
+					<th>주소</th>
+					<th>주메뉴</th>
+					<th>배달여부</th>
+					<th>주차여부</th>
+				</tr>
+				</thead>
+				<tbody>
+				<c:forEach items="${list}" var="kindstoreDto">
+				    <tr>
+						<td onclick="SeachMap('${kindstoreDto.kindAddr}','${kindstoreDto.kindStorename}');">${kindstoreDto.kindStorename}</td>
+						<td>${kindstoreDto.kindPhone}</td>
+						<td>${kindstoreDto.kindAddr}</td>
+						<td>${kindstoreDto.kindMenu}</td>
+						<td>${kindstoreDto.kindDelivery}</td>
+						<td>${kindstoreDto.kindParking}</td>
+					</tr>
+				</c:forEach>
+				</tbody>
+			</table>
+		</c:otherwise>
+	</c:choose>
 	           <div id="paging" style="margin: auto;">
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
