@@ -168,7 +168,8 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	<div id="b">
 		<input type="hidden" id="memberId" value="${login.memberId}"/>
 	<table id="calendar">
-		<caption id="caption">
+		<tr id="topBar">
+			<th colspan="7">
 			<a href="CalListForm.do?year=<%=year-1%>&month=<%=month%>&memberId=${login.memberId}">◁</a>
 			<a href="CalListForm.do?year=<%=year%>&month=<%=month-1%>&memberId=${login.memberId}">◀</a>
 			
@@ -177,9 +178,10 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 			
 			<a href="CalListForm.do?year=<%=year%>&month=<%=month+1%>&memberId=${login.memberId}">▶</a>
 			<a href="CalListForm.do?year=<%=year+1%>&month=<%=month%>&memberId=${login.memberId}">▷</a>
-		</caption>
+			</th>
+		</tr>
 		
-		<tr>
+		<tr id="calTr">
 			<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
 		</tr>
 		<tr>
