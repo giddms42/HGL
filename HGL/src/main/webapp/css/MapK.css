@@ -98,7 +98,8 @@ select {
 
 #SearchButton {
 	display: inline-block;
-	outline: none;
+	outline: 0;
+	boder: 1px solid #b9c9fe;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;

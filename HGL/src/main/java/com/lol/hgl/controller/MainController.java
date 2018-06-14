@@ -49,6 +49,11 @@ public class MainController {
 		return "Main";
 	}
 	
+	@RequestMapping(value="gsYS.do")
+	public String gsYS() {
+		return "gsYS";
+	}
+	
 	@RequestMapping(value="MapHW.do")
 	public String MapHW() {
 		return "MapHW";

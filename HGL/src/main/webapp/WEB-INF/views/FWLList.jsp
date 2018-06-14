@@ -31,8 +31,8 @@ $(function(){
 		               }
 		            });
 			 }else{
-				 alert("취소되었습니다");
-				 $(this).prop("checked","false");
+				 alert("위시리스트를 달성해봅시다!");
+				 $(this).prop('checked',false);
 			 }
 		 }else{
 			 var wishChk=confirm("취소하시겠습니까?")
@@ -51,7 +51,7 @@ $(function(){
 		               }
 		            });
 			 }else{
-				 $(this).prop("checked","true");
+				 $(this).prop('checked',true);
 			 }
 		 }
 	});
@@ -113,10 +113,10 @@ $(function(){
 								<tr>
 									<c:choose>
 										<c:when test="${FwlDto.fwlChk eq 'Y'}">
-											<td><input type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
+											<td><input name="check" type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
 										</c:when>
 										<c:otherwise>
-											<td><input type="checkbox" value="${FwlDto.fwlNo}"></td>
+											<td><input name="check" type="checkbox" value="${FwlDto.fwlNo}"></td>
 										</c:otherwise>
 									</c:choose>
 									<td style="border-bottom: 1px solid black;">${FwlDto.fwlItem}
