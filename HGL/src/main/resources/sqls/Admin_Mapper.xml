@@ -12,7 +12,9 @@
 		<result column="MEMBERCITY" property="memberCity"/>	
 		<result column="MEMBERADDR" property="memberAddr"/>	
 		<result column="MEMBERROLE" property="memberRole"/>	
-		<result column="MEMBERPROHIBIT" property="memberProhibit"/>	
+		<result column="MEMBERPROHIBITCOUNT" property="memberProhibitCount"/>	
+		<result column="MEMBERPROHIBITTIME" property="memberProhibitTime"/>	
+		<result column="MEMBERPROHIBITCHK" property="memberProhibitChk"/>	
 		<result column="MEMBERJOIN" property="memberJoin"/>	
 		<result column="MEMBERSMS" property="memberSMS"/>	
 	</resultMap>
@@ -45,7 +47,8 @@
 	select *
 	from ( 
     select A.MEMBERNO, A.MEMBERID, A.MEMBERPW, A.MEMBERNICKNAME, A.MEMBEREMAIL, A.MEMBERPHONE, A.MEMBERDO,
-  		   A.MEMBERCITY, A.MEMBERADDR, A.MEMBERROLE, A.MEMBERPROHIBIT, A.MEMBERJOIN, A.MEMBERSMS, 
+  		   A.MEMBERCITY, A.MEMBERADDR, A.MEMBERROLE, A.MEMBERPROHIBITCOUNT, A.MEMBERPROHIBITTIME, A.MEMBERPROHIBITCHK,  A.MEMBERJOIN, A.MEMBERSMS,
+  		   A.MEMBERLOGOUTTIME, 
     ROWNUM AS RN
     from (
         select *
@@ -108,6 +111,19 @@
 	<delete id="fwlbDelete" parameterType="int">
 	DELETE FROM FWLB WHERE FWLBNO=#{fwlbNo}
 	</delete>
+	
+	<update id="prohibitCount" parameterType="String">
+		UPDATE MEMBER SET MEMBERPROHIBITCOUNT = MEMBERPROHIBITCOUNT+1 WHERE MEMBERNICKNAME=#{memberNickName}
+	</update>
+	
+	<update id="prohibitChk" parameterType="String">
+		UPDATE MEMBER SET MEMBERPROHIBITCHK = 'Y' WHERE MEMBERNICKNAME=#{memberNickName}
+	</update>
+	
+	<update id="prohibitMangeTime" parameterType="memberDto">
+		UPDATE MEMBER SET MEMBERPROHIBITTIME = #{memberProhibitTime} WHERE MEMBERNICKNAME=#{memberNickname}
+	</update>
+	
 
 
 </mapper>

@@ -1,5 +1,7 @@
 package com.lol.hgl.bizz;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +62,32 @@ public class AdminBizzImple implements AdminBizz {
 	@Override
 	public int fwlbDelete(int fwlbNo) {
 		return dao.fwlbDelete(fwlbNo);
+	}
+
+	@Override
+	public int memberProhibit(String memberNickName) {
+		dao.prohibitChk(memberNickName);
+		dao.prohibitCount(memberNickName);
+		memberDto user = dao.memberSelectOne(memberNickName);
+		int count = user.getMemberProhibitCount();
+		Date userLogOutTime = user.getMemberLogoutTime();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(userLogOutTime);
+		switch (count) {
+		case 1:
+			cal.add(Calendar.DATE, 7);
+			break;
+		case 2:
+			cal.add(Calendar.DATE, 15);
+			break;
+		case 3:
+			cal.add(Calendar.DATE, 30);
+			break;
+		}
+		Date mangeTime = cal.getTime();
+		memberDto dto = new memberDto(memberNickName, mangeTime);
+		dao.prohibitMangeTime(dto);
+		return count;
 	}
 
 

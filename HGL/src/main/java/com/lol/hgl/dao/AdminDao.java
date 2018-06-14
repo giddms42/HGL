@@ -1,5 +1,6 @@
 package com.lol.hgl.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.lol.hgl.dto.fwlbDto;
@@ -17,4 +18,8 @@ public interface AdminDao {
 	public List<fwlbDto> memberFwlbList(int startPost, int endPost, String memberNickName);
 	public int ggDelete(int ggNo);
 	public int fwlbDelete(int fwlbNo);
+	public int prohibitCount(String memberNickName);
+	public int prohibitChk(String memberNickName);
+	public int prohibitMangeTime(memberDto dto);
+
 }

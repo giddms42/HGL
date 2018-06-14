@@ -163,6 +163,17 @@ public class MemeberDaoImple implements MemberDao {
 		return dto;
 	}
 
+	@Override
+	public int logOutTime(String memberId) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"logOutTime", memberId);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
 
 
 }

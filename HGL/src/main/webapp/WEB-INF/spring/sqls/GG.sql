@@ -20,23 +20,6 @@ INSERT INTO GG VALUES(GGNO_SEQ.NEXTVAL, 0, '관리자', '좋은 글 게시판 1'
 
 SELECT * FROM GG;
 
-SELECT * FROM(
-SELECT * FROM GG ORDER BY GGDATE DESC)
-WHERE ROWNUM=1;
-
-select *
-	from ( 
-    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE,
-    ROWNUM AS RN
-    from (
-        select *
-        from GG 
-        WHERE GGWRITER = '히히'
-        ORDER BY GGNO DESC) A
-    where ROWNUM <= 10) X
-	where X.RN >= 1
-	ORDER BY X.GGNO desc
-
 ------------------------------------------------
 
 --GGCM SEQUENCE SQL
@@ -54,8 +37,6 @@ CREATE TABLE GGCM
     GGCMDATE      DATE              NOT NULL, 
     CONSTRAINT GGCM_PK PRIMARY KEY (GGCMNO)
 );
-
-INSERT INTO GGCM VALUES(1, GGCMNO_SEQ.NEXTVAL, '관리자', '기운냈으면 좋겟댱 ', SYSDATE);
 
 SELECT * FROM GGCM;
 
@@ -84,6 +65,4 @@ CREATE TABLE GGIMG
 );
 
 SELECT * FROM GGIMG;
-ALTER TABLE GGIMG MODIFY(GGSTORENAME VARCHAR2(50));
 
-select * from kindstore where kinddo='세종특별자치시' and kindcity = '%null%';
