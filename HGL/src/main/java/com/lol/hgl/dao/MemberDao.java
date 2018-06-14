@@ -17,6 +17,7 @@ public interface MemberDao {
 	public int updateMemberInfo(memberDto dto);
 	public int getOut(int memberNo);
 	public memberDto searchMember(String memberNickName);
+	public int logOutTime(String memberId);
 	
 
 }

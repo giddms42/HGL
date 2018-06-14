@@ -1,6 +1,7 @@
 package com.lol.hgl.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -130,6 +131,40 @@ public class AdminDaoImple implements AdminDao {
 		}
 		return res;
 	}
+
+	@Override
+	public int prohibitCount(String memberNickName) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"prohibitCount",memberNickName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int prohibitChk(String memberNickName) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"prohibitChk",memberNickName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int prohibitMangeTime(memberDto dto) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"prohibitMangeTime",dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 
 
 	

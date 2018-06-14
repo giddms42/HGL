@@ -1,5 +1,7 @@
 package com.lol.hgl.dto;
 
+import java.util.Date;
+
 public class memberDto {
 	
 	private int memberNo;
@@ -12,9 +14,12 @@ public class memberDto {
 	private String memberCity;
 	private String memberAddr;
 	private String memberRole;
-	private int memberProhibit;
+	private int memberProhibitCount;
+	private Date memberProhibitTime;
+	private String memberProhibitChk;
 	private String memberJoin;
 	private String memberSMS;
+	private Date memberLogoutTime;
 	
 	public memberDto() {
 		
@@ -25,9 +30,16 @@ public class memberDto {
 		this.memberPw = memberPw;
 	}
 	
+	public memberDto(String memberNickname, Date memberProhibitTime) {
+		this.memberNickname = memberNickname;
+		this.memberProhibitTime = memberProhibitTime;
+	}
+
 	public memberDto(int memberNo, String memberId, String memberPw, String memberNickname, String memberEmail,
-			String memberPhone, String memberDo, String memberCity, String memberAddr, String memberRole, int memberProhibit,
-			String memberJoin, String memberSMS) {
+			String memberPhone, String memberDo, String memberCity, String memberAddr, String memberRole,
+			int memberProhibitCount, Date memberProhibitTime, String memberProhibitChk, String memberJoin,
+			String memberSMS, Date memberLogoutTime) {
+		super();
 		this.memberNo = memberNo;
 		this.memberId = memberId;
 		this.memberPw = memberPw;
@@ -36,23 +48,18 @@ public class memberDto {
 		this.memberPhone = memberPhone;
 		this.memberDo = memberDo;
 		this.memberCity = memberCity;
-		this.memberRole = memberRole;
 		this.memberAddr = memberAddr;
-		this.memberProhibit = memberProhibit;
+		this.memberRole = memberRole;
+		this.memberProhibitCount = memberProhibitCount;
+		this.memberProhibitTime = memberProhibitTime;
+		this.memberProhibitChk = memberProhibitChk;
 		this.memberJoin = memberJoin;
 		this.memberSMS = memberSMS;
+		this.memberLogoutTime = memberLogoutTime;
 	}
 
 	public int getMemberNo() {
 		return memberNo;
-	}
-
-	public String getMemberRole() {
-		return memberRole;
-	}
-
-	public void setMemberRole(String memberRole) {
-		this.memberRole = memberRole;
 	}
 
 	public void setMemberNo(int memberNo) {
@@ -123,12 +130,36 @@ public class memberDto {
 		this.memberAddr = memberAddr;
 	}
 
-	public int getMemberProhibit() {
-		return memberProhibit;
+	public String getMemberRole() {
+		return memberRole;
 	}
 
-	public void setMemberProhibit(int memberProhibit) {
-		this.memberProhibit = memberProhibit;
+	public void setMemberRole(String memberRole) {
+		this.memberRole = memberRole;
+	}
+
+	public int getMemberProhibitCount() {
+		return memberProhibitCount;
+	}
+
+	public void setMemberProhibitCount(int memberProhibitCount) {
+		this.memberProhibitCount = memberProhibitCount;
+	}
+
+	public Date getMemberProhibitTime() {
+		return memberProhibitTime;
+	}
+
+	public void setMemberProhibitTime(Date memberProhibitTime) {
+		this.memberProhibitTime = memberProhibitTime;
+	}
+
+	public String getMemberProhibitChk() {
+		return memberProhibitChk;
+	}
+
+	public void setMemberProhibitChk(String memberProhibitChk) {
+		this.memberProhibitChk = memberProhibitChk;
 	}
 
 	public String getMemberJoin() {
@@ -146,9 +177,18 @@ public class memberDto {
 	public void setMemberSMS(String memberSMS) {
 		this.memberSMS = memberSMS;
 	}
-	
-	
+
+	public Date getMemberLogoutTime() {
+		return memberLogoutTime;
+	}
+
+	public void setMemberLogoutTime(Date memberLogoutTime) {
+		this.memberLogoutTime = memberLogoutTime;
+	}
 	
 	
 
+	
+	
+ 
 }

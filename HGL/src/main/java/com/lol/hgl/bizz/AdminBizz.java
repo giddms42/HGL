@@ -17,4 +17,6 @@ public interface AdminBizz {
 	public List<fwlbDto> memberFwlbList(int startPost, int endPost, String memberNickName);
 	public int ggDelete(int ggNo);
 	public int fwlbDelete(int fwlbNo);
+	public int memberProhibit(String memberId);
+
 }

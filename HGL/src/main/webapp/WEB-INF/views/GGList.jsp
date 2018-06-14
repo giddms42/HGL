@@ -45,7 +45,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 	                 	<c:when test="${empty list}">
 	                 		<c:forEach begin="0" end="9">
 	                 		<tr>
-	                 			<td>--------------글이 없습니다.--------------</td>
+	                 			<td colspan="5">--------------글이 없습니다.--------------</td>
 	                 		</tr>
 	                 		</c:forEach>         	
 	                 	</c:when>

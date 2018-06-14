@@ -158,6 +158,11 @@ public class MemberBizzImple implements MemberBizz {
 		return dao.searchMember(memberNickName);
 	}
 
+	@Override
+	public int logOutTime(String memberId) {
+		return dao.logOutTime(memberId);
+	}
+
 
 
 	
