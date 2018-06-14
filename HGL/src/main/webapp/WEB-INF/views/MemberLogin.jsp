@@ -32,6 +32,17 @@ window.onload = function() {
 	if("${msg}" != null && "${msg}".length > 0){
 		swal("${msg}");
 	}
+	
+	var date = new Date();
+	var today = date.getDate();
+setInterval(function(){
+ alert("2초마다 반복 실행됩니다.");
+ },
+ 1000*60*60*6);
+
+	
+	
+	
 };
 
 history.pushState(null, null, location.href);
