@@ -15,7 +15,6 @@
 		<result column="MEMBERPROHIBITCOUNT" property="memberProhibitCount"/>	
 		<result column="MEMBERPROHIBITTIME" property="memberProhibitTime"/>	
 		<result column="MEMBERPROHIBITCHK" property="memberProhibitChk"/>	
-		<result column="MEMBERJOIN" property="memberJoin"/>	
 		<result column="MEMBERSMS" property="memberSMS"/>	
 	</resultMap>
 	
@@ -47,7 +46,7 @@
 	select *
 	from ( 
     select A.MEMBERNO, A.MEMBERID, A.MEMBERPW, A.MEMBERNICKNAME, A.MEMBEREMAIL, A.MEMBERPHONE, A.MEMBERDO,
-  		   A.MEMBERCITY, A.MEMBERADDR, A.MEMBERROLE, A.MEMBERPROHIBITCOUNT, A.MEMBERPROHIBITTIME, A.MEMBERPROHIBITCHK,  A.MEMBERJOIN, A.MEMBERSMS,
+  		   A.MEMBERCITY, A.MEMBERADDR, A.MEMBERROLE, A.MEMBERPROHIBITCOUNT, A.MEMBERPROHIBITTIME, A.MEMBERPROHIBITCHK, A.MEMBERSMS,
   		   A.MEMBERLOGOUTTIME, 
     ROWNUM AS RN
     from (
@@ -124,6 +123,13 @@
 		UPDATE MEMBER SET MEMBERPROHIBITTIME = #{memberProhibitTime} WHERE MEMBERNICKNAME=#{memberNickname}
 	</update>
 	
+	<update id="downProhibitcount" parameterType="String">
+		UPDATE MEMBER SET MEMBERPROHIBITCOUNT = MEMBERPROHIBITCOUNT-1 WHERE MEMBERNICKNAME=#{memberNickName}
+	</update>
+	
+	<update id="prohibitCancel" parameterType="String">
+		UPDATE MEMBER SET MEMBERPROHIBITCHK = 'N' WHERE MEMBERNICKNAME=#{memberNickName}
+	</update>
 
 
 </mapper>

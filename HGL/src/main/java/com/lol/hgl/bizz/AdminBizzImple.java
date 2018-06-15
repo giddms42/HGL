@@ -90,6 +90,13 @@ public class AdminBizzImple implements AdminBizz {
 		return count;
 	}
 
+	@Override
+	public int memberProhibitCancel(String memberNickName) {
+		int res = dao.downProhibitcount(memberNickName);
+		res = dao.prohibitCancel(memberNickName);
+		return res;
+	}
+
 
 
 

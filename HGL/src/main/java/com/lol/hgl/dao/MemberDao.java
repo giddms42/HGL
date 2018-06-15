@@ -1,5 +1,7 @@
 package com.lol.hgl.dao;
 
+import java.util.List;
+
 import com.lol.hgl.dto.memberDto;
 
 public interface MemberDao {
@@ -18,6 +20,8 @@ public interface MemberDao {
 	public int getOut(int memberNo);
 	public memberDto searchMember(String memberNickName);
 	public int logOutTime(String memberId);
-	
+	public List<memberDto> MangeList();
+	public int updateMangeChk(String memberNickName);
+	 
 
 }

@@ -10,8 +10,8 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-function Mange(){
-	var nickName = $("#id").val();
+function MangeY(){
+	var nickName = $("#YmangeNickname").val();
 	if(nickName==null || nickName==""){
 		alert("닉네임을 입력해주세요");
 	}else{
@@ -20,15 +20,26 @@ function Mange(){
 	          data:"memberNickName="+nickName,
 	          success : function(msg) {
 	        	  var msgVal = $.trim(msg);
-	        	  alert(msg);
-	        	  $("#mange").val(msgVal);
-	          },
-	          error : function() {
-	        	  alert("닉네임이 존재하지 않습니다.");
+	        	  $("#Ymange").val(msgVal);
 	          }
 	       })
 	}
+}
 
+function MangeN(){
+	var nickName = $("#NmangeNickname").val();
+	if(nickName==null || nickName==""){
+		alert("닉네임을 입력해주세요");
+	}else{
+		 $.ajax({
+	          url : "AdminMangeCancel.do",
+	          data:"memberNickName="+nickName,
+	          success : function(msg) {
+	        	  var msgVal = $.trim(msg);
+	        	  $("#Nmange").val(msgVal);
+	          }
+	       })
+	}
 }
 </script>
 </head>
@@ -40,11 +51,11 @@ function Mange(){
 		<div id="cover">
 			<div><b>회원 제재</b></div>
 			<div id="div0">
-				<div class="div2"><input type="text" id="id" placeholder="닉네임을 입력해주세요."></div>
-				<div class="div1"><input type="button" value="회원 제재" class="btn" onclick="Mange();"></div>
+				<div class="div2"><input type="text" id="YmangeNickname" placeholder="닉네임을 입력해주세요."></div>
+				<div class="div1"><input type="button" value="회원 제재" class="btn" onclick="MangeY();"></div>
 			</div>
 			<div id="div0">
-				<div class="div3"><input type="text" id="mange" placeholder="제재 성공 여부 표시 / ex) 30일 글작성 정지" readonly="readonly"></div>
+				<div class="div3"><input type="text" id="Ymange" placeholder="제재 성공 여부 표시 / ex) 30일 글작성 정지" readonly="readonly"></div>
 			</div>
 		</div>
 			<br/>
@@ -62,11 +73,11 @@ function Mange(){
 		<div id="cover">
 			<div><div><b>제재 해제</b></div></div>
 			<div id="div0">
-				<div class="div2"><input type="text" id="input" placeholder="닉네임을 입력해주세요."></div>
-				<div class="div1"><input type="button" value="제재 해제" class="btn"></div>
+				<div class="div2"><input type="text" id="NmangeNickname" placeholder="닉네임을 입력해주세요."></div>
+				<div class="div1"><input type="button" value="제재 해제" class="btn" onclick="MangeN();"></div>
 			</div>
 			<div id="div0">
-				<div class="div3"><input type="text" id="input" placeholder="제재 해제 성공 여부 표시" readonly="readonly"></div>
+				<div class="div3"><input type="text" id="Nmange" placeholder="제재 해제 성공 여부 표시" readonly="readonly"></div>
 			</div>
 		</div>
 		</div>

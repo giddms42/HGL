@@ -29,20 +29,15 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 <script type="text/javascript">
 
 window.onload = function() {
-	if("${msg}" != null && "${msg}".length > 0){
-		swal("${msg}");
-	}
-	
-	var date = new Date();
-	var today = date.getDate();
-setInterval(function(){
- alert("2초마다 반복 실행됩니다.");
- },
- 1000*60*60*6);
-
-	
-	
-	
+	if("${msg1}" != null && "${msg1}".length > 0){
+		swal("${msg1}");
+	}else if("${msg2}" != null && "${msg2}".length > 0){
+		swal({
+		title:"회원기능 정지중입니다.",
+		text:"${msg2}",
+		icon:"warning",
+		});
+	}	
 };
 
 history.pushState(null, null, location.href);

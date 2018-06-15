@@ -1,5 +1,6 @@
 package com.lol.hgl.bizz;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +9,15 @@ import org.springframework.stereotype.Service;
 
 import com.lol.hgl.dao.MemberDao;
 import com.lol.hgl.dto.memberDto;
+import com.lol.hgl.util.Mange;
 
 @Service
 public class MemberBizzImple implements MemberBizz {
 	
 	@Autowired
 	private MemberDao dao;
+	@Autowired
+	private Mange mange;
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
@@ -164,8 +168,9 @@ public class MemberBizzImple implements MemberBizz {
 	}
 
 	@Override
-	public int mangeCancel() {
-		return 0;
+	public void mangeCancel() {
+		List<memberDto> mangeList = dao.MangeList();
+		mange.time(mangeList);
 	}
 
 

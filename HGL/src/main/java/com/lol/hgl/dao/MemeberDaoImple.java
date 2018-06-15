@@ -1,6 +1,8 @@
 package com.lol.hgl.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -145,7 +147,7 @@ public class MemeberDaoImple implements MemberDao {
 	public int getOut(int memberNo) {
 		int res = 0;
 		try {
-			res = sqlSession.update(nameSpace+"getOut", memberNo);
+			res = sqlSession.delete(nameSpace+"getOut", memberNo);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	
@@ -168,6 +170,29 @@ public class MemeberDaoImple implements MemberDao {
 		int res = 0;
 		try {
 			res = sqlSession.update(nameSpace+"logOutTime", memberId);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public List<memberDto> MangeList() {
+		List<memberDto> res = new ArrayList<memberDto>();
+		try {
+			res = sqlSession.selectList(nameSpace+"MangeList");
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	
+	}
+
+	@Override
+	public int updateMangeChk(String memberNickName) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"updateMangeChk", memberNickName);
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	
