@@ -21,5 +21,6 @@ public interface AdminDao {
 	public int prohibitCount(String memberNickName);
 	public int prohibitChk(String memberNickName);
 	public int prohibitMangeTime(memberDto dto);
-
+	public int downProhibitcount(String memberNickName);
+	public int prohibitCancel(String memberNickName);
 }

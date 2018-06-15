@@ -166,8 +166,6 @@ public class AdminController {
 	public String ADminMange(String memberNickName, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		
-		System.out.println(memberNickName);
 		String res = "";
 		String idChk = memberBizz.nickNameChk(memberNickName);
 		if(idChk == "t") { // null
@@ -187,6 +185,17 @@ public class AdminController {
 			}	
 		}
 		System.out.println(res);
+		return res;
+	}
+	
+	@RequestMapping(value="AdminMangeCancel.do", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String AdminMangeCancel(String memberNickName) {
+		String res = "제재 해제 실패";
+		int r  = adminBizz.memberProhibitCancel(memberNickName);
+		if(r>0) {
+			res="제재 해제 성공";
+		}
 		return res;
 	}
 }

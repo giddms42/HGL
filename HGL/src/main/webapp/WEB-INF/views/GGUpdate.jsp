@@ -32,9 +32,9 @@ function fn_deleteFile(obj){
 }
 
 function fn_addFile(){
-    var str = "<p>" +
-            "<input type='file' name='file_"+(gfv_count++)+"'>"+
-            "<a href='#this' class='btn' id='delete_${i.index }' name='delete_${i.index }'><button>삭제</button></a>" +
+    var str = "<p id='fileDiv1'>" +
+            "<input id='fileDiv2' type='file' name='file_"+(gfv_count++)+"'>"+
+            "<a href='#this' class='fileDiv0' id='delete_${i.index }' name='delete_${i.index }'><button class='fileDiv'>삭제</button></a>" +
               "</p>";
     $("#fileDiv").append(str);
     $("a[name^='delete']").on("click", function(e){ //삭제 버튼
@@ -62,6 +62,7 @@ body {
 	   
 	   <div id="b">
 	      <div id="bodyMain">
+	   		  <br/>
 	          <form id="frm" name="frm" enctype="multipart/form-data" action="update.do" method="post">
 	      		   <input type="hidden" name="ggNo" value="${dto.ggNo }">
 	               <table border="1" bordercolor="white">
@@ -80,7 +81,7 @@ body {
 	                  <tr>
 	                     <td>글내용</td>
 	                     <td>
-	                     <textarea rows="20" cols="50" style="resize: none;" name="ggCont">${dto.ggCont }</textarea></td>
+	                     <textarea class="td" rows="20" cols="50" style="resize: none;" name="ggCont">${dto.ggCont }</textarea></td>
 	                  </tr>
 	                  <tr>
 	                  	<td>파일첨부 </td>
@@ -94,7 +95,7 @@ body {
                                 ${ggImgDto.ggImgOrginalName}
                                 <!-- 이미지 사이즈 -->
                                 (${ggImgDto.ggImgSize}kb)
-                                 <a href="#this" class="btn00" id="delete_${i.index }" name="delete_${i.index }"><button>삭제</button></a>
+                                 <button class="fileDiv" id="delete_${i.index }" name="delete_${i.index }">삭제</button>
                                 </p>
                             </c:forEach>
                         </div>
@@ -102,7 +103,7 @@ body {
 					</tr>
 	               </table>
 	               <div class="btn00">
-	               		<a href="#this" class="btn00" id="addFile">파일 추가</a>
+	               		<button class="btn0" id="addFile">파일 추가</button>
 	               		<input type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" class="btn002">
 		                <input type="submit" value="글수정" class="btn003">
 	               </div>
@@ -110,7 +111,7 @@ body {
 	      </form>
 	      </div>
 	   </div>
-	   
+	   <br/>
 	   <div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 	</div>
 

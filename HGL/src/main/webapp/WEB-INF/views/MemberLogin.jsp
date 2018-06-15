@@ -31,9 +31,15 @@ body {
 <script type="text/javascript">
 
 window.onload = function() {
-	if("${msg}" != null && "${msg}".length > 0){
-		swal("${msg}");
-	}
+	if("${msg1}" != null && "${msg1}".length > 0){
+		swal("${msg1}");
+	}else if("${msg2}" != null && "${msg2}".length > 0){
+		swal({
+		title:"회원기능 정지중입니다.",
+		text:"${msg2}",
+		icon:"warning",
+		});
+	}	
 };
 
 history.pushState(null, null, location.href);

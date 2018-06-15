@@ -3,6 +3,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,18 +38,18 @@
 	      <div id="bodyMain">
 	         <div id="boardName">좋은글 게시판</div>
 	         <br/>
-	               <table border="1" bordercolor="white">
+	               <table border="1">
 	                  <col width="50" class="ab">
 	                  <col width="350">
 	                  <col width="50">
 	                  <col width="50">
 	                  <col width="200">
 	                  <tr>
-	                     <th>글번호</th>
-	                     <th>글제목</th>
-	                     <th>글쓴이</th>
-	                     <th>조회수</th>
-	                     <th>등록일</th>
+	                     <th class="text-center">글번호</th>
+	                     <th class="text-center">글제목</th>
+	                     <th class="text-center">글쓴이</th>
+	                     <th class="text-center">조회수</th>
+	                     <th class="text-center">등록일</th>
 	                  </tr>
                  
 	                 <c:choose> 
@@ -66,7 +67,7 @@
 								<td><a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a></td>
 								<td>${dto.ggWriter }</td>
 								<td>${dto.ggReadcnt }</td>
-								<td>${dto.ggDate }</td>
+								<td><fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 								</tr>
 								</c:forEach>
 	                 	</c:otherwise>
@@ -74,7 +75,7 @@
 	               </table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
 	               <br/>
-	           <div id="paging">
+	           <div id="paging1">
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
 							◀
@@ -105,7 +106,7 @@
 					</c:choose>
 	            </div>
 	               <br/>
-	               <div id="paging">
+	               <div id="paging2">
 	               	<form action="GGListSearch.do" method="post">
 						<input type="hidden" name="nowpage" value="1"/>
 						<div style="width: 50%; margin: auto; text-align: center;">

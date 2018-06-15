@@ -17,7 +17,6 @@ public class memberDto {
 	private int memberProhibitCount;
 	private Date memberProhibitTime;
 	private String memberProhibitChk;
-	private String memberJoin;
 	private String memberSMS;
 	private Date memberLogoutTime;
 	
@@ -37,7 +36,7 @@ public class memberDto {
 
 	public memberDto(int memberNo, String memberId, String memberPw, String memberNickname, String memberEmail,
 			String memberPhone, String memberDo, String memberCity, String memberAddr, String memberRole,
-			int memberProhibitCount, Date memberProhibitTime, String memberProhibitChk, String memberJoin,
+			int memberProhibitCount, Date memberProhibitTime, String memberProhibitChk, 
 			String memberSMS, Date memberLogoutTime) {
 		super();
 		this.memberNo = memberNo;
@@ -53,7 +52,6 @@ public class memberDto {
 		this.memberProhibitCount = memberProhibitCount;
 		this.memberProhibitTime = memberProhibitTime;
 		this.memberProhibitChk = memberProhibitChk;
-		this.memberJoin = memberJoin;
 		this.memberSMS = memberSMS;
 		this.memberLogoutTime = memberLogoutTime;
 	}
@@ -160,14 +158,6 @@ public class memberDto {
 
 	public void setMemberProhibitChk(String memberProhibitChk) {
 		this.memberProhibitChk = memberProhibitChk;
-	}
-
-	public String getMemberJoin() {
-		return memberJoin;
-	}
-
-	public void setMemberJoin(String memberJoin) {
-		this.memberJoin = memberJoin;
 	}
 
 	public String getMemberSMS() {

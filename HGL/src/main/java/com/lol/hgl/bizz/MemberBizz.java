@@ -19,4 +19,5 @@ public interface MemberBizz {
 	public int getOut(int memberNo);
 	public memberDto searchMember(String memberNickName);
 	public int logOutTime(String memberId);
+	public void mangeCancel();
 }
