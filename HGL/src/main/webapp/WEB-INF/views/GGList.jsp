@@ -9,18 +9,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <link rel="stylesheet" type="text/css" href="css/GGList.css">
 <style>
-body {
+/* body {
  background: url('image/img.jpg') no-repeat center top; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  background-position: center top;
   background-size: cover;
+ } */
+ 
+ body {
+ background: url('image/img.jpg') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
  }
 </style>
 <body>
@@ -110,7 +115,7 @@ body {
 								<option value="GGWRITER">작성자</option>
 							</select>
 							<input type="search" name="keyword" placeholder="검색어를 입력해주세요">
-							<button class="btn btn-small">검색</button>
+							<input type="submit" value="검색">
 						</div>
 					</form>
 	               </div>
