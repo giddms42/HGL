@@ -12,57 +12,35 @@
 <script type="text/javascript">
 </script>
 <style>
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-body{
-  background: #f2f2f2;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.search {
-  width: 100%;
-  position: relative
-}
-
-.searchTerm {
-  float: left;
-  width: 100%;
-  border: 3px solid #00B4CC;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px;
-  outline: none;
-  color: #9DBFAF;
-}
-
-.searchTerm:focus{
-  color: #00B4CC;
-}
-
-.searchButton {
-  position: absolute;  
-  border: 1px solid #00B4CC;
-  text-align: center;
-  cursor: pointer;
-}
-
-.wrap{
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+#paging {width:580px; text-align:center; float:left; line-height:15px}
+#paging a.prev{font:8pt verdana; color:#555555}
+#paging .selected {font-weight:bold; color:#555555}
+#paging a.num{border:#AAAAAA 1px solid; background-color:#FFFFFF; color:#555555; padding:3px 6px; margin:3px; font:8pt verdana}
+#paging a:hover.num{border:#555555 1px solid}
 </style>
 </head>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+	function alert(){
+		swal({
+			title: "Are you sure?",
+			  text: "Once deleted, you will not be able to recover this imaginary file!",
+			  icon: "warning",
+		})
+	}
+</script>
+
+
 <body>
-<div class="wrap">
-   <div class="search">
-      <input type="text" class="searchTerm" placeholder="What are you looking for?">
-      <button type="submit" class="searchButton"><img src="src/main/webapp/image/xButton.png"></button>
-   </div>
+<div id="paging">
+	<br/>
+<a [##_prev_page_##] class="prev" title="이전페이지">◀ PREV </a>
+<s_paging_rep><a [##_paging_rep_link_##] class="num">[##_paging_rep_link_num_##]</a></s_paging_rep>
+<a [##_next_page_##] class="prev" title="다음페이지">NEXT ▶</a>
+	<br/>&nbsp;
 </div>
 
+<button onclick="alert();">나를누르욥요</button>
 
 
 </body>

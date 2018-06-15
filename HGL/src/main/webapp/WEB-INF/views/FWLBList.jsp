@@ -10,25 +10,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/FWLBList.css">
-<style>
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-</style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 </script>
 </head>
 <body>
 
-<div id="container">
+<div id="container" style="padding:30px;">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	<div id="FWLBListCenter">
-		<div>
-			<h2 style="text-align: center;">위시리스트 게시판</h2>
-			<table border="1" style="margin: auto;">
-					<col width="70">
-					<col width="250">
+		<div class="table">
+			<div class="header-text" >
+				위시리스트 게시판
+			</div>
+			<table style="margin: auto; width:800px;">
 					<col width="100">
-					<col width="100">
+					<col width="300">
+					<col width="120">
+					<col width="140">
 					<col width="120">
 				<tr>
 					<th>글번호</th>
@@ -61,18 +60,18 @@
 			<div id="FWLB_Paging">
 				<c:choose>
 					<c:when test="${nowPage eq 1}">
-							◀
+							<a class="prev" title="이전페이지">◀ PREV</a>
 						</c:when>
 					<c:otherwise>
-						<a
-							href="FWLBList.do?nowpage=${nowPage - 1}">◀
+						<a class="prev" title="이전페이지"
+							href="FWLBList.do?nowpage=${nowPage - 1}">◀ PREV
 						</a>
 					</c:otherwise>
 				</c:choose> 
 				<c:forEach begin="${startPage}" end="${endPage}" var="i">
-					<a href="FWLBList.do?nowpage=${i}"> <c:choose>
+					<a class="num" href="FWLBList.do?nowpage=${i}"> <c:choose>
 							<c:when test="${i eq nowPage}">
-								<strong>${i}</strong>
+								<strong class="num">${i}</strong>
 							</c:when>
 							<c:otherwise>
 									${i}
@@ -82,19 +81,18 @@
 				</c:forEach> 
 				<c:choose>
 					<c:when test="${nowPage eq pageCount}">
-					▶
+					<a class="prev" title="다음페이지">&nbsp;NEXT ▶</a>
 				</c:when>
 					<c:otherwise>
-						<a
-							href="FWLBList.do?nowpage=${nowPage + 1}">▶</a>
+						<a class="prev" title="다음페이지"
+							href="FWLBList.do?nowpage=${nowPage + 1}">&nbsp;NEXT ▶</a>
 					</c:otherwise>
 				</c:choose>
 			</div>
-		
 			<form action="FWLBListSearch.do" method="post">
 				<input type="hidden" name="nowpage" value="1"/>
 				<div style="text-align: center;">
-					<input type="search" class="searchTerm" placeholder="검색할 닉네임을 입력해주세요">
+					<input type="search" class="searchTerm" name="searchNickName" placeholder="검색할 닉네임을 입력해주세요">
 					<button class="searchButton"><img id="searchButtonImg" src="image/serachicon.png"></button>			
 				</div>
 			</form>
