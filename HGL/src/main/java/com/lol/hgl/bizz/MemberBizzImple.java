@@ -163,9 +163,12 @@ public class MemberBizzImple implements MemberBizz {
 		return dao.logOutTime(memberId);
 	}
 
+	@Override
+	public int mangeCancel() {
+		return 0;
+	}
 
 
-	
 	
 	
 }

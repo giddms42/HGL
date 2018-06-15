@@ -2,12 +2,15 @@ package com.lol.hgl.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,7 +33,7 @@ public class MemberController {
    @Autowired
    private FamBizz famBizz;
    
-   
+ 
    @RequestMapping(value = "MemberSignUpForm.do")
    public String memberSignUpForm() {   
       return "MemberSignUp";
@@ -88,14 +91,26 @@ public class MemberController {
    
    @RequestMapping(value = "MemberLogin.do")
    public String memberLogin(String memberId, String memberPw, Model model, HttpSession session) throws IOException {
+      memberBizz.mangeCancel(); 
 	  String chkRes = memberBizz.LoginChk(memberId, memberPw);
+	  String msg = "";
 	  if(chkRes == "f") {
-		  String msg =  "아이디와 비밀번호가 일치하지 않습니다. 다시 확인해 주세요.";
+		  msg =  "아이디와 비밀번호가 일치하지 않습니다. 다시 확인해 주세요.";
 		  model.addAttribute("msg", msg);
 	      return "MemberLogin";  
 	  }else {
-	   memberDto login = memberBizz.Login(memberId);
-	   session.setAttribute("login", login);
+		  memberDto login = memberBizz.Login(memberId);
+		  String mangeChk = login.getMemberProhibitChk();
+		  if(mangeChk.equals("Y")) {
+			  Date time=login.getMemberProhibitTime();
+			  SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+			  String mangeTime = transFormat.format(time);
+			  msg = mangeTime+" 이후부터 활동 가능합니다.";
+			  model.addAttribute("msg", msg);
+			  return "MemberLogin";  
+		  }else {
+			   session.setAttribute("login", login);
+		  }
 	  }   
       return "Main";
    }
@@ -185,5 +200,7 @@ public class MemberController {
 	   model.addAttribute("msg", msg);
 	   return "MemberLogin";
    }
+   
+
    
 }
