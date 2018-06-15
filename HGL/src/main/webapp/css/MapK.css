@@ -24,7 +24,7 @@ a:link {
 	margin-top: 2%;
 	margin-bottom: 2%;
 	background: #f0f0ff;
-	width: 700px;
+	width: 800px;
 	padding: 10px;
 	border: 3px solid #e8edff;
 	border-radius: 10px;
@@ -42,8 +42,8 @@ a:link {
 #map{
 	margin:auto; 
 	margin-top: 2%;
-	width:90%;
-	height:300px;
+	width:780px;
+	height:350px;
 }
 
 #rounded-corner

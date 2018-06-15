@@ -1,4 +1,8 @@
 @charset "UTF-8";
+html{
+	background-color: #F1F1F1;
+}
+
 table {
 width: 100%;
 border-collapse: collapse;
@@ -7,14 +11,15 @@ table, td, th {
 border-bottom: 8px solid #F1F1F1;
 }
 
-th{
+#FWLBtable tr th{
 font-size: 15pt;
 padding-top: 10px;
 padding-bottom: 10px;
 padding-left: 5px;
+text-align: center;
 }
 
-td{
+#FWLBtable tr td{
 	font-size:12pt;
 	text-align: center;
 	background-color: white;
@@ -73,7 +78,9 @@ a:hover { color: black; text-decoration: none;}
   background-color: #F1F1F1;
 }
 
-.header-text{
+.headertext{
+width:800px;
+margin: auto;
 height: auto;
 padding: 15px;
 background-color:#5A9EA6;
@@ -82,11 +89,6 @@ font-weight:bold;
 border: 2px solid #F1F1F1;
 border-top-left-radius: 5px;
 border-top-right-radius: 5px;
-}
-
-.container
-{
-padding: 30px;
 }
 
 .table{

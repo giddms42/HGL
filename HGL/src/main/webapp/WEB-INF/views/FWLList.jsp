@@ -97,9 +97,10 @@ $(function(){
 					<button type="button" onclick="FWLinsert();" style="margin-left: 425px;">+위시리스트 추가하기</button>
 				</div>
 				<form>
-				<table style="width:750px; margin: auto;">
+				<table border="1" id="FWLListTable" style="width:750px; margin: auto;">
+						<col width="60px;">
 					<tr>
-						<th width=40px; style="padding: 10px;">달성</th>
+						<th style="padding: 10px;">달성</th>
 						<th style="text-align: center; max-width:585px;">위 시 리 스 트</th>
 					</tr>
 						<c:choose>

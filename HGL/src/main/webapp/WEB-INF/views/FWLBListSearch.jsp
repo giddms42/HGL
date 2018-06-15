@@ -16,11 +16,11 @@
 </head>
 <body>
 
-<div id="container" style="padding:30px;">
+<div style="padding:30px;">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	<div id="FWLBListCenter">
 		<div class="table">
-			<div class="header-text" >
+			<div class="headertext" >
 				위시리스트 게시판
 			</div>
 			<table style="margin: auto; width:800px;">
