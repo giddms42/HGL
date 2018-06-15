@@ -47,11 +47,12 @@ function fn_addFile(){
 </head>
 <link rel="stylesheet" type="text/css" href="css/GGUpdate.css">
 <style>
-html { background: url("image/img.jpg") no-repeat center fixed;
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
+body {
+ background: url('image/img.jpg') no-repeat center top; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover%;
  }
 </style>
 <body>

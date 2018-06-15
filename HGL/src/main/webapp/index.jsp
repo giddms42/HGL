@@ -18,5 +18,7 @@
 <a href="GGUpdateForm.do">좋은글수정</a>
 <a href="ys.do">연습장</a>
 <a href="CalListForm.do">캘린더</a>
+<h1>작성자 : 경식~</h1>
+<a href="gsYS.do">연습장</a>
 </body>
 </html>

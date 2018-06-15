@@ -14,7 +14,7 @@
 <body>
 	
 		<div id="footer" align="center">
-			<h2>CopyRight HGL</h2>
+			<h1>CopyRight HGL</h1>
 		<hr>
 			<div class="text-center center-block">
 				<p class="txt-railway">HGL.com © 2018 Hell | Final ProJect | Made In | lolFam</p>

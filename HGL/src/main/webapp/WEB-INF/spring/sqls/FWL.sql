@@ -16,11 +16,8 @@ CREATE TABLE FWL
 );
 
 SELECT * FROM FWL;
-INSERT INTO FWL VALUES(2, FWLNO_SEQ.NEXTVAL, '맛있는거 먹으러 가기', 'N');
 
-SELECT* FROM FWLB WHERE FWLBWRITER='히히';
-
-SELECT * FROM KINDSTORE WHERE KINDNO = 25;
+INSERT INTO FWL VALUES(1, FWLNO_SEQ.NEXTVAL, '맛있는거 먹으러 가기', 'N');
 
 -------------------------------------------------------------------------
 
@@ -41,24 +38,9 @@ CREATE TABLE FWLB
     CONSTRAINT FWLB_PK PRIMARY KEY (FWLBNO)
 )
 
-INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, null,'관리자', '관리자 님의 위시리스트 입니다.', 0, SYSDATE);
+INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, null, '관리자', '관리자 님의 위시리스트 입니다.', 0, SYSDATE);
 
 SELECT * FROM FWLB;
-
-select * from fwlb WHERE FWLBWRITER LIKE '%히히%'
-
-SELECT COUNT(*) FROM FWLB
-
-	select X.RN
-	from ( 
-    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
-    ROWNUM AS RN
-    from (
-        select *
-        from FWLB ORDER BY FWLBNO DESC) A
-    where ROWNUM <= 10) X
-	where X.RN >= 1
-	ORDER BY X.FWLBNO 
 
 
 --------------------------------------------------
@@ -79,10 +61,7 @@ CREATE TABLE FWLBCM
     CONSTRAINT FWLBCM_PK PRIMARY KEY (FWLBCMNO)
 );
 
-INSERT INTO FWLBCM VALUES(1, FWLBCMNO_SEQ.NEXTVAL, '관리자', '응원할게요!', SYSDATE);
-
 SELECT * FROM FWLBCM;
 
-select * from KINDSTORE;
 
 

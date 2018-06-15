@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -32,12 +31,6 @@ display: -webkit-flex;
 
 #down{
 	height: 35%;
-	display: -webkit-flex;
-	display:         flex;
-	  -webkit-align-items: center;
-	          align-items: center;
-	  -webkit-justify-content: center;
-	          justify-content: center;
 }
 
 .menu{

@@ -12,9 +12,12 @@
 		<result column="MEMBERCITY" property="memberCity"/>	
 		<result column="MEMBERADDR" property="memberAddr"/>	
 		<result column="MEMBERROLE" property="memberRole"/>	
-		<result column="MEMBERPROHIBIT" property="memberProhibit"/>	
+		<result column="MEMBERPROHIBITCOUNT" property="memberProhibitCount"/>	
+		<result column="MEMBERPROHIBITTIME" property="memberProhibitTime"/>	
+		<result column="MEMBERPROHIBITCHK" property="memberProhibitChk"/>	
 		<result column="MEMBERJOIN" property="memberJoin"/>	
 		<result column="MEMBERSMS" property="memberSMS"/>	
+		<result column="MEMBERLOGOUTTIME" property="memberLogoutTime"/>	
 	</resultMap>
 	
 	<select id="idChk" parameterType="String" resultType="String">
@@ -32,7 +35,7 @@
 	
 	<insert id="singUp" parameterType="memberDto" >
 		INSERT INTO MEMBER VALUES(MEMBERNO_SEQ.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberEmail}, #{memberPhone}, #{memberDo}, #{memberCity}, 
-		#{memberAddr}, 'USER', 0, 'Y', #{memberSMS})
+		#{memberAddr}, 'USER', 0, null, 'N', 'Y', #{memberSMS}, null)
 	</insert>
 	
 		
@@ -72,8 +75,11 @@
 	
 	<select id="searchMember" parameterType="String" resultType="memberDto">
 		SELECT * FROM MEMBER WHERE MEMBERNICKNAME = #{memberNickName}
-	
 	</select>
+	
+	<update id="logOutTime" parameterType="String">
+		UPDATE MEMBER SET MEMBERLOGOUTTIME=SYSDATE WHERE MEMBERID=#{memberId}
+	</update>
 
 
 </mapper>
