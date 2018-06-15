@@ -15,7 +15,6 @@
 		<result column="MEMBERPROHIBITCOUNT" property="memberProhibitCount"/>	
 		<result column="MEMBERPROHIBITTIME" property="memberProhibitTime"/>	
 		<result column="MEMBERPROHIBITCHK" property="memberProhibitChk"/>	
-		<result column="MEMBERJOIN" property="memberJoin"/>	
 		<result column="MEMBERSMS" property="memberSMS"/>	
 		<result column="MEMBERLOGOUTTIME" property="memberLogoutTime"/>	
 	</resultMap>
@@ -35,22 +34,22 @@
 	
 	<insert id="singUp" parameterType="memberDto" >
 		INSERT INTO MEMBER VALUES(MEMBERNO_SEQ.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberEmail}, #{memberPhone}, #{memberDo}, #{memberCity}, 
-		#{memberAddr}, 'USER', 0, null, 'N', 'Y', #{memberSMS}, null)
+		#{memberAddr}, 'USER', 0, null, 'N', #{memberSMS}, null)
 	</insert>
 	
 		
 	<select id="IDSearch" parameterType="String" resultType="String">
-		 SELECT MEMBERID FROM MEMBER WHERE MEMBEREMAIL=#{email} AND MEMBERJOIN='Y'
+		 SELECT MEMBERID FROM MEMBER WHERE MEMBEREMAIL=#{email} 
 	</select>
 	
 	
 	<select id="memberCertification" parameterType="Map" resultType="String">
-		 SELECT MEMBERPW FROM MEMBER WHERE MEMBEREMAIL=#{email} AND MEMBERID=#{id} AND MEMBERJOIN='Y'
+		 SELECT MEMBERPW FROM MEMBER WHERE MEMBEREMAIL=#{email} AND MEMBERID=#{id} 
 	</select>
 
 
 	<select id="LoginChk" parameterType="String" resultType="String">
-		 SELECT MEMBERPW FROM MEMBER WHERE MEMBERID=#{id} AND MEMBERJOIN='Y'
+		 SELECT MEMBERPW FROM MEMBER WHERE MEMBERID=#{id}
 	</select>
 	
 	<select id="Login" parameterType="String" resultMap="memberDto">
@@ -69,9 +68,9 @@
 		UPDATE MEMBER SET MEMBERPHONE=#{memberPhone}, MEMBERSMS=#{memberSMS}, MEMBERDO=#{memberDo}, MEMBERCITY=#{memberCity}, MEMBERADDR=#{memberAddr} WHERE MEMBERNO=#{memberNo}
 	</update>
 
-	<update id="getOut" parameterType="int">
-		UPDATE MEMBER SET MEMBERJOIN='N' WHERE MEMBERNO=#{memberNo}
-	</update>
+	<delete id="getOut" parameterType="int">
+		DELETE FROM MEMBER WHERE MEMBERNO=#{memberNo}
+	</delete>
 	
 	<select id="searchMember" parameterType="String" resultType="memberDto">
 		SELECT * FROM MEMBER WHERE MEMBERNICKNAME = #{memberNickName}
@@ -80,6 +79,13 @@
 	<update id="logOutTime" parameterType="String">
 		UPDATE MEMBER SET MEMBERLOGOUTTIME=SYSDATE WHERE MEMBERID=#{memberId}
 	</update>
+	
+	<select id="MangeList" resultMap="memberDto">
+		SELECT * FROM MEMBER WHERE MEMBERPROHIBITCHK='Y'
+	</select>
 
+	<update id="updateMangeChk" parameterType="String">
+		UPDATE MEMBER SET MEMBERPROHIBITCHK='N' WHERE MEMBERNICKNAME=#{memberNickName}
+	</update>
 
 </mapper>

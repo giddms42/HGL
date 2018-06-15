@@ -165,6 +165,28 @@ public class AdminDaoImple implements AdminDao {
 		return res;
 	}
 
+	@Override
+	public int downProhibitcount(String memberNickName) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"downProhibitcount",memberNickName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int prohibitCancel(String memberNickName) {
+		int res = 0;
+		try {
+			res = sqlSession.update(nameSpace+"prohibitCancel",memberNickName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 
 
 	

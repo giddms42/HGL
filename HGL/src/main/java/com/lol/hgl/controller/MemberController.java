@@ -96,17 +96,30 @@ public class MemberController {
 	  String msg = "";
 	  if(chkRes == "f") {
 		  msg =  "아이디와 비밀번호가 일치하지 않습니다. 다시 확인해 주세요.";
-		  model.addAttribute("msg", msg);
+		  model.addAttribute("msg1", msg);
 	      return "MemberLogin";  
 	  }else {
 		  memberDto login = memberBizz.Login(memberId);
 		  String mangeChk = login.getMemberProhibitChk();
 		  if(mangeChk.equals("Y")) {
-			  Date time=login.getMemberProhibitTime();
+			  Date time=login.getMemberLogoutTime();
 			  SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 			  String mangeTime = transFormat.format(time);
-			  msg = mangeTime+" 이후부터 활동 가능합니다.";
-			  model.addAttribute("msg", msg);
+			  int count = login.getMemberProhibitCount();
+			  String cnt = "";
+			  switch (count) {
+			  	case 1:
+			  		cnt = "7일 ";
+			  		break;
+				case 2:
+					cnt = "15일 ";
+					break;
+				case 3:
+					cnt = "30일 ";
+					break;
+			  }
+			  msg = mangeTime+"로부터 " + cnt + "이후 이용이 가능합니다.";
+			  model.addAttribute("msg2", msg);
 			  return "MemberLogin";  
 		  }else {
 			   session.setAttribute("login", login);
@@ -153,10 +166,10 @@ public class MemberController {
 	   int res = memberBizz.pwChange(dto);
 	   if(res< 0) {
 			  String msg = "올바른 비밀번호로 다시 작성해주세요";
-			  model.addAttribute("msg", msg);
+			  model.addAttribute("msg1", msg);
 		  }else {
 			  String msg = "비밀번호 변경이 완료되었습니다. 다시 로그인 해주세요";
-			  model.addAttribute("msg", msg);
+			  model.addAttribute("msg1", msg);
 		  }	      
 	      return "MemberLogin";
    }
@@ -167,7 +180,7 @@ public class MemberController {
 	    memberBizz.logOutTime(dto.getMemberId());
 	    session.invalidate(); 		
 		String msg = "로그아웃 되었습니다. 다음에 또 와주세요!";
-		model.addAttribute("msg", msg);
+		model.addAttribute("msg1", msg);
 	    return "MemberLogin";
    }
 
@@ -197,7 +210,7 @@ public class MemberController {
    public String MemberGetOut(int memberNo, Model model) {
        memberBizz.getOut(memberNo);
 	   String msg = "그동안 이용해주셔서 감사합니다.";
-	   model.addAttribute("msg", msg);
+	   model.addAttribute("msg1", msg);
 	   return "MemberLogin";
    }
    
