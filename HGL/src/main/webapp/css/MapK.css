@@ -1,1 +1,119 @@
 @charset "UTF-8";
+a{
+	text-decoration:none;
+	color:#669;
+}
+a:visited { 
+	color: #669; 
+	text-decoration: none;
+}
+a:link { 
+	color: #669; 
+	text-decoration: none;
+}
+#container{
+	height: 1024px;
+}
+#kindSearch{
+	width:347px;
+	text-align: left;
+	display: inline-block;
+}
+#kindTitle{
+	margin:auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	background: #f0f0ff;
+	width: 700px;
+	padding: 10px;
+	border: 3px solid #e8edff;
+	border-radius: 10px;
+}
+#icon{
+	position: absolute;
+	margin-left: -50px; 
+	margin-top: -10px;
+}
+#icon img{
+	width: 50%;
+	height: 50%;
+}
+
+#map{
+	margin:auto; 
+	margin-top: 2%;
+	width:90%;
+	height:300px;
+}
+
+#rounded-corner
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 45px;
+	text-align: left;
+	border-collapse: collapse;
+}
+#rounded-corner th
+{
+	padding: 8px;
+	font-weight: normal;
+	font-size: 13px;
+	color: #039;
+	background: #b9c9fe;
+}
+#rounded-corner td
+{
+	padding: 8px;
+	background: #e8edff;
+	border-top: 1px solid #fff;
+	color: #669;
+}
+#rounded-corner tfoot td.rounded-foot-left
+{
+	background: #e8edff url('botleft.png') left bottom no-repeat;
+}
+#rounded-corner tfoot td.rounded-foot-right
+{
+	background: #e8edff url('botright.png') right bottom no-repeat;
+}
+#rounded-corner tbody tr:hover td
+{
+	background: #d0dafd;
+}
+
+select {
+  text-align:center;
+  padding: .8em .5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #b9c9fe;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #039;
+  background: #e8edff;;
+  letter-spacing: 1px;
+}
+
+#SearchButton {
+	display: inline-block;
+	outline: 0;
+	boder: 1px solid #b9c9fe;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .9em 1.5em .7em;
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	color: #669;
+	background-color: #e8edff;
+}
+#SearchButton:hover {
+	text-decoration: none;
+}
+#SearchButton:active {
+	position: relative;
+}

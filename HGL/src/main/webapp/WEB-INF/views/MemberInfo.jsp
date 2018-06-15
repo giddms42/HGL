@@ -11,7 +11,8 @@
 </head>
 <link rel="stylesheet" type="text/css" href="css/MemberInfo.css">
 <style>
-html { /* background: url("image/img.jpg") no-repeat center fixed; */
+body {
+ background: url('image/img.jpg') no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;

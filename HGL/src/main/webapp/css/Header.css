@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -32,12 +31,6 @@ display: -webkit-flex;
 
 #down{
 	height: 35%;
-	display: -webkit-flex;
-	display:         flex;
-	  -webkit-align-items: center;
-	          align-items: center;
-	  -webkit-justify-content: center;
-	          justify-content: center;
 }
 
 .menu{
@@ -60,7 +53,7 @@ display: -webkit-flex;
 	  -webkit-justify-content: center;
 	          justify-content: center;
 	height: 100%;
-	background-color: #F7CA18;
+	background-color: tomato;
 	color: white;
 	/* border: 1px solid green; */
 }
@@ -103,51 +96,6 @@ body{
     font-family: 'Lato', sans-serif;
     /* background: #353535; /* 헤더 백그라운드 색깔 */
     /* color: #FFF; */
-}
-
-/* Thar Buttons */
-a.animated-button.thar-three {
-    color: #FFF;
-    cursor: pointer;
-    display: block;
-    position: relative;
-    border: 2px solid #F7CA18;
-    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-0s;
-}
-a.animated-button.thar-three.sp {
-    color: #FFF;
-    cursor: pointer;
-    display: block;
-    position: relative;
-    border: 2px solid #F7CA18;
-    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-0s;
-	background-color: #444444;
-}
-a.animated-button.thar-three:hover {
-    color: #000 !important;
-    background-color: transparent;
-    text-shadow: nthree;
-}
-a.animated-button.thar-three:hover:before {
-    left: 0%;
-    right: auto;
-    width: 100%;
-}
-a.animated-button.thar-three:before {
-    display: block;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    height: 100%;
-    width: 0px;
-    z-index: -1;
-    content: '';
-    color: #000 !important;
-    background: #F7CA18;
-    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-0s;
 }
 
 #btn{
@@ -209,8 +157,4 @@ a.animated-button.thar-three:before {
 	          justify-content: center;
 	flex-direction: column;
 	z-index: 10;
-}
-
-#menu1{
-	
 }

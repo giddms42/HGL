@@ -12,13 +12,13 @@
 </head>
 <link rel="stylesheet" type="text/css" href="css/GGDetail.css">
 <style>
-html {
-	background: url("image/img.jpg") no-repeat center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
+body {
+ background: url('image/img.jpg') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
 </style>
 <body>
 
@@ -33,30 +33,30 @@ html {
 					<table border="1" bordercolor="white">
 						<col width="100">
 						<tr>
-							<td colspan="2">
+							<td colspan="2" class="th">
 								<div>좋은글 게시판 상세보기</div>
 							</td>
 						</tr>
 						<tr>
-							<td>조회수</td>
+							<td class="th">조회수</td>
 							<td><input type="text" value="${dto.ggReadcnt }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
-							<td>작성일</td>
-							<td><input type="text" value="${dto.ggDate }" readonly="readonly" class="Mtd"></td>
+							<td class="th">작성일</td>
+							<td><input type="text" value="<fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd HH:mm"/>" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
-							<td>글제목</td>
+							<td class="th">글제목</td>
 							<td><input type="text" value="${dto.ggTitle }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
-							<td>글쓴이</td>
+							<td class="th">글쓴이</td>
 							<td><input type="text" value="${dto.ggWriter }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
-							<td>글내용~</td>
+							<td class="th">글내용</td>
 							<td>
-							<textarea rows="20" cols="50" readonly="readonly" style="resize: none;">${dto.ggCont}</textarea>
+							<textarea rows="20" cols="50" readonly="readonly" class="Mtd" style="resize: none;">${dto.ggCont}</textarea>
 								<c:if test="${!empty imgList}">
 									<div>
 										<c:forEach items="${imgList}" var="ggImgDto">
@@ -86,9 +86,9 @@ html {
 							<c:forEach items="${dto2 }" var="ggcmDto">
 							<div class="dv0">
 								<div class="mdv">
-									<div class="th">작성자</div>
+									<div class="th2">작성자</div>
 									<div class="td">${ggcmDto.ggcmWriter }</div>
-									<div class="th">작성일</div>
+									<div class="th2">작성일</div>
 									<div class="td"><fmt:formatDate value="${ggcmDto.ggcmDate}" pattern="yyyy-MM-dd" /></div>
 								</div>
 								<div class="mdv">
@@ -115,7 +115,7 @@ html {
 											<col width="800">
 											<col width="150">
 											<tr>
-												<td colspan="3"><div>댓글 작성</div></td>
+												<td colspan="3" class="th"><div>댓글 작성</div></td>
 											</tr>
 											<tr>
 												<td><input type="text" name="ggcmWriter" value="${login.memberNickname}" id="cmtd"></td>

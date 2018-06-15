@@ -111,7 +111,6 @@ public class FWLController {
 			
 			//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
 			List<fwlbDto> list = fwlBizz.FwlbList(startPost, endPost);	
-			System.out.println(list.get(0).getFwlbWriter());
 			model.addAttribute("startPage", startPage);
 			model.addAttribute("endPage", endPage);
 			model.addAttribute("nowPage", nowPage);

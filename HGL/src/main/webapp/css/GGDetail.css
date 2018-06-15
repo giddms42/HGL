@@ -3,7 +3,6 @@
    margin: auto;
    width: 1280px;
    height: 100%;
-   /* background-color: orange; */
 }
 
 #a{
@@ -17,7 +16,6 @@ width: 100%;
 }
 
 #b{
-color: white;
 border: 1px dashed red;
 /* height: 755px; */
 width: 100%; 
@@ -61,6 +59,7 @@ flex-direction: column;
  }
  
  td{
+ 	background-color: tomato;
  	height: 25px;
     text-align: center;
       border: 1px solid white;
@@ -68,23 +67,25 @@ flex-direction: column;
  }
  
  .Mtd{
+ 	color: black;
  	height: 99%;
  	width: 99%;
  }
  
  textarea{
+ 	color: black;
  	width: 99%;
  }
  
  table{
-    background-color: orange;
+    background-color: tomato;
     width:98%;
  }
  
  #paging{
     text-align: center;
     width: 98%;
-    background-color: orange;
+    background-color: tomato;
     border: 1px solid white;
  }
  
@@ -98,7 +99,7 @@ flex-direction: column;
     text-align: center;
     height: 150%;
     width: 98%;
-    background-color: orange;
+    background-color: tomato;
     border: 1px solid white;
  }
  
@@ -122,18 +123,21 @@ a:visited {
 }
 
 .btn001{
+	color: black;
 	position: absolute;
 	height: 30px;
 	left: 260px;
 	top: 17px;
 }
 .btn002{
+	color: black;
 	position: absolute;
 	height: 30px;
 	left: 321px;
 	top: 17px;
 }
 .btn003{
+	color: black;
 	position: absolute;
 	height: 30px;
 	left: 381px;
@@ -142,11 +146,13 @@ a:visited {
 
 
 #Cbtn1{
+	color: black;
 	width: 99%;
 	height: 99%
 }
 
 #Cbtn2{
+	color: black;
 	text-align: center;
 	align-content: center;
 	margin-top: 5px;
@@ -154,8 +160,8 @@ a:visited {
 }
 
 #cmtd{
-	border: 1px solid orange;
-	background-color : orange;
+	border: 1px solid tomato;
+	background-color : tomato;
 	color: white;
 	text-align: center;
 	height: 100%;
@@ -171,7 +177,7 @@ a:visited {
 .dv0{
 	width: 97.5%;
 	border: 1px solid white;
-	background-color: orange;
+	background-color: tomato;
 	display: -webkit-flex;
      display:         flex;
      -webkit-align-items: center;
@@ -195,13 +201,43 @@ a:visited {
 	height: 30px;
 	margin-left: 88%;
 }
+
+.cont{
+	padding: 2px;
+	margin: 2px;
+	width: 100%;
+	border: 1px solid white;
+	background-color: tomato;
+}
+
+#cml{
+	color: white;
+	text-align: center;
+	width: 97.5%;
+	border: 1px solid white;
+	background-color: tomato;
+	padding: 5px;
+}
+
+#paging{
+	background-color: tomato;
+}
 .th{
+	color: white;
+	text-align: center;
+	padding: 2px;
+	margin: 2px;
+	border: 1px solid white;
+	background-color: tomato;
+}
+.th2{
+	color: white;
 	text-align: center;
 	padding: 2px;
 	margin: 2px;
 	width: 15%;
 	border: 1px solid white;
-	background-color: orange;
+	background-color: tomato;
 }
 .td{
 	padding: 2px;
@@ -210,20 +246,4 @@ a:visited {
 	border: 1px solid gray;
 	background-color: white;
 	color: gray;
-}
-
-.cont{
-	padding: 2px;
-	margin: 2px;
-	width: 100%;
-	border: 1px solid white;
-	background-color: orange;
-}
-
-#cml{
-	text-align: center;
-	width: 96.5%;
-	border: 1px solid white;
-	background-color: orange;
-	padding: 5px;
 }

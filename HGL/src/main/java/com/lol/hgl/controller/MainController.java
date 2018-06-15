@@ -49,6 +49,11 @@ public class MainController {
 		return "Main";
 	}
 	
+	@RequestMapping(value="gsYS.do")
+	public String gsYS() {
+		return "gsYS";
+	}
+	
 	@RequestMapping(value="MapHW.do")
 	public String MapHW() {
 		return "MapHW";
@@ -63,7 +68,7 @@ public class MainController {
 		int postCount = kindBizz.kindstoreListSerchCount(kinddo, kindcity);
 		System.out.println(postCount);
 		//내가 한페이지에 출력하고자 하는 글 갯수 정하기
-		int wantPost = 10;
+		int wantPost = 5;
 		//전페 페이지 갯수 구하기
 		int pageCount = (int)(Math.ceil((double)postCount/wantPost));
 		//시작페이지
@@ -77,9 +82,9 @@ public class MainController {
 			endPage=pageCount;
 		}
 		//한 페이지 내에서 시작하는 글번호
-		int startPost = (nowPage*10)-9;
+		int startPost = (nowPage*5)-4;
 		//한 페이지 내에서 끝나는 글번호
-		int endPost = (nowPage*10);
+		int endPost = (nowPage*5);
 		//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
 		List<kindstoreDto> list = kindBizz.selectSearchAll(startPost, endPost, kinddo, kindcity);
 		model.addAttribute("startPage", startPage);
@@ -88,7 +93,7 @@ public class MainController {
 		model.addAttribute("pageCount", pageCount);
 		model.addAttribute("kinddo", kinddo);
 		model.addAttribute("kindcity", kindcity);
-		model.addAttribute("list", list);
+		model.addAttribute("kindlist", list);
 		return "MapK";
 	}
 	

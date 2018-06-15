@@ -16,3 +16,29 @@
     flex-direction: column;
     height: 500px;
 }
+
+.searchTerm {
+  text-align: center;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  width: 220px;
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+.searchTerm:focus{
+  color: #00B4CC;
+}
+.searchButton {
+  vertical-align:top;
+  -webkit-appearance:none;
+  border: 0;
+  background-color: white;
+}
+#searchButtonImg{
+	margin-left:-5px; 
+	height: 30px; 
+	vertical-align: top;
+	cursor: pointer;
+}

@@ -20,7 +20,7 @@ width: 100%;
 #b{
 color: white;
 border: 1px dashed red;
-height: 650px;
+height: 100%;
 width: 100%; 
 display: -webkit-flex;
      display:         flex;
@@ -69,6 +69,7 @@ display: -webkit-flex;
  }
  
  td{
+ 	background-color: tomato;
  	height: 25px;
     text-align: center;
       border: 1px solid white;
@@ -76,6 +77,7 @@ display: -webkit-flex;
  }
  
  .td{
+ 	color: black;
  	height: 99%;
  	width: 99%;
  }
@@ -85,15 +87,44 @@ display: -webkit-flex;
  }
  
  table{
-    background-color: orange;
+    background-color: tomato;
     width:98%;
  }
  
  #paging{
     text-align: center;
     width: 98%;
-    background-color: orange;
+    background-color: tomato;
     border: 1px solid white;
+ }
+ 
+ #fileDiv{
+	 display: -webkit-flex;
+     display:         flex;
+     -webkit-align-items: center;
+             align-items: center;
+     -webkit-justify-content: center;
+             justify-content: center;
+     flex-direction: column;
+ }
+ .fileDiv{
+ 	color: black;
+	 font-size: 10pt;
+ }
+ .fileDiv0{
+ }
+ #fileDiv1{
+ display: -webkit-flex;
+     display:         flex;
+     -webkit-align-items: center;
+             align-items: center;
+     -webkit-justify-content: center;
+             justify-content: center;
+     flex-direction: row;
+ 	width: 100%;
+ }
+ #fileDiv2{
+ 	width: 50%;
  }
  
  #boardName{
@@ -106,47 +137,51 @@ display: -webkit-flex;
     text-align: center;
     height: 30px;
     width: 98%;
-    background-color: orange;
+    background-color: tomato;
     border: 1px solid white;
  }
  
- a:link{
- 	font-size: 12pt;
- 	color: white;
- 	text-decoration: none;
- }
- 
- a:hover {
- 	font-size: 12pt;
-	color: white;
-	text-decoration: none;
-}
-
-a:visited {
-	font-size: 12pt;
-	color: white;
-	text-decoration: none;
-}
 .btn00{
+	color: black;
 	position: relative;
 	padding: 5px;
 }
 
 .btn001{
+	color: black;
 	position: absolute;
 	height: 30px;
 	right: 355px;
 	top: 17px;
 }
 .btn002{
+	color: black;
 	position: absolute;
 	height: 30px;
-	left: 373px;
-	top: 39px;
+	left: 371px;
+	top: 42px;
 }
 .btn003{
+	color: black;
 	position: absolute;
 	height: 30px;
-	left: 420px;
-	top: 39px;	
+	left: 418px;
+	top: 42px;	
+}
+ a:link{
+ 	font-size: 12pt;
+ 	color: black;
+ 	text-decoration: none;
+ }
+ 
+ a:hover {
+ 	font-size: 12pt;
+ 	color: black;
+	text-decoration: none;
+}
+
+a:visited {
+	font-size: 12pt;
+ 	color: black;
+	text-decoration: none;
 }
