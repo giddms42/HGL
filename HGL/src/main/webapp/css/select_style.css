@@ -1,0 +1,44 @@
+* {
+  color: #6C7231;
+  font-family: Futura;
+  font-weight: bold;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 460px;
+  margin: 20px 0;
+  border: 0;
+  border-radius: 3px;
+  background: #fcfcfc;
+}
+.select-wrapper select {
+  width: 300px;
+  height: 28px;
+  padding: 0 20px 0 7px;
+  background: transparent;
+  border: 0;
+  appearance: none;            /* remove arrow        */
+  -webkit-appearance: none;    /* remove arrow Chrome */
+  -moz-appearance: none;       /* remove arrow FF     */
+}
+.select-wrapper select::-ms-expand{
+    display: none;             /* remove arrow IE     */
+}
+
+/* Style #3 */
+
+.select-arrow-3 {
+  position: absolute;
+  border: 8px solid transparent; 
+  border-bottom: 0;
+  right: 6px;
+}
+.select-arrow-3:nth-child(1) {
+  top: 11px;
+  border-top-color: #6C7231;
+}
+.select-arrow-3:nth-child(2) {
+  top: 8px;
+  border-top-color: #FFF;
+}

@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/MemberSignUp.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script src="js/MemberSignUp.js"></script>
+
 </head>
 <body>
 	<div id="container">
@@ -44,7 +45,7 @@
 	      	<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
 	      </div>
 	      <br><div class="registinfo">
-	      	<label>연락처<br><input class="info" type="phone" name="memberPhone" 
+	      	<label>연락처<br><input class="info" type="tel" name="memberPhone" 
 	      	required="required" placeholder="연락가능한 번호를 숫자만 입력해주세요"></label>
 	      	<p style="margin-top:-2px;"><input class="checkbox" type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y">
 	      	<a class="sns" onclick="snsChecked();">문자알림을 받으시겠습니까?</a></p>
@@ -361,7 +362,7 @@
 	      <div style="margin-left: 10%; margin-top: 5%; margin-bottom: 5%; width:370px;" align="center">
 	      <button>가입하기</button>
 	      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	      <button type="button" onclick="">취소하기</button> 
+	      <button type="button" onclick="history.back();">취소하기</button> 
 	      </div>
    		</form>
     	</div> 
