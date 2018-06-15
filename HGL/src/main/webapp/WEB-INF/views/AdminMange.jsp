@@ -41,6 +41,22 @@ function MangeN(){
 	       })
 	}
 }
+
+function getOut(){
+	var nickName = $("#getNickName").val();
+	if(nickName==null || nickName==""){
+		alert("닉네임을 입력해주세요");
+	}else{
+		 $.ajax({
+	          url : "AdminMangeGetout.do",
+	          data:"memberNickName="+nickName,
+	          success : function(msg) {
+	        	  var msgVal = $.trim(msg);
+	        	  $("#getOut").val(msgVal);
+	          }
+	       })
+	}
+}
 </script>
 </head>
 <link rel="stylesheet" type="text/css" href="css/AdminMange.css">
@@ -62,11 +78,11 @@ function MangeN(){
 			<div id="cover">
 			<div><div><b>회원 추방</b></div></div>
 			<div id="div0">
-				<div class="div2"><input type="text" id="input" placeholder="닉네임을 입력해주세요."></div>
-				<div class="div1"><input type="button" value="회원 추방" class="btn"></div>
+				<div class="div2"><input type="text" id="getNickName" placeholder="닉네임을 입력해주세요."></div>
+				<div class="div1"><input type="button" value="회원 추방" class="btn" onclick="getOut();"></div>
 			</div>
 			<div id="div0">
-				<div class="div3"><input type="text" id="input" placeholder="회원 추방 성공 여부 표시" readonly="readonly"></div>
+				<div class="div3"><input type="text" id="getOut" placeholder="회원 추방 성공 여부 표시" readonly="readonly"></div>
 			</div>
 		</div>
 		<br/>

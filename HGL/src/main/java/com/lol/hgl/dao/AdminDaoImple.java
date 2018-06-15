@@ -187,6 +187,17 @@ public class AdminDaoImple implements AdminDao {
 		return res;
 	}
 
+	@Override
+	public int memberGetOut(String memberNickName) {
+		int res = 0;
+		try {
+			res = sqlSession.delete(nameSpace+"memberGetOut",memberNickName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 
 
 	

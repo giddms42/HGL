@@ -57,7 +57,7 @@ html { background: url("image/img.jpg") no-repeat center fixed;
 								<td><a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a></td>
 								<td>${dto.ggWriter }</td>
 								<td>${dto.ggReadcnt }</td>
-								<td><fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd"/></td>
+								<td><fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 								</tr>
 								</c:forEach>
 	                 	</c:otherwise>

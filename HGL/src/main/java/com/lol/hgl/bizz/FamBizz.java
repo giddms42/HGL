@@ -9,6 +9,7 @@ public interface FamBizz {
 	
 	public List<famDto> allFamList(int memberNo);
 	public int insertFam(famDto famDto, String disease);
+	public int insertFamBirth(famDto famDto, String memberId, String memberNickname);
 	public famDto famDetail(int famNo);
 	public int famDelete(int famNo);
 	public int FamHealthInsert(healthDto healthdto);

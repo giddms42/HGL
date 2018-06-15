@@ -130,6 +130,10 @@
 	<update id="prohibitCancel" parameterType="String">
 		UPDATE MEMBER SET MEMBERPROHIBITCHK = 'N' WHERE MEMBERNICKNAME=#{memberNickName}
 	</update>
+	
+	<delete id="memberGetOut" parameterType="String">
+		DELETE FROM MEMBER WHERE MEMBERNICKNAME=#{memberNickName}
+	</delete>
 
 
 </mapper>

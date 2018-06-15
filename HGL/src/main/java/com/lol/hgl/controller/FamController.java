@@ -1,26 +1,23 @@
 package com.lol.hgl.controller;
 
-
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lol.hgl.bizz.FamBizz;
 import com.lol.hgl.dto.famDto;
 import com.lol.hgl.dto.healthDto;
-
-
+import com.lol.hgl.dto.memberDto;
 
 @Controller
 public class FamController {
-	
 	
 	@Autowired
 	private FamBizz bizz;
@@ -69,11 +66,11 @@ public class FamController {
 		  return "redirect:FamDetailForm.do";
 	  }
 	  
-	  
-	  
 	  @RequestMapping(value="FamInsert.do")
-	  public String FamInsert(@ModelAttribute famDto famdto, String disease, Model model) {
-		 bizz.insertFam(famdto, disease);	  
+	  public String FamInsert(@ModelAttribute famDto famdto, String disease, Model model, HttpSession session) {
+		 bizz.insertFam(famdto, disease);
+		 memberDto member = (memberDto) session.getAttribute("login");
+		 bizz.insertFamBirth(famdto, member.getMemberId(), member.getMemberNickname());
 		 model.addAttribute("memberNo", famdto.getMemberNo());	  
 	     return "redirect:MemberInfoForm.do";
 	  }  
