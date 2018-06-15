@@ -165,13 +165,14 @@ public class FamBizzImple implements FamBizz {
 			String chinaBirth = year+month+day;
 			System.out.println("음력"+chinaBirth);
 			String solarlBirth = commonUtil.converLunar(chinaBirth);
-			System.out.println("양력"+solarlBirth);
+			System.out.println("양력"+solarlBirth);		
 			calDto.setCalTitle("(음)"+famDto.getFamName() + " 님의 생신");
 			calDto.setCalSch(solarlBirth);
 			calDao.insert(calDto);
 			year = year+1;
 			}
 		}
+		System.out.println(commonUtil.converLunar("20191001"));
 		return 0;
 	}
 

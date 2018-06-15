@@ -37,14 +37,15 @@ public class CommonUtil {
 	        }else {
 	            solarlDate += String.valueOf(m) ;
 	        } 
-	        
+	      
+	        /*
 	        if((y%4==0)&&(y%100!=0)||(y%400==0)){ //윤년판별
 	        	System.out.println(y+"는 윤년입니다.");
 	        	d=d+1;
 	        }else {
 	        	System.out.println(y+"는 평년입니다.");
 	        }
-	        
+	        */
 	        if(d < 10) {         // 월
 	            solarlDate += "0" + d ;
 	        }else {
