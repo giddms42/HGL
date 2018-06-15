@@ -28,8 +28,8 @@ CREATE TABLE MEMBER
     CONSTRAINT MEMBER_PROHIBIT_CHK CHECK(MEMBERPROHIBITCHK IN ('Y','N'))
 );
 
-INSERT INTO MEMBER VALUES(MEMBERNO_SEQ.NEXTVAL, 'gm', '11','관리자', 'gm@mail.com', '010-1234-5678', '경기도', 
-'광명시', '광명 6동 374-29번지', 'ADMIN', 0, NULL, 'N', 'Y', 'Y', null);
+INSERT INTO MEMBER VALUES(MEMBERNO_SEQ.NEXTVAL, 'gm', '11','관리자', 'gm@mail.com', '010-1234-5678', '경기도', '광명시', '광명 6동 374-29번지', 'ADMIN', 0, NULL, 'N', 'Y', 'Y', null);
+
 
 SELECT * FROM MEMBER;
 

@@ -104,6 +104,11 @@ a:visited {
 }
 
 .Gbtn{
+	color: black;
 	margin-left: 91%;
 	padding: 5px;
+}
+
+#paging{
+	color: black;
 }

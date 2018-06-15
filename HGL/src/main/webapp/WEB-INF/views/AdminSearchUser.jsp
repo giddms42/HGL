@@ -10,11 +10,12 @@
 </head>
 <link rel="stylesheet" type="text/css" href="css/AdminSearchUser.css">
 <style>
-html { background: url("image/img.jpg") no-repeat center fixed;
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
+body {
+ background: url('image/img.jpg') no-repeat center top; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
  }
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
