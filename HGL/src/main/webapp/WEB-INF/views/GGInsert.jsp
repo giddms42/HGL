@@ -35,7 +35,7 @@ $(document).ready(function(){
 });
 
 function fn_addFile(){
-    var str = "<p><input type='file' id='file' name='file_"+(gfv_count++)+"'><a href='#this' class='btn' id='delete' name='delete'><button>삭제</button></a></p>";
+    var str = "<p id='fileDiv1'><input id='fileDiv2' type='file' id='file' name='file_"+(gfv_count++)+"'><a href='#this' class='fileDiv0' id='delete' name='delete'><button>삭제</button></a></p>";
     $("#fileDiv").append(str);
     $("a[name='delete']").on("click", function(e){ //삭제 버튼
         e.preventDefault();
@@ -74,8 +74,8 @@ function fn_deleteFile(obj){
 	                     <td>파일첨부 </td>
 						<td>
 							<div id="fileDiv">
-							 <p>
-	                			<input type="file" id="file" name="file_0"><a href="#this" class="btn" id="delete" name="delete"><button>삭제</button></a>
+							 <p id="fileDiv1">
+	                			<input type="file" id="fileDiv2" id="file" name="file_0"><a href="#this" class="btn" id="delete" name="delete"><button class="fileDiv">삭제</button></a>
 	           				 </p>
 							</div>
 						</td>
