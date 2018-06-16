@@ -19,5 +19,6 @@ public interface AdminBizz {
 	public int fwlbDelete(int fwlbNo);
 	public int memberProhibit(String memberId);
 	public int memberProhibitCancel(String memberNickName);
+	public int memberGetOut(String memberNickName);
 
 }

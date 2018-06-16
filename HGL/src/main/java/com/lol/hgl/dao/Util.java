@@ -54,7 +54,7 @@ public class Util {
 		String calList = "";//"<p>title</p><p>title</p><p>title</p>"
 		for(calDto dto:clist){
 			if(dto.getCalSch().substring(6, 8).equals(d)){
-			  calList += "<p><a onclick='DetSCH("+dto.getCalNo()+")'>"
+			  calList += "<p><a id='schA' onclick='DetSCH("+dto.getCalNo()+")'>"
 					   + (dto.getCalTitle().length()>6?dto.getCalTitle().substring(0,5)+"..":dto.getCalTitle())
 					   + "</a></p>";
 			}

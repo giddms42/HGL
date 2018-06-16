@@ -12,12 +12,21 @@
 </head>
 <link rel="stylesheet" type="text/css" href="css/GGList.css">
 <style>
-body {
+/* body {
  background: url('image/img.jpg') no-repeat center top; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  background-position: center top;
   background-size: cover;
+ } */
+ 
+ body {
+ background: url('image/img.jpg') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
  }
 </style>
 <body>
@@ -29,18 +38,18 @@ body {
 	      <div id="bodyMain">
 	         <div id="boardName">좋은글 게시판</div>
 	         <br/>
-	               <table border="1" bordercolor="white">
+	               <table border="1">
 	                  <col width="50" class="ab">
 	                  <col width="350">
 	                  <col width="50">
 	                  <col width="50">
 	                  <col width="200">
 	                  <tr>
-	                     <th>글번호</th>
-	                     <th>글제목</th>
-	                     <th>글쓴이</th>
-	                     <th>조회수</th>
-	                     <th>등록일</th>
+	                     <th class="text-center">글번호</th>
+	                     <th class="text-center">글제목</th>
+	                     <th class="text-center">글쓴이</th>
+	                     <th class="text-center">조회수</th>
+	                     <th class="text-center">등록일</th>
 	                  </tr>
                  
 	                 <c:choose> 
@@ -58,7 +67,7 @@ body {
 								<td><a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a></td>
 								<td>${dto.ggWriter }</td>
 								<td>${dto.ggReadcnt }</td>
-								<td><fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd"/></td>
+								<td><fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 								</tr>
 								</c:forEach>
 	                 	</c:otherwise>
@@ -66,7 +75,7 @@ body {
 	               </table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
 	               <br/>
-	           <div id="paging">
+	           <div id="paging1">
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
 							◀
@@ -97,7 +106,7 @@ body {
 					</c:choose>
 	            </div>
 	               <br/>
-	               <div id="paging">
+	               <div id="paging2">
 	               	<form action="GGListSearch.do" method="post">
 						<input type="hidden" name="nowpage" value="1"/>
 						<div style="width: 50%; margin: auto; text-align: center;">
@@ -107,7 +116,7 @@ body {
 								<option value="GGWRITER">작성자</option>
 							</select>
 							<input type="search" name="keyword" placeholder="검색어를 입력해주세요">
-							<button class="btn btn-small">검색</button>
+							<input type="submit" value="검색">
 						</div>
 					</form>
 	               </div>

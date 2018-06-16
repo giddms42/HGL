@@ -12,11 +12,11 @@
 <link rel="stylesheet" type="text/css" href="css/MemberInfo.css">
 <style>
 body {
- background: url('image/img.jpg') no-repeat center top; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover%;
+ background: url('image/img.jpg') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
  }
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>

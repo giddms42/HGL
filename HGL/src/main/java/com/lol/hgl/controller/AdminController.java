@@ -163,13 +163,11 @@ public class AdminController {
 	
 	@RequestMapping(value="AdminMange.do", produces = "application/text; charset=utf8")
 	@ResponseBody
-	public String ADminMange(String memberNickName, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+	public String ADminMange(String memberNickName) throws UnsupportedEncodingException {
 		String res = "";
-		String idChk = memberBizz.nickNameChk(memberNickName);
-		if(idChk == "t") { // null
-			res = "존재하지 않는 아이디입니다. 다시 입력해주세요";
+		String nickNameChk = memberBizz.nickNameChk(memberNickName);
+		if(nickNameChk == "t") { // null
+			res = "존재하지 않는 닉네임입니다. 다시 입력해주세요";
 		}else {
 			int count = adminBizz.memberProhibit(memberNickName);
 			switch (count) {
@@ -191,11 +189,37 @@ public class AdminController {
 	@RequestMapping(value="AdminMangeCancel.do", produces = "application/text; charset=utf8")
 	@ResponseBody
 	public String AdminMangeCancel(String memberNickName) {
-		String res = "제재 해제 실패";
-		int r  = adminBizz.memberProhibitCancel(memberNickName);
-		if(r>0) {
+		String res = "";
+		String nickNameChk = memberBizz.nickNameChk(memberNickName);
+		if(nickNameChk == "t") { // null
+			res = "존재하지 않는 닉네임입니다. 다시 입력해주세요";
+		}else {
+			res = "제재 해제 실패";
+			int r  = adminBizz.memberProhibitCancel(memberNickName);
+			if(r>0) {
 			res="제재 해제 성공";
+			}
 		}
 		return res;
 	}
+	
+	@RequestMapping(value="AdminMangeGetout.do", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String AdminMangeGetout(String memberNickName) {
+		String res = "";
+		String nickNameChk = memberBizz.nickNameChk(memberNickName);
+		if(nickNameChk == "t") { // null
+			res = "존재하지 않는 닉네임입니다. 다시 입력해주세요";
+		}else{
+			res = "추방 실패";
+			int r  = adminBizz.memberGetOut(memberNickName);
+			if(r>0) {
+				res="추방 성공";
+			}
+		}
+		
+		return res;
+	}
+	
+	
 }

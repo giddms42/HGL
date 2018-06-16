@@ -97,6 +97,11 @@ public class AdminBizzImple implements AdminBizz {
 		return res;
 	}
 
+	@Override
+	public int memberGetOut(String memberNickName) {
+		return dao.memberGetOut(memberNickName);
+	}
+
 
 
 

@@ -118,12 +118,11 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>                        
 				      </button>
-				      <a class="navbar-brand" href="#">행가래</a>
 				    </div>
 				    <div class="collapse navbar-collapse" id="myNavbar">
 				      <ul class="nav navbar-nav">
 				      	<c:if test="${login.memberRole eq 'ADMIN'}">
-							<li class="dropdown active">
+							<li class="dropdown">
 					          <a class="dropdown-toggle" data-toggle="dropdown" href="#">관리자 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
 					            <li><a href="#" onclick="AdminMange();">회원 제재</a></li>
