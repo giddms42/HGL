@@ -726,7 +726,7 @@
 		            });
 		            }
 		         })
-		         
+		         //이부분을 아이디가 아닌 여러개로 선택할수있는 class같은걸로하면 안먹히네요
 		         $("#regist").submit(function(){
 		             if ($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
 		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");

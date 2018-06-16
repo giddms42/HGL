@@ -21,57 +21,54 @@
 </head>
 <body>
   <div id="container">
-  <div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
+  	  <div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 
-  <form class="main-form first" action="MemberSignUp.do" method="post" class="userForm" novalidate>
-  <div class="main-form__title">
-  <h1>Sign-up</h1>
-  </div>
-  <div class="main-form__body">
-    <input type="text" name="memberId" title="n" required="required" class="main-form__input" placeholder="Username" />
-   		<a class="ajChk" id="unId" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 아이디 입니다.</b></a>
-		<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 아이디 입니다.</b></a>
+	  <form class="main-form first" action="MemberSignUp.do" method="post" class="userForm" novalidate>
+		<div class="main-form__title">
+		  <h1>Sign-up</h1>
+		</div>
+		<div class="main-form__body">
+			<input type="text" name="memberId" title="n" required="required" class="main-form__input" placeholder="Username" />
+		  		<a class="ajChk" id="unId" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 아이디 입니다.</b></a>
+				<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 아이디 입니다.</b></a>
+		    <input type="password" name="memberPw" required="required" title="n" class="main-form__input" placeholder="Password" />
+		  		<a class="ajChk" id="unPw" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 비밀번호 입니다.</b></a>
+		    	<a class="ajChk" id="usePw" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 비밀번호 입니다.</b></a>
+		   	<input type="password" name="userChkpw" required="required" class="main-form__input" placeholder="Repeat Password" />
+		  	<input type="text" name="memberNickname" class="main-form__input" title="n" required="required" placeholder="Nick Name" />
+		   		<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 닉네임 입니다.</b></a>
+		   		<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
+		  	<input type="tel" name="memberPhone" class="main-form__input" required="required" placeholder="Phone Number" />
+		    <label>
+		   		<a class="main-form_sns" style="font-color:#cccccc;"><input type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y">문자알림을 받으시겠습니까?</a>
+		    </label>    
+		    <input type="email" name="memberEmail" title="n" required="required" class="main-form__input" placeholder="Email Address" size="50" maxlength="50" />
+		   		<a class="ajChk" id="unEmail" style="color: #F15F5F; font-size: 0.8em;"><b>중복된 E-MAIL 입니다.</b></a>
+		  		<a class="ajChk" id="useEmail" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 E-MAIL 입니다.</b></a>
+		  		<a class="ajChk" id="incorrectEmail"  style="color: #F15F5F; font-size: 0.8em;"><b>올바르지 않은 E-MAIL 형식 입니다.</b></a>
+		</div>
 		
-    <input type="password" name="memberPw" required="required" title="n" class="main-form__input" placeholder="Password" />
-   		<a class="ajChk" id="unPw" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 비밀번호 입니다.</b></a>
-	    <a class="ajChk" id="usePw" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 비밀번호 입니다.</b></a>
-	    
-    <input type="password" name="userChkpw" required="required" class="main-form__input" placeholder="Repeat Password" />
-    
-    <input type="text" name="memberNickname" class="main-form__input" title="n" required="required" placeholder="Nick Name" />
-    	<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 닉네임 입니다.</b></a>
-	    <a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
-	    
-    <input type="tel" name="memberPhone" class="main-form__input" required="required" placeholder="Phone Number" />
-    <a class="main-form__input"><input type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y">문자알림을 받으시겠습니까?</a>
-    
-    <input type="email" name="memberEmail" title="n" required="required" class="main-form__input" placeholder="Email Address" size="50" maxlength="50" />
-    	<a class="ajChk" id="unEmail" style="color: #F15F5F; font-size: 0.8em;"><b>중복된 E-MAIL 입니다.</b></a>
-   		<a class="ajChk" id="useEmail" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 E-MAIL 입니다.</b></a>
-   		<a class="ajChk" id="incorrectEmail"  style="color: #F15F5F; font-size: 0.8em;"><b>올바르지 않은 E-MAIL 형식 입니다.</b></a>
-    
-   </div>
-    <div class="select-wrapper">
-      <select name="memberDo" onChange="showSub(this.options[this.selectedIndex].value);" required="required" style="width:150px;">
-      	<option value="">도를 선택해주세요</option>
-      	<option value="서울특별시">서울특별시</option>
-      	<option value="경기도">경기도</option>
-      	<option value="인천광역시">인천광역시</option>
-      	<option value="강원도">강원도</option>
-      	<option value="충청북도">충청북도</option>
-      	<option value="충청남도">충청남도</option>
-      	<option value="대전광역시">대전광역시</option>
-      	<option value="세종특별자치시">세종특별자치시</option>
-      	<option value="경상북도">경상북도</option>
-      	<option value="대구광역시">대구광역시</option>
-      	<option value="울산광역시">울산광역시</option>
-      	<option value="경상남도">경상남도</option>
-      	<option value="부산광역시">부산광역시</option>
-      	<option value="전라북도">전라북도</option>
-      	<option value="전라남도">전라남도</option>
-      	<option value="광주광역시">광주광역시</option>
-      	<option value="제주도">제주도</option>
-      </select>
+	    <div class="select-wrapper">
+	      <select name="memberDo" class="select-wrapper" onChange="showSub(this.options[this.selectedIndex].value);" required="required" style="width:150px;">
+	      	<option value="">도를 선택해주세요</option>
+	      	<option value="서울특별시">서울특별시</option>
+	      	<option value="경기도">경기도</option>
+	      	<option value="인천광역시">인천광역시</option>
+	      	<option value="강원도">강원도</option>
+	      	<option value="충청북도">충청북도</option>
+	      	<option value="충청남도">충청남도</option>
+	      	<option value="대전광역시">대전광역시</option>
+	      	<option value="세종특별자치시">세종특별자치시</option>
+	      	<option value="경상북도">경상북도</option>
+	      	<option value="대구광역시">대구광역시</option>
+	      	<option value="울산광역시">울산광역시</option>
+	      	<option value="경상남도">경상남도</option>
+	      	<option value="부산광역시">부산광역시</option>
+	      	<option value="전라북도">전라북도</option>
+	      	<option value="전라남도">전라남도</option>
+	      	<option value="광주광역시">광주광역시</option>
+	      	<option value="제주도">제주도</option>
+	      </select>
 	      <select class="memberCity" name="" id="seoul" style="display: none;" required="required">
 	      	<option value="">구,시,군을 선택해주세요</option>
 	      	<option value="강남구">강남구</option>
@@ -347,13 +344,13 @@
 	      	<option value="서귀포시">서귀포시</option>
 	      	<option value="제주시">제주시</option>
 	      </select>
-		      <input class="main-form__input" type="text" name="memberAddr" placeholder="상세주소를 입력해주세요.">
-	 	  </div>
-	 	  <div class="main-form__body">
-	 	  	<button type="button" class="btn" onclick="history.back();">Cancel</button>
-   		  	<button class="btn">Join</button>
-	 	  </div>
-	</form>
+		  <input class="main-form__input" type="text" name="memberAddr" placeholder="상세주소를 입력해주세요.">
+		</div>
+		 <div class="main-form__body">
+		 	<button type="button" class="btn" onclick="history.back();">Cancel</button>
+			<button type="submit" class="btn">Join</button>
+		 </div>
+		</form>
 	</div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 

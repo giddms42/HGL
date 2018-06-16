@@ -1,9 +1,3 @@
-* {
-  color: #6C7231;
-  font-family: Futura;
-  font-weight: bold;
-}
-
 .select-wrapper {
   position: relative;
   width: 460px;
@@ -17,7 +11,9 @@
   height: 28px;
   padding: 0 20px 0 7px;
   background: transparent;
-  border: 0;
+  border: 1px solid #cccccc;
+  color:#cccccc;
+  font-family: Futura;
   appearance: none;            /* remove arrow        */
   -webkit-appearance: none;    /* remove arrow Chrome */
   -moz-appearance: none;       /* remove arrow FF     */
