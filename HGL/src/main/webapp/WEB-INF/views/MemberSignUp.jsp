@@ -16,6 +16,11 @@
     
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/MemberSignUp.js"></script>
+	<style>
+		a:link { color: #cccccc; text-decoration: none;}
+		a:visited { color: #cccccc; text-decoration: none;}
+		a:hover { color: #cccccc; text-decoration: none;}
+	</style>
 
   
 </head>
@@ -30,28 +35,30 @@
 	<div class="main-form__body">
 		<input type="text" name="memberId" title="n" required="required" class="main-form__input" placeholder="Username" />
 	  		<a class="ajChk" id="unId" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 아이디 입니다.</b></a>
-		<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 아이디 입니다.</b></a>
+			<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 아이디 입니다.</b></a>
 		
 	   <input type="password" name="memberPw" required="required" title="n" class="main-form__input" placeholder="Password" />
 	  		<a class="ajChk" id="unPw" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 비밀번호 입니다.</b></a>
-	    <a class="ajChk" id="usePw" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 비밀번호 입니다.</b></a>
+	    	<a class="ajChk" id="usePw" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 비밀번호 입니다.</b></a>
 	    
 	   <input type="password" name="userChkpw" required="required" class="main-form__input" placeholder="Repeat Password" />
 	   
 	   <input type="text" name="memberNickname" class="main-form__input" title="n" required="required" placeholder="Nick Name" />
-	   	<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 닉네임 입니다.</b></a>
-	    <a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
+	   		<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 닉네임 입니다.</b></a>
+	   		<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
 	   <input type="tel" name="memberPhone" class="main-form__input" required="required" placeholder="Phone Number" />
 	   <label>
-	   	<a class="main-form_sns" style="font-color:#cccccc;"><input type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y">문자알림을 받으시겠습니까?</a>
+	   <a id="main-form_sns" style="font-color:#cccccc;">
+	   		<input class="checked"type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y" id="main-form_checkboxstyle" style="vertical-align: top; width: 15px; 
+	height: 15px;"> 문자알림을 받으시겠습니까?
+	   </a>
 	   </label>    
 	   
 	   <input type="email" name="memberEmail" title="n" required="required" class="main-form__input" placeholder="Email Address" size="50" maxlength="50" />
-	   	<a class="ajChk" id="unEmail" style="color: #F15F5F; font-size: 0.8em;"><b>중복된 E-MAIL 입니다.</b></a>
-	  	<a class="ajChk" id="useEmail" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 E-MAIL 입니다.</b></a>
-	  	<a class="ajChk" id="incorrectEmail"  style="color: #F15F5F; font-size: 0.8em;"><b>올바르지 않은 E-MAIL 형식 입니다.</b></a>
-	   
-	  </div>
+	  	 	<a class="ajChk" id="unEmail" style="color: #F15F5F; font-size: 0.8em;"><b>중복된 E-MAIL 입니다.</b></a>
+	  		<a class="ajChk" id="useEmail" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 E-MAIL 입니다.</b></a>
+	  		<a class="ajChk" id="incorrectEmail"  style="color: #F15F5F; font-size: 0.8em;"><b>올바르지 않은 E-MAIL 형식 입니다.</b></a>
+	</div>
     <div class="select-wrapper">
       <select name="memberDo" class="select-wrapper" onChange="showSub(this.options[this.selectedIndex].value);" required="required" style="width:150px;">
       	<option value="">도를 선택해주세요</option>
@@ -355,10 +362,10 @@
    		  	<button class="btn">Join</button>
 	 	  </div>
 	</form>
+	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 	</div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
   
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 </body>
 </html>

@@ -9,12 +9,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/MapK.css">
+<link rel="stylesheet" type="text/css" href="css/simple_button_style.css">
 <style>
-body{
+#container{
 	background-image: url("image/KindstoreBackground1.jpg");
 	background-position : top center;
   	background-repeat: no-repeat;
   	background-color: whihe;
+  	background-size: cover;
+  	min-height: 1024px;
+  	max-height: 100%;
 }
 </style>
 <script src="js/MapK.js"></script>
@@ -35,7 +39,7 @@ body{
 		<form action="kindListSearch.do" method="post" onsubmit="return SearchCheck(kinddo.value)"novalidate>
 		<input type="hidden" name="nowpage" value="1"/>
 			<div id="kindSearch">
-			    <select name="kinddo" onChange="showSub(this.options[this.selectedIndex].value);" required="required" style="width:160px;">
+			    <select class="memberDo" name="kinddo" onChange="showSub(this.options[this.selectedIndex].value);" required="required" style="width:150px; font-weight: bold;">
 			    	<option value="">도를 선택해주세요</option>
 			    	<option value="서울특별시">서울특별시</option>
 			    	<option value="경기도">경기도</option>
@@ -56,7 +60,7 @@ body{
 			    	<option value="제주도">제주도</option>
 			    </select>
 			    <select class="memberCity" name="" id="seoul" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="강남구">강남구</option>
 			    	<option value="강동구">강동구</option>
 			    	<option value="강북구">강북구</option>
@@ -84,7 +88,7 @@ body{
 			    	<option value="중랑구">중랑구</option>
 			    </select>
 			    <select class="memberCity" name="" id="gyeonggi" style="display: none;" required="required">
-			    	<option value="">시,군을 선택해주세요</option>
+			    	<option value="">시,군 선택하기</option>
 			    	<option value="가평군">가평군</option>
 			    	<option value="고양시">고양시</option>
 			    	<option value="과천시">과천시</option>
@@ -117,7 +121,7 @@ body{
 			    	<option value="화성시">화성시</option>
 			    </select>
 			    <select class="memberCity" name="" id="incheon" style="display: none;" required="required">
-			      <option value="">구,시,군을 선택해주세요</option>
+			      <option value="">구,시,군 선택하기</option>
 			    	<option value="강화군">강화군</option>
 			    	<option value="계양구">계양구</option>
 			    	<option value="남구">남구</option>
@@ -130,7 +134,7 @@ body{
 			    	<option value="중구">중구</option>
 			    </select>
 			    <select class="memberCity" name="" id="gangwon" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="강릉시">강릉시</option>
 			    	<option value="고성군">고성군</option>
 			    	<option value="동해시">동해시</option>
@@ -151,7 +155,7 @@ body{
 			    	<option value="횡성군">횡성군</option>
 			    </select>
 			    <select class="memberCity" name="" id="chungbuk" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="괴산군">괴산군</option>
 			    	<option value="단양군">단양군</option>
 			    	<option value="보은군">보은군</option>
@@ -165,7 +169,7 @@ body{
 			    	<option value="충주시">충주시</option>
 			    </select>
 			      <select class="memberCity" name=""  id="chungnam" style="display: none;" required="required">
-			      	<option value="">구,시,군을 선택해주세요</option>
+			      	<option value="">구,시,군 선택하기</option>
 			    	<option value="계룡시">계룡시</option>
 			    	<option value="공주시">공주시</option>
 			    	<option value="금산군">금산군</option>
@@ -183,7 +187,7 @@ body{
 			    	<option value="홍성군">홍성군</option>
 			    </select>
 			    <select class="memberCity" name="" id="daejeon" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="대덕구">대덕구</option>
 			    	<option value="동구">동구</option>
 			    	<option value="서구">서구</option>
@@ -191,7 +195,7 @@ body{
 			    	<option value="중구">중구</option>
 			    </select>
 			    <select class="memberCity" name="" id="gyeongbug" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="경산시">경산시</option>
 			    	<option value="경주시">경주시</option>
 			    	<option value="고령군">고령군</option>
@@ -217,7 +221,7 @@ body{
 			    	<option value="포항시">포항시</option>
 			    </select>
 			    <select class="memberCity" name="" id="daegu" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="남구">남구</option>
 			    	<option value="달서구">달서구</option>
 			    	<option value="달성군">달성군</option>
@@ -228,7 +232,7 @@ body{
 			    	<option value="중구">중구</option>
 			    </select>
 			    <select class="memberCity" name="" id="ulsan" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="남구">남구</option>
 			    	<option value="동구">동구</option>
 			    	<option value="북구">북구</option>
@@ -236,7 +240,7 @@ body{
 			    	<option value="중구">중구</option>
 			    </select>
 			    <select class="memberCity" name="" id="gyeongnam" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="거제시">거제시</option>
 			    	<option value="거창군">거창군</option>
 			    	<option value="고성군">고성군</option>
@@ -257,7 +261,7 @@ body{
 			    	<option value="합천군">합천군</option>
 			    </select>
 			    <select class="memberCity" name=""  id="busan" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="강서구">강서구</option>
 			    	<option value="금정구">금정구</option>
 			    	<option value="기장군">기장군</option>
@@ -276,7 +280,7 @@ body{
 			    	<option value="해운대구">해운대구</option>
 			    </select>
 			    <select class="memberCity" name="" id="jeonbug"  style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="고창군">고창군</option>
 			    	<option value="군산시">군산시</option>
 			    	<option value="김제시">김제시</option>
@@ -293,7 +297,7 @@ body{
 			    	<option value="진안군">진안군</option>
 			    </select>
 			    <select class="memberCity" name="" id="jeonnam" style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="강진군">강진군</option>
 			    	<option value="고흥군">고흥군</option>
 			    	<option value="곡성군">곡성군</option>
@@ -318,7 +322,7 @@ body{
 			    	<option value="화순군">화순군</option>
 			    </select>
 			    <select class="memberCity" name="" id="gwangju"  style="display: none;" required="required">
-			    	<option value="">구,시,군을 선택해주세요</option>
+			    	<option value="">구,시,군 선택하기</option>
 			    	<option value="광산군">광산군</option>
 			    	<option value="남구">남구</option>
 			    	<option value="동구">동구</option>
@@ -326,13 +330,13 @@ body{
 			    	<option value="서구">서구</option>
 			    </select>
 			    <select class="memberCity" name="" id="jeju"style="display: none;" required>
-			    	<option class="memberCity" value="">구,시,군을 선택해주세요</option>
+			    	<option class="memberCity" value="">구,시,군 선택하기</option>
 			    	<option value="서귀포시">서귀포시</option>
 			    	<option value="제주시">제주시</option>
 			    </select>
 			</div>
-		    <div style="display: inline-block;">
-		 	  	<input id="SearchButton" type="submit" value="검색">
+		    <div style="display: inline-block; vertical-align: top;">
+		 	  	<input id="search_button" type="submit" value="검색">
 		    </div>
 		</form>
 		

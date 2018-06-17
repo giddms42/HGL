@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>위시리스트 검색하기</title>
 <link rel="stylesheet" type="text/css" href="css/FWLBList.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
@@ -16,14 +16,14 @@
 </head>
 <body>
 
-<div style="padding:30px;">
+<div id="container" style="padding:30px; background-color: #F1F1F1;">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	<div id="FWLBListCenter">
 		<div class="table">
 			<div class="headertext" >
 				위시리스트 게시판
 			</div>
-			<table style="margin: auto; width:800px;">
+			<table id="FWLBtable" style="margin: auto; width:800px;">
 					<col width="100">
 					<col width="300">
 					<col width="120">
@@ -38,11 +38,9 @@
 				</tr>
 				<c:choose>
 					<c:when test="${empty FWLBList }">
-					<c:forEach begin="0" end="9">
 					<tr>
-						<td colspan="5" style="text-align:center;">----------- 공유된 위시리스트가 없습니다 ------------</td>
+						<td colspan="5" style="text-align:center;">조건에 일치하는 글이 없습니다</td>
 					</tr>
-					</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${FWLBList}" var="fwlbDto">
