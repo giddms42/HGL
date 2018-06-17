@@ -1,16 +1,14 @@
 package com.lol.hgl.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,13 +23,14 @@ import com.lol.hgl.dto.memberDto;
 
 @Controller
 public class MemberController {
-
-
+	
    @Autowired
    private MemberBizz memberBizz;
  
    @Autowired
    private FamBizz famBizz;
+   
+   int chk=0;
    
  
    @RequestMapping(value = "MemberSignUpForm.do")
@@ -86,12 +85,15 @@ public class MemberController {
    
    @RequestMapping(value="MemberLoginForm.do")
    public String MemberLoginForm() {
+	   if(1>chk) {
+		   memberBizz.mangeCancel();
+		   chk++;
+	   }
       return "MemberLogin";
    }
    
    @RequestMapping(value = "MemberLogin.do")
-   public String memberLogin(String memberId, String memberPw, Model model, HttpSession session) throws IOException {
-      memberBizz.mangeCancel(); 
+   public String memberLogin(String memberId, String memberPw, Model model, HttpSession session) throws IOException {  
 	  String chkRes = memberBizz.LoginChk(memberId, memberPw);
 	  String msg = "";
 	  if(chkRes == "f") {

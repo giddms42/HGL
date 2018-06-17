@@ -118,7 +118,7 @@ function schAdd(){
 				<td><textarea rows="10" cols="60" name="calMemo"></textarea> </td>
 			</tr>
 			<tr>
-				<td colspan="2">문자수신여부 : Y<input type="radio" value="Y" name="calSMS"/>N<input type="radio" value="N" name="calSMS"/></td>
+				<td colspan="2">문자수신여부 : Y<input type="radio" value="Y" name="calSMS"/>N<input type="radio" value="N" name="calSMS" checked="checked"/></td>
 			</tr>
 			<tr>
 				<td colspan="2">

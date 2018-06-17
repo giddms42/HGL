@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.lol.hgl.dao.MemberDao;
 import com.lol.hgl.dto.memberDto;
-import com.lol.hgl.util.Mange;
+import com.lol.hgl.util.TimerLogic;
 
 @Service
 public class MemberBizzImple implements MemberBizz {
@@ -17,7 +17,7 @@ public class MemberBizzImple implements MemberBizz {
 	@Autowired
 	private MemberDao dao;
 	@Autowired
-	private Mange mange;
+	private TimerLogic timerLogic;
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
@@ -170,7 +170,13 @@ public class MemberBizzImple implements MemberBizz {
 	@Override
 	public void mangeCancel() {
 		List<memberDto> mangeList = dao.MangeList();
-		mange.time(mangeList);
+		timerLogic.mangeTime(mangeList);
+	}
+
+	@Override
+	public void safetySMS() {
+		List<memberDto> smsList = dao.smsList();
+		timerLogic.safetySMSTime(smsList);
 	}
 
 

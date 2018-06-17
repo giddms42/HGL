@@ -54,10 +54,6 @@ $(function(){
         	 alert("생일을 입력해주세요")
         	 document.getElementsByName("famBirth")[0].focus();
         	 return false;
-         }else if($("input[name=famLunar]:checked").length < 1){
-        	 alert("양력 또는 음력을 선택해주세요")
-        	 document.getElementsByName("famLunar")[0].focus();
-        	 return false;
          }else if($("input[name=famHeight]").val() == ""){
         	 alert("신장을 입력해주세요")
         	 document.getElementsByName("famHeight")[0].focus();
@@ -113,10 +109,6 @@ $(function(){
 				<div>생일
 					<input class="famInfo" type="NUMBER" name="famBirth" required="required" placeholder="생일를 입력해주세요(ex.19910621)"
 					 max="9999" maxlength="8" oninput="maxLengthCheck(this)"/>
-				</div>
-				<div style="margin-top: -30px; margin-left: 60px;">
-					<label><input class="radi" type="radio" name="famLunar" value="양력">양력</label>
-					<label><input class="radi" type="radio" name="famLunar" value="음력">음력</label>
 				</div>
 				<div>신장
 					<input class="famInfo" type="number" name="famHeight" required="required" placeholder="cm. 숫자만 인력해주세요" id="height">

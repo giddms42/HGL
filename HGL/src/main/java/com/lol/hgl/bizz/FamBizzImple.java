@@ -27,9 +27,6 @@ public class FamBizzImple implements FamBizz {
 	@Autowired
 	private MemberDao memberDao;
 	
-	@Autowired
-	private CommonUtil commonUtil;
-
 	@Override
 	public List<famDto> allFamList(int memberNo) {
 		List<famDto> list = famDao.allFamList(memberNo);
@@ -58,10 +55,6 @@ public class FamBizzImple implements FamBizz {
 				famDto.setFamDisease3("질병없음");
 			}
 			
-		}
-		
-		if(famDto.getFamLunar()==null) {
-			famDto.setFamLunar("양력");
 		}
 		
 		int res = famDao.insertFam(famDto);		
@@ -140,39 +133,25 @@ public class FamBizzImple implements FamBizz {
 		int year = cal.get(Calendar.YEAR);
 		String month = famDto.getFamBirth().substring(4, 6);
 		String day = famDto.getFamBirth().substring(6, 8);
-		String lunar = famDto.getFamLunar();
 		calDto calDto = new calDto();
 		calDto.setMemberId(memberId);
 		calDto.setMemberNickname(memberNickname);
-		calDto.setCalMemo("");
+		calDto.setCalMemo(famDto.getFamName() + " 님의 생신입니다.");
 		memberDto memberDto = memberDao.searchMember(memberNickname);
 		if(memberDto.getMemberSMS().equals("Y")) {
 			calDto.setCalSMS("Y");
 		}else {
 			calDto.setCalSMS("N");
 		}
-
-		if(lunar.equals("양력")) {
-			for(int i=0; i<10; i++) { // 10년 동안 일정 입력
-				calDto.setCalTitle(famDto.getFamName() + " 님의 생신");
-				String birth = String.valueOf(year)+month+day;
-				calDto.setCalSch(birth);
-				calDao.insert(calDto);
-				year = year+1;
-			}
-		}else {
-			for(int i=0; i<10; i++) { // 10년 동안 일정 입력
-			String chinaBirth = year+month+day;
-			System.out.println("음력"+chinaBirth);
-			String solarlBirth = commonUtil.converLunar(chinaBirth);
-			System.out.println("양력"+solarlBirth);		
-			calDto.setCalTitle("(음)"+famDto.getFamName() + " 님의 생신");
-			calDto.setCalSch(solarlBirth);
+		//yyyy-MM-dd hh:mm:00
+		for(int i=0; i<10; i++) { // 10년 동안 일정 입력
+			calDto.setCalTitle(famDto.getFamName() + " 님의 생신");
+			String birth = String.valueOf(year)+month+day+"0000";
+			calDto.setCalSch(birth);
 			calDao.insert(calDto);
 			year = year+1;
-			}
 		}
-		System.out.println(commonUtil.converLunar("20191001"));
+	
 		return 0;
 	}
 

@@ -72,7 +72,6 @@ public class CalDaoImple implements CalDao {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("memberId", memberId);
 		map.put("yyyyMM", yyyyMM);
-		
 		try {
 			res = sqlSession.selectList(namespace + "selectAll",map);
 			

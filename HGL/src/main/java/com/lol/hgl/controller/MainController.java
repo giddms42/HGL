@@ -26,24 +26,7 @@ public class MainController {
 	
 	@Autowired
 	private kindstoreBizz kindBizz;
-	
-	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-	
 
-	@RequestMapping(value = "home.do", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
-	}
-	
 	@RequestMapping(value="MainForm.do")
 	public String MainForm(Locale locale, Model model) {
 		return "Main";
