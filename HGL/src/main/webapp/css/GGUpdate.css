@@ -4,22 +4,18 @@
    margin: auto;
    width: 1280px;
    height: 100%;
-   /* background-color: orange; */
 }
 
 #a{
 width: 100%;
-/* background-color: red; */
 }
 
 #c{
 width: 100%;
-/* background-color: green; */
 }
 
 #b{
 color: white;
-border: 1px dashed red;
 height: 100%;
 width: 100%; 
 display: -webkit-flex;
@@ -111,8 +107,6 @@ display: -webkit-flex;
  	color: black;
 	 font-size: 10pt;
  }
- .fileDiv0{
- }
  #fileDiv1{
  padding-top: 10px;
  display: -webkit-flex;
@@ -160,14 +154,14 @@ display: -webkit-flex;
 	position: absolute;
 	height: 30px;
 	left: 371px;
-	top: 42px;
+	top: 62px;
 }
 .btn003{
 	color: black;
 	position: absolute;
 	height: 30px;
 	left: 418px;
-	top: 42px;	
+	top: 62px;	
 }
  a:link{
  	font-size: 12pt;

@@ -107,7 +107,7 @@ body {
 	               		<input type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" class="btn002">
 		                <input type="submit" value="글수정" class="btn003">
 	               </div>
-	               <div id="paging">　<br>　</div>
+	               <br> <div id="paging">　<br>　</div>
 	      </form>
 	      </div>
 	   </div>

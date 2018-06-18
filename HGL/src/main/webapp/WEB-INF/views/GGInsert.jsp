@@ -35,7 +35,7 @@ $(document).ready(function(){
 });
 
 function fn_addFile(){
-    var str = "<p id='fileDiv1'><input id='fileDiv2' type='file' id='file' name='file_"+(gfv_count++)+"'><a href='#this' class='fileDiv0' id='delete' name='delete'><button>삭제</button></a></p>";
+    var str = "<p id='fileDiv1'><input id='fileDiv2' type='file' id='file' name='file_"+(gfv_count++)+"'><a href='#this' class='fileDiv0' name='delete'><button class='fileDiv'>삭제</button></a></p>";
     $("#fileDiv").append(str);
     $("a[name='delete']").on("click", function(e){ //삭제 버튼
         e.preventDefault();
@@ -54,10 +54,15 @@ function fn_deleteFile(obj){
 	   <div id="b">
 	      <div id="bodyMain">
 	         <form:form method="post" enctype="multipart/form-data" id="form" action="GGinsert.do">
-	         	   <div id="boardName">정말 좋은글 글쓰기</div>
+	         	   
 		           <br/>
 	               <table border="1" bordercolor="white">
 	               <col width="100">
+	               		<tr>
+							<td colspan="2" class="th">
+								<div>좋은글 게시판 글쓰기</div>
+							</td>
+						</tr>
 	                  <tr>
 	                     <td>글제목</td>
 	                     <td><input type="text" placeholder="엄청 좋은글의 제목입니다" name="ggTitle" class="td"></td>
@@ -74,17 +79,17 @@ function fn_deleteFile(obj){
 	                     <td>파일첨부 </td>
 						<td>
 							<div id="fileDiv">
-							 <p id="fileDiv1">
+							 <!-- <p id="fileDiv1">
 	                			<input type="file" id="fileDiv2" id="file" name="file_0"><a href="#this" class="btn" id="delete" name="delete"><button class="fileDiv">삭제</button></a>
-	           				 </p>
+	           				 </p> -->
 							</div>
 						</td>
 					</tr>
 	               </table>
-	               <div class="btn">               
-	             		<a href="#this" class="btn" id="addFile"><button class="btn">파일 추가</button></a>
-	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn2">
-		                <input type="submit" value="글작성" class="btn3">
+	               <div class="btn00">               
+	             		<button class="btn0" id="addFile">파일 추가</button>
+	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn02">
+		                <input type="submit" value="글작성" class="btn03">
 	               </div>
 	      </form:form>
 	               

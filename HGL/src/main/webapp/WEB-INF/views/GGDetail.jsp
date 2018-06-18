@@ -29,7 +29,7 @@ body {
 			<div id="bodyMain">
 				<form action="GGUpdateForm.do?ggNo=${dto.ggNo}" id="form"
 					method="post">
-					<br />
+					<br/>
 					<table border="1" bordercolor="white">
 						<col width="100">
 						<tr>
@@ -79,8 +79,7 @@ body {
 					</div>
 				</form>
 
-				<!-- <form action="" id="form2"> -->
-					<br />
+					<br/>
 					<c:if test="${!empty dto2}">
 						<div id="cml">댓글 목록</div><br/>
 							<c:forEach items="${dto2 }" var="ggcmDto">
@@ -100,7 +99,6 @@ body {
 							</div><br/>								
 							</c:forEach>
 					</c:if>
-				<!-- </form> -->
 
 				<div id="comment">
 					<div>

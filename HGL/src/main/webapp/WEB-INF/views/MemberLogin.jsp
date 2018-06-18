@@ -15,18 +15,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login.jsp</title>
-</head>
-<link rel="stylesheet" type="text/css" href="css/MemberLogin.css">
-<style>
-
-body {
- background: url('image/img.jpg') no-repeat center top; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover%;
- }
-</style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -56,43 +44,68 @@ function MemberSearch(){
 	}
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/reset.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="css/style222.css">
+
+  
+</head>
+
 <body>
-	<div id="container">
-	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
+
+  <body>
+	<main id="cd-main-content">
+		<section id="cd-intro">
+			<h1><b>행</b>복한 <b>가</b>족의 미<b>래</b></h1>
 	
-	<div id="b">
-		<div id="b1">
-			<div>
-			<img src="image/back.png" id="im1">
-			</div>
-			<form action="MemberLogin.do" id="b2">
-				<div id="b3">
-				<table align="center">
-					<tr>
-						<td>ID</td>
-						<td><input type="text" name="memberId" id="inpid"></td>
-					</tr>
-					<tr>
-						<td>PW</td>
-						<td><input type="password" name="memberPw" id="inppw"></td>
-					</tr>
-					<tr>
-						<td><br></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-						<input type="submit" value="로그인">
-		                <input type="button" value="ID / PW 찾기" onclick="MemberSearch()">
-					    <input type="button" value="회원가입" onclick="location.href='MemberSignUpForm.do'">
-					</td>
-					</tr>
-				</table>
-				</div>
-			</form>
-		</div>
-	</div>
+			<header class="cd-header">
+				<a class="cd-menu-trigger" href="#main-nav">로그인<span></span></a>
+			</header>
+			<div class="cd-blurred-bg"></div>
+		</section> <!-- cd-intro -->
+	</main>
 	
-	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
-	</div>
+	<div class="cd-shadow-layer"></div>
+	
+	<nav id="main-nav">
+		<ul id="loginUl">
+			<li id="loginMain">
+					<form action="MemberLogin.do">
+						<div id="loginImg">
+							<div class="loginPadding">
+								<span class="spanIdPw">ㅇ USERNAME　　　　　　　　　</span>
+							</div>
+							<div class="loginPadding">
+								<input type="text" name="memberId" value="" placeholder=" 아이디를 입력해주세요.">
+							</div>
+							<div class="loginPadding">
+								<span class="spanIdPw">ㅇ PASSWORD　　　　　　　　　</span>
+							</div>
+							<div class="loginPadding">
+								<input type="text" name="memberPw" value="" placeholder=" 비밀번호를 입력해주세요.">
+							</div>
+							<div class="loginBtnPd">
+								<input style="border-color: white; background-color: #d26c64; color: white;" class="loginBtn" id="loginBtn1" type="submit" value="Login">
+							    <input style="border-color: white; background-color: #d26c64; color: white;" class="loginBtn" id="loginBtn1" type="button" value="SignUp" onclick="location.href='MemberSignUpForm.do'">
+				                <input style="border-color: white; background-color: #d26c64; color: white;" class="loginBtn" id="loginBtn2" type="button" value="Forgot Password?" onclick="MemberSearch()">
+							</div>
+						<div id="loginImg2"></div>
+						</div>
+					</form>
+			</li>
+		</ul>
+		<a href="#0" class="cd-close-menu">Close<span></span></a>
+	</nav>
+  </body>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script  src="js/index.js"></script>
+
+
+
+
 </body>
+
 </html>
