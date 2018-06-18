@@ -64,30 +64,27 @@ function fn_deleteFile(obj){
 							</td>
 						</tr>
 	                  <tr>
-	                     <td>글제목</td>
-	                     <td><input type="text" placeholder="엄청 좋은글의 제목입니다" name="ggTitle" class="td"></td>
+	                     <td>제목</td>
+	                     <td><input type="text" placeholder="제목을 입력해주세요." name="ggTitle" class="td"></td>
 	                  </tr>
 	                  <tr>
-	                     <td>글쓴이</td>
+	                     <td>작성자</td>
 	                     <td><input type="text" value="${login.memberNickname}" readonly="readonly" name="ggWriter" class="td"></td>
 	                  </tr>
 	                  <tr>
-	                     <td>글내용</td>
-	                     <td><textarea rows="20" cols="50" placeholder="엄청 좋은글의 내용을 입력해주세요" name="ggCont" style="resize: none;"></textarea></td>
+	                     <td>내용</td>
+	                     <td><textarea rows="20" cols="50" placeholder="내용을 입력해주세요" name="ggCont" class="td" style="resize: none;"></textarea></td>
 	                  </tr>
 	                  <tr>
 	                     <td>파일첨부 </td>
 						<td>
 							<div id="fileDiv">
-							 <!-- <p id="fileDiv1">
-	                			<input type="file" id="fileDiv2" id="file" name="file_0"><a href="#this" class="btn" id="delete" name="delete"><button class="fileDiv">삭제</button></a>
-	           				 </p> -->
 							</div>
 						</td>
 					</tr>
 	               </table>
 	               <div class="btn00">               
-	             		<button class="btn0" id="addFile">파일 추가</button>
+	             		<button class="btn01" id="addFile">파일 추가</button>
 	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn02">
 		                <input type="submit" value="글작성" class="btn03">
 	               </div>

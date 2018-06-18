@@ -7,72 +7,53 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-
-<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
- <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/reset.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
-  
-      <link rel="stylesheet" href="css/style222.css">
+<link rel="stylesheet" href="css/style1.css">
 
   
 </head>
 
 <body>
 
-  <body>
-<main id="cd-main-content">
-	<section id="cd-intro">
-		<h1><b>행</b>복한 <b>가</b>족의 미<b>래</b></h1>
-
-		<header class="cd-header">
-			<a class="cd-menu-trigger" href="#main-nav">로그인<span></span></a>
-		</header>
-		<div class="cd-blurred-bg"></div>
-	</section> <!-- cd-intro -->
-</main>
-
-<div class="cd-shadow-layer"></div>
-
-<nav id="main-nav">
-	<ul id="loginUl">
-		<li id="loginMain">
-				<form action="MemberLogin.do">
-					<div id="loginImg">
-						<div class="loginPadding">
-							<span class="spanIdPw">ㅇ USERNAME　　　　　　　　　</span>
-						</div>
-						<div class="loginPadding">
-							<input type="text" value="" placeholder=" 아이디를 입력해주세요.">
-						</div>
-						<div class="loginPadding">
-							<span class="spanIdPw">ㅇ PASSWORD　　　　　　　　　</span>
-						</div>
-						<div class="loginPadding">
-							<input type="text" value="" placeholder=" 비밀번호를 입력해주세요.">
-						</div>
-						<div class="loginBtnPd">
-							<input class="loginBtn" id="loginBtn1" type="submit" value="Login">
-						    <input class="loginBtn" id="loginBtn1" type="button" value="SignUp" onclick="location.href='MemberSignUpForm.do'">
-			                <input class="loginBtn" id="loginBtn2" type="button" value="Forgot Password?" onclick="MemberSearch()">
-						</div>
-					<div id="loginImg2"></div>
-					</div>
-				</form>
-		</li>
-	</ul>
-	<a href="#0" class="cd-close-menu">Close<span></span></a>
-</nav>
-</body>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
   
-
-    <script  src="js/index.js"></script>
-
-
-
+<h1 style="padding-top: 60px;">CSS Slider</h1>
+<h2>Pure CSS Slider. No JS. Because it is possieble!</h2>
+<div class="csslider infinity" id="slider1">
+  <input type="radio" name="slides" id="slides_1"/>
+  <input type="radio" name="slides" checked="checked" id="slides_2"/>
+  <input type="radio" name="slides" id="slides_5"/>
+  <input type="radio" name="slides" id="slides_6"/>
+  <ul>
+    <li>
+      <h1>Say hello to CSS3</h1>
+      <p>CSSlider is lightweight & easy to use slider. No JS - pure CSS.</p>
+    </li>
+    <li><img src="https://rawgithub.com/drygiel/csslider/master/examples/themes/stones.jpg"/>
+    </li>
+    <li>
+      <div id="center"> <a class="nice-link" href="https://github.com/drygiel/csslider" data-text="More examples on github" target="_blank">More examples on github</a></div>
+    </li>
+    <li>
+      <div id="center"><a class="play" id="dex-sign" href="http://drygiel.com" target="_blank"></a></div>
+    </li>
+  </ul>
+  <div class="arrows">
+    <label for="slides_1"></label>
+    <label for="slides_2"></label>
+    <label for="slides_5"></label>
+    <label for="slides_6"></label>
+    <label class="goto-first" for="slides_1"></label>
+    <label class="goto-last" for="slides_6"></label>
+  </div>
+  <div class="navigation"> 
+    <div>
+      <label for="slides_1"></label>
+      <label for="slides_2"></label>
+      <label for="slides_5"></label>
+      <label for="slides_6"></label>
+    </div>
+  </div>
+</div>
+  
 
 </body>
 

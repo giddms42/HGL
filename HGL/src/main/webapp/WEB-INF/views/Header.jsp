@@ -130,13 +130,6 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 					          </ul>
 					        </li>				
 						</c:if>
-				        <li class="dropdown">
-				          <a class="dropdown-toggle" data-toggle="dropdown" href="#">홈페이지 <span class="caret"></span></a>
-				          <ul class="dropdown-menu">
-				            <li><a href="#">홈페이지 소개</a></li>
-				            <li><a href="#">오시는 길</a></li>
-				          </ul>
-				        </li>
 				        <li><a href="MemberInfoForm.do?memberNo=${login.memberNo}">프로필</a></li>
 				        <li><a href="CalListForm.do?memberId=${login.memberId }&year=<%=year2 %>&month=<%=month2 %>&memberNickname=${login.memberNickname }">캘린더</a></li>
 				        <li class="dropdown">

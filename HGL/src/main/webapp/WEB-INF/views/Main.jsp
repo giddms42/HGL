@@ -29,25 +29,44 @@ body {
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	
 	<div id="b">
-		<div id="b1">
-		<div id="img1"><img src="image/sadad.png"></div>
-			<div id="b2">
-				<div id="b3">위에꺼</div>
-				<div id="b4"><a href="">아래꺼</a></div>
-			</div>
-			<div id="b2">
-				<div id="b3">위에꺼</div>
-				<div id="b4"><a href="">아래꺼</a></div>
-			</div>
-			<div id="b2">
-				<div id="b3">위에꺼</div>
-				<div id="b4"><a href="">아래꺼</a></div>
-			</div>
-			<div id="b2">
-				<div id="b3">위에꺼</div>
-				<div id="b4"><a href="">아래꺼</a></div>
-			</div>
+	<br>
+		<div class="csslider infinity" id="slider1">
+		  <input type="radio" name="slides" id="slides_1"/>
+		  <input type="radio" name="slides" checked="checked" id="slides_2"/>
+		  <input type="radio" name="slides" id="slides_5"/>
+		  <input type="radio" name="slides" id="slides_6"/>
+		  <ul>
+		    <li>
+		    	<div class="list1">1페이지</div>
+		    </li>
+		    <li>
+				<div class="list1">2페이지</div>
+			</li>
+		    <li>
+		    	<div class="list1">3페이지</div>
+		    </li>
+		    <li>
+		    	<div class="list1">4페이지</div>
+		    </li>
+		  </ul>
+		  <div class="arrows">
+		    <label for="slides_1"></label>
+		    <label for="slides_2"></label>
+		    <label for="slides_5"></label>
+		    <label for="slides_6"></label>
+		    <label class="goto-first" for="slides_1"></label>
+		    <label class="goto-last" for="slides_6"></label>
+		  </div>
+		  <div class="navigation"> 
+		    <div>
+		      <label for="slides_1"></label>
+		      <label for="slides_2"></label>
+		      <label for="slides_5"></label>
+		      <label for="slides_6"></label>
+		    </div>
+		  </div>
 		</div>
+	<br><br>
 	</div>
 	
 	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
