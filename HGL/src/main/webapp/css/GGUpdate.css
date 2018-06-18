@@ -114,6 +114,7 @@ display: -webkit-flex;
  .fileDiv0{
  }
  #fileDiv1{
+ padding-top: 10px;
  display: -webkit-flex;
      display:         flex;
      -webkit-align-items: center;

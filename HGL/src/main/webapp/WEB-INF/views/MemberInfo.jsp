@@ -28,14 +28,6 @@ function goUpdate(){
 function goFamDetail(famNo){
 	location.href="FamDetailForm.do?famNo="+famNo;
 }
-
-/* function getOut(){
-    var con = confirm("정말로 탈퇴하시겠습니까?");
-    if(con==true){
-       //alert("탈퇴되었습니다.");
-       location.href="MemberGetOut.do?memberNo="+${dto.memberNo};
-    }
- } */
 function getOut(){
 	swal({
 	  title: "탈퇴하시겠습니까?",

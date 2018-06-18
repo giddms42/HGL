@@ -94,12 +94,13 @@ $(function(){
 			<div id="FWLList">
 				<div id="topbutton">
 					<button type="button" onclick="shareWL();">공유하기</button>
-					<button type="button" onclick="FWLinsert();" style="margin-left: 425px;">+위시리스트 추가하기</button>
+					<button type="button" onclick="FWLinsert();" style="margin-left:395px;">위시리스트 추가하기</button>
 				</div>
 				<form>
-				<table style="width:750px; margin: auto;">
+				<table id="FWLListTable" style="width:750px; margin: auto;">
+						<col width="60px;">
 					<tr>
-						<th width=40px; style="padding: 10px;">달성</th>
+						<th style="padding: 10px;">달성</th>
 						<th style="text-align: center; max-width:585px;">위 시 리 스 트</th>
 					</tr>
 						<c:choose>
@@ -119,8 +120,10 @@ $(function(){
 											<td><input name="check" type="checkbox" value="${FwlDto.fwlNo}"></td>
 										</c:otherwise>
 									</c:choose>
-									<td style="border-bottom: 1px solid black;">${FwlDto.fwlItem}
-									<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}"><img class="FWLDelete-img" src="image/xButton.png"></button>
+									<td style="padding:10px; color: #ea7500; font-size: 1.5em;">${FwlDto.fwlItem}
+										<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}">
+											<img class="FWLDelete-img" src="image/xButton.png" style="width: 18px; height: 18px;">
+										</button>
 									</td>
 								</tr>
 								</c:forEach>
@@ -131,7 +134,7 @@ $(function(){
 				</table>
 				</form>	
 				</div>
-			<div style="width: 800px;"><button type="button" name="DeleteButton" title="y" style="float:right; margin: 10px;">삭제</button></div>
+			<div style="width: 800px;"><button type="button" name="DeleteButton" title="y" style="float:right;">삭제</button></div>
 			</div>
 		</div> 
 </body>

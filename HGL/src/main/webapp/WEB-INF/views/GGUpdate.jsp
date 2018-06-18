@@ -96,7 +96,6 @@ body {
                                 <!-- 이미지 사이즈 -->
                                 (${ggImgDto.ggImgSize}kb)
                                  <a href='#this' class='fileDiv0' id='delete_${i.index }' name='delete_${i.index }'><button class='fileDiv'>삭제</button></a>
-                                <!--  <button class="fileDiv" id="delete_${i.index }" name="delete_${i.index }">삭제</button> -->
                                 </p>
                             </c:forEach>
                         </div>

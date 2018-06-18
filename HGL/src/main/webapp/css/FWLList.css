@@ -3,17 +3,7 @@ input[type="checkbox"]{
 	width:20px; 
 	height:20px;"
 }
-td{
-	height: 30px;
-}
-#container{
-	text-align: center;
-	min-width: 800px; 
-	margin: auto;
-	margin-top: 40px;
-	margin-bottom: 40px;
-	border: 1px dotted red; 
-}
+
 #FWLListCenter{
 	display: -webkit-flex;
 	display:         flex;
@@ -25,32 +15,58 @@ td{
     min-height: 750px;
     max-height: 100%;
 }
-#topbutton{
-	padding:20px;
-}
-#FWLList{
-	border: 1px dotted black;
-	width: 800px;
-	height: 500px;
+
+#FWLListTable th{
+	height: 30px;
+	text-align: center;
+	background: #ffb997;
+	color: #ffffff;
+	font-size: 1.2em;
+	font-weight: 600;
+	padding: 0.5em 1em;
 }
 
+#FWLList{
+  max-width: 800px;
+  min-height: 500px;
+  max-height: 100%;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #ffe4ca;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+#container{
+  background: #ffd9b7;
+  min-height: 800px;
+  max-height: 100%;
+  text-align: center;
+  min-width: 800px; 
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: 'Open Sans', sans-serif;
+}
+}
 .FWLDelete-img{
-	width: 18px;
-	height: 18px;
-	vertical-align: bottom;
+	vertical-align: top;
 	margin-top: 1px;
 	cursor: pointer;
 }
-
 .FWLDelete{
+	width: 18px;
+	height: 18px;
 	padding:0;
 	border:0;
-	background-color: white;
-	vertical-align: bottom;
+	vertical-align: top;
 	color:red;
 	display: none;
+	background-color: rgba( 255, 255, 255, 0.1 );
 }
-
+#topbutton{
+	padding:20px;
+}
 button {
 	display: inline-block;
 	outline: none;
@@ -75,4 +91,24 @@ button:hover {
 button:active {
 	position: relative;
 	top: 2px;
+}
+
+
+----------------------------------------------------------------------
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+table {
+  border-radius: 0.5em;
+  border-collapse: collapse;
+  margin: 1em;
+}
+tr {
+  transition: background 0.25s ease;
+}
+tr:hover {
+  background: #ffaf60;
+  color: white;
 }

@@ -3,9 +3,9 @@
 		var retVal = confirm("문자알림을 받으시겠습니까?\n매달 1일, 부모님께 안부를 물어보도록 유도하는 알림문자가 발송됩니다.");
 
 		if (retVal == true) {
-			$("input[class=checkbox]").prop("checked", true);
+			$(".checked").prop("checked", true);
 		} else {
-			$("input[class=checkbox]").prop("checked", false);
+			$(".checked").prop("checked", false);
 		}
 	}
 	function showSub(obj){ //주소 셀렉트박스
@@ -726,7 +726,7 @@
 		            });
 		            }
 		         })
-		         
+		         //이부분을 아이디가 아닌 여러개로 선택할수있는 class같은걸로하면 안먹히네요
 		         $("#regist").submit(function(){
 		             if ($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
 		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
