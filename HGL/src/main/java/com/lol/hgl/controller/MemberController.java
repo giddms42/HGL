@@ -87,6 +87,9 @@ public class MemberController {
    public String MemberLoginForm() {
 	   if(1>chk) {
 		   memberBizz.mangeCancel();
+		   memberBizz.safetySMS();
+		   memberBizz.birthSMS();
+		   memberBizz.calSMS();
 		   chk++;
 	   }
       return "MemberLogin";
@@ -178,11 +181,14 @@ public class MemberController {
 
    @RequestMapping(value="memberLoginOut.do")
    public String memberLoginOut(HttpSession session, Model model) {
-		memberDto dto = (memberDto) session.getAttribute("login");
-	    memberBizz.logOutTime(dto.getMemberId());
-	    session.invalidate(); 		
-		String msg = "로그아웃 되었습니다. 다음에 또 와주세요!";
-		model.addAttribute("msg1", msg);
+	   memberDto dto = (memberDto) session.getAttribute("login");
+	   if(dto != null ) {
+		   memberBizz.logOutTime(dto.getMemberId());
+		    session.invalidate(); 		
+			String msg = "로그아웃 되었습니다. 다음에 또 와주세요!";
+			model.addAttribute("msg1", msg);
+	   }
+	   
 	    return "MemberLogin";
    }
 

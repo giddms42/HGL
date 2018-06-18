@@ -71,7 +71,10 @@ body {
 					<div class="btn00">
 						<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn001">
 						<input type="submit" value="글수정" class="btn002">
+					<c:if test="${login.memberNickname eq dto.ggWriter}">
 						<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" class="btn003">
+					</c:if>
+				
 					</div>
 					<div id="paging">
 					<br>
@@ -96,7 +99,9 @@ body {
 								</div>
 							</div>
 							<div class="dv1">
+							<c:if test="${login.memberNickname eq ggcmDto.ggcmWriter}">
 								<input type="button" onclick="location.href='GGRepleyDelete.do?ggcmNo='+${ggcmDto.ggcmNo}+'&ggNo='+${ggcmDto.ggNo}" value="댓글삭제" id="Cbtn2">
+							</c:if>
 							</div><br/>								
 							</c:forEach>
 					</c:if>

@@ -1,5 +1,7 @@
 package com.lol.hgl.controller;
 
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.lol.hgl.bizz.kindstoreBizz;
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.kindstoreDto;
+import com.lol.hgl.util.SMSFormOne;
 
 /**
  * Handles requests for the application home page.
@@ -80,5 +83,18 @@ public class MainController {
 		return "MapK";
 	}
 	
+	/*
+	@RequestMapping(value = "sms.do")
+	public void sms() {
+		String rphone = "010-5852-0572";
+		String msg = "수고하세요 ";		
+		try {
+			SMSFormOne.sms(rphone, msg);
+		} catch (NoSuchAlgorithmException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	*/
 	
 }

@@ -101,13 +101,45 @@ public class CalDaoImple implements CalDao {
 	@Override
 	public calDto getCalBoard(int seq) {
 		calDto res = new calDto();
-		
 		try {
 			res = sqlSession.selectOne(namespace+"getCalBoard", seq);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return res;
+	}
+
+	@Override
+	public List<calDto> birthList() {
+		List<calDto> list = new ArrayList<calDto>();
+		try {
+			list = sqlSession.selectList(namespace+"birthList");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public int updateCALSMS(int calNo) {
+		int res = 0;
+		try {
+			res = sqlSession.update(namespace+"updateCALSMS",calNo);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public List<calDto> calList() {
+		List<calDto> list = new ArrayList<calDto>();
+		try {
+			list = sqlSession.selectList(namespace+"calList");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 
