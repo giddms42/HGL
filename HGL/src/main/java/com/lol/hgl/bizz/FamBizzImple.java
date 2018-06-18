@@ -137,12 +137,7 @@ public class FamBizzImple implements FamBizz {
 		calDto.setMemberId(memberId);
 		calDto.setMemberNickname(memberNickname);
 		calDto.setCalMemo(famDto.getFamName() + " 님의 생신입니다.");
-		memberDto memberDto = memberDao.searchMember(memberNickname);
-		if(memberDto.getMemberSMS().equals("Y")) {
-			calDto.setCalSMS("Y");
-		}else {
-			calDto.setCalSMS("N");
-		}
+		calDto.setCalSMS("Y");
 		//yyyy-MM-dd hh:mm:00
 		for(int i=0; i<10; i++) { // 10년 동안 일정 입력
 			calDto.setCalTitle(famDto.getFamName() + " 님의 생신");
