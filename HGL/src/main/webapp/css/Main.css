@@ -3,22 +3,18 @@
 	margin: auto;
 	width: 1280px;
 	height: 100%;
-	/* background-color: orange; */
 }
 
 #a{
 width: 100%;
-/* background-color: red; */
 }
 
 #c{
 width: 100%;
-/* background-color: green; */
 }
 
 #b{
 color: white;
-border: 1px dashed red;
 height: 500px;
 width: 100%;
 display: -webkit-flex;

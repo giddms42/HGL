@@ -157,11 +157,11 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				      </ul>
 				      <ul class="nav navbar-nav navbar-right">
 				     	 <c:choose>
-								<c:when test="${login == null}">
+								<%-- <c:when test="${login == null}">
 									<li><a href="memberLoginOut.do"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
-								</c:when>
+								</c:when> --%>
 								<c:when test="${login != null}">
-								<li><a href="#"><span class="glyphicon glyphicon-heart"></span> '${login.memberNickname}'님 접속중</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-heart"></span> ${login.memberNickname} 님 접속중</a></li>
 					     		    <li><a href="memberLoginOut.do"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
 								</c:when>	
 						</c:choose>
