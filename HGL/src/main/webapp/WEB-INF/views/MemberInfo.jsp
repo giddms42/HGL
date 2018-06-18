@@ -88,13 +88,12 @@ function famDelete(famNo){
 						</c:otherwise>
 					</c:choose>
 				</div>
-				
 				<div><img class="memberIcon" src="icon/Message-Mail-128.png"><input class="info" type="text" value="${dto.memberEmail}" readonly="readonly"></div>
 				<div><img class="memberIcon" src="icon/Home-128.png">
 					<input class="info" type="text" value="${dto.memberDo} ${dto.memberCity} ${dto.memberAddr}" readonly="readonly" style="margin-left: -5px;"><br>
 				</div>
 				<div class="threeButton">
-					<button class="famButton" type="button" onclick="getOut();" style="margin-left: 7%">탈퇴하기</button>
+					<button class="famButton" type="button" onclick="getOut();" style="margin-left: 4%">탈퇴하기</button>
 					<button class="famButton" type="button" onclick="goUpdate();" style="margin-left: 32%">수정하기</button>
 				</div>
 			</div>
@@ -104,19 +103,16 @@ function famDelete(famNo){
 				<h2>Family</h2>
 		 		<c:choose>
 					<c:when test="${empty list }">
-						<div style="margin-top:30px; margin-bottom: 30px; font-size: 15pt;">등록한 가족구성원이 없습니다! </div>
+						<div style="margin-top:28px; margin-bottom: 30px; font-size: 15pt; color:white;">등록한 가족구성원이 없습니다</div>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${list}" var="famDto">
-							<div style="margin: auto; width: 300px; margin-bottom: 20px;">
-								<input class="famMember" type="text" value="${famDto.famName}" readonly="readonly" onclick="goFamDetail(${famDto.famNo});">님
-								<button class="famDelete" type="button" style="margin-left: 5px;" onclick="famDelete(${famDto.famNo});"><img class="famDelete-img" src="image/menu_close.png"></button>
-							</div>
+								<div class="famMember" onclick="goFamDetail(${famDto.famNo});">${famDto.famName}님 <img class="famDelete-img" src="icon/delete.png" onclick="famDelete(${famDto.famNo});"></div>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
 				<div>
-					<button class="famButton" type="button" onclick="goFamInsert();" style="margin-left:65%; margin-top:3%;" >추가</button>
+					<button class="famButton" type="button" onclick="goFamInsert();" style="margin-left:60%;">추가</button>
 				</div>
 			</div>
 	</div>
