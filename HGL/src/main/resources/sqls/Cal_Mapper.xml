@@ -60,4 +60,16 @@
 		WHERE CALNO = #{calNo}
 	</select>
 	
+	<select id="birthList" resultMap="CalDtoMap">
+	SELECT * FROM CAL WHERE CALTITLE LIKE '%생신%' AND CALSMS='Y'
+	</select>
+	
+	<update id="updateCALSMS" parameterType="int" >
+	UPDATE CAL SET CALSMS='N' WHERE CALNO=#{calNo}
+	</update>
+	
+	<select id="calList" resultMap="CalDtoMap">
+	 SELECT * FROM CAL WHERE NOT CALTITLE LIKE '%생신%' AND CALSMS='Y'
+	</select>
+	
 </mapper>

@@ -87,5 +87,9 @@
 	<update id="updateMangeChk" parameterType="String">
 		UPDATE MEMBER SET MEMBERPROHIBITCHK='N' WHERE MEMBERNICKNAME=#{memberNickName}
 	</update>
+	
+	<select id="smsList" resultMap="memberDto">
+		SELECT * FROM MEMBER WHERE MEMBERSMS='Y'
+	</select>
 
 </mapper>

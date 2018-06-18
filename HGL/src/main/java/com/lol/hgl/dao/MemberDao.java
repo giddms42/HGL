@@ -22,6 +22,7 @@ public interface MemberDao {
 	public int logOutTime(String memberId);
 	public List<memberDto> MangeList();
 	public int updateMangeChk(String memberNickName);
+	public List<memberDto> smsList();
 	 
 
 }

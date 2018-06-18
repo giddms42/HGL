@@ -11,7 +11,6 @@
 		<result column="FAMDISEASE2" property="famDisease2"/>
 		<result column="FAMDISEASE3" property="famDisease3"/>
 		<result column="FAMBIRTH" property="famBirth" />  
-		<result column="FAMLUNAR" property="famLunar"/>		
 	</resultMap>
 
 
@@ -29,7 +28,7 @@
     </select>
 
 	<insert id="insertFam" parameterType="famDto">
-	INSERT INTO FAM VALUES(#{memberNo}, FAMNO_SEQ.NEXTVAL, #{famName}, #{famHeight}, #{famDisease1} , #{famDisease2} , #{famDisease3} , #{famBirth}, #{famLunar})
+	INSERT INTO FAM VALUES(#{memberNo}, FAMNO_SEQ.NEXTVAL, #{famName}, #{famHeight}, #{famDisease1} , #{famDisease2} , #{famDisease3} , #{famBirth})
 	</insert>
 	
 	<select id="famDetail" parameterType="int" resultType="famDto">
