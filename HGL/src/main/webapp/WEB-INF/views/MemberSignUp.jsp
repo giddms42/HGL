@@ -46,7 +46,9 @@
 	   <input type="text" name="memberNickname" class="main-form__input" title="n" required="required" placeholder="Nick Name" />
 	   		<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 닉네임 입니다.</b></a>
 	   		<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
-	   <input type="tel" name="memberPhone" class="main-form__input" required="required" placeholder="Phone Number" />
+	   <input type="text" name="memberPhone1" class="main-form__input" placeholder="010" oninput="maxLengthCheck(this)" style="width: 110px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+	   <input type="text" name="memberPhone2" class="main-form__input" placeholder="번호입력" oninput="maxLengthCheck(this)" style="width: 170px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+	   <input type="text" name="memberPhone3" class="main-form__input" placeholder="나머지번호입력" oninput="maxLengthCheck(this)" style="width: 170px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
 	   <label>
 	   <a id="main-form_sns" style="font-color:#cccccc;">
 	   		<input class="checked"type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y" id="main-form_checkboxstyle" style="vertical-align: top; width: 15px; 

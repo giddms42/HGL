@@ -21,7 +21,6 @@ function fn_editFL(){
 			data : params,
 			success : function(xh)
 					{		
-						alert("추가되었습니다.","success");
 						opener.parent.location.reload();
 						self.close();
 					}
