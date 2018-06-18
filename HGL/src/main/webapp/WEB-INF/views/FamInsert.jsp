@@ -65,6 +65,7 @@ $(function(){
          	 }
          }
 	 })
+	 
 	$(document).ready(function() {
 	    $('#height').on('keyup', function() {
 	        if($(this).val().length > 3) {

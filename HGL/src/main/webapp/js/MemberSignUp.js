@@ -1,4 +1,3 @@
-
 	function snsChecked() { //문자알림서비스 확인창
 		var retVal = confirm("문자알림을 받으시겠습니까?\n매달 1일, 부모님께 안부를 물어보도록 유도하는 알림문자가 발송되며,\n캘린더에 일정 추가 시 일정 알림을 체크하면 \n해당 일정 날짜의 하루 전에 알림 문자가 발송됩니다.");
 
@@ -774,4 +773,21 @@
 		            	 return false;
 		             }
 				 })
+				$(document).ready(function() {
+				    $('input[name=memberPhone1]').on('keyup', function() {
+				        if($(this).val().length > 3) {
+				            $(this).val($(this).val().substring(0, 3));
+				        }
+				    });
+				    $('input[name=memberPhone2]').on('keyup', function() {
+				        if($(this).val().length > 4) {
+				            $(this).val($(this).val().substring(0, 4));
+				        }
+				    });
+				    $('input[name=memberPhone3').on('keyup', function() {
+				        if($(this).val().length > 4) {
+				            $(this).val($(this).val().substring(0, 4));
+				        }
+				    });
+				});
 })
