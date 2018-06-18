@@ -359,7 +359,7 @@
 	      	<option value="서귀포시">서귀포시</option>
 	      	<option value="제주시">제주시</option>
 	      </select>
-		      <input class="main-form__input" type="text" name="memberAddr" placeholder="상세주소를 입력해주세요." style="margin-top: -20px;">
+		      <input class="main-form__input" type="text" name="memberAddr" placeholder="상세주소를 입력해주세요." style="margin-top: -10px;">
 	 	  </div>
 	 	  <div class="main-form__body">
 	 	  	<button type="button" class="btn" onclick="history.back();">Cancel</button>

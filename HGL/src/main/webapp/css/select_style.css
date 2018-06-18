@@ -21,20 +21,3 @@
 .select-wrapper select::-ms-expand{
     display: none;             /* remove arrow IE     */
 }
-
-/* Style #3 */
-
-.select-arrow-3 {
-  position: absolute;
-  border: 8px solid transparent; 
-  border-bottom: 0;
-  right: 6px;
-}
-.select-arrow-3:nth-child(1) {
-  top: 11px;
-  border-top-color: #6C7231;
-}
-.select-arrow-3:nth-child(2) {
-  top: 8px;
-  border-top-color: #FFF;
-}

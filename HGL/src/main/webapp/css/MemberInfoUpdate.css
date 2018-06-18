@@ -1,41 +1,64 @@
 @charset "UTF-8";
-ul{
-	font-size:16pt;
-	list-style: none;
-}
-h2{
-	text-align: center;
-}
-div{
-	font-size: 15pt;
-}
+
 .smsChk{
 	width: 20px;
 	height: 20px;
+}
+.memberIcon{
+	width: 8%;
+}
+.userInfo h2{
+	text-align: center;
+	padding:25px;
+	border-bottom: 3px solid gray;
+}
+.userInfo select{
+	margin-left: 5px;
+	height: 37px;
 }
 .userInfo{
 	margin: auto;
 	margin-top: 5%;
 	text-align:center;
-	width: 440px;
+	width: 650px;
 	height: 650px;
 	border: 2px solid black;
 	border-radius: 15px;
+	background-color: #f8f4b8;
 }
 .updateInfo{
 	height:40px;
-	width:250px;
-	font-size:15pt;
+	width:440px;
 	margin-top: 3%;
 	margin-bottom: 3%;
 }
 .info{
-	font-size:15pt;
-	width: 305px;
+	width: 440px;
+	margin-top:10px; 
+	margin-left:60px; 
+	height:37px; 
 }
 #updateButton{
-	margin-top: 10%;
-	}
+	margin-top: 3%;
+	padding: 20px;
+}
+
+.select-wrapper {
+  text-align: left;
+  width: 650px;
+}
+.select-wrapper select {
+  width: 200px;
+  height: 37px;
+  padding: 0 20px 0 7px;
+  background: transparent;
+  margin-left: 1px;
+  color:black;
+  appearance: none;            /* remove arrow        */
+  -webkit-appearance: none;    /* remove arrow Chrome */
+  -moz-appearance: none;       /* remove arrow FF     */
+}
+
 
 button {
 	display: inline-block;
