@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원정보 수정</title>
+<title>행복한 가정의 미래</title>
 <link rel="stylesheet" type="text/css" href="css/MemberInfoUpdate.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script src="js/MemberInfoUpdate.js"></script>
@@ -15,11 +15,11 @@
 </script>
 </head>
 <body>
-<div class="container">
+<div class="container"  id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	<form id="MemberupdateForm" action="MemberInfoUpdate.do" novalidate>
 		<div class="userInfo">
-			<h2>회원정보 수정</h2>
+			<h2>내정보 수정</h2>
 				<input type="hidden" name="memberNo" value="${login.memberNo}"/>
 				<div><img class="memberIcon" src="icon/User-Profile-128.png">
 					<input class="updateInfo" type="text" name="memberId" value="${login.memberId}" readonly="readonly">
@@ -28,19 +28,18 @@
 					<input class="updateInfo" type="text" value="${login.memberNickname}" readonly="readonly">
 				</div>
 				<div><img class="memberIcon" src="icon/Mobile-Phone-128.png">
-					<%-- <input class="updateInfo" type="text" name="memberPhone" value="${login.memberPhone}" id="memberPhoneUpdat" oninput="maxLengthCheck(this)"><br> --%>
 					<input class="updateInfo" type="text" name="memberPhone1" class="main-form__input" placeholder="010" oninput="maxLengthCheck(this)" style="width: 110px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
 	   				<input class="updateInfo" type="text" name="memberPhone2" class="main-form__input" placeholder="번호입력" oninput="maxLengthCheck(this)" style="width: 160px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
 	   				<input class="updateInfo" type="text" name="memberPhone3" class="main-form__input" placeholder="나머지번호입력" oninput="maxLengthCheck(this)" style="width: 160px;;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
 				</div>
-				<div style="font-size:11pt;margin-top: -10px;">
+				<div style="font-size:11pt; margin-top: -15px; margin-left: -160px;">
 				<label style="vertical-align: middle;">
 					<c:choose>
 							<c:when test="${login.memberSMS eq 'Y'}">
-								<input class="smsChk" type="checkbox" checked="checked" name="memberSMS" value="Y" onclick="snsChecked();">
+								<input class="smsChk" type="checkbox" checked="checked" name="memberSMS" value="Y" onclick="snsChecked();" style="vertical-align: bottom;">
 							</c:when>
 							<c:otherwise>
-								<input class="smsChk" type="checkbox" name="memberSMS" value="Y" onclick="snsChecked();">	
+								<input class="smsChk" type="checkbox" name="memberSMS" value="Y" onclick="snsChecked();" style="vertical-align: bottom;">	
 							</c:otherwise>
 						</c:choose>
 						문자알림을 받으시겠습니까?
@@ -50,8 +49,17 @@
 					<input class="updateInfo" type="text" value="${login.memberEmail}" readonly="readonly">
 				</div>
 				<div class="select-wrapper"><img class="memberIcon" src="icon/Home-128.png" style="height: 12%; margin-left: 73px;">
+				
+				<c:if test="${!empty testList}" >
+					<select name="selectBox" id="selectBox" style="width:80px;" class="select_02">
+						<c:forEach var="testList" items="${testList}" varStatus="i">
+							<option value="${testList.name}">${testList.name}</option>
+						</c:forEach>
+					</select>
+				</c:if>
+
 				<select name="memberDo" onChange="showSub(this.options[this.selectedIndex].value);" required="required">
-			      	<option value="">도를 선택해주세요</option>
+			      	<option value="">도를 선택해주세요!</option>
 			      	<option value="서울특별시">서울특별시</option>
 			      	<option value="경기도">경기도</option>
 			      	<option value="인천광역시">인천광역시</option>
@@ -345,7 +353,7 @@
 			      	<option value="서귀포시">서귀포시</option>
 			      	<option value="제주시">제주시</option>
 			      </select><br>
-			      <input class="info" type="text" name="memberAddr" value="${login.memberAddr}" required="required" style="margin-left: 130px; margin-top: -7px;">
+			      <input class="info" type="text" name="memberAddr" value="${login.memberAddr}" required="required" style="margin-left: 131px; margin-top: -7px;">
 		      </div>
 					<div id="updateButton">
 						<button style="margin-right:10%">수정하기</button>

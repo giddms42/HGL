@@ -11,10 +11,12 @@
 	text-align: center;
 	padding:25px;
 	border-bottom: 3px solid gray;
+	margin-bottom: 5%;
 }
-.userInfo select{
+.select-wrapper select{
 	margin-left: 5px;
 	height: 37px;
+	background-color: white;
 }
 .userInfo{
 	margin: auto;
@@ -24,12 +26,11 @@
 	height: 650px;
 	border: 2px solid black;
 	border-radius: 15px;
-	background-color: #f8f4b8;
+	background-color:green;
 }
 .updateInfo{
 	height:40px;
 	width:440px;
-	margin-top: 3%;
 	margin-bottom: 3%;
 }
 .info{
