@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/GGList.css">
 <style>
 body {
- background: url('image/img.jpg') no-repeat center center fixed;
+ background: url('image/back.png') no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
@@ -27,21 +27,21 @@ body {
 	   
 	   <div id="b">
 	      <div id="bodyMain">
+	      <br/>
 	         <div id="boardName">좋은글 게시판</div>
 	         <br/>
-	         <img src="image/sadad.png" id="content">
 	               <table border="1" bordercolor="white">
-	                  <col width="50" class="ab">
-	                  <col width="350">
-	                  <col width="50">
-	                  <col width="50">
-	                  <col width="200">
+	                    <col width="50">
+						<col width="350">
+						<col width="100">
+						<col width="100">
+						<col width="50">
 	                  <tr>
-	                     <th>글번호</th>
-	                     <th>글제목</th>
-	                     <th>글쓴이</th>
-	                     <th>조회수</th>
-	                     <th>등록일</th>
+	                     <th class="text-center">번호</th>
+						 <th class="text-center">제목</th>
+						 <th class="text-center">작성자</th>
+						 <th class="text-center">작성일</th>
+						 <th class="text-center">조회수</th>
 	                  </tr>
 	                  <c:forEach items="${list}" var="dto">
 	                  <tr>
@@ -50,13 +50,13 @@ body {
 							<a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a>
 						</td>
 						<td>${dto.ggWriter }</td>
-						<td>${dto.ggReadcnt }</td>
 						<td><fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd HH:mm"/></td>
+						<td>${dto.ggReadcnt }</td>
 					</tr>
 				</c:forEach>
 	               </table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
-	           <div id="paging">
+	           <div id="paging1">
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
 							◀
@@ -87,10 +87,10 @@ body {
 					</c:choose>
 	            </div>
 	               <br/>
-	               <div id="paging">
+	               <div id="paging2">
 	               	<form action="GGListSearch.do" method="post">
 						<input type="hidden" name="nowpage" value="1"/>
-						<div style="width: 50%; margin: auto; border: 1px dotted green; text-align: center;">
+						<div style="width: 50%; margin: auto; text-align: center;">
 							<select style="height: 28px; border: 0;" name="topic">
 								<option value="GGTITLE">제목</option>
 								<option value="GGCONT">내용</option>
@@ -101,6 +101,8 @@ body {
 						</div>
 					</form>
 	               </div>
+	                <br/>
+	                 <br/>
 	      </div>
 	   </div>
 	   
