@@ -31,6 +31,8 @@ body {
 		<div class="userInfo">
 			<h2>내정보 수정</h2>
 				<input type="hidden" name="memberNo" value="${login.memberNo}"/>
+				<input type="hidden" id="memberDo" value="${dto.memberDo}"/>
+				<input type="hidden" id="memberCity" value="${dto.memberCity}"/>
 				<div><img class="memberIcon" src="icon/User-Profile-128.png">
 					<input class="updateInfo" type="text" name="memberId" value="${login.memberId}" readonly="readonly">
 				</div>
@@ -38,9 +40,10 @@ body {
 					<input class="updateInfo" type="text" value="${login.memberNickname}" readonly="readonly">
 				</div>
 				<div><img class="memberIcon" src="icon/Mobile-Phone-128.png">
-					<input class="updateInfo" type="text" name="memberPhone1" class="main-form__input" placeholder="010" oninput="maxLengthCheck(this)" style="width: 110px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
-	   				<input class="updateInfo" type="text" name="memberPhone2" class="main-form__input" placeholder="번호입력" oninput="maxLengthCheck(this)" style="width: 160px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
-	   				<input class="updateInfo" type="text" name="memberPhone3" class="main-form__input" placeholder="나머지번호입력" oninput="maxLengthCheck(this)" style="width: 160px;;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+					<input class="updateInfo" type="text" name="memberPhone1" class="main-form__input" value="${phone1}" oninput="maxLengthCheck(this)" style="width: 110px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+	   				<input class="updateInfo" type="text" name="memberPhone2" class="main-form__input" value="${phone2}" oninput="maxLengthCheck(this)" style="width: 160px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+	   				<input class="updateInfo" type="text" name="memberPhone3" class="main-form__input" value="${phone3}" oninput="maxLengthCheck(this)" style="width: 160px;;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+
 				</div>
 				<div style="font-size:11pt; margin-top: -15px; margin-left: -160px;">
 				<label style="vertical-align: middle;">
@@ -59,7 +62,9 @@ body {
 					<input class="updateInfo" type="text" value="${login.memberEmail}" readonly="readonly">
 				</div>
 				<div class="select-wrapper"><img class="memberIcon" src="icon/Home-128.png" style="height: 12%; margin-left: 73px;">
-				
+				<select name="memberDo" id="doo" onChange="showSub(this.options[this.selectedIndex].value);" required="required">
+			      	<option value="">도를 선택해주세요</option>
+		<!--  	
 				<c:if test="${!empty testList}" >
 					<select name="selectBox" id="selectBox" style="width:80px;" class="select_02">
 						<c:forEach var="testList" items="${testList}" varStatus="i">
@@ -67,9 +72,7 @@ body {
 						</c:forEach>
 					</select>
 				</c:if>
-
-				<select name="memberDo" onChange="showSub(this.options[this.selectedIndex].value);" required="required">
-			      	<option value="">도를 선택해주세요!</option>
+		-->	
 			      	<option value="서울특별시">서울특별시</option>
 			      	<option value="경기도">경기도</option>
 			      	<option value="인천광역시">인천광역시</option>

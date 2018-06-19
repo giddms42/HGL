@@ -63,6 +63,7 @@ public class CalController {
 		System.out.println("칼인서트 컨트롤러 시작");
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
+		System.out.println("aaaaaaaaaa : "+ month);
 		model.addAttribute("date", date);
 		model.addAttribute("lastDay", lastDay);
 		model.addAttribute("memberId", memberId);

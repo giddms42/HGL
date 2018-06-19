@@ -11,25 +11,21 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/MemberSearch.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 function IDSearch() {
-	alert("아이디찾기클릭");
     var email = $("#email1").val();
     if (email == null || email == "") {
-  	  alert("이메일을 입력해주세요")
+  	  swal("이메일을 입력해주세요");
     } else {
        $.ajax({
           url : "IDSearch.do",
           data:"email="+email,
           dataType : "text",
-
           success : function(msg) {
         	  var msgVal = $.trim(msg);
         	  $("#idVal").val(msgVal);
-          },
-          error : function() {
-        	  alert("e-mail이 존재하지 않습니다.");
           }
        })
     }
@@ -40,9 +36,9 @@ function PWSearch() {
     var id2 = $("#id2").val();
 
     if (email2 == null || email2 == "") {
-  	  alert("이메일을 입력해주세요");
+  	  swal("이메일을 입력해주세요");
     } else if (id2 == null || id2 == "") {
-  	  alert("아이디를 입력해주세요");
+  	  swal("아이디를 입력해주세요");
     } else {
        $.ajax({
           url : "memberCertification.do",
@@ -59,9 +55,6 @@ function PWSearch() {
         	  }else{
         		  $("#pwVal").val("이메일, 아이디를 다시 확인해주세요."); 
         	  }
-          },
-          error : function() {
-          	alert("없는 계정입니다.\n 이름,이메일,아이디를 다시 확인해주세요");
           }
        })
     }

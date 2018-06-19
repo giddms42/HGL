@@ -50,7 +50,7 @@ function AdminUserInfo(nickName){
                      <th>아이디</th>
                      <th>닉네임</th>
                      <th>이메일</th>
-                     <th>제재횟수</th>
+                     <th>제재여부</th>
                   </tr>
            			   <c:choose> 
 	                 	<c:when test="${empty list}">
@@ -74,7 +74,7 @@ function AdminUserInfo(nickName){
 								<td>${dto.memberId}</td>
 								<td>${dto.memberNickname }</td>
 								<td>${dto.memberEmail }</td>
-								<td>${dto.memberProhibit }</td>
+								<td>${dto.memberProhibitChk }</td>
 								</tr>
 								</c:forEach>
 	                 	</c:otherwise>

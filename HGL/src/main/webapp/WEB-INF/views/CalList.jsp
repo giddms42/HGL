@@ -73,21 +73,21 @@ body {
 		var memberNickname2 = $("#memberNickname").val();
 		
 		alert(num);
-	 	var popupX = (window.screen.width/2) - (515 / 2);
+	 	var popupX = (window.screen.width/2) - (530 / 2);
 		var popupY= (window.screen.height/2)- (465/2);
 		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		window.name="Parent";
-		window.open("CalInsertForm.do?year="+year2+"&month="+month2+"&date="+date2+"&lastDay="+lastDay2+"&memberId="+memberId2+"&memberNickname="+memberNickname2,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		window.open("CalInsertForm.do?year="+year2+"&month="+month2+"&date="+date2+"&lastDay="+lastDay2+"&memberId="+memberId2+"&memberNickname="+memberNickname2,"", 'status=no, width=530, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 		}
 	
 	function DetSCH(num){
 		
 		alert(num);
-	 	var popupX = (window.screen.width/2) - (515 / 2);
+	 	var popupX = (window.screen.width/2) - (530 / 2);
 		var popupY= (window.screen.height/2)- (465/2);
 		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		window.name="Parent";
-		window.open("calDetail.do?calNo="+num,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		window.open("calDetail.do?calNo="+num,"", 'status=no, width=530, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 		}
 	
 	function addSCH2(){
@@ -102,7 +102,7 @@ body {
 		var popupY= (window.screen.height/2)- (465/2);
 
 		window.name="Parent";
-		window.open("CalInsertForm.do?year="+year+"&month="+month+"&date="+date+"&lastDay="+lastDay+"&memberId="+memberId+"&memberNickname="+memberNickname,"", 'status=no, width=515, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		window.open("CalInsertForm.do?year="+year+"&month="+month+"&date="+date+"&lastDay="+lastDay+"&memberId="+memberId+"&memberNickname="+memberNickname,"", 'status=no, width=530, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 		}
 </script>
 <%
@@ -221,7 +221,7 @@ body {
 		</tr>
 	</table>
 	<div id="CalBtn">
-		<input type="button" value="일정추가" onclick="addSCH2();" id="InBtn"/>
+		<input class="btn-3" type="button" value="일정추가" onclick="addSCH2();" />
 	</div>
 	</div>
 	<br/>

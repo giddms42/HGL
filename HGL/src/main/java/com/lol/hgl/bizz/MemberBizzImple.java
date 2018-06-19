@@ -27,20 +27,45 @@ public class MemberBizzImple implements MemberBizz {
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
-
-	//id: 영어로 6글자 이상, 숫자는 넣어도되고 안넣어도되고 , 글자수 6-12
-	//비밀번호: 영어+숫자 조합 8-12
+	
+	//ID중복 체크 및 정규식 검사 
 	@Override
 	public String IDChk(String id) {
-		String res = memberDao.IDChk(id);
+		//id: 영소문자, 숫자 포함.  글자수 6-12
+		boolean flag = Pattern.matches("([a-z/0-9]{6,12})",id);
 		String use = "f";
-		if (res == null) {
-			use = "t"; 
+		if(flag) {
+			System.out.println("아이디 정규식 요건 충족");
+			String res = memberDao.IDChk(id);		
+			if (res == null) {
+				System.out.println("아이디 중복 없음");
+				use = "t"; 
+			}else {
+				System.out.println("아이디 중복 있음");
+			}
+		}else {
+			System.out.println("아이디 정규식 요건 불충족");
 		}
 		System.out.println("id 사용 가능 여부 : " + use);
 		return use;
+	}     
+	
+	//비밀번호 정규식 검사
+	@Override
+	public String pwChk(String pw) {
+		//비밀번호: 영소문자, 숫자 포함  6~12글자
+		boolean flag = Pattern.matches("([a-z/0-9]{8,12})",pw);
+		String use = "f";
+		if(flag) {
+			use = "t";
+		}else {
+			use="f";
+		}
+		System.out.println("비밀번호 사용 가능 여부 : " + use);
+		return use;
 	}
 
+	//닉네임 중복 검사
 	@Override
 	public String nickNameChk(String nickName) {
 		String res = memberDao.nickNameChk(nickName);
@@ -52,6 +77,7 @@ public class MemberBizzImple implements MemberBizz {
 		return use;
 	}
 
+	//이메일 중복 검사
 	@Override
 	public String emailChk(String email) {
 		String res = memberDao.emailChk(email);
@@ -63,19 +89,7 @@ public class MemberBizzImple implements MemberBizz {
 		return use;
 	}
 
-	@Override
-	public String pwChk(String pw) {
-		String use = "f";
-		boolean flag = Pattern.matches("([a-z/0-9]{8,12})",pw);
-		//boolean flag = Pattern.matches("[a-z]+[0-9]+{8}$", pw); 
-		if(flag) {
-			use = "t";
-		}else {
-			use="f";
-		}
-		return use;
-	}
-
+	//회원 가입
 	@Override
 	public int signUp(memberDto dto) {
 		if(dto.getMemberSMS() == null) {
@@ -87,6 +101,7 @@ public class MemberBizzImple implements MemberBizz {
 		return res;
 	}
 
+	//아이디 찾기
 	@Override
 	public String IDSearch(String email) {
 		String res = memberDao.IDSearch(email);      
@@ -97,6 +112,7 @@ public class MemberBizzImple implements MemberBizz {
 	      return res;
 	}
 
+	//기존 회원 인증
 	@Override
 	public String memberCertification(String email, String id) {
 		String res = memberDao.memberCertification(email, id);
@@ -105,23 +121,21 @@ public class MemberBizzImple implements MemberBizz {
 		}else {
 			res = "t";
 		}
-		System.out.println("pw 찾기 성공 여부 : " + res);
+		System.out.println("회원 여부 : " + res);
 		return res;
 		}
-
-	@Override
-	public memberDto Login(String memberId) {
-		memberDto dto = memberDao.Login(memberId);	
-		return dto;
-	}
 	
-	
+	//새로운 비밀번호으로 변경
 	@Override
-	public memberDto detailLogin(int memberNo) {
-		memberDto dto = memberDao.detailLogin(memberNo);	
-		return dto;
+	public int pwChange(memberDto dto) {		
+		int res = 0;
+		String encryptPassword = passwordEncoder.encode(dto.getMemberPw());
+		dto.setMemberPw(encryptPassword);
+		res = memberDao.pwChange(dto);
+		return res;
 	}
 
+	//로그인 확인 
 	@Override
 	public String LoginChk(String id, String rawPassword) {
 		String res = "";	
@@ -140,14 +154,18 @@ public class MemberBizzImple implements MemberBizz {
 					}
 		return res;
 	}
-
+	
 	@Override
-	public int pwChange(memberDto dto) {		
-		int res = 0;
-		String encryptPassword = passwordEncoder.encode(dto.getMemberPw());
-		dto.setMemberPw(encryptPassword);
-		res = memberDao.pwChange(dto);
-		return res;
+	public memberDto Login(String memberId) {
+		memberDto dto = memberDao.Login(memberId);	
+		return dto;
+	}
+	
+	
+	@Override
+	public memberDto detailLogin(int memberNo) {
+		memberDto dto = memberDao.detailLogin(memberNo);	
+		return dto;
 	}
 
 	@Override

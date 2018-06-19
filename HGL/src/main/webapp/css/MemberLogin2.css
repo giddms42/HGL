@@ -455,6 +455,11 @@ b{
 .loginBtnPd{
 	padding-top: 5px;
 }
+.loginBtn{
+	margin: 4px;
+	height: 25px;
+}
+
 #loginBtn1{
 	width: 40%;
 }
@@ -462,29 +467,4 @@ b{
 #loginBtn2{
 	margin-top: 8px;
 	width: 86%;
-}
-
-.btn:hover {
-  text-decoration: none;
-}
-.btn-3 {
-	color: #fff;
-  cursor: pointer;
-	margin: 4px;
-	height: 25px;
-  background: #e3403a;
-  border: 1px solid #da251f;
-  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
-  letter-spacing: 1px;
-  transition: all 150ms linear;
-}
-
-.btn-3:hover {
-  background: #e02c26;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
-  color: #ec817d;
-  text-decoration: none;
-  text-shadow: -1px -1px 0 #c2211c;
-  transition: all 250ms linear;
 }

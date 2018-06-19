@@ -7,52 +7,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/style1.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+<meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
 
   
 </head>
 
 <body>
 
-  
-<h1 style="padding-top: 60px;">CSS Slider</h1>
-<h2>Pure CSS Slider. No JS. Because it is possieble!</h2>
-<div class="csslider infinity" id="slider1">
-  <input type="radio" name="slides" id="slides_1"/>
-  <input type="radio" name="slides" checked="checked" id="slides_2"/>
-  <input type="radio" name="slides" id="slides_5"/>
-  <input type="radio" name="slides" id="slides_6"/>
-  <ul>
-    <li>
-      <h1>Say hello to CSS3</h1>
-      <p>CSSlider is lightweight & easy to use slider. No JS - pure CSS.</p>
-    </li>
-    <li><img src="https://rawgithub.com/drygiel/csslider/master/examples/themes/stones.jpg"/>
-    </li>
-    <li>
-      <div id="center"> <a class="nice-link" href="https://github.com/drygiel/csslider" data-text="More examples on github" target="_blank">More examples on github</a></div>
-    </li>
-    <li>
-      <div id="center"><a class="play" id="dex-sign" href="http://drygiel.com" target="_blank"></a></div>
-    </li>
-  </ul>
-  <div class="arrows">
-    <label for="slides_1"></label>
-    <label for="slides_2"></label>
-    <label for="slides_5"></label>
-    <label for="slides_6"></label>
-    <label class="goto-first" for="slides_1"></label>
-    <label class="goto-last" for="slides_6"></label>
+  <div class="container">
+    
+    
+    
+    <a href="https://twitter.com/Dave_Conner" class="btn btn-3">Hover</a> 
+    <!--End of Button 3 -->
+    
+    
   </div>
-  <div class="navigation"> 
-    <div>
-      <label for="slides_1"></label>
-      <label for="slides_2"></label>
-      <label for="slides_5"></label>
-      <label for="slides_6"></label>
-    </div>
-  </div>
-</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
   
 
 </body>
