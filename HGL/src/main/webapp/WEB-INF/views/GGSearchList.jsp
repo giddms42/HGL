@@ -27,21 +27,21 @@ body {
 	   
 	   <div id="b">
 	      <div id="bodyMain">
+	      <br/>
 	         <div id="boardName">좋은글 게시판</div>
 	         <br/>
-	         <img src="image/sadad.png" id="content">
 	               <table border="1" bordercolor="white">
-	                  <col width="50" class="ab">
-	                  <col width="350">
-	                  <col width="50">
-	                  <col width="50">
-	                  <col width="200">
+	                    <col width="50">
+						<col width="350">
+						<col width="100">
+						<col width="100">
+						<col width="50">
 	                  <tr>
-	                     <th>글번호</th>
-	                     <th>글제목</th>
-	                     <th>글쓴이</th>
-	                     <th>조회수</th>
-	                     <th>등록일</th>
+	                     <th class="text-center">번호</th>
+						 <th class="text-center">제목</th>
+						 <th class="text-center">작성자</th>
+						 <th class="text-center">작성일</th>
+						 <th class="text-center">조회수</th>
 	                  </tr>
 	                  <c:forEach items="${list}" var="dto">
 	                  <tr>
@@ -56,7 +56,7 @@ body {
 				</c:forEach>
 	               </table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
-	           <div id="paging">
+	           <div id="paging1">
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
 							◀
@@ -90,7 +90,7 @@ body {
 	               <div id="paging2">
 	               	<form action="GGListSearch.do" method="post">
 						<input type="hidden" name="nowpage" value="1"/>
-						<div style="width: 50%; margin: auto; border: 1px dotted green; text-align: center;">
+						<div style="width: 50%; margin: auto; text-align: center;">
 							<select style="height: 28px; border: 0;" name="topic">
 								<option value="GGTITLE">제목</option>
 								<option value="GGCONT">내용</option>
@@ -101,6 +101,8 @@ body {
 						</div>
 					</form>
 	               </div>
+	                <br/>
+	                 <br/>
 	      </div>
 	   </div>
 	   
