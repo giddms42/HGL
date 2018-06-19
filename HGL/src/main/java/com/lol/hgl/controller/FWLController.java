@@ -35,7 +35,7 @@ public class FWLController {
 	   }
 	   
 	   
-	   @RequestMapping(value="FWLInsertForm.do")
+	   @RequestMapping(value="FWLInsertForm.do", produces = "application/text; charset=utf8")
 	   public String FWLInsertForm(int memberNo, Model model) {
 		  model.addAttribute("memberNo", memberNo);
 	      return "FWLInsert";
@@ -45,9 +45,9 @@ public class FWLController {
 	   @ResponseBody
 	   public String FWLInsert(String fwlItem, int memberNo, Model model) {
 		  fwlBizz.fwlInsert(fwlItem, memberNo); 
-	      return "FWLInsert";
+	      return "";
 	   }
-
+   
 	   @RequestMapping(value="FWLSuccess.do", method= RequestMethod.POST)
 	   @ResponseBody
 	   public String FWLSuccess(String checkValue) {

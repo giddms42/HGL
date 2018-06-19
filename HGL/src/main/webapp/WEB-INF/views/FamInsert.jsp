@@ -8,13 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>가족정보 등록</title>
 <link rel="stylesheet" type="text/css" href="css/FamInsert.css">
+<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	
 	$("input[type=checkbox]").click(function(){ //체크박스를 클릭할때마다 
 		if($("input[type=checkbox]:checked").length > 3) {
-			   alert("지병은 최대 3개까지만 선택할 수 있습니다. 다시 확인해주세요");
+			   swal("지병은 최대 3개까지만 선택할 수 있습니다. 다시 확인해주세요");
 			   $(this).prop("checked", false);
 		}else{
 			$("input[type=checkbox]").each(function() { // 체크박스의 각자를 갖고와서 
@@ -47,20 +48,20 @@ $(function(){
 	 $("#myForm").submit(function(){
 		 var radioValue = $("#disYes").val(); 
          if($("input[name=famName]").val() == ""){
-        	 alert("이름을 입력해주세요")
-        	 document.getElementsByName("famName")[0].focus();
+        	 swal("이름을 입력해주세요")
         	 return false;
          }else if($("input[name=famBirth]").val() == ""){
-        	 alert("생일을 입력해주세요")
-        	 document.getElementsByName("famBirth")[0].focus();
+        	 swal("생일을 입력해주세요")
         	 return false;
+         }else if($("input[name=famBirth]").val().length!=8){
+        	 swal("예)19910621 형태로 입력해주세요");
+	 		return false;
          }else if($("input[name=famHeight]").val() == ""){
-        	 alert("신장을 입력해주세요")
-        	 document.getElementsByName("famHeight")[0].focus();
+        	 swal("신장을 입력해주세요")
         	 return false;
          }else if($("#disYes").is(":checked")){
         	 if($(".dis:checked").length < 1){
-        	 alert("질병을 한개 이상 체크해주세요")
+        	 swal("질병을 한개 이상 체크해주세요")
         	 return false;	
          	 }
          }
@@ -89,7 +90,6 @@ $(function(){
 		    object.value = object.value.slice(0, object.maxLength);
 		   }
 	}
-	   
 
 </script>
 

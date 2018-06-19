@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/FWLList.css">
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
+<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -24,15 +25,15 @@ $(function(){
 		               url : "FWLSuccess.do",
 		               data: {checkValue : checkValue},
 		               success : function() {
-		            	   alert("위시리스트 달성을 축하드립니다.");
+		            	   swal("위시리스트 달성을 축하드립니다.");
 		            	   location.reload();
 		               },
 		               error:function(){
-		             	   alert("ajax error");
+		             	   swal("ajax error");
 		               }
 		            });
 			 }else{
-				 alert("위시리스트를 달성해봅시다!");
+				 swal("위시리스트를 달성해봅시다!");
 				 $(this).prop('checked',false);
 			 }
 		 }else{
@@ -43,12 +44,9 @@ $(function(){
 		               url : "FWLSuccessCancel.do",
 		               data: {checkValue : checkValue},
 		               success : function() {
-		            	   alert("취소되었습니다.");
+		            	   swal("취소되었습니다.");
 		            	   $(this).prop("checked","false");
 		            	   location.reload();
-		               },
-		               error:function(){
-		             	   alert("ajax error");
 		               }
 		            });
 			 }else{
@@ -73,7 +71,7 @@ $(function(){
 		var popupY= (window.screen.height/2)- (150);
 		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		window.name="Parent";
-		window.open("FWLInsertForm.do?memberNo="+${login.memberNo},"위시리스트추가하기", 'status=no, width=600, height=150, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		window.open("FWLInsertForm.do?memberNo="+${memberNo},"위시리스트추가하기", 'status=no, width=600, height=150, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 	
 	function shareWL(){
@@ -93,6 +91,11 @@ body {
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
+ }
+ .check{
+  color: #ff704d
+  !important
+
  }
 </style>
 </head>
@@ -122,21 +125,26 @@ body {
 							</tr>
 							</c:when>
 							<c:otherwise>
-								<c:forEach items="${FWLList}" var="FwlDto">
+								<c:forEach items="${FWLList}" var="FwlDto" varStatus="status">
 								<tr class="trHover">
 									<c:choose>
 										<c:when test="${FwlDto.fwlChk eq 'Y'}">
-											<td><input name="check" type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
+											<td><input name="check" type="checkbox" checked="checked" value="${FwlDto.fwlNo}" ></td>
+											<td class="check">${FwlDto.fwlItem}
+												<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}">
+													<img class="FWLDelete-img" src="image/xButton.png" style="width: 18px; height: 18px;">
+												</button>
+											</td>
 										</c:when>
 										<c:otherwise>
 											<td><input name="check" type="checkbox" value="${FwlDto.fwlNo}"></td>
+											<td>${FwlDto.fwlItem}
+												<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}">
+													<img class="FWLDelete-img" src="image/xButton.png" style="width: 18px; height: 18px;">
+												</button>
+											</td>
 										</c:otherwise>
 									</c:choose>
-									<td>${FwlDto.fwlItem}
-										<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}">
-											<img class="FWLDelete-img" src="image/xButton.png" style="width: 18px; height: 18px;">
-										</button>
-									</td>
 								</tr>
 								</c:forEach>
 							</c:otherwise>

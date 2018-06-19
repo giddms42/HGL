@@ -17,6 +17,7 @@
 <title>Login.jsp</title>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <script type="text/javascript">
 
 window.onload = function() {
@@ -47,12 +48,10 @@ function MemberSearch(){
 $(function(){
 $("#myform").submit(function(){
     if($("input[name=memberId]").val()=="" || $("input[name=memberId]").val()== null){
-    	alert("아이디를 입력해주세요");
-		document.getElementsByName("memberId")[0].focus();
+    	swal("아이디를 입력해주세요");
 		return false;
     }else if($("input[name=memberPw]").val()=="" || $("input[name=memberId]").val()== null){
-    	 alert("비밀번호를 입력해주세요");
-    	 document.getElementsByName("memberPw")[0].focus();
+    	swal("비밀번호를 입력해주세요");
     	 return false;
     }
 	});
