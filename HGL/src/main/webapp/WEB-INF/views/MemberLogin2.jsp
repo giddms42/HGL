@@ -104,9 +104,9 @@ function MemberSearch(){
 								<input type="password" name="memberPw" value="" placeholder=" 비밀번호를 입력해주세요.">
 							</div>
 							<div class="loginBtnPd">
-								<input class="btn btn-3" id="loginBtn1" type="submit" value="Login">
-							    <input class="btn btn-3" id="loginBtn1" type="button" value="SignUp" onclick="location.href='MemberSignUpForm.do'">
-				                <input class="btn btn-3" id="loginBtn2" type="button" value="Forgot ID & PW" onclick="MemberSearch()">
+								<input style="border-color: white; background-color: #d26c64; color: white;" class="loginBtn" id="loginBtn1" type="submit" value="Login">
+							    <input style="border-color: white; background-color: #d26c64; color: white;" class="loginBtn" id="loginBtn1" type="button" value="SignUp" onclick="location.href='MemberSignUpForm.do'">
+				                <input style="border-color: white; background-color: #d26c64; color: white;" class="loginBtn" id="loginBtn2" type="button" value="Forgot Password?" onclick="MemberSearch()">
 							</div>
 						<div id="loginImg2"></div>
 						</div>
