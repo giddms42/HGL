@@ -1,4 +1,7 @@
 @charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css);
 input[type="checkbox"]{
 	width:20px; 
 	height:20px;"
@@ -12,20 +15,9 @@ input[type="checkbox"]{
 	  -webkit-justify-content: center;
 	          justify-content: center;
 	          flex-direction:column;
-    min-height: 750px;
+    min-height: 700px;
     max-height: 100%;
 }
-
-#FWLListTable th{
-	height: 30px;
-	text-align: center;
-	background: #ffb997;
-	color: #ffffff;
-	font-size: 1.2em;
-	font-weight: 600;
-	padding: 0.5em 1em;
-}
-
 #FWLList{
   max-width: 800px;
   min-height: 500px;
@@ -33,12 +25,29 @@ input[type="checkbox"]{
   margin: 40px auto;
   padding: 20px;
   border-radius: 10px;
-  background: #ffe4ca;
+  margin-top: 5%;
+  background-color:rgba(211, 211, 211, 0.4);
   box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
+#FWLListTable th{
+	height: 20px;
+	background: #ffb997;
+	color: #ffffff;
+	font-family: 'Nanum Brush Script', serif;
+	font-size: 20pt;
+	text-shadow: 1px 1px 1px #000000;
+	-moz-text-shadow: 1px 1px 1px #000000;
+	-webkit-text-shadow: 1px 1px 1px #000000;
+	padding: 0.5em 1em;
+}
+#FWLListTable td{
+	font-family: 'KoPub Batang', serif;
+	padding-top:15px; 
+	color: black; 
+	font-size: 16pt;
+}
 #container{
-  background: #ffd9b7;
   min-height: 800px;
   max-height: 100%;
   text-align: center;
@@ -63,23 +72,28 @@ input[type="checkbox"]{
 	color:red;
 	display: none;
 	background-color: rgba( 255, 255, 255, 0.1 );
+	border-radius: 9px;
 }
 #topButton{
 	width:100%;
 	padding:20px;
 }
 
-button {
+.topButton button {
   width: 200px;
   margin-top: 10px;
   background: #FCA44B;
-  color: #fff;
+  color: #ffffff;
   padding-top: 15px;
   padding-bottom: 15px;
   border: 0;
   border-radius:10px;
   box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
-  font-size: .6rem;
+  font-size: 12pt;
+  font-family: 'Hanna', serif;
+  	text-shadow: 1px 1px 1px #000000;
+	-moz-text-shadow: 1px 1px 1px #000000;
+	-webkit-text-shadow: 1px 1px 1px #000000;
   cursor: pointer;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -89,20 +103,15 @@ button {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-button:hover {
+.topButton button:hover {
   background: #fb8b19;
 }
-
-
-----------------------------------------------------------------------
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
 .trHover {
   transition: background 0.25s ease;
 }
-.trHover:hover {
+.trHover:hover{
   background: #ffaf60;
 }

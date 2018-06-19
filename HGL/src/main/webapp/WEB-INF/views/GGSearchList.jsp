@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/GGList.css">
 <style>
 body {
- background: url('image/img.jpg') no-repeat center center fixed;
+ background: url('image/back.png') no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
@@ -50,8 +50,8 @@ body {
 							<a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a>
 						</td>
 						<td>${dto.ggWriter }</td>
-						<td>${dto.ggReadcnt }</td>
 						<td><fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd HH:mm"/></td>
+						<td>${dto.ggReadcnt }</td>
 					</tr>
 				</c:forEach>
 	               </table>

@@ -64,6 +64,25 @@ $("#myform").submit(function(){
 <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/reset.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="css/MemberLogin.css">
+
+<style>
+#cd-main-content {
+ background: url('image/back.png') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+ 
+ #main-nav {
+ background: url('image/back.png') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
+
 </head>
 
 <body>
@@ -97,7 +116,7 @@ $("#myform").submit(function(){
 								<span class="spanIdPw">ㅇ PASSWORD　　　　　　　　　</span>
 							</div>
 							<div class="loginPadding">
-								<input type="text" name="memberPw" value="" placeholder=" 비밀번호를 입력해주세요.">
+								<input type="password" name="memberPw" value="" placeholder=" 비밀번호를 입력해주세요.">
 							</div>
 							<div class="loginBtnPd">
 								<input style="border-color: white; background-color: #d26c64; color: white;" class="loginBtn" id="loginBtn1" type="submit" value="Login">

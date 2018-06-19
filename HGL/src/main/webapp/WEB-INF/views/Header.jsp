@@ -126,7 +126,7 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 					          <a class="dropdown-toggle" data-toggle="dropdown" href="#">관리자 <span class="caret"></span></a>
 					          <ul class="dropdown-menu">
 					            <li><a href="#" onclick="AdminMange();">회원 제재</a></li>
-					            <li><a href="AdminSearchUserForm.do?nowpage=1">회원 목록</a></li>\
+					            <li><a href="AdminSearchUserForm.do?nowpage=1">회원 목록</a></li>
 					          </ul>
 					        </li>				
 						</c:if>

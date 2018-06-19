@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/FWLList.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -85,6 +86,15 @@ $(function(){
 	}
 	
 </script>
+<style>
+body {
+ background: url('image/back.png') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
 </head>
 <body>
 
@@ -92,18 +102,18 @@ $(function(){
 		<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 		<div id="FWLListCenter">
 			<div id="FWLList">
-				<div id="topButton">
+				<div class="topButton">
 				<c:if test="${!empty FWLList}">
 					<button type="button" onclick="shareWL();" style="float:left; margin-bottom: 25px;">공유하기</button>
 				</c:if>
-					<button type="button" onclick="FWLinsert();" style="float: right; margin-bottom: 25px;">위시리스트 추가하기</button>
+					<button type="button" onclick="FWLinsert();" style="float: right; margin-bottom: 25px;">위시리스트 추가</button>
 				</div>
 				<form>
 				<table id="FWLListTable" style="width:750px; margin: auto; margin-top: 2%">
-						<col width="60px;">
+						<col width="100px;">
 					<tr>
-						<th style="padding: 10px;">달성</th>
-						<th style="text-align: center; max-width:585px;">위 시 리 스 트 목 록</th>
+						<th style="text-align:center; padding: 1px;">달성</th>
+						<th style="text-align:center; max-width:585px;">위 시 리 스 트 목 록</th>
 					</tr>
 						<c:choose>
 							<c:when test="${empty FWLList}">
@@ -122,7 +132,7 @@ $(function(){
 											<td><input name="check" type="checkbox" value="${FwlDto.fwlNo}"></td>
 										</c:otherwise>
 									</c:choose>
-									<td style="padding:10px; color: #ea7500; font-size: 1.2em;">${FwlDto.fwlItem}
+									<td>${FwlDto.fwlItem}
 										<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}">
 											<img class="FWLDelete-img" src="image/xButton.png" style="width: 18px; height: 18px;">
 										</button>
@@ -135,11 +145,13 @@ $(function(){
 					</tr>
 				</table>
 				</form>	
-				</div>
 			<c:if test="${!empty FWLList}">
-				<div style="width: 800px;"><button type="button" name="DeleteButton" title="y" style="float:right;">삭제</button></div>
+				<div class="topButton" style="width: 750px; margin-top:27%; ">
+					<button type="button" name="DeleteButton" title="y" style="float:right; width: 100px;">삭제</button>
+				</div>
 			</c:if>
 			</div>
+				</div>
 		</div> 
 </body>
 </html>
