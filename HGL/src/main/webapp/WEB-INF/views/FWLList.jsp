@@ -146,7 +146,7 @@ body {
 				</table>
 				</form>	
 			<c:if test="${!empty FWLList}">
-				<div class="topButton" style="width: 750px; margin-top:27%; ">
+				<div class="topButton" style="width: 750px;">
 					<button type="button" name="DeleteButton" title="y" style="float:right; width: 100px;">삭제</button>
 				</div>
 			</c:if>
