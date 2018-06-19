@@ -1,1 +1,117 @@
 @charset "UTF-8";
+
+#CalForm0{	
+	height: 320px;
+	width: 510px;
+display: -webkit-flex;
+	display:         flex;
+	  -webkit-align-items: center;
+	          align-items: center;
+	  -webkit-justify-content: center;
+	          justify-content: center;
+}
+.btn-3:hover {
+  text-decoration: none;
+}
+.btn-3 {
+	float: right;
+	padding-bottom: 20px;
+	color: #fff;
+  cursor: pointer;
+	margin: 4px;
+	height: 25px;
+  background: tomato;
+  border: 1px solid #da251f;
+  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
+}
+
+.btn-3:hover {
+  background: tomato;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  color: #ec817d;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #c2211c;
+  transition: all 250ms linear;
+}
+
+.txtWidth{
+	width: 98.5%;
+}
+
+ .thPadding{
+ 	background: tomato;
+  border: 1px solid #da251f;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+ 	color: white;
+	text-align: left;
+	padding-left: 25px;
+}
+
+.thPadding2{
+ 	background: tomato;
+  border: 1px solid #da251f;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+ 	color: white;
+	text-align: left;
+	padding-left: 14px;
+}
+
+#inputSize{
+	width: 98%;
+	height: 20px;
+	margin: 2px;
+}
+
+#inputSize2{
+	padding-left: 40px;
+	bottom: 50px;
+	width: 190px;
+	height: 20px;
+	margin: 2px;
+}
+
+#table{
+	padding: 2px;
+	border-bottom: 1px solid tomato;
+	border-right: 1px solid tomato;
+	border-left: 1px solid tomato;
+	border-top: 1px solid tomato;
+}
+#radioIn{
+	padding-top: 2px;
+	float: left;
+	width: 50%;
+	position: relative;
+}
+#radio1{
+	position:absolute;
+	top: 9px;
+	left: 94px;
+}
+
+#radio2{
+	position:absolute;
+	top: 9px;
+	left: 165px;
+}
+
+h1 {
+	text-align: center;
+	color: white;
+}
+
+#backColor{
+	z-index: -1;
+	opacity: 0.2;
+	position: absolute;
+	height: 320px;
+	width: 520px;
+	background-color: black;
+}
+
+

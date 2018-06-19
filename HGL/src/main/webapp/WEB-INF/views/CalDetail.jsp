@@ -10,6 +10,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+ body {
+ background: url('image/back.png') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
 <%
 	calDto dto=(calDto)request.getAttribute("dto");
 
@@ -90,47 +99,58 @@ function upOk(){
 </head>	
 <body>
 
+	
 <div id="Dt">
-<h1>지옥의문</h1>
-	<table border="1">
-		<tr>
-			<th>닉넴</th>
-			<td><%=dto.getMemberNickname()%></td>
-		</tr>
-		<tr>
-			<th>일정</th>
-			<td><%=util.getToDates()%></td>
-		</tr>
-		<tr>
-			<th>제목</th>
-			<td><%=dto.getCalTitle()%></td>
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td><textarea rows="10" cols="60" readonly="readonly"><%=dto.getCalMemo()%></textarea> </td>
-		</tr>
-		<tr>
-			<td colspan="2">문자수신여부 : <%=dto.getCalSMS() %></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<input type="button" value="수정" onclick="Up();"/>
-				<input type="button" value="삭제"	 onclick="del();"/>
-				<input type="button" value="돌아가기" onclick="back();"/>
-			</td>
-		</tr>
-	</table>
+<h1>일정 상세보기</h1>
+<div id="CalForm0">
+	<div id="backColor"></div>
+	<table id="table">
+			<col width="100">
+			<col width="400">
+			<tr>
+				<th class="thPadding">작성자</th>
+				<td><input id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=dto.getMemberNickname()%>" readonly="readonly" /></td>
+			</tr>
+			<tr>
+				<th class="thPadding">날짜</th>
+				<td><input id="inputSize" class="txtWidth" type="text" name="calTitle" value="<%=util.getToDates()%>" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<th class="thPadding">제목</th>
+				<td><input id="inputSize" class="txtWidth" type="text" name="calTitle" value="<%=dto.getCalTitle()%>" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<th class="thPadding">내용</th>
+				<td style="padding-left: 3.4px;"><textarea rows="10" cols="53" readonly="readonly" style="resize: none;"><%=dto.getCalMemo()%></textarea> </td>
+			</tr>
+			<tr>
+				<th class="thPadding2">문자알림</th>
+				<td>
+					<div id="radioIn">
+					<input id="inputSize2" type="text" value="수신동의 : <%=dto.getCalSMS() %>">
+					</div>
+				
+					<div>
+						<input class="btn-3" type="button" value="수정" onclick="Up();"/>
+						<input class="btn-3" type="button" value="삭제"	 onclick="del();"/>
+						<input class="btn-3" type="button" value="돌아가기" onclick="back();"/>
+					</div>
+				</td>
+			</tr>
+				
+		</table>
 </div>
-
+</div>
 <div id="Up">
-<h1>일정수정하기</h1>
+<h1>일정 수정하기</h1>
+<div id="CalForm0">
 	<form action="CalUpdate.do" method="post">
 		<input type="hidden" id="calNo" name="calNo" value="<%=dto.getCalNo()%>"/>
 		<input type="hidden" id="year" name="year" value="<%=year%>"/>
 		<input type="hidden" id="month" name="month" value="<%=month%>"/>
 		<input type="hidden" id="memberId" name="memberId" value="<%=dto.getMemberId()%>"/>
 		<input type="hidden" id="memberNickname" name="memberNickname" value="<%=dto.getMemberNickname()%>"/>
-		<table border="1">
+		<table id="table">
 			<tr>
 				<th>닉넴</th>
 				<td><%=dto.getMemberNickname()%></td>
@@ -200,12 +220,13 @@ function upOk(){
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="수정완료"/ onclick="upOk();">
-					<input type="button" value="돌아가기" onclick="back();"/>
+					<input class="btn-3" type="submit" value="수정완료"/ onclick="upOk();">
+					<input class="btn-3" type="button" value="돌아가기" onclick="back();"/>
 				</td>
 			</tr>
 		</table>
 	</form>
+</div>
 </div>
 </body>
 </html>
