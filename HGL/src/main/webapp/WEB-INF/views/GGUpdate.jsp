@@ -68,18 +68,18 @@ body {
 	               <table border="1" bordercolor="white">
 	               <col width="100">
 	               	  <tr>
-	               	  	<td colspan="2"><div>정말 좋은글 수정하기</div></td>
+	               	  	<td colspan="2"><div>좋은글 게시판 수정하기</div></td>
 	               	  </tr>
 	                  <tr>
-	                     <td>글제목</td>
+	                     <td>제목</td>
 	                     <td><input type="text" class="td" value="${dto.ggTitle }" name="ggTitle"></td>
 	                  </tr>
 	                  <tr>
-	                     <td>글쓴이</td>
+	                     <td>작성자</td>
 	                     <td><input type="text" value="${dto.ggWriter }" readonly="readonly" class="td" name="ggWriter"></td>
 	                  </tr>
 	                  <tr>
-	                     <td>글내용</td>
+	                     <td>내용</td>
 	                     <td>
 	                     <textarea class="td" rows="20" cols="50" style="resize: none;" name="ggCont">${dto.ggCont }</textarea></td>
 	                  </tr>
@@ -107,7 +107,7 @@ body {
 	               		<input type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" class="btn002">
 		                <input type="submit" value="글수정" class="btn003">
 	               </div>
-	               <div id="paging">　<br>　</div>
+	               <br> <div id="paging">　<br>　</div>
 	      </form>
 	      </div>
 	   </div>

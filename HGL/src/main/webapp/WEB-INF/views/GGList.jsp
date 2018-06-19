@@ -12,14 +12,6 @@
 </head>
 <link rel="stylesheet" type="text/css" href="css/GGList.css">
 <style>
-/* body {
- background: url('image/img.jpg') no-repeat center top; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-position: center top;
-  background-size: cover;
- } */
  
  body {
  background: url('image/img.jpg') no-repeat center center fixed;
@@ -33,46 +25,50 @@
 
 	<div id="container">
 	   <div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
-	   
 	   <div id="b">
 	      <div id="bodyMain">
+	       	 <br/>
 	         <div id="boardName">좋은글 게시판</div>
 	         <br/>
 	               <table border="1">
-	                  <col width="50" class="ab">
-	                  <col width="350">
-	                  <col width="50">
-	                  <col width="50">
-	                  <col width="200">
-	                  <tr>
-	                     <th class="text-center">글번호</th>
-	                     <th class="text-center">글제목</th>
-	                     <th class="text-center">글쓴이</th>
-	                     <th class="text-center">조회수</th>
-	                     <th class="text-center">등록일</th>
-	                  </tr>
-                 
-	                 <c:choose> 
-	                 	<c:when test="${empty list}">
-	                 		<c:forEach begin="0" end="9">
-	                 		<tr>
-	                 			<td colspan="5">작성된 글이 존재하지 않습니다.</td>
-	                 		</tr>
-	                 		</c:forEach>         	
-	                 	</c:when>
-	                 	<c:otherwise>
-	                 		  <c:forEach items="${list}" var="dto">
-	                		  <tr>
-								<td>${dto.ggRowNum}</td>
-								<td><a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a></td>
-								<td>${dto.ggWriter }</td>
-								<td>${dto.ggReadcnt }</td>
-								<td><fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd HH:mm"/></td>
-								</tr>
-								</c:forEach>
-	                 	</c:otherwise>
-	                 </c:choose>
-	               </table>
+						<thead>
+						<col width="50">
+						<col width="350">
+						<col width="100">
+						<col width="100">
+						<col width="50">
+						<tr>
+							<th class="text-center">번호</th>
+							<th class="text-center">제목</th>
+							<th class="text-center">작성자</th>
+							<th class="text-center">작성일</th>
+							<th class="text-center">조회수</th>
+						</tr>
+						</thead>
+						<tbody>
+							<c:choose>
+								<c:when test="${empty list}">
+									<c:forEach begin="0" end="9">
+										<tr>
+											<td colspan="5">작성된 글이 존재하지 않습니다.</td>
+										</tr>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${list}" var="dto">
+										<tr>
+											<td>${dto.ggRowNum}</td>
+											<td><a href="GGDetailForm.do?ggNo=${dto.ggNo }&count=1">${dto.ggTitle }</a></td>
+											<td>${dto.ggWriter }</td>
+											<td><fmt:formatDate value="${dto.ggDate}"
+													pattern="yyyy-MM-dd HH:mm" /></td>
+											<td>${dto.ggReadcnt }</td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+						</tbody>
+					</table>
 	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
 	               <br/>
 	           <div id="paging1">
@@ -120,9 +116,11 @@
 						</div>
 					</form>
 	               </div>
+	               <br/>
+	               <br/>
+	               
 	      </div>
 	   </div>
-	   
 	   <div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 	</div>
 

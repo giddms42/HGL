@@ -7,6 +7,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	body {
+	color: black;
+}
+ a:link{
+ 	font-size: 12pt;
+ 	color: black;
+ 	text-decoration: none;
+ }
+ 
+ a:hover {
+ 	font-size: 12pt;
+	color: black;
+	text-decoration: none;
+}
+
+a:visited {
+	font-size: 12pt;
+	color: black;
+	text-decoration: none;
+}
+</style>
 </head>
 <body>
 

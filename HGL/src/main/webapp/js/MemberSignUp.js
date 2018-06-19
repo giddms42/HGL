@@ -773,6 +773,7 @@
 		            	 return false;
 		             }
 				 })
+				 
 				$(document).ready(function() {
 				    $('input[name=memberPhone1]').on('keyup', function() {
 				        if($(this).val().length > 3) {

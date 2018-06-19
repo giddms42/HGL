@@ -200,7 +200,7 @@ body {
 				<a class="countView" style="color:<%=Util.fontColor(i,dayOfWeek)%>">
 					<%=i %>
 				</a>
-				<a href="#" onclick="addSCH(<%=i%>);">
+				<a id="penIcon" href="#" onclick="addSCH(<%=i%>);">
 					<img alt="일정추가" src="image/pen.png" style="with:15px;height:15px;">
 				</a>
 				<div class="cList">

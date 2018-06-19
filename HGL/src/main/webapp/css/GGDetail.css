@@ -16,8 +16,6 @@ width: 100%;
 }
 
 #b{
-border: 1px dashed red;
-/* height: 755px; */
 width: 100%; 
 display: -webkit-flex;
      display:         flex;
@@ -126,8 +124,8 @@ a:visited {
 	color: black;
 	position: absolute;
 	height: 30px;
-	left: 260px;
-	top: 17px;
+	left: 381px;
+	top: 17px;	
 }
 .btn002{
 	color: black;
@@ -140,8 +138,8 @@ a:visited {
 	color: black;
 	position: absolute;
 	height: 30px;
-	left: 381px;
-	top: 17px;	
+	left: 260px;
+	top: 17px;
 }
 
 

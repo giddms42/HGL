@@ -29,7 +29,7 @@ body {
 			<div id="bodyMain">
 				<form action="GGUpdateForm.do?ggNo=${dto.ggNo}" id="form"
 					method="post">
-					<br />
+					<br/>
 					<table border="1" bordercolor="white">
 						<col width="100">
 						<tr>
@@ -46,15 +46,15 @@ body {
 							<td><input type="text" value="<fmt:formatDate value="${dto.ggDate}" pattern="yyyy-MM-dd HH:mm"/>" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
-							<td class="th">글제목</td>
+							<td class="th">제목</td>
 							<td><input type="text" value="${dto.ggTitle }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
-							<td class="th">글쓴이</td>
+							<td class="th">작성자</td>
 							<td><input type="text" value="${dto.ggWriter }" readonly="readonly" class="Mtd"></td>
 						</tr>
 						<tr>
-							<td class="th">글내용</td>
+							<td class="th">내용</td>
 							<td>
 							<textarea rows="20" cols="50" readonly="readonly" class="Mtd" style="resize: none;">${dto.ggCont}</textarea>
 								<c:if test="${!empty imgList}">
@@ -82,8 +82,7 @@ body {
 					</div>
 				</form>
 
-				<!-- <form action="" id="form2"> -->
-					<br />
+					<br/>
 					<c:if test="${!empty dto2}">
 						<div id="cml">댓글 목록</div><br/>
 							<c:forEach items="${dto2 }" var="ggcmDto">
@@ -105,7 +104,6 @@ body {
 							</div><br/>								
 							</c:forEach>
 					</c:if>
-				<!-- </form> -->
 
 				<div id="comment">
 					<div>
