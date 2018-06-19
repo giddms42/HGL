@@ -39,7 +39,7 @@ public class MemberBizzImple implements MemberBizz {
 		}
 		System.out.println("id 사용 가능 여부 : " + use);
 		return use;
-	}
+	}     
 
 	@Override
 	public String nickNameChk(String nickName) {

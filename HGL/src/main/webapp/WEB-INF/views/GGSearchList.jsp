@@ -87,7 +87,7 @@ body {
 					</c:choose>
 	            </div>
 	               <br/>
-	               <div id="paging">
+	               <div id="paging2">
 	               	<form action="GGListSearch.do" method="post">
 						<input type="hidden" name="nowpage" value="1"/>
 						<div style="width: 50%; margin: auto; border: 1px dotted green; text-align: center;">
