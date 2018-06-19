@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/MemberInfo.css">
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Baloo+Tamma'>
 <style>
 body {
  background: url('image/back.png') no-repeat center center fixed;
@@ -66,50 +67,52 @@ function famDelete(famNo){
 		<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 		<div id="allInfo">
 			<div class="userInfo">
-				<h2>회원정보</h2>
-				<div>아이디<input class="info" type="text" value="${dto.memberId}" readonly="readonly" style="margin-left:5px;"></div>
-				<div>닉네임<input class="info" type="text" value="${dto.memberNickname}" readonly="readonly" style="margin-left:5px;"></div>
-				<div>연락처<input class="info" type="text" value="${dto.memberPhone}" readonly="readonly" style="margin-left:5px;"></div>
-				<div>이메일<input class="info" type="text" value="${dto.memberEmail}" readonly="readonly" style="margin-left:5px;"></div>
-				<div>주&nbsp&nbsp&nbsp소
-					<input class="info" type="text" value="${dto.memberDo}" readonly="readonly"><br>
-					<input class="info" type="text" value="${dto.memberCity}" readonly="readonly" style="margin-left: 52px;"><br>
-					<input class="info" type="text" value="${dto.memberAddr}" readonly="readonly" style="margin-left: 52px;">
+				<h2>Profile</h2>
+				<div>
+					<img class="memberIcon" src="icon/User-Profile-128.png"><input class="info" type="text" value="${dto.memberId}" readonly="readonly">
 				</div>
-				<div style="margin-bottom: 40px;">
+				<div>
+					<img class="memberIcon" src="icon/Smile-128.png"><input class="info" type="text" value="${dto.memberNickname}" readonly="readonly">
+				</div>
+				<div style="display: inline-block;">
+					<img class="memberIcon" src="icon/Mobile-Phone-128.png" style="width: 40px; margin-top: 1px;">
+					<input class="info" type="text" value="${dto.memberPhone}" readonly="readonly" style="width:220px; margin-left: -5px; vertical-align: top;">
+				</div>	
+				<div class="info" style="width: 170px; display: inline-block; margin-left: 5px; vertical-align: top;">
 					<c:choose>
 						<c:when test="${dto.memberSMS eq 'Y'}">
-							<input class="smsChk" type="checkbox" checked="checked" readonly="readonly">
+							문자알림 : Y
 						</c:when>
 						<c:otherwise>
-							<input class="smsChk" type="checkbox" readonly="readonly">	
+							문자알림 : N
 						</c:otherwise>
 					</c:choose>
-					문자알림
+				</div>
+				<div><img class="memberIcon" src="icon/Message-Mail-128.png"><input class="info" type="text" value="${dto.memberEmail}" readonly="readonly"></div>
+				<div><img class="memberIcon" src="icon/Home-128.png">
+					<input class="info" type="text" value="${dto.memberDo} ${dto.memberCity} ${dto.memberAddr}" readonly="readonly" style="margin-left: -5px;"><br>
 				</div>
 				<div class="threeButton">
-					<button type="button" onclick="getOut();" style="margin-left: 1.5%">탈퇴하기</button>
-					<button type="button" onclick="goUpdate();" style="margin-left: 27%">수정하기</button>
+					<button class="famButton" type="button" onclick="getOut();" style="margin-left: 4%">탈퇴하기</button>
+					<button class="famButton" type="button" onclick="goUpdate();" style="margin-left: 32%">수정하기</button>
 				</div>
 			</div>
+		
 			
 			<div class="famInfo">
-				<h2>가족정보</h2>
+				<h2>Family</h2>
 		 		<c:choose>
 					<c:when test="${empty list }">
-						<div style="margin-top:30px; margin-bottom: 30px;">등록한 가족구성원이 없습니다! 등록해주세요 </div>
+						<div style="margin-top:28px; margin-bottom: 30px; font-size: 15pt; color:white;">등록한 가족구성원이 없습니다</div>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${list}" var="famDto">
-							<div style="margin: auto; width: 300px; margin-bottom: 20px;">
-							<input class="famMember" type="text" value="${famDto.famName}" readonly="readonly" onclick="goFamDetail(${famDto.famNo});">님
-							<button class="famDelete" type="button" style="margin-left: 5px;" onclick="famDelete(${famDto.famNo});"><img class="famDelete-img" src="image/menu_close.png"></button>
-							</div>
+								<div class="famMember" onclick="goFamDetail(${famDto.famNo});">${famDto.famName}님 <img class="famDelete-img" src="icon/delete.png" onclick="famDelete(${famDto.famNo});"></div>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
 				<div>
-					<button type="button" onclick="goFamInsert();" style="margin-left:65%; margin-top:3%; margin-bottom: 3%;" >추가</button>
+					<button class="famButton" type="button" onclick="goFamInsert();" style="margin-left:60%;">추가</button>
 				</div>
 			</div>
 	</div>

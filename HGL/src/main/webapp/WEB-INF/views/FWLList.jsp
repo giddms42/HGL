@@ -92,26 +92,28 @@ $(function(){
 		<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 		<div id="FWLListCenter">
 			<div id="FWLList">
-				<div id="topbutton">
-					<button type="button" onclick="shareWL();">공유하기</button>
-					<button type="button" onclick="FWLinsert();" style="margin-left:395px;">위시리스트 추가하기</button>
+				<div id="topButton">
+				<c:if test="${!empty FWLList}">
+					<button type="button" onclick="shareWL();" style="float:left; margin-bottom: 25px;">공유하기</button>
+				</c:if>
+					<button type="button" onclick="FWLinsert();" style="float: right; margin-bottom: 25px;">위시리스트 추가하기</button>
 				</div>
 				<form>
-				<table id="FWLListTable" style="width:750px; margin: auto;">
+				<table id="FWLListTable" style="width:750px; margin: auto; margin-top: 2%">
 						<col width="60px;">
 					<tr>
 						<th style="padding: 10px;">달성</th>
-						<th style="text-align: center; max-width:585px;">위 시 리 스 트</th>
+						<th style="text-align: center; max-width:585px;">위 시 리 스 트 목 록</th>
 					</tr>
 						<c:choose>
 							<c:when test="${empty FWLList}">
 							<tr>
-								<td colspan="2" style="text-align: center;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
+								<td colspan="2" style="padding:10px; color: black; font-size: 1.5em;">등록된 위시리스트가 존재 하지 않습니다! 등록해주세요</td>
 							</tr>
 							</c:when>
 							<c:otherwise>
 								<c:forEach items="${FWLList}" var="FwlDto">
-								<tr>
+								<tr class="trHover">
 									<c:choose>
 										<c:when test="${FwlDto.fwlChk eq 'Y'}">
 											<td><input name="check" type="checkbox" checked="checked" value="${FwlDto.fwlNo}"></td>
@@ -120,7 +122,7 @@ $(function(){
 											<td><input name="check" type="checkbox" value="${FwlDto.fwlNo}"></td>
 										</c:otherwise>
 									</c:choose>
-									<td style="padding:10px; color: #ea7500; font-size: 1.5em;">${FwlDto.fwlItem}
+									<td style="padding:10px; color: #ea7500; font-size: 1.2em;">${FwlDto.fwlItem}
 										<button type="button" class="FWLDelete" onclick="location.href='FWLDelete.do?fwlNo='+${FwlDto.fwlNo}+'&memberNo='+${login.memberNo}">
 											<img class="FWLDelete-img" src="image/xButton.png" style="width: 18px; height: 18px;">
 										</button>
@@ -134,7 +136,9 @@ $(function(){
 				</table>
 				</form>	
 				</div>
-			<div style="width: 800px;"><button type="button" name="DeleteButton" title="y" style="float:right;">삭제</button></div>
+			<c:if test="${!empty FWLList}">
+				<div style="width: 800px;"><button type="button" name="DeleteButton" title="y" style="float:right;">삭제</button></div>
+			</c:if>
 			</div>
 		</div> 
 </body>

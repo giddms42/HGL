@@ -9,16 +9,14 @@ public class famDto {
 	private String famDisease1;
 	private String famDisease2;
 	private String famDisease3 ;
-	private String famBirth;
-	private String famLunar;
-	
+	private String famBirth;	
 	
 	public famDto() {
 		
 	}
 	
 	public famDto(int memberNo, int famNo, String famName, int famHeight, String famDisease1, String famDisease2,
-			String famDisease3, String famBirth, String famLunar) {
+			String famDisease3, String famBirth) {
 		this.memberNo = memberNo;
 		this.famNo = famNo;
 		this.famName = famName;
@@ -27,7 +25,7 @@ public class famDto {
 		this.famDisease2 = famDisease2;
 		this.famDisease3 = famDisease3;
 		this.famBirth = famBirth;
-		this.famLunar = famLunar;
+	
 	}
 
 	public int getMemberNo() {
@@ -94,13 +92,7 @@ public class famDto {
 		this.famBirth = famBirth;
 	}
 
-	public String getFamLunar() {
-		return famLunar;
-	}
 
-	public void setFamLunar(String famLunar) {
-		this.famLunar = famLunar;
-	}
 	
 	
 	

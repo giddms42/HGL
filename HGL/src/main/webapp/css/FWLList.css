@@ -64,33 +64,33 @@ input[type="checkbox"]{
 	display: none;
 	background-color: rgba( 255, 255, 255, 0.1 );
 }
-#topbutton{
+#topButton{
+	width:100%;
 	padding:20px;
 }
+
 button {
-	display: inline-block;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	font: 14px/100% Arial, Helvetica, sans-serif;
-	padding: .5em 2em .55em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .5em; 
-	-moz-border-radius: .5em;
-	border-radius: .5em;
-	color: black;
-	background-color: white;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  width: 200px;
+  margin-top: 10px;
+  background: #FCA44B;
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius:10px;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+  font-size: .6rem;
+  cursor: pointer;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 button:hover {
-	text-decoration: none;
-}
-button:active {
-	position: relative;
-	top: 2px;
+  background: #fb8b19;
 }
 
 
@@ -100,15 +100,9 @@ button:active {
 *, *:before, *:after {
   box-sizing: border-box;
 }
-table {
-  border-radius: 0.5em;
-  border-collapse: collapse;
-  margin: 1em;
-}
-tr {
+.trHover {
   transition: background 0.25s ease;
 }
-tr:hover {
+.trHover:hover {
   background: #ffaf60;
-  color: white;
 }

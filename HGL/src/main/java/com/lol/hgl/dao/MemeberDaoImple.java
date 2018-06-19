@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -193,6 +195,17 @@ public class MemeberDaoImple implements MemberDao {
 		int res = 0;
 		try {
 			res = sqlSession.update(nameSpace+"updateMangeChk", memberNickName);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		return res;
+	}
+
+	@Override
+	public List<memberDto> smsList() {
+		List<memberDto> res = new ArrayList<memberDto>();
+		try {
+			res = sqlSession.selectList(nameSpace+"smsList");
 			}catch(Exception e ) {
 				e.printStackTrace();
 			}	

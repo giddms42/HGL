@@ -21,4 +21,10 @@ public interface CalDao {
 	public int getCalViewCount(String memberId, String yyyyMMdd);
 	//달력에 일정출력
 	public calDto getCalBoard(int seq);
+	//생일 리스트 출력
+	public List<calDto> birthList();
+	//CALSMS 여부를 N으로 변경
+	public int updateCALSMS(int calNo);
+	//문자알림이 Y인 리스트 
+	public List<calDto> calList();
 }

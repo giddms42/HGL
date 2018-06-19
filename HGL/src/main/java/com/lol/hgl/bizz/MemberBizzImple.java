@@ -7,35 +7,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.lol.hgl.dao.CalDao;
 import com.lol.hgl.dao.MemberDao;
+import com.lol.hgl.dto.calDto;
 import com.lol.hgl.dto.memberDto;
-import com.lol.hgl.util.Mange;
+import com.lol.hgl.util.TimerLogic;
 
 @Service
 public class MemberBizzImple implements MemberBizz {
 	
 	@Autowired
-	private MemberDao dao;
+	private MemberDao memberDao;
+	
 	@Autowired
-	private Mange mange;
+	private TimerLogic timerLogic;
+	
+	@Autowired
+	private CalDao calDao;
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
 
+	//id: 영어로 6글자 이상, 숫자는 넣어도되고 안넣어도되고 , 글자수 6-12
+	//비밀번호: 영어+숫자 조합 8-12
 	@Override
 	public String IDChk(String id) {
-		String res = dao.IDChk(id);
+		String res = memberDao.IDChk(id);
 		String use = "f";
 		if (res == null) {
 			use = "t"; 
 		}
 		System.out.println("id 사용 가능 여부 : " + use);
 		return use;
-	}
+	}     
 
 	@Override
 	public String nickNameChk(String nickName) {
-		String res = dao.nickNameChk(nickName);
+		String res = memberDao.nickNameChk(nickName);
 		String use = "f";
 		if (res == null) {
 			use = "t"; 
@@ -46,7 +54,7 @@ public class MemberBizzImple implements MemberBizz {
 
 	@Override
 	public String emailChk(String email) {
-		String res = dao.emailChk(email);
+		String res = memberDao.emailChk(email);
 		String use = "f";
 		if (res == null) {
 			use = "t"; 
@@ -58,7 +66,8 @@ public class MemberBizzImple implements MemberBizz {
 	@Override
 	public String pwChk(String pw) {
 		String use = "f";
-		boolean flag = Pattern.matches("[a-z]+[0-9]+{8,12}$", pw); 
+		boolean flag = Pattern.matches("([a-z/0-9]{8,12})",pw);
+		//boolean flag = Pattern.matches("[a-z]+[0-9]+{8}$", pw); 
 		if(flag) {
 			use = "t";
 		}else {
@@ -74,13 +83,13 @@ public class MemberBizzImple implements MemberBizz {
 		}
 		String encryptPassword = passwordEncoder.encode(dto.getMemberPw());
 		dto.setMemberPw(encryptPassword);
-		int res = dao.signUp(dto);
+		int res = memberDao.signUp(dto);
 		return res;
 	}
 
 	@Override
 	public String IDSearch(String email) {
-		String res = dao.IDSearch(email);      
+		String res = memberDao.IDSearch(email);      
 	      if (res == null) {
 	         res = "아이디가 존재하지 않습니다.";
 	      }
@@ -90,7 +99,7 @@ public class MemberBizzImple implements MemberBizz {
 
 	@Override
 	public String memberCertification(String email, String id) {
-		String res = dao.memberCertification(email, id);
+		String res = memberDao.memberCertification(email, id);
 		if (res == null) {
 			res = "f";
 		}else {
@@ -102,14 +111,14 @@ public class MemberBizzImple implements MemberBizz {
 
 	@Override
 	public memberDto Login(String memberId) {
-		memberDto dto = dao.Login(memberId);	
+		memberDto dto = memberDao.Login(memberId);	
 		return dto;
 	}
 	
 	
 	@Override
 	public memberDto detailLogin(int memberNo) {
-		memberDto dto = dao.detailLogin(memberNo);	
+		memberDto dto = memberDao.detailLogin(memberNo);	
 		return dto;
 	}
 
@@ -117,7 +126,7 @@ public class MemberBizzImple implements MemberBizz {
 	public String LoginChk(String id, String rawPassword) {
 		String res = "";	
 		//1.저장된 비밀번호 갖고오기.
-		String encodedPassword = dao.LoginChk(id);
+		String encodedPassword = memberDao.LoginChk(id);
 		if(encodedPassword == null) {
 			return "f";
 		}
@@ -137,7 +146,7 @@ public class MemberBizzImple implements MemberBizz {
 		int res = 0;
 		String encryptPassword = passwordEncoder.encode(dto.getMemberPw());
 		dto.setMemberPw(encryptPassword);
-		res = dao.pwChange(dto);
+		res = memberDao.pwChange(dto);
 		return res;
 	}
 
@@ -146,31 +155,51 @@ public class MemberBizzImple implements MemberBizz {
 		if(dto.getMemberSMS() == null) {
 			dto.setMemberSMS("N");
 		}
-		int res = dao.updateMemberInfo(dto);
+		int res = memberDao.updateMemberInfo(dto);
 		
 		return res;
 	}
 
 	@Override
 	public int getOut(int memberNo) {
-		int res = dao.getOut(memberNo);
+		int res = memberDao.getOut(memberNo);
 		return res;
 	}
 
 	@Override
 	public memberDto searchMember(String memberNickName) {
-		return dao.searchMember(memberNickName);
+		return memberDao.searchMember(memberNickName);
 	}
 
 	@Override
 	public int logOutTime(String memberId) {
-		return dao.logOutTime(memberId);
+		return memberDao.logOutTime(memberId);
 	}
 
 	@Override
 	public void mangeCancel() {
-		List<memberDto> mangeList = dao.MangeList();
-		mange.time(mangeList);
+		List<memberDto> mangeList = memberDao.MangeList();
+		timerLogic.mangeTime(mangeList);
+	}
+
+	@Override
+	public void safetySMS() {
+		List<memberDto> smsList = memberDao.smsList();
+		timerLogic.safetySMSTime(smsList);
+	}
+
+	@Override
+	public void birthSMS() {
+		List<calDto> birthList = calDao.birthList();
+		timerLogic.birthSMSTime(birthList);
+		
+	}
+
+	@Override
+	public void calSMS() {
+		List<calDto> calList = calDao.calList();
+		timerLogic.calSMSTime(calList);
+		
 	}
 
 

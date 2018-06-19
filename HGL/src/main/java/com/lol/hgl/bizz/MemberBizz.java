@@ -20,4 +20,7 @@ public interface MemberBizz {
 	public memberDto searchMember(String memberNickName);
 	public int logOutTime(String memberId);
 	public void mangeCancel();
+	public void safetySMS(); 
+	public void birthSMS();
+	public void calSMS();
 }

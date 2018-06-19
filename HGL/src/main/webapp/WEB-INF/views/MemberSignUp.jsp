@@ -46,7 +46,11 @@
 	   <input type="text" name="memberNickname" class="main-form__input" title="n" required="required" placeholder="Nick Name" />
 	   		<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 닉네임 입니다.</b></a>
 	   		<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
-	   <input type="tel" name="memberPhone" class="main-form__input" required="required" placeholder="Phone Number" />
+	   <div>
+	   		<input type="text" name="memberPhone1" class="main-form__input" placeholder="010" oninput="maxLengthCheck(this)" style="width: 110px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+	   		<input type="text" name="memberPhone2" class="main-form__input" placeholder="번호입력" oninput="maxLengthCheck(this)" style="width: 170px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+	   		<input type="text" name="memberPhone3" class="main-form__input" placeholder="나머지번호입력" oninput="maxLengthCheck(this)" style="width: 170px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+	   </div>	
 	   <label>
 	   <a id="main-form_sns" style="font-color:#cccccc;">
 	   		<input class="checked"type="checkbox" name="memberSMS" onclick="snsChecked();" value="Y" id="main-form_checkboxstyle" style="vertical-align: top; width: 15px; 
@@ -59,7 +63,7 @@
 	  		<a class="ajChk" id="useEmail" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 E-MAIL 입니다.</b></a>
 	  		<a class="ajChk" id="incorrectEmail"  style="color: #F15F5F; font-size: 0.8em;"><b>올바르지 않은 E-MAIL 형식 입니다.</b></a>
 	</div>
-    <div class="select-wrapper">
+    <div class="select-wrapper" style="margin-top: 20px;">
       <select name="memberDo" class="select-wrapper" onChange="showSub(this.options[this.selectedIndex].value);" required="required" style="width:150px;">
       	<option value="">도를 선택해주세요</option>
       	<option value="서울특별시">서울특별시</option>
@@ -355,7 +359,7 @@
 	      	<option value="서귀포시">서귀포시</option>
 	      	<option value="제주시">제주시</option>
 	      </select>
-		      <input class="main-form__input" type="text" name="memberAddr" placeholder="상세주소를 입력해주세요.">
+		      <input class="main-form__input" type="text" name="memberAddr" placeholder="상세주소를 입력해주세요." style="margin-top: -10px;">
 	 	  </div>
 	 	  <div class="main-form__body">
 	 	  	<button type="button" class="btn" onclick="history.back();">Cancel</button>
