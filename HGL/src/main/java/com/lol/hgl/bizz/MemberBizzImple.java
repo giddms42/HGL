@@ -28,6 +28,8 @@ public class MemberBizzImple implements MemberBizz {
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
 
+	//id: 영어로 6글자 이상, 숫자는 넣어도되고 안넣어도되고 , 글자수 6-12
+	//비밀번호: 영어+숫자 조합 8-12
 	@Override
 	public String IDChk(String id) {
 		String res = memberDao.IDChk(id);
@@ -64,7 +66,8 @@ public class MemberBizzImple implements MemberBizz {
 	@Override
 	public String pwChk(String pw) {
 		String use = "f";
-		boolean flag = Pattern.matches("[a-z]+[0-9]+{8,12}$", pw); 
+		boolean flag = Pattern.matches("([a-z/0-9]{8,12})",pw);
+		//boolean flag = Pattern.matches("[a-z]+[0-9]+{8}$", pw); 
 		if(flag) {
 			use = "t";
 		}else {

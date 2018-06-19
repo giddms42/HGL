@@ -789,5 +789,12 @@
 				            $(this).val($(this).val().substring(0, 4));
 				        }
 				    });
+				    $('input[name=memberPw').on('keyup', function() {
+				        if($(this).val().length > 12) {
+				            $(this).val($(this).val().substring(0, 12));
+				        }
+				    });
+				
+				
 				});
 })
