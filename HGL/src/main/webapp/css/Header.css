@@ -4,10 +4,6 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-a:link { color: #cccccc; text-decoration: none;}
-a:visited { color: #cccccc; text-decoration: none;}
-a:hover { color: #cccccc; text-decoration: none;}
-
 #header{
 	position: relative;
 	margin:auto;

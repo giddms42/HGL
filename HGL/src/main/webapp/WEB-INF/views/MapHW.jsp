@@ -8,6 +8,14 @@
 <meta charset="utf-8">
 <title>카테고리별 장소 검색하기</title>
 <style>
+body {
+	background: url('image/back.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
 	.map_wrap, .map_wrap * {margin:auto; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 	.map_wrap {position:relative;width:70%;height:500px;}
 	

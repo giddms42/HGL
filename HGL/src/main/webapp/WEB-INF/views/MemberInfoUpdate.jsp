@@ -8,7 +8,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>행복한 가정의 미래</title>
+<style>
+body {
+	background: url('image/back.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+</style>
 <link rel="stylesheet" type="text/css" href="css/MemberInfoUpdate.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script src="js/MemberInfoUpdate.js"></script>
 <script type="text/javascript">

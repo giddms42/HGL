@@ -9,17 +9,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" type="text/css" href="css/MemberInfo.css">
-<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Baloo+Tamma'>
 <style>
 body {
- background: url('image/back.png') no-repeat center center fixed;
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
- }
+	background: url('image/back.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 </style>
+<link rel="stylesheet" type="text/css" href="css/MemberInfo.css">
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Baloo+Tamma'>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -61,6 +61,7 @@ function famDelete(famNo){
 	}
 }
 </script>
+
 <body>
 
 	<div id="container">
@@ -103,16 +104,19 @@ function famDelete(famNo){
 				<h2>Family</h2>
 		 		<c:choose>
 					<c:when test="${empty list }">
-						<div style="margin-top:28px; margin-bottom: 30px; font-size: 15pt; color:white;">등록한 가족구성원이 없습니다</div>
+						<div id="nullList">등록한 가족구성원이 없습니다</div>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${list}" var="famDto">
-								<div class="famMember" onclick="goFamDetail(${famDto.famNo});">${famDto.famName}님 <img class="famDelete-img" src="icon/delete.png" onclick="famDelete(${famDto.famNo});"></div>
+							<div>
+								<div class="famMember" style="display: inline-block;" onclick="goFamDetail(${famDto.famNo});">${famDto.famName}님</div>
+								<img class="famDelete-img" src="icon/delete.png" onclick="famDelete(${famDto.famNo});">
+							</div>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
-				<div>
-					<button class="famButton" type="button" onclick="goFamInsert();" style="margin-left:60%;">추가</button>
+				<div style="padding:30px;">
+					<button class="famButton" type="button" onclick="goFamInsert();" style="margin: auto;">추가</button>
 				</div>
 			</div>
 	</div>

@@ -55,7 +55,7 @@ google.charts.setOnLoadCallback(drawChart);
 						<input class="famInfo" type="text" value="${famDto.famName}님" readonly="readonly">
 					</div>
 					<div>생일
-						<input class="famInfo" type="text" value="${famDto.famBirth } (${famDto.famLunar})" readonly="readonly">
+						<input class="famInfo" type="text" value="${famDto.famBirth }" readonly="readonly">
 					</div>
 					<div>신장
 						<input class="famInfo" type="text" value="${famDto.famHeight}cm" readonly="readonly">
