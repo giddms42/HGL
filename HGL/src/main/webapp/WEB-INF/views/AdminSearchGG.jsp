@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/AdminSearchGG.css">
 <style>
 body {
- background: url('image/img.jpg') no-repeat center center fixed;
+ background: url('image/back.png') no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
