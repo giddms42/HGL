@@ -9,11 +9,13 @@
   <meta charset="UTF-8">
   <title>행가래 회원가입</title>
   
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
  	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="css/sign_up_style.css">
     <link rel="stylesheet" href="css/select_style.css">
     
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/MemberSignUp.js"></script>
 	<style>

@@ -16,11 +16,199 @@
 		            $(this).val($(this).val().substring(0, 4));
 		        }
 		    });
+		    
+		    startSeteled();
+		
 		});
 	});
 	
+	function startSeteled(){
+		alert("함수 호출 성공");
+		var Do = document.getElementById("memberDo").value;
+		alert(Do);
+		var city = document.getElementById("memberCity").value; 
+		alert(city);
+		var doo = document.getElementById("do");
+		var seoul = document.getElementById("seoul");
+		var gyeonggi = document.getElementById("gyeonggi");
+		var incheon = document.getElementById("incheon");
+		var gangwon = document.getElementById("gangwon");
+		var chungbuk = document.getElementById("chungbuk");
+		var chungnam = document.getElementById("chungnam");
+		var daejeon = document.getElementById("daejeon");
+		var gyeongbug = document.getElementById("gyeongbug");
+		var daegu = document.getElementById("daegu");
+		var ulsan = document.getElementById("ulsan");
+		var gyeongnam = document.getElementById("gyeongnam");
+		var busan = document.getElementById("busan");
+		var jeonbug = document.getElementById("jeonbug");
+		var jeonnam = document.getElementById("jeonnam");
+		var gwangju = document.getElementById("gwangju");
+		var jeju = document.getElementById("jeju");
+		
+		var len = $("#doo option").length;
+		for(var i=0; i<len; i++){
+			//alert($("#doo option:eq("+i+")").val() );
+			if(Do === $("#doo option:eq("+i+")").val()){  // do와 option의 value가  같다면 
+				$("#doo option:eq("+i+")").prop("selected", true);
+			}
+		}
+		
+		
+		/*
+		switch (Do) {
+		case "서울특별시":
+			$("#doo").val("서울특별시").prop("selected", true);
+			break;
+		case "경기도":
+			$("#doo").val("경기도").prop("selected", true);
+			break;
+		case "인천광역시":
+			$("#doo").val("인천광역시").prop("selected", true);
+			break;
+		case "강원도":
+			$("#doo").val("강원도").prop("selected", true);
+			break;
+		case "충청북도":
+			$("#doo").val("충청북도").prop("selected", true);
+			break;
+		case "충청남도":
+			$("#doo").val("충청남도").prop("selected", true);
+			break;
+		case "대전광역시":
+			$("#doo").val("대전광역시").prop("selected", true);
+			break;
+		case "세종특별자치시":
+			$("#doo").val("세종특별자치시").prop("selected", true);
+			break;
+		case "경상북도":
+			$("#doo").val("경상북도").prop("selected", true);
+			break;	
+		case "대구광역시":
+			$("#doo").val("대구광역시").prop("selected", true);
+			break;
+		case "울산광역시":
+			$("#doo").val("울산광역시").prop("selected", true);
+			break;
+		case "경상남도":
+			$("#doo").val("경상남도").prop("selected", true);
+			break;
+		case "부산광역시":
+			$("#doo").val("부산광역시").prop("selected", true);
+			break;
+		case "전라북도":
+			$("#doo").val("전라북도").prop("selected", true);
+			break;
+		case "전라남도":
+			$("#doo").val("전라남도").prop("selected", true);
+			break;
+		case "광주광역시":
+			$("#doo").val("광주광역시").prop("selected", true);
+			break;
+		case "제주도":
+			$("#doo").val("제주도").prop("selected", true);
+			break;
+		}*/
+		
+	}
+	
+	function displayCity(city){
+		var seoul = document.getElementById("seoul");
+		var gyeonggi = document.getElementById("gyeonggi");
+		var incheon = document.getElementById("incheon");
+		var gangwon = document.getElementById("gangwon");
+		var chungbuk = document.getElementById("chungbuk");
+		var chungnam = document.getElementById("chungnam");
+		var daejeon = document.getElementById("daejeon");
+		var gyeongbug = document.getElementById("gyeongbug");
+		var daegu = document.getElementById("daegu");
+		var ulsan = document.getElementById("ulsan");
+		var gyeongnam = document.getElementById("gyeongnam");
+		var busan = document.getElementById("busan");
+		var jeonbug = document.getElementById("jeonbug");
+		var jeonnam = document.getElementById("jeonnam");
+		var gwangju = document.getElementById("gwangju");
+		var jeju = document.getElementById("jeju");
+		
+		var arr = new Array(16); 
+		arr[0]="seoul";
+		arr[1]="gyeonggi";
+		arr[2]="incheon";
+		arr[3]="gangwon";
+		arr[4]="chungbuk";
+		arr[5]="chungnam";
+		arr[6]="daejeon";
+		arr[7]="gyeongbug";
+		arr[8]="daegu";
+		arr[9]="ulsan";
+		arr[10]="gyeongnam";
+		arr[11]="busan";
+		arr[12]="jeonbug";
+		arr[13]="jeonnam";
+		arr[14]="gwangju";
+		arr[15]="jeju";
+		
+		switch (city) {
+		case "서울특별시":
+			for(var i=0; i<16; i++){
+				arr[i].
+			}
+			$("#doo").val("서울특별시").prop("selected", true);
+			break;
+		case "경기도":
+			$("#doo").val("경기도").prop("selected", true);
+			break;
+		case "인천광역시":
+			$("#doo").val("인천광역시").prop("selected", true);
+			break;
+		case "강원도":
+			$("#doo").val("강원도").prop("selected", true);
+			break;
+		case "충청북도":
+			$("#doo").val("충청북도").prop("selected", true);
+			break;
+		case "충청남도":
+			$("#doo").val("충청남도").prop("selected", true);
+			break;
+		case "대전광역시":
+			$("#doo").val("대전광역시").prop("selected", true);
+			break;
+		case "세종특별자치시":
+			$("#doo").val("세종특별자치시").prop("selected", true);
+			break;
+		case "경상북도":
+			$("#doo").val("경상북도").prop("selected", true);
+			break;	
+		case "대구광역시":
+			$("#doo").val("대구광역시").prop("selected", true);
+			break;
+		case "울산광역시":
+			$("#doo").val("울산광역시").prop("selected", true);
+			break;
+		case "경상남도":
+			$("#doo").val("경상남도").prop("selected", true);
+			break;
+		case "부산광역시":
+			$("#doo").val("부산광역시").prop("selected", true);
+			break;
+		case "전라북도":
+			$("#doo").val("전라북도").prop("selected", true);
+			break;
+		case "전라남도":
+			$("#doo").val("전라남도").prop("selected", true);
+			break;
+		case "광주광역시":
+			$("#doo").val("광주광역시").prop("selected", true);
+			break;
+		case "제주도":
+			$("#doo").val("제주도").prop("selected", true);
+			break;
+		}
+		
+	};
+	
 	function snsChecked() { //문자알림서비스 확인창
-		var retVal = confirm("문자알림을 받으시겠습니까?\n매달 1일, 부모님께 안부를 물어보도록 유도하는 알림문자가 발송되며,\n캘린더에 일정 추가 시 일정 알림을 체크하면 \n해당 일정 날짜의 하루 전에 알림 문자가 발송됩니다.");
+		var retVal = confirm("문자알림을 받으시겠습니까?\n매달 1일, 부모님께 안부를 물어보도록 유도하는 알림문자가 발송됩니다.");
 		if (retVal == true) {
 			$("input[class=checkbox]").prop("checked", true);
 		} else {

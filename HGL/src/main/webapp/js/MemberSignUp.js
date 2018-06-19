@@ -610,6 +610,32 @@
 	}
 	
 	$(function(){
+		$(document).ready(function() {
+		    $('input[name=memberPhone1]').on('keyup', function() {
+		        if($(this).val().length > 3) {
+		            $(this).val($(this).val().substring(0, 3));
+		        }
+		    });
+		    $('input[name=memberPhone2]').on('keyup', function() {
+		        if($(this).val().length > 4) {
+		            $(this).val($(this).val().substring(0, 4));
+		        }
+		    });
+		    $('input[name=memberPhone3').on('keyup', function() {
+		        if($(this).val().length > 4) {
+		            $(this).val($(this).val().substring(0, 4));
+		        }
+		    });
+		    $('input[name=memberPw').on('keyup', function() {
+		        if($(this).val().length > 12) {
+		            $(this).val($(this).val().substring(0, 12));
+		        }
+		    });
+		
+		
+		});
+		
+		
 		      $("input[name=memberId").on("change",function() {
 		            var idVal = $("input[name=memberId]").val();
 		            if(idVal==null || idVal==""){
@@ -666,7 +692,8 @@
 		         })
 		         
 		          $("input[name=memberEmail").on("change",function() {
-		        	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		        	var re = /[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
+		        	//var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
 		            var emailVal = $("input[name=memberEmail]").val();
 		            if(emailVal==null || emailVal==""){
 		            	 $("#useEmail").css("display", "none");
@@ -676,6 +703,7 @@
 		            	 $("#useEmail").css("display", "none");
 		            	 $("#unEmail").css("display", "none");
 		        		 $("#incorrectEmail").css("display","inline");
+		        		 $("input[name=memberEmail]").attr('title','n');
 		        	}else{
 		            $.ajax({
 		               type:"post",
@@ -725,77 +753,47 @@
 		            });
 		            }
 		         })
+		        
 		         //이부분을 아이디가 아닌 여러개로 선택할수있는 class같은걸로하면 안먹히네요
 		         $("#regist").submit(function(){
-		             if ($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
-		                alert("비밀번호가  일치하지 않습니다. 다시 확인해주세요");
-		                document.getElementsByName("memberPw")[0].focus();
-		                return false;
-		             }else if($("input[name=memberId]").attr("title")=="n"){
-	            		 alert("아이디를 다시 확인해주세요")
-	            		 document.getElementsByName("memberId")[0].focus();
-	            		 return false;
-		             }else if($("input[name=memberNickname]").attr("title")=="n"){
-		            	 alert("닉네임을 다시 확인해주세요")
-		            	 document.getElementsByName("memberNickname")[0].focus();
+		            if($("input[name=memberId]").attr("title")=="n"){
+		            	swal("아이디를 다시 확인해주세요")
+	            		return false;
+		            }else if($("input[name=memberPw]").attr("title")=="n"){
+		            	 swal("비밀번호를 다시 확인해주세요")
 		            	 return false;
-		             }else if($("input[name=memberPw]").val() == ""){
-		            	 alert("비밀번호를 입력해주세요")
-		            	 document.getElementsByName("memberPw")[0].focus();
+		            }else if($("input[name=userChkpw]").val() == ""){
+		            	 swal("비밀번호 한번 더 입력해주세요")
 		            	 return false;
-		             }else if($("input[name=userChkpw]").val() == ""){
-		            	 alert("비밀번호 확인을 입력해주세요")
-		            	 document.getElementsByName("userChkpw")[0].focus();
+		             } else if($("input[name=memberPw]").val() != $("input[name=userChkpw]").val()) {
+		                swal("비밀번호가 일치하지 않습니다. 다시 확인해주세요");
+		                return false;  
+		            }else if($("input[name=memberNickname]").attr("title")=="n"){
+		            	 swal("닉네임을 다시 확인해주세요")
+		            	 return false;
+		            }else if($("input[name=memberPhone1]").val() == ""){
+		            	 swal("연락처를 모두 입력해주세요")
+		            	 return false;
+		             }else if($("input[name=memberPhone2]").val() == ""){
+		            	 swal("연락처를 모두 입력해주세요")
+		            	 return false;
+		             }else if($("input[name=memberPhone3]").val() == ""){
+		            	 swal("연락처를 모두 입력해주세요")
 		            	 return false;
 		             }else if($("input[name=memberEmail]").attr("title")=="n"){
-	            		 alert("이메일을 다시 확인해주세요")
-	            		 document.getElementsByName("memberEmail")[0].focus();
+	            		 swal("이메일을 다시 확인해주세요")
 	            		 return false;
-		             }else if($("input[name=memberPhone]").val() == ""){
-		            	 alert("연락처를 입력해주세요")
-		            	 document.getElementsByName("memberPhone")[0].focus();
-		            	 return false;
-		             }else if($("input[name=memberDo]").val() == ""){
-		            	 alert("주소를 선택해주세요")
-		            	 document.getElementsByName("memberDo")[0].focus();
-		            	 return false;
-		             }else if($("select[name=memberDo]").val() == ""){
-		            	 alert("도를 선택해주세요")
-		            	 document.getElementsByName("memberDo")[0].focus();
+		            }else if($("select[name=memberDo]").val() == ""){
+		            	 swal("주소를 선택해주세요")
 		            	 return false;
 		             }else if($("select[name=memberCity]").val() == ""){
-		            	 alert("시,군,구를 선택해주세요")
-		            	 document.getElementsByName("memberDo")[0].focus();
+		            	 swal("시,군,구를 선택해주세요")
 		            	 return false;
 		             }else if($("input[name=memberAddr]").val() == ""){
-		            	 alert("상세주소를 입력해주세요")
-		            	 document.getElementsByName("memberAddr")[0].focus();
+		            	 swal("상세주소를 입력해주세요")
 		            	 return false;
 		             }
 				 })
-				 
-				$(document).ready(function() {
-				    $('input[name=memberPhone1]').on('keyup', function() {
-				        if($(this).val().length > 3) {
-				            $(this).val($(this).val().substring(0, 3));
-				        }
-				    });
-				    $('input[name=memberPhone2]').on('keyup', function() {
-				        if($(this).val().length > 4) {
-				            $(this).val($(this).val().substring(0, 4));
-				        }
-				    });
-				    $('input[name=memberPhone3').on('keyup', function() {
-				        if($(this).val().length > 4) {
-				            $(this).val($(this).val().substring(0, 4));
-				        }
-				    });
-				    $('input[name=memberPw').on('keyup', function() {
-				        if($(this).val().length > 12) {
-				            $(this).val($(this).val().substring(0, 12));
-				        }
-				    });
+	
 				
-				
-				});
 })

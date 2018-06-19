@@ -15,6 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login.jsp</title>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -42,16 +43,27 @@ function MemberSearch(){
 	window.name="Parent";
 	window.open("MemberSearchForm.do","", 'status=no, width=500, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
-
+	
+$(function(){
+$("#myform").submit(function(){
+    if($("input[name=memberId]").val()=="" || $("input[name=memberId]").val()== null){
+    	alert("아이디를 입력해주세요");
+		document.getElementsByName("memberId")[0].focus();
+		return false;
+    }else if($("input[name=memberPw]").val()=="" || $("input[name=memberId]").val()== null){
+    	 alert("비밀번호를 입력해주세요");
+    	 document.getElementsByName("memberPw")[0].focus();
+    	 return false;
+    }
+	});
+	
+});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-
 <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/reset.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="css/MemberLogin.css">
-
-  
 </head>
 
 <body>
@@ -73,7 +85,7 @@ function MemberSearch(){
 	<nav id="main-nav">
 		<ul id="loginUl">
 			<li id="loginMain">
-					<form action="MemberLogin.do">
+					<form action="MemberLogin.do" id="myform">
 						<div id="loginImg">
 							<div class="loginPadding">
 								<span class="spanIdPw">ㅇ USERNAME　　　　　　　　　</span>

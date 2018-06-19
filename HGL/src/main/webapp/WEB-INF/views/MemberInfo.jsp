@@ -24,7 +24,7 @@ body {
 <script type="text/javascript">
 
 function goUpdate(){
-	location.href="MemberInfoUpdateForm.do";
+	location.href="MemberInfoUpdateForm.do?memberNo=${dto.memberNo}";
 }
 function goFamDetail(famNo){
 	location.href="FamDetailForm.do?famNo="+famNo;
