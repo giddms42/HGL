@@ -631,8 +631,6 @@
 		            $(this).val($(this).val().substring(0, 12));
 		        }
 		    });
-		
-		
 		});
 		
 		

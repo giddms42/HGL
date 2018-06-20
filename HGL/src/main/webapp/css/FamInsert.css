@@ -5,24 +5,38 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-li{
-	list-style: none;
-}
-header{
-	text-align:center;
+.famRegistForm{
+	text-align: center;
+	width: 600px;
+	height: 550px;
 	margin: auto;
-	width: 500px;
+	margin-top: 5%;
+	border: 3px solid black;
+}
+.famRegistForm header{
+	text-align:center;
 	margin-bottom: 30px;
 }
-form{
+.famRegistForm form{
 	margin:auto;	
 	width: 500px;	
+}
+#famTable{
+	margin: auto;
+}
+.famInsert img{
+	width: 70%;
 }
 label{
 	font-size: 12pt;
 }
-
-.radi{
+Table input{
+	width: 250px;
+	height: 40px;
+	border: none;
+	padding: 20px;
+}
+.famRadi input{
 	width: 20px;
 	height: 20px;
 	vertical-align: top;
@@ -32,14 +46,7 @@ label{
 	width: 20px;
 	height: 20px;
 }
-.famInfo{
-	width: 400px;
-	height: 37px;
-	border: none;
-	background-color : #f0f0f0;
-	margin-left: 20px;
-	margin-bottom: 30px;
-}
+
 
 #disList{
 display:none;	
@@ -54,7 +61,7 @@ display:none;
 
 
 
-button {
+#TwoBtn button {
 	display: inline-block;
 	outline: none;
 	cursor: pointer;
@@ -72,15 +79,15 @@ button {
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
-button:hover {
+#TwoBtn button:hover {
 	text-decoration: none;
 }
-button:active {
+#TwoBtn button:active {
 	position: relative;
 	top: 2px;
 }
 
-select {
+#disList select {
     height: 37px;
     margin-top: 10px;
     padding-left: 10px;
