@@ -37,10 +37,9 @@
         chart: {
           title: '건강 그래프',
           subtitle: '가장 최근 입력된 건강 정보'
-          
         },
-        width: 700,
-        height: 500,
+        width: 450,
+        height: 400,
         axes: {
           x: {
             0: {side: 'top'}
@@ -50,5 +49,6 @@
 
       var chart = new google.charts.Line(document.getElementById('graph'));
 
+      chart.draw(data, {backgroundColor : {fill : "#F4F4F4"}});
       chart.draw(data, google.charts.Line.convertOptions(options));
     }

@@ -8,21 +8,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>건강정보 추가</title>
 <link rel="stylesheet" type="text/css" href="css/FamHealthInsert.css">
-<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
 $(function(){
+	$(document).ready(function() {
+	    $('input').on('keyup', function() {
+	        if($(this).val().length > 3) {
+	            $(this).val($(this).val().substring(0, 3));
+	        }
+	    });
+	})
 	$("#healthForm").submit(function(){
 		var radioValue = $("#disYes").val(); 
 	    if($("input[name=healthWeight]").val() == ""){
-		   	swal("체중을 입력해주세요")
+		   	alert("체중을 입력해주세요")
 	   		return false;
 	    }else if($("input[name=healthShrbp]").val() == ""){
-	   	 	swal("혈압의 수축기를 입력해주세요")
+	   	 	alert("수축기 혈압을 입력해주세요")
 	   	 	return false;
 	    }else if($("input[name=healthRelbp]").val() == ""){
-	   	 	swal("혈압의 이완기를 입력해주세요")
+	   	 	alert("이완기 혈압을 입력해주세요")
 	   	 	return false;
 	    }else{
 	    	window.opener.name = "Parent"; // 부모창의 이름 설정
@@ -34,26 +40,28 @@ $(function(){
 </script>
 </head>
 <body>
-	<h3>${famDto.famName}님의 건강정보 추가</h3>
 
 	<div id="addHealth">
+		<h3>${famDto.famName}님의 건강정보 추가</h3>
 		<form id="healthForm" action="FamHealthInsert.do" method="post" name="myForm">
-			<input type="hidden" name="famNo" value="${famDto.famNo}">
-			<div>체중<input type="text" name="healthWeight" placeholder="kg. 체중을 입력해주세요" 
-			onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" ></div>
-
-			<div>혈압
-				<input class="healthInfoAdd" type="number" name="healthShrbp" placeholder="수축기를 숫자만 입력해주세요"><br>
-				<input class="healthInfoAdd" type="number" name="healthRelbp" placeholder="이완기를 숫자만 입력해주세요" style="margin-left: 35px;">
-			</div>
-
-
-			<div style="margin-top: 10px; "> 
-				<button>추가하기</button>
-				<button type="button" onclick="self.close()">취소하기</button>
-			</div>
-
-
+		<input type="hidden" name="famNo" value="${famDto.famNo}">
+			<table style="margin: auto; text-align: center;">
+				<tr>
+					<td>체중</td>
+					<td><input class="healthInfoAdd" type="number" name="healthWeight" placeholder="체중을 입력해주세요"></td>
+				</tr>
+				<tr>
+					<td>수축기</td>
+					<td><input class="healthInfoAdd" type="number" name="healthShrbp" placeholder="수축기를 입력해주세요"></td>
+				</tr>
+				<tr>
+					<td>이완기</td>
+					<td><input class="healthInfoAdd" type="number" name="healthRelbp" placeholder="이완기를 입력해주세요"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button>추가</button><button type="button" onclick="self.close()" style="margin-left: 10%;">취소</button></td>
+				</tr>
+			</table>
 		</form>
 	</div>
 </body>

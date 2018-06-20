@@ -2,20 +2,6 @@
 h3{
 	text-align:center;
 }
-form{
-	text-align:center;
-}
-input {
-  border: none;
-  padding: 10px 0;
-  border-bottom: solid 1px #1abc9c;
-  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
-  color: #0e6252;
-}
- 
 input:focus, input:valid {
  box-shadow: none;
  outline: none;
@@ -26,6 +12,24 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.healthInfoAdd{
-	width: 200px;
+#addHealth input {
+  text-align:center;
+  border: none;
+  padding: 10px 0;
+  border-bottom: solid 1px #1abc9c;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+  color: #0e6252;
+}
+#addHealth button{
+	background: transparent;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+}
+#addHealth td{
+	text-align: center;
+	padding: 5px;
 }
