@@ -91,7 +91,7 @@ function upOk(){
 	var memberId = $("#memberId").val();
 	alert(calNo);
 	window.opener.top.location.href="CalUpdate.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&date="+date+"&hour="+hour+"&min="+min+"&calTitle="+calTitle+"&calMemo="+calMemo+"&calSMS="+calSMS;
-	window.close()
+	window.close();
 }
 
 </script>

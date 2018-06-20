@@ -33,6 +33,7 @@ body {
 				<input type="hidden" name="memberNo" value="${login.memberNo}"/>
 				<input type="hidden" id="memberDo" value="${dto.memberDo}"/>
 				<input type="hidden" id="memberCity" value="${dto.memberCity}"/>
+				
 				<div><img class="memberIcon" src="icon/User-Profile-128.png">
 					<input class="updateInfo" type="text" name="memberId" value="${login.memberId}" readonly="readonly">
 				</div>
@@ -373,7 +374,6 @@ body {
 					</div>
 		</div>
 	</form>
-		
 	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 </div>
 </body>

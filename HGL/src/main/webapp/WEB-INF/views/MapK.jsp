@@ -415,7 +415,6 @@
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ba70f18b82582ffb72e4e43aa8c40fbb&libraries=services"></script>
 <script>
-
 function SeachMap(SeachAddr,SeachKindName){
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = {

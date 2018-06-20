@@ -10,6 +10,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/FamDetail.css">
+<style>
+body {
+ background: url('image/back.png') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script src="js/FChart.js"></script>
@@ -42,25 +51,23 @@ google.charts.setOnLoadCallback(drawChart);
 </script>
 </head>
 <body>
+<div class="container"  id="container">
+	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 		<div id="detail">
-		    <header>
 				<h2>${famDto.famName} 님의 정보</h2>
-			</header>
-	
-			<div id="famDetail" style="display: flex; ">
-
+			<div id="famDetail" style="display: flex;">
 				<div id="famInfoFom">
 					<input type="hidden" id="famNo" value="${famDto.famNo}">
-					<div>이름
+					<div style="width:250px; height: 35px;"><img src="icon/Famuser.png">
 						<input class="famInfo" type="text" value="${famDto.famName}" readonly="readonly">
 					</div>
-					<div>생일
+					<div style="width:250px; height: 35px;"><img src="icon/birthday.png">
 						<input class="famInfo" type="text" value="${year}년 ${month}월 ${day}일" readonly="readonly">
 					</div>
-					<div>신장
+					<div style="width:250px; height: 35px;"><img src="icon/health.png">
 						<input class="famInfo" type="text" value="${famDto.famHeight}cm" readonly="readonly">
 					</div>
-					<div>체중
+					<div style="width:250px; height: 35px;"><img src="icon/weight.png">
 					<c:choose>
 						<c:when test="${empty healthDto.healthWeight}">
 							<input class="famInfo" type="text" value="등록된 체중이 없습니다." readonly="readonly">
@@ -70,33 +77,85 @@ google.charts.setOnLoadCallback(drawChart);
 						</c:otherwise>
 					</c:choose>
 					</div>
-					<div>혈압
-					<c:choose>
-						<c:when test="${empty healthDto.healthShrbp}">
-							<input class="famInfo" type="text" value="등록된 혈압이 없습니다." readonly="readonly">
-						</c:when>
-						<c:otherwise>
-							<input class="famInfo" type="text" value="${healthDto.healthShrbp}mg" readonly="readonly">
-						</c:otherwise>
-					</c:choose>
-							<p style="margin-top: -20px; margin-left: 38px;">
-					<c:choose>
-						<c:when test="${empty healthDto.healthRelbp}">
-							<input class="famInfo" type="text" value="등록된 혈압이 없습니다." readonly="readonly">
-						</c:when>
-						<c:otherwise>
-							<input class="famInfo" type="text" value="${healthDto.healthRelbp}mg" readonly="readonly">
-						</c:otherwise>
-					</c:choose>	
+					<div style="width:250px; height: 70px;"><img src="icon/health.png">
+						<c:choose>
+							<c:when test="${empty healthDto.healthShrbp}">
+								<input class="famInfo" type="text" value="등록된 혈압이 없습니다" readonly="readonly">
+							</c:when>
+							<c:otherwise>
+								<input class="famInfo" type="text" value="${healthDto.healthShrbp}mg" readonly="readonly">
+							</c:otherwise>
+						</c:choose>
+						<c:choose>
+							<c:when test="${empty healthDto.healthRelbp}">
+								<input class="famInfo" type="text" value="등록된 혈압이 없습니다" readonly="readonly" style="float:right">
+							</c:when>
+							<c:otherwise>
+								<input class="famInfo" type="text" value="${healthDto.healthRelbp}mg" readonly="readonly">
+							</c:otherwise>
+						</c:choose>	
 					</div>
-					<div>지병 항목 (최대 3개) <input type="button" value="변경하기" onclick="goDiseaseUpdate()"></div>
-					<c:choose>
+					
+					<div id="infoInsert">
+						<button type="button" onclick="goHealthInfoAdd();">+정보추가</button>
+					</div>	
+					
+					<div style="margin-top: 35px">
+					<table class="diseaseTable">
+						<col width="65px">
+						<col width="100px">
+						<col width="75px">
+						<tr>
+							<th colspan="3" style="text-align: center;">지병 항목 (최대 3개)</th>
+						<tr>
+						<tr>
+							<td>지병 :</td>
+							<c:choose>
+								<c:when test="${famDto.famDisease1 eq '질병없음'}">
+									<td>질병없음</td>
+								</c:when>
+								<c:otherwise>
+									<td>${famDto.famDisease1}</td>
+									<td><button type="button" onclick="showMenu('${famDto.famDisease1}');">추천식단</button></td>
+								</c:otherwise>
+							</c:choose>
+						</tr>
+						<tr>
+							<td>지병 :</td>
+							<c:choose>
+								<c:when test="${famDto.famDisease2 eq '질병없음'}">
+									<td>질병없음</td>
+								</c:when>
+								<c:otherwise>
+									<td>${famDto.famDisease2}</td>
+									<td><button type="button" onclick="showMenu('${famDto.famDisease1}');">추천식단</button></td>
+								</c:otherwise>
+							</c:choose>
+						</tr>	
+						<tr>
+							<td>지병 :</td>
+							<c:choose>
+								<c:when test="${famDto.famDisease3 eq '질병없음'}">
+									<td>질병없음</td>
+								</c:when>
+								<c:otherwise>
+									<td>${famDto.famDisease3}</td>
+									<td><button type="button" onclick="showMenu('${famDto.famDisease1}');">추천식단</button></td>
+								</c:otherwise>
+							</c:choose>
+						</tr>
+						<tr>
+							<td colspan="3"><button type="button" onclick="goDiseaseUpdate()" style="background: transparent;">변경하기</button></td>
+						</tr>	
+					</table>
+					
+					<%-- <c:choose>
 						<c:when test="${famDto.famDisease1 eq '질병없음'}">
 						</c:when>
 						<c:otherwise>
 						<div style="margin-left: 20px;">
-						지병1<input class="disease" type="text" value="${famDto.famDisease1}">
-						<input type="button" value="추천식단" onclick="showMenu('${famDto.famDisease1}');">
+						지병1 <span> ${famDto.famDisease1}</span>
+						<button type="button" onclick="showMenu('${famDto.famDisease1}');">추천식단</button>
 						</div>
 						</c:otherwise>
 					</c:choose>
@@ -106,8 +165,8 @@ google.charts.setOnLoadCallback(drawChart);
 						</c:when>
 						<c:otherwise>
 						<div style="margin-left: 20px;">
-						지병2<input class="disease" type="text" value="${famDto.famDisease2}">
-						<input type="button" value="추천식단" onclick="showMenu('${famDto.famDisease2}');">
+						지병2 <span> ${famDto.famDisease2}</span>
+						<button type="button" onclick="showMenu('${famDto.famDisease2}');">추천식단</button>
 						</div>
 						</c:otherwise>
 					</c:choose>
@@ -116,26 +175,29 @@ google.charts.setOnLoadCallback(drawChart);
 						<c:when test="${famDto.famDisease3 eq '질병없음'}">
 						</c:when>
 						<c:otherwise>
-						<div style="margin-left: 20px;">
-						지병3<input class="disease" type="text" value="${famDto.famDisease3}">
-						<input type="button" value="추천식단" onclick="showMenu('${famDto.famDisease3}');">
+						<div style="margin-left: 20px;">지병3
+						<span> ${famDto.famDisease3}</span>
+						<button type="button" onclick="showMenu('${famDto.famDisease3}');">추천식단</button>
 						</div>
 						</c:otherwise>
-					</c:choose>
-				</div>
-					<div id="graph"></div>
+					</c:choose> --%>
+					</div>
+				</div>	
+					<div id="flaxGraph">
+						<div id="graph"></div>
+					</div>
 			</div>
-			<div style="margin-top:100px;  margin-bottom:50px; text-align: center;">
-			<button type="button" onclick="goHealthInfoAdd();">정보추가</button>
-			<button type="button" onclick="location.href='MemberInfoForm.do?memberNo='+${famDto.memberNo}">목록으로</button>
+			<div id="famList">
+				<button type="button" onclick="location.href='MemberInfoForm.do?memberNo='+${famDto.memberNo}">목록</button>
 			</div>
 		</div>
-
 			<c:forEach items="${list}" var="healthDto" varStatus="status">
-			<input type="hidden" name="health" id="dto${status.index}ShrBP" value="${healthDto.healthShrbp}" />
-			<input type="hidden" name="health" id="dto${status.index}RelBP" value="${healthDto.healthRelbp}" />
-			<input type="hidden" name="health" id="dto${status.index}Weigth" value="${healthDto.healthWeight}" />
+				<input type="hidden" name="health" id="dto${status.index}ShrBP" value="${healthDto.healthShrbp}" />
+				<input type="hidden" name="health" id="dto${status.index}RelBP" value="${healthDto.healthRelbp}" />
+				<input type="hidden" name="health" id="dto${status.index}Weigth" value="${healthDto.healthWeight}" />
 			</c:forEach>
+	<%-- <div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div> --%>
+</div>
 	
 </body>
 </html>
