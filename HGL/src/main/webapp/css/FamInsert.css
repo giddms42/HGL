@@ -1,65 +1,94 @@
 @charset "UTF-8";
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button
+	{
+	-webkit-appearance: none;
+	margin: 0;
 }
 
-.famRegistForm{
+.famRegistForm {
 	text-align: center;
 	width: 600px;
-	height: 550px;
+	height: 600px;
 	margin: auto;
 	margin-top: 5%;
-	border: 3px solid black;
+	border: none;
+	border-radius: 20px;
+	background:rgb(255,255,255,0.4);
 }
-.famRegistForm header{
-	text-align:center;
+
+.famRegistForm h3 {
+	text-align: center;
+	font-family: 'Jeju Hallasan', serif;
+	font-size: 26pt;
 	margin-bottom: 30px;
 }
-.famRegistForm form{
-	margin:auto;	
-	width: 500px;	
-}
-#famTable{
+
+.famRegistForm form {
 	margin: auto;
+	width: 500px;
 }
-.famInsert img{
-	width: 70%;
-}
-label{
-	font-size: 12pt;
-}
-Table input{
-	width: 250px;
+
+.faminfo {
+	width: 150px;
 	height: 40px;
 	border: none;
-	padding: 20px;
 }
-.famRadi input{
+
+#famTable {
+	margin: auto;
+}
+
+#famTable td {
+	padding: 3px;
+}
+
+.famInsert img {
+	width: 70%;
+}
+
+#famRadi input {
 	width: 20px;
 	height: 20px;
 	vertical-align: top;
 	margin-bottom: 15px;
 }
-.dis{
-	width: 20px;
-	height: 20px;
+
+#famRadi label {
+	font-size: 13pt;
 }
 
+#disList h5 {
+	font-family: 'Jeju Hallasan', serif;
+	font-size: 14pt;
+}
 
+#disList td {
+	font-family: 'Jeju Gothic', serif;
+	font-size: 12pt;
+	width: 40px;
+	height: 40px;
+	text-align: left;
+}
 #disList{
-display:none;	
+	width:400px;
+	padding:10px;
+	display:none;
+	margin: auto;	
+	background: rgb(0,0,0,0.2);
+	border-radius: 10px;
+	margin-bottom: 20px;
 }
-
-#diseSelect{
-	height: 35px; 
-	width: 160px; 
+#diseSelect {
+	height: 35px;
+	width: 160px;
 	text-align: center;
 	margin-bottom: 20px;
 }
-
-
 
 #TwoBtn button {
 	display: inline-block;
@@ -69,31 +98,33 @@ display:none;
 	text-decoration: none;
 	font: 14px/100% Arial, Helvetica, sans-serif;
 	padding: .5em 2em .55em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .5em; 
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	-webkit-border-radius: .5em;
 	-moz-border-radius: .5em;
 	border-radius: .5em;
 	color: black;
 	background-color: white;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
 }
+
 #TwoBtn button:hover {
 	text-decoration: none;
 }
+
 #TwoBtn button:active {
 	position: relative;
 	top: 2px;
 }
 
 #disList select {
-    height: 37px;
-    margin-top: 10px;
-    padding-left: 10px;
-    font-size: 14px;
-    color: #400040;
-    border: 1px solid #c0c0c0;
-    border-radius: 3px;
-    text-align: center;
+	height: 35px;
+	margin-top: 10px;
+	padding-left: 10px;
+	font-size: 14px;
+	color: #400040;
+	border: 1px solid #c0c0c0;
+	border-radius: 3px;
+	text-align: center;
 }
