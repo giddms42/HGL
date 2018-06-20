@@ -27,4 +27,7 @@ public interface CalDao {
 	public int updateCALSMS(int calNo);
 	//문자알림이 Y인 리스트 
 	public List<calDto> calList();
+	//하루 일정 갯수 카운트 
+	public int DayListCount(calDto dto);
+	
 }

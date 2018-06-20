@@ -17,6 +17,11 @@ public class calDto {
 		
 	}
 	
+	public calDto(String memberId, String calSch) {
+		this.memberId = memberId;
+		this.calSch = calSch;
+	}
+	
 	
 	public calDto(String memberId, int calNo, String calTitle, String calSch, Date calDate, String calMemo, String calSMS) {
 		this.memberId = memberId;

@@ -9,6 +9,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#myform").submit(function(){
+		if($("textarea[name=fwlbcmCont]").val() == null|| $("textarea[name=fwlbcmCont]").val() == ""){
+			swal("댓글 내용을 작성해주세요");
+			return false;
+		}
+	});
+	
+});
+
+
+
+</script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/Header.jsp"%>
@@ -67,7 +83,7 @@
 	
 			<div style="margin:auto; width: 600px; margin-bottom: 10px;"><br>
 				<h3>댓글작성</h3>
-				<form action="FWLBCMInsert.do">
+				<form action="FWLBCMInsert.do" id="myform">
 				<input type="hidden" name="fwlbNo" value="${dto.fwlbNo}" >
 				<input type="hidden" name="fwlbWriter" value="${dto.fwlbWriter}">
 				<input type="hidden" name="count" value="0"/>

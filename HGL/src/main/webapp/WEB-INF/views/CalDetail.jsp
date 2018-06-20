@@ -94,8 +94,8 @@ function upOk(){
 	/* 에이작스 써서 업데이트해야함 */
 	
 	
-	window.opener.top.location.href="CalUpdate.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&date="+date+"&hour="+hour+"&min="+min+"&calTitle="+calTitle+"&calMemo="+calMemo+"&calSMS="+calSMS;
-	window.close()
+	//window.opener.top.location.href="CalUpdate.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&date="+date+"&hour="+hour+"&min="+min+"&calTitle="+calTitle+"&calMemo="+calMemo+"&calSMS="+calSMS;
+	window.location.reload();
 }
 
 </script>

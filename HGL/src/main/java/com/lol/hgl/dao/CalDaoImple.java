@@ -142,5 +142,17 @@ public class CalDaoImple implements CalDao {
 		return list;
 	}
 
+	@Override
+	public int DayListCount(calDto dto) {
+		int res = 0;
+		try {
+			res = sqlSession.selectOne(namespace+"DayListCount", dto);
+			}catch(Exception e ) {
+				e.printStackTrace();
+			}	
+		System.out.println(res);
+		return res;
+	}
+
 
 }

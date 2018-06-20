@@ -20,6 +20,19 @@ body {
  background-size: cover;
  }
 </style>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#cmtForm").submit(function(){
+		if($("textarea[name=ggcmCont]").val()==null || $("textarea[name=ggcmCont]").val()==""){
+			swal("댓글을 작성해주세요");
+			return false;
+		}
+	});
+});
+</script>
+
 <body>
 
 	<div id="container">
@@ -27,8 +40,6 @@ body {
 
 		<div id="b">
 			<div id="bodyMain">
-				<form action="GGUpdateForm.do?ggNo=${dto.ggNo}" id="form"
-					method="post">
 					<br/>
 					<table border="1" bordercolor="white">
 						<col width="100">
@@ -71,7 +82,7 @@ body {
 					<div class="btn00">
 						<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn001">
 					<c:if test="${login.memberNickname eq dto.ggWriter}">
-						<input type="submit" value="글수정" class="btn002">
+						<input type="submit" value="글수정" onclick="location.href='GGUpdateForm.do?ggNo=${dto.ggNo}'"class="btn002">
 						<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" class="btn003">
 					</c:if>
 				
@@ -80,7 +91,6 @@ body {
 					<br>
 					<br>
 					</div>
-				</form>
 
 					<br/>
 					<c:if test="${!empty dto2}">
@@ -110,7 +120,7 @@ body {
 						<c:choose>
 							<c:when test="${login != null}">
 								<div class="replyBox">
-									<form action="GGRepleyInsert.do" id="form" method="post">
+									<form action="GGRepleyInsert.do" id="cmtForm" method="post">
 										<input type="hidden" name="ggNo" value="${dto.ggNo}">
 										<br />
 										<table border="1" bordercolor="white">

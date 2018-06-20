@@ -11,6 +11,7 @@
 </head>
 <link rel="stylesheet" type="text/css" href="css/GGInsert.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 body {
  background: url('image/back.png') no-repeat center center fixed;
@@ -46,6 +47,23 @@ function fn_addFile(){
 function fn_deleteFile(obj){
     obj.parent().remove();
 }
+
+$(function(){
+	$("#form").submit(function(){
+		if($("input[name=ggTitle]").val()==null || $("input[name=ggTitle]").val()==""){
+			swal("제목을 입력해주세요");
+			return false;
+		}else if($("textarea[name=ggCont]").val()==null || $("textarea[name=ggCont]").val()==""){
+			swal("내용을 입력해주세요");
+			return false;
+		}
+		
+	});
+	
+	
+});
+
+
 </script>
 <body>
 	<div id="container">

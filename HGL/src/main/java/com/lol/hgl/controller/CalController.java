@@ -134,4 +134,15 @@ public class CalController {
 			return "redirect:calDetail.do";
 		}
 	}	
+	
+	
+	@RequestMapping(value="DayListCountAjax.do")
+	@ResponseBody
+	public String DayListCountAjax(String year, String month, String date, String memberId) {
+		String res = "";
+		res = String.valueOf(bizz.DayListCount(year, month, date, memberId));
+		return res;
+	}
+	
+	
 }

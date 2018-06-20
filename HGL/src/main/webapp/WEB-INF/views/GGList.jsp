@@ -21,6 +21,17 @@
  background-size: cover;
  }
 </style>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#searchForm").submit(function(){
+		if($("input[name=keyword]").val()==null || $("input[name=keyword]").val()==""){
+			window.location.reload();
+			return false;
+		}
+	});
+});
+</script>
 <body>
 
 	<div id="container">
@@ -103,7 +114,7 @@
 	            </div>
 	               <br/>
 	               <div id="paging2">
-	               	<form action="GGListSearch.do" method="post">
+	               	<form action="GGListSearch.do" method="post" id="searchForm">
 						<input type="hidden" name="nowpage" value="1"/>
 						<div style="width: 50%; margin: auto; text-align: center;">
 							<select style="height: 22px;" name="topic">

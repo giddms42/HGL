@@ -9,17 +9,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
 var gfv_count = 1;
 
 $(function(){
-
 	 $("#addFile").on("click", function(e){ //파일 추가 버튼
          e.preventDefault();
          fn_addFile();
      });
-      
      $("a[name^='delete']").on("click", function(e){ //삭제 버튼
          e.preventDefault();
          fn_deleteFile($(this));
@@ -42,6 +41,21 @@ function fn_addFile(){
         fn_deleteFile($(this));
     });
 }
+
+$(function(){
+	$("#frm").submit(function(){
+		if($("input[name=ggTitle]").val()==null || $("input[name=ggTitle]").val()==""){
+			swal("제목을 입력해주세요");
+			return false;
+		}else if($("textarea[name=ggCont]").val()==null || $("textarea[name=ggCont]").val()==""){
+			swal("내용을 입력해주세요");
+			return false;
+		}
+		
+	});
+	
+	
+});
 
 </script>
 </head>
