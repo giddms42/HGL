@@ -60,23 +60,23 @@ function fn_deleteFile(obj){
 	               <col width="100">
 	               		<tr>
 							<td colspan="2" class="th">
-								<div>좋은글 게시판 글쓰기</div>
+								<div class="thDiv">좋은글 게시판 글쓰기</div>
 							</td>
 						</tr>
 	                  <tr>
-	                     <td>제목</td>
+	                     <td class="thDiv">제목</td>
 	                     <td><input type="text" placeholder="제목을 입력해주세요." name="ggTitle" class="td"></td>
 	                  </tr>
 	                  <tr>
-	                     <td>작성자</td>
+	                     <td class="thDiv">작성자</td>
 	                     <td><input type="text" value="${login.memberNickname}" readonly="readonly" name="ggWriter" class="td"></td>
 	                  </tr>
 	                  <tr>
-	                     <td>내용</td>
+	                     <td class="thDiv">내용</td>
 	                     <td><textarea rows="20" cols="50" placeholder="내용을 입력해주세요" name="ggCont" class="td" style="resize: none;"></textarea></td>
 	                  </tr>
 	                  <tr>
-	                     <td>파일첨부 </td>
+	                     <td class="thDiv">파일첨부 </td>
 						<td>
 							<div id="fileDiv">
 							</div>
@@ -84,9 +84,9 @@ function fn_deleteFile(obj){
 					</tr>
 	               </table>
 	               <div class="btn00">               
-	             		<button class="btn01" id="addFile">파일 추가</button>
-	               		<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn02">
-		                <input type="submit" value="글작성" class="btn03">
+	             		<button id="addFile" class="btn-3">파일 추가</button>
+	               		<input class="btn-3" type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" id="btn02">
+		                <input class="btn-3" type="submit" value="글작성" id="btn03">
 	               </div>
 	      </form:form>
 	               

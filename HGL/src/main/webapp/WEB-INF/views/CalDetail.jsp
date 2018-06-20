@@ -50,53 +50,25 @@ function setInterval2(){
 	$("#Dt").show();
 }
 
-function back(){ //멤버 닉네임 추가해서
-	alert("창모드뒤로가기");
-	var memberNickname = $("#memberNickname").val();
+function back(){
+	var memberNickname = $("input[name=memberNickname]").val();
 	var memberId = $("#memberId").val();
-	var year = $("#year").val(); // 값 잘들어옴
-	var month = $("#month").val();
+	var year =  $("select[name=year]").val();
+	var month =  $("select[name=month]").val();
 	window.opener.top.location.href="CalListForm.do?memberNickname="+memberNickname+"&memberId="+memberId+"&year="+year+"&month="+month;
 	window.close()
-	/* location.href="CalListForm.do?memberNickname="+memberNickname+"&memberId="+memberId+"&year="+year+"&month="+month; */
-	/* opener.location.reload(); */
-	/* self.close(); */
 }
 
 function del(){
-	alert("창모드델리트");
 	var calNo = $("#calNo").val();
 	var memberId = $("#memberId").val();
-	var year = $("#year").val(); // 값 잘들어옴
+	var year = $("#year").val();
 	var month = $("#month").val();
 	alert(calNo);
 	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
 	window.close()
-	/* location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
-	opener.location.reload();
-	self.close(); */
 }
 
-function upOk(){
-	alert("창모드업데이트");
-	var calNo = $("#calNo").val();
-	var year = $("#year").val(); // 값 잘들어옴
-	var month = $("#month").val();
-	var date = $("#date").val();
-	var hour = $("#hour").val();
-	var min = $("#min").val();
-	var calTitle = $("#calTitle").val();
-	var calMemo = $("#calMemo").val();
-	var calSMS = $(".radioVal").val();
-	var memberId = $("#memberId").val();
-	
-	
-	/* 에이작스 써서 업데이트해야함 */
-	
-	
-	window.opener.top.location.href="CalUpdate.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&date="+date+"&hour="+hour+"&min="+min+"&calTitle="+calTitle+"&calMemo="+calMemo+"&calSMS="+calSMS;
-	window.close()
-}
 
 </script>
 <link rel="stylesheet" type="text/css" href="css/CalDetail.css">
@@ -131,7 +103,7 @@ function upOk(){
 				<th class="thPadding2">문자알림</th>
 				<td>
 					<div id="radioIn">
-					<input id="inputSize2" type="text" value="수신동의 : <%=dto.getCalSMS() %>">
+					<input id="inputSize2" type="text" value="수신동의 : <%=dto.getCalSMS() %>" readonly="readonly">
 					</div>
 				
 					<div>
@@ -151,10 +123,7 @@ function upOk(){
 	<div id="backColor"></div>
 	<form action="CalUpdate.do" method="post">
 		<input type="hidden" id="calNo" name="calNo" value="<%=dto.getCalNo()%>"/>
-		<input type="hidden" id="year" name="year" value="<%=year%>"/>
-		<input type="hidden" id="month" name="month" value="<%=month%>"/>
 		<input type="hidden" id="memberId" name="memberId" value="<%=dto.getMemberId()%>"/>
-		<input type="hidden" id="memberNickname" name="memberNickname" value="<%=dto.getMemberNickname()%>"/>
 		<table id="table" id="table">
 			<col width="100">
 			<col width="400">
@@ -223,9 +192,18 @@ function upOk(){
 			<tr>
 				<th class="thPadding2">문자알림</th>
 				<td style="padding-left: 1.5px;">
-					<div id="radioIn"><input id="inputSize3" type="text" value="수신동의　 수신거부"><input id="radio1" class="radioVal" type="radio" value="Y" name="calSMS"/><input id="radio2" class="radioVal" type="radio" value="N" name="calSMS" checked="checked"/></div>
+				<%if(dto.getCalSMS().equals("Y")){
+					%>
+					<div id="radioIn"><input id="inputSize3" type="text" value="수신동의　 수신거부" readonly="readonly"><input id="radio1" class="radioVal" type="radio" value="Y" name="calSMS" checked="checked"/><input id="radio2" class="radioVal" type="radio" value="N" name="calSMS"/></div>
+					<%
+				} else {
+					%>
+					<div id="radioIn"><input id="inputSize3" type="text" value="수신동의　 수신거부" readonly="readonly"><input id="radio1" class="radioVal" type="radio" value="Y" name="calSMS"/><input id="radio2" class="radioVal" type="radio" value="N" name="calSMS" checked="checked"/></div>
+					<%
+				}
+					%>
 					<div>
-						<button class="btn-3" onclick="upOk();">수정완료</button>
+						<button class="btn-3">수정완료</button>
 						<input class="btn-3" type="button" value="돌아가기" 
 						onclick="location.href='calDetail.do?calNo=<%=dto.getCalNo()%>'"/>
 					</div>

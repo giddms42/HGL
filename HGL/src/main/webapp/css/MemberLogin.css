@@ -97,7 +97,7 @@ Main components
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   text-align: center;
-  font-size: 18px;
+  font-size: 18pt;
   font-size: 1.125rem;
   font-weight: bold;
   color: #ffffff;
@@ -396,9 +396,6 @@ Main components
   transition-delay: 0s;
 }
 
-b{
-	font-size: 30pt;
-}
 
 #loginMain{
 	display: -webkit-flex;
@@ -408,22 +405,26 @@ b{
      -webkit-justify-content: center;
              justify-content: center;
     flex-direction: column;         
-    
 	width: 100%;
-	height: 100%;
+	height: 150px;
 }
+
+
 #loginUl{
+	position: relative;
 	display: -webkit-flex;
      display:         flex;
      -webkit-align-items: center;
              align-items: center;
      -webkit-justify-content: center;
              justify-content: center;
-     
+     flex-direction: column;
+     height: 300px;
 }
 
 .spanIdPw{
 	font-size: 8pt;
+	text-shadow: 1px 1px 0px black;
 	
 }
 
@@ -487,4 +488,20 @@ b{
   text-decoration: none;
   text-shadow: -1px -1px 0 #c2211c;
   transition: all 250ms linear;
+}
+.liSize{
+	top: 150px;
+	position: absolute;
+	text-align: center;
+  font-size: 18pt;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+b{
+	font-size: 30pt;
+}
+
+h1{
+	font-size: 18pt;
 }

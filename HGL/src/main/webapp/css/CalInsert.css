@@ -10,9 +10,6 @@ display: -webkit-flex;
 	  -webkit-justify-content: center;
 	          justify-content: center;
 }
-.btn-3:hover {
-  text-decoration: none;
-}
 .btn-3 {
 	float: right;
 	padding-bottom: 20px;
@@ -68,6 +65,14 @@ display: -webkit-flex;
 	border-right: 1px solid tomato;
 	border-left: 1px solid tomato;
 	border-top: 1px solid tomato;
+}
+
+#table th{
+	text-shadow: 1px 1px 0 black;
+}
+
+h1{
+	text-shadow: 2px 2px 0 tomato;
 }
 #radioIn{
 	padding-top: 2px;

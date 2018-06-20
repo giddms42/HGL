@@ -57,10 +57,10 @@ display: -webkit-flex;
     border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    
  }
+ 
  th{
-  background-color: rgba(255, 255, 255, 0.2);
+ 	text-shadow: 1px 1px 0 black;
  	background-color: tomato;
     font-weight:bold;
     /* 오늘추가한거 */
@@ -76,24 +76,31 @@ display: -webkit-flex;
  }
  
  #paging1{
+ text-shadow: 1px 1px 0 black;
+ background: tomato;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+    border: 1px solid white;
  	color: white;
  	padding: 5px;
     text-align: center;
     width: 98%;
-    background-color: tomato;
-    border: 1px solid white;
  }
  
  #paging2{
+ background: tomato;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+    border: 1px solid white;
  	color: black;
  	padding: 5px;
     text-align: center;
     width: 98%;
     background-color: tomato;
-    border: 1px solid white;
  }
  
  #boardName{
+ 	text-shadow: 1px 1px 0 black;
     display: -webkit-flex;
      display:         flex;
      -webkit-align-items: center;
@@ -103,7 +110,9 @@ display: -webkit-flex;
     text-align: center;
     height: 30px;
     width: 98%;
-    background-color: tomato;
+     background: tomato;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
     border: 1px solid white;
  }
  
@@ -112,6 +121,12 @@ display: -webkit-flex;
 	text-decoration: none;
   	color: white;
   }
+  
+#paging1 a:hover{
+	text-shadow: 1px 1px 0 orange;
+	text-decoration: none;
+  	color: white;
+  }  
 
 .Gbtn{
 	color: black;
@@ -131,7 +146,6 @@ tr:hover td {
  	color: white;
  }
  
-/*  ㅁㄴㅇ */
 
 thead th {
   background-color: #55608f;
@@ -157,5 +171,30 @@ a:visited {
 	text-decoration: none;
 }
 strong{
-	color: black;
+	color: white;
+	text-shadow: 1px 1px 0 orange;
+}
+.btn-3 {
+	padding-bottom: 20px;
+	color: #fff;
+  cursor: pointer;
+	margin: 4px;
+	height: 25px;
+  background: tomato;
+  border: 1px solid #da251f;
+  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
+   !important
+}
+
+.btn-3:hover {
+  background: tomato;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  color: #ec817d; !important
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #c2211c; !important
+  transition: all 250ms linear;
+   !important
 }

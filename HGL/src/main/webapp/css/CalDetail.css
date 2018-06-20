@@ -55,6 +55,15 @@ h1 {
 	border-top: 1px solid tomato;
 }
 
+#table th{
+	text-shadow: 1px 1px 0 black;
+}
+
+h1{
+	text-shadow: 2px 2px 0 tomato;
+}
+
+
 #calTitle{
 	width: 97.5%;
 	height: 20px;

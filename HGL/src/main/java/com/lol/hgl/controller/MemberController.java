@@ -30,7 +30,7 @@ public class MemberController {
    @Autowired
    private FamBizz famBizz;
    
-   int chk=0;
+   int chk=1;
    
  
    @RequestMapping(value = "MemberSignUpForm.do")
