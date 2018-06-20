@@ -87,9 +87,13 @@ function upOk(){
 	var min = $("#min").val();
 	var calTitle = $("#calTitle").val();
 	var calMemo = $("#calMemo").val();
-	var calSMS = $("#calSMS").val();
+	var calSMS = $(".radioVal").val();
 	var memberId = $("#memberId").val();
-	alert(calNo);
+	
+	
+	/* 에이작스 써서 업데이트해야함 */
+	
+	
 	window.opener.top.location.href="CalUpdate.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&date="+date+"&hour="+hour+"&min="+min+"&calTitle="+calTitle+"&calMemo="+calMemo+"&calSMS="+calSMS;
 	window.close()
 }
@@ -121,7 +125,7 @@ function upOk(){
 			</tr>
 			<tr>
 				<th class="thPadding">내용</th>
-				<td style="padding-left: 3.4px;"><textarea rows="10" cols="53" readonly="readonly" style="resize: none;"><%=dto.getCalMemo()%></textarea> </td>
+				<td style="padding-left: 3.4px;"><textarea rows="10" cols="53" readonly="readonly" style=" resize: none;"><%=dto.getCalMemo()%></textarea> </td>
 			</tr>
 			<tr>
 				<th class="thPadding2">문자알림</th>
@@ -132,7 +136,7 @@ function upOk(){
 				
 					<div>
 						<input class="btn-3" type="button" value="수정" onclick="Up();"/>
-						<input class="btn-3" type="button" value="삭제"	 onclick="del();"/>
+						<input class="btn-3" type="button" value="삭제" onclick="del();"/>
 						<input class="btn-3" type="button" value="돌아가기" onclick="back();"/>
 					</div>
 				</td>
@@ -144,20 +148,23 @@ function upOk(){
 <div id="Up">
 <h1>일정 수정하기</h1>
 <div id="CalForm0">
+	<div id="backColor"></div>
 	<form action="CalUpdate.do" method="post">
 		<input type="hidden" id="calNo" name="calNo" value="<%=dto.getCalNo()%>"/>
 		<input type="hidden" id="year" name="year" value="<%=year%>"/>
 		<input type="hidden" id="month" name="month" value="<%=month%>"/>
 		<input type="hidden" id="memberId" name="memberId" value="<%=dto.getMemberId()%>"/>
 		<input type="hidden" id="memberNickname" name="memberNickname" value="<%=dto.getMemberNickname()%>"/>
-		<table id="table">
+		<table id="table" id="table">
+			<col width="100">
+			<col width="400">
 			<tr>
-				<th>닉넴</th>
-				<td><%=dto.getMemberNickname()%></td>
+				<th class="thPadding">작성자</th>
+				<td><input style="padding-left: 2px;" id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=dto.getMemberNickname()%>" readonly="readonly" /></td>
 			</tr>
 			<tr>
-				<th>일정</th>
-				<td>
+				<th class="thPadding" id="thPadding">날짜</th>
+				<td style="padding-left: 3.4px;">
 					<select name="year">
 						<%
 							for(int i=year-5; i<year+5;i++){
@@ -206,22 +213,22 @@ function upOk(){
 				</td>
 			</tr>
 			<tr>
-				<th>제목</th>
-				<td><input type="text" id="calTitle" name="calTitle" value="<%=dto.getCalTitle()%>"/></td>
+				<th class="thPadding">제목</th>
+				<td><input class="txtWidth" type="text" id="calTitle" name="calTitle" value="<%=dto.getCalTitle()%>"/></td>
 			</tr>
 			<tr>
-				<th>내용</th>
-				<td><textarea rows="10" cols="60" id="calMemo" name="calMemo"><%=dto.getCalMemo()%></textarea> </td>
+				<th class="thPadding">내용</th>
+				<td><textarea rows="10" cols="53" id="calMemo" class="txtWidth" name="calMemo"><%=dto.getCalMemo()%></textarea> </td>
 			</tr>
 			<tr>
-				<td colspan="2">문자수신여부 : 
-				Y<input type="radio" value="Y" name="calSMS" id="calSMS"/>
-				N<input type="radio" value="N" name="calSMS" id="calSMS"/></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input class="btn-3" type="submit" value="수정완료" onclick="upOk();">
-					<input class="btn-3" type="button" value="돌아가기" onclick="back();"/>
+				<th class="thPadding2">문자알림</th>
+				<td style="padding-left: 1.5px;">
+					<div id="radioIn"><input id="inputSize3" type="text" value="수신동의　 수신거부"><input id="radio1" class="radioVal" type="radio" value="Y" name="calSMS"/><input id="radio2" class="radioVal" type="radio" value="N" name="calSMS" checked="checked"/></div>
+					<div>
+						<button class="btn-3" onclick="upOk();">수정완료</button>
+						<input class="btn-3" type="button" value="돌아가기" 
+						onclick="location.href='calDetail.do?calNo=<%=dto.getCalNo()%>'"/>
+					</div>
 				</td>
 			</tr>
 		</table>

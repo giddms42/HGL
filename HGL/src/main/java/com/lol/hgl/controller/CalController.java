@@ -119,6 +119,7 @@ public class CalController {
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("memberId", memberId);
+		model.addAttribute("calNo", calNo);
 		
 		String calSch=year+Util.isTwo(month)
 		+Util.isTwo(date)
@@ -128,9 +129,9 @@ public class CalController {
 		int res =bizz.update(new calDto(calNo,memberId,calTitle,calSch,calMemo,calSMS,memberNickname));
 		
 		if(res > 0){
-			return "redirect:CalListForm.do";
+			return "redirect:calDetail.do";
 		}else {
-			return "redirect:CalListForm.do";
+			return "redirect:calDetail.do";
 		}
 	}	
 }

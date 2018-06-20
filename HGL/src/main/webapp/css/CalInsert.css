@@ -61,19 +61,6 @@ display: -webkit-flex;
 	padding-left: 14px;
 }
 
-#inputSize{
-	width: 98%;
-	height: 20px;
-	margin: 2px;
-}
-
-#inputSize2{
-	padding-left: 40px;
-	bottom: 50px;
-	width: 190px;
-	height: 20px;
-	margin: 2px;
-}
 
 #table{
 	padding: 2px;
@@ -114,4 +101,17 @@ h1 {
 	background-color: black;
 }
 
+#inputSize{
+	width: 98%;
+	height: 20px;
+	margin: 2px;
+}
+
+#inputSize2{
+	padding-left: 40px;
+	bottom: 50px;
+	width: 190px;
+	height: 20px;
+	margin: 2px;
+}
 
