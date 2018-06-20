@@ -12,6 +12,14 @@
 <link rel="stylesheet" type="text/css" href="css/FWLBList.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$("#searchForm").submit(function(){
+		if($("input[name=searchNickName]").val()==null || $("input[name=searchNickName]").val()==""){
+			window.location.reload();
+			return false;
+		}
+	});
+});
 </script>
 </head>
 <body>
@@ -46,7 +54,7 @@
 						<c:forEach items="${FWLBList}" var="fwlbDto">
 						<tr>
 							<td>${fwlbDto.fwlbRowNum}</td>
-							<td><a href="FWLBDetail.do?fwlbWriter=${fwlbDto.fwlbWriter}&count=1">${fwlbDto.fwlbTitle}</a></td>
+							<td><a href="FWLBDetail.do?fwlbWriter=${fwlbDto.fwlbWriter}&count=1&fwlbNo=${fwlbDto.fwlbNo}">${fwlbDto.fwlbTitle}</a></td>
 							<td>${fwlbDto.fwlbWriter}</td>
 							<td><fmt:formatDate value="${fwlbDto.fwlbDate}" pattern="yyyy-MM-dd"/></td>
 							<td>${fwlbDto.fwlbReadcnt}</td>
@@ -87,7 +95,7 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<form action="FWLBListSearch.do" method="post">
+			<form action="FWLBListSearch.do" method="post" id="searchForm">
 				<input type="hidden" name="nowpage" value="1"/>
 				<div style="text-align: center;">
 					<input type="search" class="searchTerm" name="searchNickName" placeholder="검색할 닉네임을 입력해주세요">

@@ -50,7 +50,7 @@
 	</insert>
 	
 	<select id="FWLBDetail" parameterType="fwlbDto" resultType="fwlbDto">
-		SELECT* FROM FWLB WHERE FWLBWRITER=#{fwlbWriter} AND FWLBNO=#{fwlbNo}
+		SELECT * FROM FWLB WHERE FWLBWRITER=#{fwlbWriter} AND FWLBNO=#{fwlbNo}
 	</select>
 	
 	<select id="fwlbcmList" parameterType="int" resultMap="fwlbcmDto">

@@ -50,26 +50,23 @@ function setInterval2(){
 	$("#Dt").show();
 }
 
-function back(){ //멤버 닉네임 추가해서
-	alert("창모드뒤로가기");
-	var memberNickname = $("#memberNickname").val();
+function back(){
+	var memberNickname = $("input[name=memberNickname]").val();
 	var memberId = $("#memberId").val();
-	var year = $("#year").val(); // 값 잘들어옴
-	var month = $("#month").val();
+	var year =  $("select[name=year]").val();
+	var month =  $("select[name=month]").val();
 	window.opener.top.location.href="CalListForm.do?memberNickname="+memberNickname+"&memberId="+memberId+"&year="+year+"&month="+month;
 	window.close()
-	/* location.href="CalListForm.do?memberNickname="+memberNickname+"&memberId="+memberId+"&year="+year+"&month="+month; */
-	/* opener.location.reload(); */
-	/* self.close(); */
 }
 
 function del(){
-	alert("창모드델리트");
 	var calNo = $("#calNo").val();
 	var memberId = $("#memberId").val();
-	var year = $("#year").val(); // 값 잘들어옴
-	var month = $("#month").val();
+	var year =  $("select[name=year]").val();
+	var month =  $("select[name=month]").val();
+	var memberNickname = $("input[name=memberNickname]").val();
 	alert(calNo);
+<<<<<<< HEAD
 	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
 	window.close()
 	/* location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
@@ -92,8 +89,65 @@ function upOk(){
 	alert(calNo);
 	window.opener.top.location.href="CalUpdate.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&date="+date+"&hour="+hour+"&min="+min+"&calTitle="+calTitle+"&calMemo="+calMemo+"&calSMS="+calSMS;
 	window.close();
+=======
+	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&memberNickname="+memberNickname;
+	window.close()
+>>>>>>> branch 'he' of https://github.com/giddms42/HGL.git
 }
 
+$(function(){
+	$("#updateForm").submit(function(){
+		var year = $("select[name=year]").val();
+		var month= $("select[name=month]").val();
+		var date = $("select[name=date]").val();
+		var memberId = $("input[name=memberId]").val();
+		var returnVar = true;
+		var calSch = $("#calSch").val().substring(0,8);
+		var updateSch = year;
+		if(parseInt(month)<10){
+			updateSch = updateSch +"0"+month;
+		}else{
+			updateSch = updateSch+month;
+		}
+		
+		if(parseInt(date)<10){
+			updateSch = updateSch+"0"+date;
+		}else{
+			updateSch = updateSch+date;
+		}
+
+		if($("#calTitle").val()==null || $("#calTitle").val()==""){
+			alert("제목을 입력해주세요");
+			return false;
+		}else if(!(calSch===updateSch)){
+			$.ajax({
+				type:"post", //전송방식
+				url:"DayListCountAjax.do", //요청url
+				data:"memberId="+memberId+"&year="+year+"&month="+month+"&date="+date,
+				async : false,
+				success:function(val){
+					var r = $.trim(val);	
+					var count = parseInt(r);
+					alert(count)
+					if(count>=3){
+						alert("해당 날은 일정이 3개 이상입니다. 다른 날을 선택해주세요.");
+						returnVar = false;
+					}
+				}
+		
+			});
+			
+			if (!returnVar) { //false가 거꾸로 true가 되서 if문이 실행됨 > return false됨 
+				return false;
+			}
+		
+			
+		
+		}
+
+});
+
+});
 </script>
 <link rel="stylesheet" type="text/css" href="css/CalDetail.css">
 </head>	
@@ -121,18 +175,18 @@ function upOk(){
 			</tr>
 			<tr>
 				<th class="thPadding">내용</th>
-				<td style="padding-left: 3.4px;"><textarea rows="10" cols="53" readonly="readonly" style="resize: none;"><%=dto.getCalMemo()%></textarea> </td>
+				<td style="padding-left: 3.4px;"><textarea rows="10" cols="53" readonly="readonly" style=" resize: none;"><%=dto.getCalMemo()%></textarea> </td>
 			</tr>
 			<tr>
 				<th class="thPadding2">문자알림</th>
 				<td>
 					<div id="radioIn">
-					<input id="inputSize2" type="text" value="수신동의 : <%=dto.getCalSMS() %>">
+					<input id="inputSize2" type="text" value="수신동의 : <%=dto.getCalSMS() %>" readonly="readonly">
 					</div>
 				
 					<div>
 						<input class="btn-3" type="button" value="수정" onclick="Up();"/>
-						<input class="btn-3" type="button" value="삭제"	 onclick="del();"/>
+						<input class="btn-3" type="button" value="삭제" onclick="del();"/>
 						<input class="btn-3" type="button" value="돌아가기" onclick="back();"/>
 					</div>
 				</td>
@@ -144,20 +198,21 @@ function upOk(){
 <div id="Up">
 <h1>일정 수정하기</h1>
 <div id="CalForm0">
-	<form action="CalUpdate.do" method="post">
+	<div id="backColor"></div>
+	<form action="CalUpdate.do" method="post" id="updateForm">
 		<input type="hidden" id="calNo" name="calNo" value="<%=dto.getCalNo()%>"/>
-		<input type="hidden" id="year" name="year" value="<%=year%>"/>
-		<input type="hidden" id="month" name="month" value="<%=month%>"/>
 		<input type="hidden" id="memberId" name="memberId" value="<%=dto.getMemberId()%>"/>
-		<input type="hidden" id="memberNickname" name="memberNickname" value="<%=dto.getMemberNickname()%>"/>
-		<table id="table">
+		<input type="hidden" id="calSch" value="${dto.calSch}"/>
+		<table id="table" id="table">
+			<col width="100">
+			<col width="400">
 			<tr>
-				<th>닉넴</th>
-				<td><%=dto.getMemberNickname()%></td>
+				<th class="thPadding">작성자</th>
+				<td><input style="padding-left: 2px;" id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=dto.getMemberNickname()%>" readonly="readonly" /></td>
 			</tr>
 			<tr>
-				<th>일정</th>
-				<td>
+				<th class="thPadding" id="thPadding">날짜</th>
+				<td style="padding-left: 3.4px;">
 					<select name="year">
 						<%
 							for(int i=year-5; i<year+5;i++){
@@ -206,22 +261,31 @@ function upOk(){
 				</td>
 			</tr>
 			<tr>
-				<th>제목</th>
-				<td><input type="text" id="calTitle" name="calTitle" value="<%=dto.getCalTitle()%>"/></td>
+				<th class="thPadding">제목</th>
+				<td><input class="txtWidth" type="text" id="calTitle" name="calTitle" value="<%=dto.getCalTitle()%>"/></td>
 			</tr>
 			<tr>
-				<th>내용</th>
-				<td><textarea rows="10" cols="60" id="calMemo" name="calMemo"><%=dto.getCalMemo()%></textarea> </td>
+				<th class="thPadding">내용</th>
+				<td><textarea rows="10" cols="53" id="calMemo" class="txtWidth" name="calMemo"><%=dto.getCalMemo()%></textarea> </td>
 			</tr>
 			<tr>
-				<td colspan="2">문자수신여부 : 
-				Y<input type="radio" value="Y" name="calSMS" id="calSMS"/>
-				N<input type="radio" value="N" name="calSMS" id="calSMS"/></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input class="btn-3" type="submit" value="수정완료"/ onclick="upOk();">
-					<input class="btn-3" type="button" value="돌아가기" onclick="back();"/>
+				<th class="thPadding2">문자알림</th>
+				<td style="padding-left: 1.5px;">
+				<%if(dto.getCalSMS().equals("Y")){
+					%>
+					<div id="radioIn"><input id="inputSize3" type="text" value="수신동의　 수신거부" readonly="readonly"><input id="radio1" class="radioVal" type="radio" value="Y" name="calSMS" checked="checked"/><input id="radio2" class="radioVal" type="radio" value="N" name="calSMS"/></div>
+					<%
+				} else {
+					%>
+					<div id="radioIn"><input id="inputSize3" type="text" value="수신동의　 수신거부" readonly="readonly"><input id="radio1" class="radioVal" type="radio" value="Y" name="calSMS"/><input id="radio2" class="radioVal" type="radio" value="N" name="calSMS" checked="checked"/></div>
+					<%
+				}
+					%>
+					<div>
+						<button class="btn-3">수정완료</button>
+						<input class="btn-3" type="button" value="돌아가기" 
+						onclick="location.href='calDetail.do?calNo=<%=dto.getCalNo()%>'"/>
+					</div>
 				</td>
 			</tr>
 		</table>

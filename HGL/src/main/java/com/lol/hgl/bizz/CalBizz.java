@@ -14,5 +14,6 @@ public interface CalBizz {
 	public int update(calDto dto);
 	public int getCalViewCount(String memberId, String yyyyMMdd);
 	public calDto getCalBoard(int seq);
+	public int DayListCount(String year, String month, String date, String memberId);
 
 }

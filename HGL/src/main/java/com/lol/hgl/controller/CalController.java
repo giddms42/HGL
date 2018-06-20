@@ -24,11 +24,9 @@ public class CalController {
 	
 	@RequestMapping(value = "CalListForm.do")
 	   public String CalListForm(Model model, String memberNickname, String memberId, int year, int month) {
-		System.out.println("리스트폼 컨트롤러");
 		String month2 = String.valueOf(month);
 		String yyyyMM = ""+year+Util.isTwo(month2);
 		List<calDto> cList= bizz.selectAll(memberId, yyyyMM);
-		System.out.println("칼리스트폼.두 - cList : " + cList);
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("memberId", memberId);
@@ -53,7 +51,6 @@ public class CalController {
 		model.addAttribute("lastDay", lastDay);
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("memberNickname", memberNickname);
-		System.out.println(year + " , " +month + " , " +date + " , " +lastDay + " , " +memberId + " , " +memberNickname);
 		return "CalInsert";
 	}
 	
@@ -63,29 +60,21 @@ public class CalController {
 		System.out.println("칼인서트 컨트롤러 시작");
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
-		System.out.println("aaaaaaaaaa : "+ month);
 		model.addAttribute("date", date);
 		model.addAttribute("lastDay", lastDay);
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("memberNickname", memberNickname);
-		System.out.println("칼인서트컨트롤러 어트리뷰트끝"+lastDay);
 		String calSch=year+Util.isTwo(month)
 			+Util.isTwo(date)
 			+Util.isTwo(hour)
 			+Util.isTwo(min);
-		System.out.println("칼인서트컨트롤러 calSch완성");
 		int res = bizz.insert(new calDto(memberId,calTitle,calSch,calMemo,calSMS,memberNickname));
-		System.out.println("칼인서트컨트롤러 비즈.인서트 결과값 : " + res);
 		if(res > 0) {
-			System.out.println("인서트 성공");
 			String yyyyMM = ""+year+Util.isTwo(month);
-			System.out.println("칼인서트컨트롤러 yyyyMM : " + yyyyMM);
 			List<calDto> cList= bizz.selectAll(memberId, yyyyMM);
-			System.out.println("칼인서트컨트롤러 비즈.셀렉트올 cList : " + cList);
 			model.addAttribute("cList", cList);
 			return "Y";		
 		}else {
-			System.out.println("실패");
 			return "N";
 		}
 	}
@@ -98,12 +87,13 @@ public class CalController {
 	}
 	
 	@RequestMapping(value="CalDelete.do")
-	public String CalDelete(Model model, int calNo, String year, String month, String memberId) {
-		System.out.println("delete컨트롤러");
+	public String CalDelete(Model model, int calNo, String year, String month, String memberId, String memberNickname) {
+		System.out.println(year);
+		System.out.println(month);
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("memberId", memberId);
-		
+		model.addAttribute("memberNickname", memberNickname);
 		int res =bizz.delete(calNo);
 		
 		if(res > 0){
@@ -115,10 +105,10 @@ public class CalController {
 	
 	@RequestMapping(value="CalUpdate.do")
 	public String CalUpdate(Model model, int calNo, String year, String month, String date, String hour, String min, String memberId, String calTitle, String calMemo, String calSMS, String memberNickname) {
-		System.out.println("칼업뎃");
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("memberId", memberId);
+		model.addAttribute("calNo", calNo);
 		
 		String calSch=year+Util.isTwo(month)
 		+Util.isTwo(date)
@@ -128,9 +118,20 @@ public class CalController {
 		int res =bizz.update(new calDto(calNo,memberId,calTitle,calSch,calMemo,calSMS,memberNickname));
 		
 		if(res > 0){
-			return "redirect:CalListForm.do";
+			return "redirect:calDetail.do";
 		}else {
-			return "redirect:CalListForm.do";
+			return "redirect:calDetail.do";
 		}
 	}	
+	
+	
+	@RequestMapping(value="DayListCountAjax.do")
+	@ResponseBody
+	public String DayListCountAjax(String year, String month, String date, String memberId) {
+		String res = "";
+		res = String.valueOf(bizz.DayListCount(year, month, date, memberId));
+		return res;
+	}
+	
+	
 }

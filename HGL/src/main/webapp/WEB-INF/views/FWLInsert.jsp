@@ -20,16 +20,15 @@
 				data : params,
 				success : function(xh){
 					window.opener.location.reload(); 
-					//opener.document.location.reload();
 					window.close();
-
-
-							/*opener.parent.location.reload();
-							self.close();*/
+						},error:function(){
+							window.opener.location.reload(); 
+							window.close();							
 						}
 			});
 		}else{
-			alert("위시리스트를 입력해주세요.")
+			alert("위시리스트를 입력해주세요.");
+			return false;
 		}
 	}
  

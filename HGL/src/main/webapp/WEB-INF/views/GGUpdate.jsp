@@ -9,17 +9,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
 var gfv_count = 1;
 
 $(function(){
-
 	 $("#addFile").on("click", function(e){ //파일 추가 버튼
          e.preventDefault();
          fn_addFile();
      });
-      
      $("a[name^='delete']").on("click", function(e){ //삭제 버튼
          e.preventDefault();
          fn_deleteFile($(this));
@@ -34,7 +33,7 @@ function fn_deleteFile(obj){
 function fn_addFile(){
     var str = "<p id='fileDiv1'>" +
             "<input id='fileDiv2' type='file' name='file_"+(gfv_count++)+"'>"+
-            "<a href='#this' class='fileDiv0' id='delete_${i.index }' name='delete_${i.index }'><button class='fileDiv'>삭제</button></a>" +
+            "<a href='#this' class='fileDiv0' id='delete_${i.index }' name='delete_${i.index }'><button class='btn-3'>삭제</button></a>" +
               "</p>";
     $("#fileDiv").append(str);
     $("a[name^='delete']").on("click", function(e){ //삭제 버튼
@@ -42,6 +41,21 @@ function fn_addFile(){
         fn_deleteFile($(this));
     });
 }
+
+$(function(){
+	$("#frm").submit(function(){
+		if($("input[name=ggTitle]").val()==null || $("input[name=ggTitle]").val()==""){
+			swal("제목을 입력해주세요");
+			return false;
+		}else if($("textarea[name=ggCont]").val()==null || $("textarea[name=ggCont]").val()==""){
+			swal("내용을 입력해주세요");
+			return false;
+		}
+		
+	});
+	
+	
+});
 
 </script>
 </head>
@@ -68,23 +82,23 @@ body {
 	               <table border="1" bordercolor="white">
 	               <col width="100">
 	               	  <tr>
-	               	  	<td colspan="2"><div>좋은글 게시판 수정하기</div></td>
+	               	  	<td colspan="2"><div class="thDiv">좋은글 게시판 수정하기</div></td>
 	               	  </tr>
 	                  <tr>
-	                     <td>제목</td>
+	                     <td class="thDiv">제목</td>
 	                     <td><input type="text" class="td" value="${dto.ggTitle }" name="ggTitle"></td>
 	                  </tr>
 	                  <tr>
-	                     <td>작성자</td>
+	                     <td class="thDiv">작성자</td>
 	                     <td><input type="text" value="${dto.ggWriter }" readonly="readonly" class="td" name="ggWriter"></td>
 	                  </tr>
 	                  <tr>
-	                     <td>내용</td>
+	                     <td class="thDiv">내용</td>
 	                     <td>
 	                     <textarea class="td" rows="20" cols="50" style="resize: none;" name="ggCont">${dto.ggCont }</textarea></td>
 	                  </tr>
 	                  <tr>
-	                  	<td>파일첨부 </td>
+	                  	<td class="thDiv">파일첨부 </td>
 	                  	<td>
 	                      <div id="fileDiv">               
                             <c:forEach items="${list}" var="ggImgDto" varStatus="i">
@@ -103,9 +117,9 @@ body {
 					</tr>
 	               </table>
 	               <div class="btn00">
-	               		<button class="btn0" id="addFile">파일 추가</button>
-	               		<input type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" class="btn002">
-		                <input type="submit" value="글수정" class="btn003">
+	               		<button class="btn-3" id="addFile">파일 추가</button>
+	               		<input class="btn-3" type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" id="btn002">
+		                <input class="btn-3" type="submit" value="글수정" id="btn003">
 	               </div>
 	               <br> <div id="paging">　<br>　</div>
 	      </form>

@@ -189,7 +189,6 @@ public class FWLDaoImple implements FWLDao {
 			e.printStackTrace();
 		}
 		
-		
 		return list;
 	}
 

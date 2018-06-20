@@ -72,4 +72,8 @@
 	 SELECT * FROM CAL WHERE NOT CALTITLE LIKE '%생신%' AND CALSMS='Y'
 	</select>
 	
+	<select id="DayListCount" resultType="int" parameterType="CalDto">
+	SELECT COUNT(*) FROM CAL WHERE MEMBERID=#{memberId} AND CALSCH LIKE #{calSch}
+	</select>
+	
 </mapper>

@@ -77,7 +77,7 @@ $(function(){
 	function shareWL(){
 		var shareWLChk=confirm("위시리스트 게시판에 공유하시겠습니까?")
 		if(shareWLChk==true){
-			location.href='FWLShare.do?memberNickName=${login.memberNickname}';
+			location.href='FWLShare.do?memberNickName=${login.memberNickname}&memberNo=${login.memberNo}';
 		}else if(shareWLChk==false){
 			return false;
 		}

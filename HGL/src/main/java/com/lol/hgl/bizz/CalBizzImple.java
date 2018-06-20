@@ -49,6 +49,23 @@ public class CalBizzImple implements CalBizz {
 		return dao.getCalBoard(seq);
 	}
 
+	@Override
+	public int DayListCount(String year, String month, String date, String memberId) {
+		if(Integer.parseInt(month) < 9 ) {
+			month = "0"+month;
+		}
+		if(Integer.parseInt(date) < 9 ) {
+			date = "0"+date;
+		}
+		
+		String calSch = "%"+year+month+date+"%";
+		calDto dto = new calDto(memberId, calSch);
+		System.out.println(dto.getMemberId());
+		System.out.println(dto.getCalSch());
+		
+		return dao.DayListCount(dto);
+	}
+
 	
 
 }

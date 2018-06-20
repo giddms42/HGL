@@ -21,6 +21,17 @@
  background-size: cover;
  }
 </style>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#searchForm").submit(function(){
+		if($("input[name=keyword]").val()==null || $("input[name=keyword]").val()==""){
+			window.location.reload();
+			return false;
+		}
+	});
+});
+</script>
 <body>
 
 	<div id="container">
@@ -69,7 +80,7 @@
 							</c:choose>
 						</tbody>
 					</table>
-	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
+	               <div class="Gbtn"><input class="btn-3" type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
 	               <br/>
 	           <div id="paging1">
 	          		<c:choose>
@@ -103,7 +114,7 @@
 	            </div>
 	               <br/>
 	               <div id="paging2">
-	               	<form action="GGListSearch.do" method="post">
+	               	<form action="GGListSearch.do" method="post" id="searchForm">
 						<input type="hidden" name="nowpage" value="1"/>
 						<div style="width: 50%; margin: auto; text-align: center;">
 							<select style="height: 22px;" name="topic">
@@ -112,7 +123,7 @@
 								<option value="GGWRITER">작성자</option>
 							</select>
 							<input type="search" name="keyword" placeholder="검색어를 입력해주세요">
-							<input type="submit" value="검색">
+							<input class="btn-3" type="submit" value="검색">
 						</div>
 					</form>
 	               </div>

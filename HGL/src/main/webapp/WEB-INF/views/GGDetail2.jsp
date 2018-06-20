@@ -20,19 +20,6 @@ body {
  background-size: cover;
  }
 </style>
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("#cmtForm").submit(function(){
-		if($("textarea[name=ggcmCont]").val()==null || $("textarea[name=ggcmCont]").val()==""){
-			swal("댓글을 작성해주세요");
-			return false;
-		}
-	});
-});
-</script>
-
 <body>
 
 	<div id="container">
@@ -40,6 +27,8 @@ $(function(){
 
 		<div id="b">
 			<div id="bodyMain">
+				<form action="GGUpdateForm.do?ggNo=${dto.ggNo}" id="form"
+					method="post">
 					<br/>
 					<table border="1" bordercolor="white">
 						<col width="100">
@@ -80,11 +69,10 @@ $(function(){
 				
 					</table>
 					<div class="btn00">
-						<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" id="btn001" class="btn-3">
-						<input type="submit" value="글수정" id="btn002" class="btn-3">
+						<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" class="btn001">
+						<input type="submit" value="글수정" class="btn002">
 					<c:if test="${login.memberNickname eq dto.ggWriter}">
-						<input type="submit" value="글수정" onclick="location.href='GGUpdateForm.do?ggNo=${dto.ggNo}'" id="btn002 class="btn002">
-						<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" id="btn003" class="btn-3">
+						<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" class="btn003">
 					</c:if>
 				
 					</div>
@@ -92,6 +80,7 @@ $(function(){
 					<br>
 					<br>
 					</div>
+				</form>
 
 					<br/>
 					<c:if test="${!empty dto2}">
@@ -108,8 +97,9 @@ $(function(){
 									<div class="cont"><textarea rows="3" cols="" style="resize: none; overflow: hidden;" readonly="readonly">${ggcmDto.ggcmCont }</textarea></div>
 								</div>
 							</div>
+							<div class="dv1">
 							<c:if test="${login.memberNickname eq ggcmDto.ggcmWriter}">
-								<input type="button" onclick="location.href='GGRepleyDelete.do?ggcmNo='+${ggcmDto.ggcmNo}+'&ggNo='+${ggcmDto.ggNo}" value="댓글삭제" id="Cbtn2" class="btn-3">
+								<input type="button" onclick="location.href='GGRepleyDelete.do?ggcmNo='+${ggcmDto.ggcmNo}+'&ggNo='+${ggcmDto.ggNo}" value="댓글삭제" id="Cbtn2">
 							</c:if>
 							</div><br/>								
 							</c:forEach>
@@ -120,7 +110,7 @@ $(function(){
 						<c:choose>
 							<c:when test="${login != null}">
 								<div class="replyBox">
-									<form action="GGRepleyInsert.do" id="cmtForm" method="post">
+									<form action="GGRepleyInsert.do" id="form" method="post">
 										<input type="hidden" name="ggNo" value="${dto.ggNo}">
 										<br />
 										<table border="1" bordercolor="white">
@@ -133,7 +123,7 @@ $(function(){
 											<tr>
 												<td><input type="text" name="ggcmWriter" value="${login.memberNickname}" id="cmtd"></td>
 												<td><textarea rows="3" cols="" name="ggcmCont" style="resize: none; overflow: hidden;" placeholder="댓글 내용을 입력해주세요~" ></textarea></td>
-												<td><input type="submit" value="댓글달기" id="Cbtn1" class="btn-3"></td>
+												<td><input type="submit" value="댓글달기" id="Cbtn1"></td>
 											</tr>
 										</table>
 									</form>

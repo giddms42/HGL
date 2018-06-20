@@ -55,6 +55,21 @@ h1 {
 	border-top: 1px solid tomato;
 }
 
+#table th{
+	text-shadow: 1px 1px 0 black;
+}
+
+h1{
+	text-shadow: 2px 2px 0 tomato;
+}
+
+
+#calTitle{
+	width: 97.5%;
+	height: 20px;
+	margin: 2px;
+}
+
 #inputSize{
 	width: 97.5%;
 	height: 20px;
@@ -62,9 +77,17 @@ h1 {
 }
 
 #inputSize2{
-	padding-left: 58px;
+	padding-left: 56px;
 	bottom: 50px;
 	width: 153px;
+	height: 20px;
+	margin: 2px;
+}
+
+#inputSize3{
+	padding-left: 55px;
+	bottom: 50px;
+	width: 175px;
 	height: 20px;
 	margin: 2px;
 }
@@ -88,11 +111,34 @@ h1 {
 	padding-left: 14px;
 }
 
+#thPadding{
+	padding-bottom: 5px;
+	padding-top: 4px;
+}
+
 #radioIn{
 	padding-top: 2px;
 	float: left;
 	width: 50%;
 	position: relative;
+}
+
+#radio1{
+	position:absolute;
+	top: 9px;
+	left: 109px;
+}
+
+#radio2{
+	position:absolute;
+	top: 9px;
+	left: 180px;
+}
+
+.txtWidth{
+	width: 97.3%;
+	margin-left: 2px;
+	padding-left: 2px;
 }
 
 #backColor{
@@ -102,4 +148,13 @@ h1 {
 	height: 320px;
 	width: 520px;
 	background-color: black;
+}
+
+#calMemo{
+	resize: none;
+	padding-left: 3.4px;
+}
+
+#datePadding{
+	margin: 200px;
 }

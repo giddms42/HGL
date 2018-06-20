@@ -80,6 +80,9 @@ display: -webkit-flex;
  }
  
  table{
+ box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
     background-color: tomato;
     width:98%;
  }
@@ -123,32 +126,50 @@ a:visited {
 	text-decoration: none;
 }
 .btn00{
-	color: black;
 	position: relative;
 	height: 30px;
 	color: black;
 }
 
-.btn01{
+#btn01{
 	top: 5px;
-	color: black;
 	position: relative;
 	height: 30px;
-	color: black;
 }
-.btn02{
-	color: black;
+#btn02{
 	position: absolute;
 	height: 30px;
 	left: 350px;
 	top: 5px;
 }
-.btn03{
-	color: black;
+#btn03{
 	position: absolute;
 	height: 30px;
 	left: 410px;
 	top: 5px;	
+}
+
+.btn-3 {
+	padding-bottom: 20px;
+	color: #fff;
+  cursor: pointer;
+	margin: 4px;
+	height: 25px;
+  background: tomato;
+  border: 1px solid #da251f;
+  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
+}
+
+.btn-3:hover {
+  background: tomato;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  color: #ec817d;
+  text-shadow: 1px 1px 0 #c2211c;
+  transition: all 250ms linear;
 }
  .td{
  	color: black;
@@ -176,3 +197,6 @@ a:visited {
  	color: black;
 	 font-size: 10pt;
  }
+ .thDiv{
+	text-shadow: 1px 1px 0 black;
+}

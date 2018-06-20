@@ -76,6 +76,9 @@ flex-direction: column;
  }
  
  table{
+  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
     background-color: tomato;
     width:98%;
  }
@@ -120,37 +123,33 @@ a:visited {
 	padding: 5px;
 }
 
-.btn001{
-	color: black;
+#btn001{
 	position: absolute;
 	height: 30px;
-	left: 381px;
-	top: 17px;	
+	left: 371px;
+	top: 11px;	
 }
-.btn002{
-	color: black;
+#btn002{
 	position: absolute;
 	height: 30px;
-	left: 321px;
-	top: 17px;
+	left: 308px;
+	top: 11px;
 }
-.btn003{
-	color: black;
+#btn003{
 	position: absolute;
 	height: 30px;
-	left: 260px;
-	top: 17px;
+	left: 245px;
+	top: 11px;
 }
 
 
 #Cbtn1{
-	color: black;
-	width: 99%;
-	height: 99%
+	padding-top: 15px;
+	width: 90%;
+	height: 80%
 }
 
 #Cbtn2{
-	color: black;
 	text-align: center;
 	align-content: center;
 	margin-top: 5px;
@@ -164,13 +163,8 @@ a:visited {
 	text-align: center;
 	height: 100%;
 	width: 100%;
-	font-size: 13pt;
+	text-shadow: 1px 1px 0px black;
 }
-
-/* #form2{
-	margin-left: 18.5px;
-	width: 100%;
-} */
 
 .dv0{
 	width: 97.5%;
@@ -183,6 +177,9 @@ a:visited {
      -webkit-justify-content: center;
              justify-content: center;
      flex-direction: column;
+      box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+	  letter-spacing: 1px;
+	  transition: all 150ms linear;
 }
 
 .mdv{
@@ -209,6 +206,10 @@ a:visited {
 }
 
 #cml{
+	text-shadow: 1px 1px 0px black;
+	 box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
 	color: white;
 	text-align: center;
 	width: 97.5%;
@@ -218,9 +219,13 @@ a:visited {
 }
 
 #paging{
+	 box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
 	background-color: tomato;
 }
 .th{
+	text-shadow: 1px 1px 0px black;
 	color: white;
 	text-align: center;
 	padding: 2px;
@@ -229,6 +234,7 @@ a:visited {
 	background-color: tomato;
 }
 .th2{
+	text-shadow: 1px 1px 0px black;
 	color: white;
 	text-align: center;
 	padding: 2px;
@@ -244,4 +250,27 @@ a:visited {
 	border: 1px solid gray;
 	background-color: white;
 	color: gray;
+}
+
+.btn-3 {
+	padding-bottom: 20px;
+	color: #fff;
+  cursor: pointer;
+	margin: 4px;
+	height: 25px;
+  background: tomato;
+  border: 1px solid #da251f;
+  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
+}
+
+.btn-3:hover {
+  background: tomato;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  color: #ec817d;
+  text-shadow: 1px 1px 0 #c2211c;
+  transition: all 250ms linear;
 }

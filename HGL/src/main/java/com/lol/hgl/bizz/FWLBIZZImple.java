@@ -86,7 +86,7 @@ public class FWLBIZZImple implements FWLBizz {
 		List<fwlbDto> list = dao.FwlbListSearch(startPost, endPost, searchNickName);
 		List<Integer> rowNum = dao.SearchListrowNum(startPost, endPost, searchNickName);
 		for(int i=0; i<list.size(); i++) {
-			list.get(i).setFwlbNo(rowNum.get(i));
+			list.get(i).setFwlbRowNum(i);
 		}
 		return list;
 	}

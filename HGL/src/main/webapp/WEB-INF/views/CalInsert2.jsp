@@ -8,65 +8,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="css/CalInsert.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript">	
-	function bb(){
-		if($("input[name=calTitle]").val()==null || $("input[name=calTitle]").val()==""){
-			swal("제목을 입력해주세요");
-			return false;
-		}else{
-			var year = $("select[name=year]").val();
-			var month= $("select[name=month]").val();
-			var date = $("select[name=date]").val();
-			var memberId = $("input[name=memberId]").val();
-			
-			$.ajax({
-				type:"post", //전송방식
-				url:"DayListCountAjax.do", //요청url
-				data:"memberId="+memberId+"&year="+year+"&month="+month+"&date="+date,
-				success:function(val){
-					var r = $.trim(val);	
-					var count = parseInt(r);
-					if(count>=3){
-						alert("일정은 총 3개만 입력가능합니다.");
-					}else{
-						var params = $("#CalForm").serialize();
-						$.ajax({
-							url : "CalInsert.do",
-							data : params,
-							type : 'POST',
-							success : function(str)
-									{				
-										swal("일정이 작성되었습니다.");
-										opener.location.reload();
-										self.close();
-									}, error : function(statusCode){opener.location.reload();
-										self.close();
-									}
-						});
+<script type="text/javascript">
+function schAdd(){
+	var SMS = document.getElementsByName("calSMS")[0].value;
+	if(!SMS==""){
+		var params = $("#CalForm").serialize();
+		alert(params);
+		$.ajax(
+		{
+			url : "CalInsert.do",
+			data : params,
+			type : 'POST',
+			success : function(str)
+					{
+						opener.location.reload();
+						self.close();
+					}, error : function(statusCode){opener.location.reload();
+						self.close();
 					}
-				},
-				error:function(){
-					alert("서버통신실패!!");
-				}
-			});
-			
-		}
-
+		});
+	}else{
+		alert("에이작스 실패~!")
 	}
-	
-	function back(){
-		var memberNickname = $("input[name=memberNickname]").val();
-		var memberId = $("input[name=memberId]").val();
-		var year =  $("select[name=year]").val();
-		var month =  $("select[name=month]").val();
-		window.opener.top.location.href="CalListForm.do?memberNickname="+memberNickname+"&memberId="+memberId+"&year="+year+"&month="+month;
-		window.close()
-	}
-	
-	
+}
 </script>
 </head>
 <%
@@ -102,7 +68,7 @@
 			<col width="400">
 			<tr>
 				<th class="thPadding">작성자</th>
-				<td><input style="padding-left: 2px;" id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=memberNickname %>" readonly="readonly" /></td>
+				<td><input id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=memberNickname %>" readonly="readonly" /></td>
 			</tr>
 			<tr>
 				<th class="thPadding">날짜</th>
@@ -156,7 +122,7 @@
 			</tr>
 			<tr>
 				<th class="thPadding">제목</th>
-				<td><input style="padding-left: 2px;" id="inputSize" class="txtWidth" type="text" name="calTitle"/></td>
+				<td><input id="inputSize" class="txtWidth" type="text" name="calTitle"/></td>
 			</tr>
 			<tr>
 				<th class="thPadding">내용</th>
@@ -167,9 +133,10 @@
 				<td style="padding-left: 1.5px;">
 					<div id="radioIn"><input id="inputSize2" type="text" value="수신동의　 수신거부"><input id="radio1" type="radio" value="Y" name="calSMS"/><input id="radio2" type="radio" value="N" name="calSMS" checked="checked"/></div>
 					<div>
-						<input type="button" class="btn-3" onclick="bb();" value="일정작성"/>
+						<button class="btn-3" onclick="schAdd();">일정작성</button>
+						<!-- <input type="submit" value="일정작성"/> -->
 						<input class="btn-3" type="button" value="돌아가기" 
-						onclick="back();"/>
+						onclick="location.href='CalListForm.do?year=<%=year %>&month=<%=month %>&memberId=${login.memberId }'"/>
 					</div>
 				</td>
 			</tr>

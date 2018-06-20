@@ -68,17 +68,35 @@ body {
 		var year2 = $("#year").val();
 		var month2 = $("#month").val();
 		var date2 = num;
+		alert(num);
 		var lastDay2 = $("#lastDay").val(); // 값 잘들어옴
 		var memberId2 = $("#memberId").val();
 		var memberNickname2 = $("#memberNickname").val();
-		
-		alert(num);
-	 	var popupX = (window.screen.width/2) - (530 / 2);
+		var popupX = (window.screen.width/2) - (530 / 2);
 		var popupY= (window.screen.height/2)- (465/2);
 		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-		window.name="Parent";
-		window.open("CalInsertForm.do?year="+year2+"&month="+month2+"&date="+date2+"&lastDay="+lastDay2+"&memberId="+memberId2+"&memberNickname="+memberNickname2,"", 'status=no, width=530, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
-		}
+		$.ajax({
+				type:"post", //전송방식
+				url:"DayListCountAjax.do", //요청url
+				data:"memberId="+memberId2+"&year="+year2+"&month="+month2+"&date="+num,
+				success:function(val){
+					alert("성공");
+					var r = $.trim(val);	
+					var count = parseInt(r);
+					alert(count);
+					if(count>=3){
+						alert("일정은 총 3개만 입력가능합니다.");
+					}else{
+						window.name="Parent";
+						window.open("CalInsertForm.do?year="+year2+"&month="+month2+"&date="+date2+"&lastDay="+lastDay2+"&memberId="+memberId2+"&memberNickname="+memberNickname2,"", 'status=no, width=530, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+					}
+				},
+				error:function(){
+					alert("서버통신실패!!");
+				}
+			});
+
+	}
 	
 	function DetSCH(num){
 		
@@ -167,7 +185,7 @@ body {
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	<br/>
 	<div id="b">
-		<input type="hidden" id="memberId" value="${login.memberId}"/>
+	<input type="hidden" id="memberId" value="${login.memberId}"/>
 	<table id="calendar">
 		<tr id="topBar">
 			<th colspan="7" class="th7">
