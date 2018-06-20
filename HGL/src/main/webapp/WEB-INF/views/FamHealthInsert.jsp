@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>건강정보 추가</title>
 <link rel="stylesheet" type="text/css" href="css/FamHealthInsert.css">
+<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 
@@ -15,16 +16,13 @@ $(function(){
 	$("#healthForm").submit(function(){
 		var radioValue = $("#disYes").val(); 
 	    if($("input[name=healthWeight]").val() == ""){
-		   	alert("체중을 입력해주세요")
-		   	document.getElementsByName("healthWeight")[0].focus();
+		   	swal("체중을 입력해주세요")
 	   		return false;
 	    }else if($("input[name=healthShrbp]").val() == ""){
-	   	 	alert("혈압의 수축기를 입력해주세요")
-	   	 	document.getElementsByName("healthShrbp")[0].focus();
+	   	 	swal("혈압의 수축기를 입력해주세요")
 	   	 	return false;
 	    }else if($("input[name=healthRelbp]").val() == ""){
-	   	 	alert("혈압의 이완기를 입력해주세요")
-	   	 	document.getElementsByName("healthRelbp")[0].focus();
+	   	 	swal("혈압의 이완기를 입력해주세요")
 	   	 	return false;
 	    }else{
 	    	window.opener.name = "Parent"; // 부모창의 이름 설정
@@ -42,7 +40,7 @@ $(function(){
 		<form id="healthForm" action="FamHealthInsert.do" method="post" name="myForm">
 			<input type="hidden" name="famNo" value="${famDto.famNo}">
 			<div>체중<input type="text" name="healthWeight" placeholder="kg. 체중을 입력해주세요" 
-			onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"></div>
+			onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" ></div>
 
 			<div>혈압
 				<input class="healthInfoAdd" type="number" name="healthShrbp" placeholder="수축기를 숫자만 입력해주세요"><br>

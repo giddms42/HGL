@@ -31,9 +31,14 @@ public class FamController {
 	  @RequestMapping(value="FamDetailForm.do")
 	  public String FamDetailForm(int famNo, Model model) {
 		 famDto famDto = bizz.famDetail(famNo);
+		 String year = famDto.getFamBirth().substring(0, 4);
+		 String month = famDto.getFamBirth().substring(4, 6);
+		 String day = famDto.getFamBirth().substring(6, 8);
 		 healthDto healthDto = bizz.healthDetail(famNo);
 		 List<healthDto> list = bizz.heatlList(famNo);
-		 System.out.println(list.size());
+		 model.addAttribute("year", year);
+		 model.addAttribute("month", month);
+		 model.addAttribute("day", day);
 		 model.addAttribute("list",list);	
 		 model.addAttribute("healthDto",healthDto);	 
 		 model.addAttribute("famDto", famDto);			

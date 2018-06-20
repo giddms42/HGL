@@ -8,27 +8,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 	
-function fn_editFL(){
-	var Wish = document.getElementsByName("fwlItem")[0].value;
-	if(!Wish==""){
-		var params = $("#wishInsert").serialize();
-		$.ajax(
-		{
-			url : "FWLInsert.do",
-			data : params,
-			success : function(xh)
-					{		
-						opener.parent.location.reload();
-						self.close();
-					}
-		});
-	}else{
-		alert("위시리스트를 입력해주세요.")
+  function fn_editFL(){
+		var Wish = document.getElementsByName("fwlItem")[0].value;
+		if(Wish!=""){
+			var params = $("#wishInsert").serialize();
+			$.ajax(
+			{
+				url : "FWLInsert.do",
+				data : params,
+				success : function(xh){
+					window.opener.location.reload(); 
+					//opener.document.location.reload();
+					window.close();
+
+
+							/*opener.parent.location.reload();
+							self.close();*/
+						}
+			});
+		}else{
+			alert("위시리스트를 입력해주세요.")
+		}
 	}
-}
+ 
 </script>
 </head>
 <body>

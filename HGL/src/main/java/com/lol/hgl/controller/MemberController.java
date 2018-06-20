@@ -234,6 +234,7 @@ public class MemberController {
    } 
    
    
+   //탈퇴
    @RequestMapping(value = "MemberGetOut.do")
    public String MemberGetOut(int memberNo, Model model) {
        memberBizz.getOut(memberNo);

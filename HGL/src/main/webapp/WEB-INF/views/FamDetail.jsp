@@ -44,7 +44,7 @@ google.charts.setOnLoadCallback(drawChart);
 <body>
 		<div id="detail">
 		    <header>
-				<h2>${famDto.famName}님의 정보</h2>
+				<h2>${famDto.famName} 님의 정보</h2>
 			</header>
 	
 			<div id="famDetail" style="display: flex; ">
@@ -52,21 +52,42 @@ google.charts.setOnLoadCallback(drawChart);
 				<div id="famInfoFom">
 					<input type="hidden" id="famNo" value="${famDto.famNo}">
 					<div>이름
-						<input class="famInfo" type="text" value="${famDto.famName}님" readonly="readonly">
+						<input class="famInfo" type="text" value="${famDto.famName}" readonly="readonly">
 					</div>
 					<div>생일
-						<input class="famInfo" type="text" value="${famDto.famBirth }" readonly="readonly">
+						<input class="famInfo" type="text" value="${year}년 ${month}월 ${day}일" readonly="readonly">
 					</div>
 					<div>신장
 						<input class="famInfo" type="text" value="${famDto.famHeight}cm" readonly="readonly">
 					</div>
 					<div>체중
-						<input class="famInfo" type="text" value="${healthDto.healthWeight}kg" readonly="readonly">
+					<c:choose>
+						<c:when test="${empty healthDto.healthWeight}">
+							<input class="famInfo" type="text" value="등록된 체중이 없습니다." readonly="readonly">
+						</c:when>
+						<c:otherwise>
+							<input class="famInfo" type="text" value="${healthDto.healthWeight}kg" readonly="readonly">
+						</c:otherwise>
+					</c:choose>
 					</div>
 					<div>혈압
-						<input class="famInfo" type="text" value="${healthDto.healthShrbp}mg" readonly="readonly">
-						<p style="margin-top: -20px; margin-left: 38px;">
-						<input class="famInfo" type="text" value="${healthDto.healthRelbp}mg" readonly="readonly"></p>
+					<c:choose>
+						<c:when test="${empty healthDto.healthShrbp}">
+							<input class="famInfo" type="text" value="등록된 혈압이 없습니다." readonly="readonly">
+						</c:when>
+						<c:otherwise>
+							<input class="famInfo" type="text" value="${healthDto.healthShrbp}mg" readonly="readonly">
+						</c:otherwise>
+					</c:choose>
+							<p style="margin-top: -20px; margin-left: 38px;">
+					<c:choose>
+						<c:when test="${empty healthDto.healthRelbp}">
+							<input class="famInfo" type="text" value="등록된 혈압이 없습니다." readonly="readonly">
+						</c:when>
+						<c:otherwise>
+							<input class="famInfo" type="text" value="${healthDto.healthRelbp}mg" readonly="readonly">
+						</c:otherwise>
+					</c:choose>	
 					</div>
 					<div>지병 항목 (최대 3개) <input type="button" value="변경하기" onclick="goDiseaseUpdate()"></div>
 					<c:choose>
@@ -85,7 +106,7 @@ google.charts.setOnLoadCallback(drawChart);
 						</c:when>
 						<c:otherwise>
 						<div style="margin-left: 20px;">
-						지병1<input class="disease" type="text" value="${famDto.famDisease2}">
+						지병2<input class="disease" type="text" value="${famDto.famDisease2}">
 						<input type="button" value="추천식단" onclick="showMenu('${famDto.famDisease2}');">
 						</div>
 						</c:otherwise>
@@ -96,7 +117,7 @@ google.charts.setOnLoadCallback(drawChart);
 						</c:when>
 						<c:otherwise>
 						<div style="margin-left: 20px;">
-						지병1<input class="disease" type="text" value="${famDto.famDisease3}">
+						지병3<input class="disease" type="text" value="${famDto.famDisease3}">
 						<input type="button" value="추천식단" onclick="showMenu('${famDto.famDisease3}');">
 						</div>
 						</c:otherwise>
@@ -106,7 +127,7 @@ google.charts.setOnLoadCallback(drawChart);
 			</div>
 			<div style="margin-top:100px;  margin-bottom:50px; text-align: center;">
 			<button type="button" onclick="goHealthInfoAdd();">정보추가</button>
-			<button type="button">목록으로</button>
+			<button type="button" onclick="location.href='MemberInfoForm.do?memberNo='+${famDto.memberNo}">목록으로</button>
 			</div>
 		</div>
 

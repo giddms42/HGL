@@ -49,21 +49,6 @@ $("input[name=memberPw").on("change",function() {
 	}
 });
  
- /*
- $("#regist").submit(function(){
-	if ($("input[name=memberPw]").val() != $("input[name=memberPwChk]").val()) {
-		   alert("비밀번호가 일치하지 않습니다. 다시 확인해주세요");
-		   return false;
-	}else{	
-		   if($("input[name=memberPw]").attr("title")=="N"){
-		        alert("비밀번호를 다시 확인해주세요.")
-		        return false;
-		  	 }
-	}
-	window.opener.name = "Parent"; // 부모창의 이름 설정
-    document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
-    self.close();
- })*/
 
   $("#regist").submit(function(){
 	if($("input[name=memberPw]").attr("title")=="N"){
@@ -77,8 +62,6 @@ $("input[name=memberPw").on("change",function() {
     document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
     self.close();
  })
-
-
 })
 
 /*
