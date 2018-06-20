@@ -19,6 +19,8 @@ CREATE TABLE FAM
 
 INSERT INTO FAM VALUES(1, FAMNO_SEQ.NEXTVAL, '엄마', '160', '당뇨병', '지방간', '빈혈', '19620220');
 
+update fam set FAMDISEASE1='질병없음' WHERE FAMNO=1
+
 SELECT * FROM FAM;
 
 ---------------------------------------------------------------------------
