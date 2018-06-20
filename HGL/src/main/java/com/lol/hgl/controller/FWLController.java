@@ -78,10 +78,10 @@ public class FWLController {
 	   
 	   
 	   @RequestMapping(value="FWLShare.do")
-	   public String FWLShare(String memberNickName, Model model) {
-		   fwlBizz.FWLShare(memberNickName); 
-		   model.addAttribute("nowpage", "1");
-		   return "redirect:FWLBList.do";
+	   public String FWLShare(String memberNickName, String memberNo, Model model) {
+		   fwlBizz.FWLShare(memberNickName);
+		   model.addAttribute("memberNo", memberNo);
+		   return "redirect:FWLList.do";
 	   }
 	   
 	   
@@ -144,7 +144,6 @@ public class FWLController {
 			
 			//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
 			List<fwlbDto> list = fwlBizz.FwlbListSearch(startPost, endPost, searchNickName);
-			
 			model.addAttribute("keyword", searchNickName);
 			model.addAttribute("startPage", startPage);
 			model.addAttribute("endPage", endPage);
@@ -157,9 +156,8 @@ public class FWLController {
 	   
 	   
 	   @RequestMapping(value="FWLBDetail.do")
-	   public String FWLBDetail(String fwlbWriter, int count, int fwlbNo, Model model) {
-		   fwlbDto fwlbdto = fwlBizz.FWLBDetail(fwlbWriter, fwlbNo);
-		   System.out.println(fwlbdto.getFwlbWriter());
+	   public String FWLBDetail(String fwlbWriter, int count, String fwlbNo, Model model) {
+		   fwlbDto fwlbdto = fwlBizz.FWLBDetail(fwlbWriter, Integer.parseInt(fwlbNo));
 		   if(count == 1) {
 			   fwlBizz.FWLBUpdateReadCount(fwlbdto.getFwlbNo());
 		   }

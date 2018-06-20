@@ -220,7 +220,7 @@ function upOk(){
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input class="btn-3" type="submit" value="수정완료"/ onclick="upOk();">
+					<input class="btn-3" type="submit" value="수정완료" onclick="upOk();">
 					<input class="btn-3" type="button" value="돌아가기" onclick="back();"/>
 				</td>
 			</tr>

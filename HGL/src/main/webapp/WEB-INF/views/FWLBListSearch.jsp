@@ -46,7 +46,7 @@
 						<c:forEach items="${FWLBList}" var="fwlbDto">
 						<tr>
 							<td>${fwlbDto.fwlbRowNum}</td>
-							<td><a href="FWLBDetail.do?fwlbWriter=${fwlbDto.fwlbWriter}&count=1">${fwlbDto.fwlbTitle}</a></td>
+							<td><a href="FWLBDetail.do?fwlbWriter=${fwlbDto.fwlbWriter}&count=1&fwlbNo=${fwlbDto.fwlbNo}">${fwlbDto.fwlbTitle}</a></td>
 							<td>${fwlbDto.fwlbWriter}</td>
 							<td><fmt:formatDate value="${fwlbDto.fwlbDate}" pattern="yyyy-MM-dd"/></td>
 							<td>${fwlbDto.fwlbReadcnt}</td>
