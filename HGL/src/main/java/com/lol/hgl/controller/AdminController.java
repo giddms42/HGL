@@ -180,6 +180,9 @@ public class AdminController {
 			case 3:
 				res="30일 제재 성공";
 				break;
+			case 4:
+				res="회원 강제 추방 성공";
+				break;
 			}	
 		}
 		System.out.println(res);

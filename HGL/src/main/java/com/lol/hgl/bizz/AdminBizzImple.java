@@ -83,6 +83,9 @@ public class AdminBizzImple implements AdminBizz {
 		case 3:
 			cal.add(Calendar.DATE, 30);
 			break;
+		case 4:
+			dao.memberGetOut(memberNickName);
+			break;
 		}
 		Date mangeTime = cal.getTime();
 		memberDto dto = new memberDto(memberNickName, mangeTime);
