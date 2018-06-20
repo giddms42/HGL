@@ -40,28 +40,14 @@ body {
 					<input class="updateInfo" type="text" value="${login.memberNickname}" readonly="readonly">
 				</div>
 				<div><img class="memberIcon" src="icon/Mobile-Phone-128.png">
-					<input class="updateInfo" type="text" name="memberPhone1" class="main-form__input" value="${phone1}" oninput="maxLengthCheck(this)" style="width: 110px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
-	   				<input class="updateInfo" type="text" name="memberPhone2" class="main-form__input" value="${phone2}" oninput="maxLengthCheck(this)" style="width: 160px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
-	   				<input class="updateInfo" type="text" name="memberPhone3" class="main-form__input" value="${phone3}" oninput="maxLengthCheck(this)" style="width: 160px;;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
-
-				</div>
-				<div style="font-size:11pt; margin-top: -15px; margin-left: -160px;">
-				<label style="vertical-align: middle;">
-					<c:choose>
-							<c:when test="${login.memberSMS eq 'Y'}">
-								<input class="smsChk" type="checkbox" checked="checked" name="memberSMS" value="Y" onclick="snsChecked();" style="vertical-align: bottom;">
-							</c:when>
-							<c:otherwise>
-								<input class="smsChk" type="checkbox" name="memberSMS" value="Y" onclick="snsChecked();" style="vertical-align: bottom;">	
-							</c:otherwise>
-						</c:choose>
-						문자알림을 받으시겠습니까?
-				</label>
+					<input class="updateInfo" type="text" name="memberPhone1" class="main-form__input" value="${phone1}" oninput="maxLengthCheck(this)" style="width: 60px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+	   				<input class="updateInfo" type="text" name="memberPhone2" class="main-form__input" value="${phone2}" oninput="maxLengthCheck(this)" style="width: 70px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+	   				<input class="updateInfo" type="text" name="memberPhone3" class="main-form__input" value="${phone3}" oninput="maxLengthCheck(this)" style="width: 70px;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
 				</div>
 				<div><img class="memberIcon" src="icon/Message-Mail-128.png">
 					<input class="updateInfo" type="text" value="${login.memberEmail}" readonly="readonly">
 				</div>
-				<div class="select-wrapper"><img class="memberIcon" src="icon/Home-128.png" style="height: 12%; margin-left: 73px;">
+				<div class="select-wrapper"><img class="memberIcon" src="icon/Home-128.png" style="height: 12%;">
 				<select name="memberDo" id="doo" onChange="showSub(this.options[this.selectedIndex].value);" required="required">
 			      	<option value="">도를 선택해주세요</option>
 		<!--  	
@@ -366,8 +352,21 @@ body {
 			      	<option value="서귀포시">서귀포시</option>
 			      	<option value="제주시">제주시</option>
 			      </select><br>
-			      <input class="info" type="text" name="memberAddr" value="${login.memberAddr}" required="required" style="margin-left: 131px; margin-top: -7px;">
+			      <input class="info" type="text" name="memberAddr" value="${login.memberAddr}" required="required" style="text-align:left; margin-top: -7px; margin-left: 40px;">
 		      </div>
+		      <div class="smsDiv">
+				<label>
+					<c:choose>
+							<c:when test="${login.memberSMS eq 'Y'}">
+								<input class="smsChk" type="checkbox" checked="checked" name="memberSMS" value="Y" onclick="snsChecked();" style="vertical-align: bottom;">
+							</c:when>
+							<c:otherwise>
+								<input class="smsChk" type="checkbox" name="memberSMS" value="Y" onclick="snsChecked();" style="vertical-align: bottom;">	
+							</c:otherwise>
+						</c:choose>
+						문자알림을 받으시겠습니까?
+				</label>
+				</div>
 					<div id="updateButton">
 						<button style="margin-right:10%">수정하기</button>
 						<button style="margin-left:10%" type="button" onclick="cancle();">취소하기</button>

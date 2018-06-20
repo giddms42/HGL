@@ -5,6 +5,12 @@
 	width: 20px;
 	height: 20px;
 }
+.smsDiv{
+	color:white;
+	font-size:11pt; 
+	text-align: center;
+}
+
 .memberIcon{
 	width: 8%;
 }
@@ -20,51 +26,53 @@
 	-webkit-text-shadow: 1px 1px 4px #ffffff;
 	color:black;
 }
-.select-wrapper select{
-	margin-left: 5px;
-	height: 37px;
-	background-color: white;
-}
 .userInfo{
 	margin: auto;
 	margin-top: 5%;
 	text-align:center;
-	width: 650px;
-	height: 650px;
+	width: 550px;
+	height: 550px;
 	border: 2px solid black;
 	border-radius: 15px;
 	background-color: rgb(0,0,0, 0.4);
 }
+.userInfo input{
+	font-size: 16pt;
+	text-align: center;
+	border:0;
+	background: transparent;
+	color:white;
+}
 .updateInfo{
 	height:40px;
-	width:440px;
-	margin-bottom: 3%;
+	background-color: rgb(255,255,255,0.4);
 }
 .info{
-	width: 440px;
+	width: 285px;
 	margin-top:10px; 
-	margin-left:60px; 
 	height:37px; 
+	font-size: 16pt;
+	background-color: rgb(255,255,255,0.4);
 }
 #updateButton{
 	margin-top: 3%;
 	padding: 20px;
 }
 
-.select-wrapper {
-  text-align: left;
-  width: 650px;
-}
 .select-wrapper select {
-  width: 200px;
+  width: 150px;
   height: 37px;
   padding: 0 20px 0 7px;
   background: transparent;
   margin-left: 1px;
-  color:black;
-  appearance: none;            /* remove arrow        */
-  -webkit-appearance: none;    /* remove arrow Chrome */
-  -moz-appearance: none;       /* remove arrow FF     */
+  color:white;
+  background: transparent;
+  font-size: 15pt;
+  border:0;
+  border-bottom: 2px solid white;
+}
+.select-wrapper select option{
+  background: rgb(0,0,0,0.4);
 }
 
 
