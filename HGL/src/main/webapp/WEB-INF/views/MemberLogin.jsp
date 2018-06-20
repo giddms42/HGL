@@ -101,8 +101,9 @@ $("#myform").submit(function(){
 	<div class="cd-shadow-layer"></div>
 	
 	<nav id="main-nav">
-		<ul id="loginUl">
-			<li id="loginMain">
+		<ul id="loginUl" style="width: 500px;">
+			<div class="liSize" style="height: 50px; width: 300px;"><h1><b>행</b>복한 <b>가</b>족의 미<b>래</b></h1></div>
+			<li id="loginMain" style="height: 200px; margin-top: 50px;">
 					<form action="MemberLogin.do" id="myform">
 						<div id="loginImg">
 							<div class="loginPadding">

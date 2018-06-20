@@ -19,20 +19,13 @@
 </head>
 
 <body>
-
-  <div class="container">
-    
-    
-    
-    <a href="https://twitter.com/Dave_Conner" class="btn btn-3">Hover</a> 
-    <!--End of Button 3 -->
-    
-    
-  </div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-  
-
+<br><br><br><br>
+<input type="text" id="fileName" class="file_input_textbox" readonly="readonly">
+ 
+<div class="file_input_div">
+  <input type="button" value="버튼" class="file_input_button" />
+  <input type="file" class="file_input_hidden" onchange="javascript: document.getElementById('fileName').value = this.value" />
+</div>
 </body>
 
 </html>

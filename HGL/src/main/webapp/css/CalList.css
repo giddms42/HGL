@@ -48,6 +48,17 @@
 	
 	table{
 		background-color: white;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+    border: 1px solid white;
+	}
+	
+	table th{
+	text-shadow: 1px 1px 0 black;
+	}
+	
+	table td p{
+	text-shadow: 1px 1px 0 black;
 	}
 	
 	#b{
@@ -146,3 +157,14 @@
   text-shadow: 1px 1px 0 #c2211c;
   transition: all 250ms linear;
 }
+
+ #calendar tr td:hover {
+	border: 2px solid red;
+ }
+ 
+ #calendar tr td p:hover  {
+	text-shadow: 1px 1px 0 orange;
+ }
+ #calendar tr th a:hover  {
+	text-shadow: 1px 1px 0 orange;
+ }
