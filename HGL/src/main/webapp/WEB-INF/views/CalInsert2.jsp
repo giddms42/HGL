@@ -12,8 +12,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 function schAdd(){
-	/* var SMS = document.getElementsByName("calSMS")[0].value;
-	if(!SMS==""){ */
+	var SMS = document.getElementsByName("calSMS")[0].value;
+	if(!SMS==""){
 		var params = $("#CalForm").serialize();
 		alert(params);
 		$.ajax(
@@ -29,9 +29,9 @@ function schAdd(){
 						self.close();
 					}
 		});
-	/* }else{
+	}else{
 		alert("에이작스 실패~!")
-	} */
+	}
 }
 </script>
 </head>
@@ -68,7 +68,7 @@ function schAdd(){
 			<col width="400">
 			<tr>
 				<th class="thPadding">작성자</th>
-				<td><input style="padding-left: 2px;" id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=memberNickname %>" readonly="readonly" /></td>
+				<td><input id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=memberNickname %>" readonly="readonly" /></td>
 			</tr>
 			<tr>
 				<th class="thPadding">날짜</th>
@@ -122,7 +122,7 @@ function schAdd(){
 			</tr>
 			<tr>
 				<th class="thPadding">제목</th>
-				<td><input style="padding-left: 2px;" id="inputSize" class="txtWidth" type="text" name="calTitle"/></td>
+				<td><input id="inputSize" class="txtWidth" type="text" name="calTitle"/></td>
 			</tr>
 			<tr>
 				<th class="thPadding">내용</th>
