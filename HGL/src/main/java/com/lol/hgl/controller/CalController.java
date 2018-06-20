@@ -87,11 +87,13 @@ public class CalController {
 	}
 	
 	@RequestMapping(value="CalDelete.do")
-	public String CalDelete(Model model, int calNo, String year, String month, String memberId) {
+	public String CalDelete(Model model, int calNo, String year, String month, String memberId, String memberNickname) {
+		System.out.println(year);
+		System.out.println(month);
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
 		model.addAttribute("memberId", memberId);
-		
+		model.addAttribute("memberNickname", memberNickname);
 		int res =bizz.delete(calNo);
 		
 		if(res > 0){

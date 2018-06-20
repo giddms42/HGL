@@ -27,10 +27,8 @@
 				url:"DayListCountAjax.do", //요청url
 				data:"memberId="+memberId+"&year="+year+"&month="+month+"&date="+date,
 				success:function(val){
-					alert("성공");
 					var r = $.trim(val);	
 					var count = parseInt(r);
-					alert(count);
 					if(count>=3){
 						alert("일정은 총 3개만 입력가능합니다.");
 					}else{
@@ -58,6 +56,17 @@
 		}
 
 	}
+	
+	function back(){
+		var memberNickname = $("input[name=memberNickname]").val();
+		var memberId = $("input[name=memberId]").val();
+		var year =  $("select[name=year]").val();
+		var month =  $("select[name=month]").val();
+		window.opener.top.location.href="CalListForm.do?memberNickname="+memberNickname+"&memberId="+memberId+"&year="+year+"&month="+month;
+		window.close()
+	}
+	
+	
 </script>
 </head>
 <%
@@ -160,7 +169,7 @@
 					<div>
 						<input type="button" class="btn-3" onclick="bb();" value="일정작성"/>
 						<input class="btn-3" type="button" value="돌아가기" 
-						onclick="location.href='CalListForm.do?year=<%=year %>&month=<%=month %>&memberId=${login.memberId }'"/>
+						onclick="back();"/>
 					</div>
 				</td>
 			</tr>

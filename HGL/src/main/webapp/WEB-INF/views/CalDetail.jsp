@@ -62,14 +62,67 @@ function back(){
 function del(){
 	var calNo = $("#calNo").val();
 	var memberId = $("#memberId").val();
-	var year = $("#year").val();
-	var month = $("#month").val();
+	var year =  $("select[name=year]").val();
+	var month =  $("select[name=month]").val();
+	var memberNickname = $("input[name=memberNickname]").val();
 	alert(calNo);
-	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
+	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&memberNickname="+memberNickname;
 	window.close()
 }
 
+$(function(){
+	$("#updateForm").submit(function(){
+		var year = $("select[name=year]").val();
+		var month= $("select[name=month]").val();
+		var date = $("select[name=date]").val();
+		var memberId = $("input[name=memberId]").val();
+		var returnVar = true;
+		var calSch = $("#calSch").val().substring(0,8);
+		var updateSch = year;
+		if(parseInt(month)<10){
+			updateSch = updateSch +"0"+month;
+		}else{
+			updateSch = updateSch+month;
+		}
+		
+		if(parseInt(date)<10){
+			updateSch = updateSch+"0"+date;
+		}else{
+			updateSch = updateSch+date;
+		}
 
+		if($("#calTitle").val()==null || $("#calTitle").val()==""){
+			alert("제목을 입력해주세요");
+			return false;
+		}else if(!(calSch===updateSch)){
+			$.ajax({
+				type:"post", //전송방식
+				url:"DayListCountAjax.do", //요청url
+				data:"memberId="+memberId+"&year="+year+"&month="+month+"&date="+date,
+				async : false,
+				success:function(val){
+					var r = $.trim(val);	
+					var count = parseInt(r);
+					alert(count)
+					if(count>=3){
+						alert("해당 날은 일정이 3개 이상입니다. 다른 날을 선택해주세요.");
+						returnVar = false;
+					}
+				}
+		
+			});
+			
+			if (!returnVar) { //false가 거꾸로 true가 되서 if문이 실행됨 > return false됨 
+				return false;
+			}
+		
+			
+		
+		}
+
+});
+
+});
 </script>
 <link rel="stylesheet" type="text/css" href="css/CalDetail.css">
 </head>	
@@ -121,9 +174,10 @@ function del(){
 <h1>일정 수정하기</h1>
 <div id="CalForm0">
 	<div id="backColor"></div>
-	<form action="CalUpdate.do" method="post">
+	<form action="CalUpdate.do" method="post" id="updateForm">
 		<input type="hidden" id="calNo" name="calNo" value="<%=dto.getCalNo()%>"/>
 		<input type="hidden" id="memberId" name="memberId" value="<%=dto.getMemberId()%>"/>
+		<input type="hidden" id="calSch" value="${dto.calSch}"/>
 		<table id="table" id="table">
 			<col width="100">
 			<col width="400">
