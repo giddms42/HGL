@@ -19,7 +19,7 @@ SELECT * FROM FWL;
 
 INSERT INTO FWL VALUES(1, FWLNO_SEQ.NEXTVAL, '맛있는거 먹으러 가기', 'N');
 
-delete from fwl where memberno=3
+delete from fwl where memberno=5
 -------------------------------------------------------------------------
 
 -- FWLB SEQUENCE SQL

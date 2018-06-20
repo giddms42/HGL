@@ -20,12 +20,10 @@
 				data : params,
 				success : function(xh){
 					window.opener.location.reload(); 
-					//opener.document.location.reload();
 					window.close();
-
-
-							/*opener.parent.location.reload();
-							self.close();*/
+						},error:function(){
+							window.opener.location.reload(); 
+							window.close();							
 						}
 			});
 		}else{
