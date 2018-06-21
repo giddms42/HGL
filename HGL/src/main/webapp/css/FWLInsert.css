@@ -1,1 +1,14 @@
 @charset "UTF-8";
+.FWLInsert{
+	 margin: auto; 
+	 width: 500px;
+	 background: orange;
+}
+
+.FWLInsert textarea{
+	width: 480px; 
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	color: #orange;
+}

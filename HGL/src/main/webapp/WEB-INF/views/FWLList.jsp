@@ -159,7 +159,8 @@ body {
 				</div>
 			</c:if>
 			</div>
-				</div>
+			</div>
+			<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 		</div> 
 </body>
 </html>

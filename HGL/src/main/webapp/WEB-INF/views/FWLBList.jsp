@@ -120,6 +120,7 @@ $(function(){
 			</form>
 		</div>
 	</div>
+	<div id="c" style="vertical-align: bottom"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 	</div>
 </body>
 </html>
