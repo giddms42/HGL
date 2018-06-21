@@ -76,11 +76,15 @@ flex-direction: column;
  }
  
  table{
-  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
-  letter-spacing: 1px;
-  transition: all 150ms linear;
+ 	box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+ 	letter-spacing: 1px;
+  	transition: all 150ms linear;
     background-color: tomato;
-    width:98%;
+    width:97.5%;
+ }
+ 
+ #cmtDiv{
+ 	margin-left: 13px;
  }
  
  #paging{
@@ -118,42 +122,31 @@ a:visited {
 	color: white;
 	text-decoration: none;
 }
-.btn00{
-	position: relative;
-	padding: 5px;
+
+#ggTitle{
+	display: -webkit-flex;
+     display:         flex;
+     -webkit-align-items: center;
+             align-items: center;
+     -webkit-justify-content: center;
+             justify-content: center;
+     height: 30px;
 }
 
 #btn001{
-	position: absolute;
-	height: 30px;
-	left: 371px;
-	top: 11px;	
+	float: right;
 }
 #btn002{
-	position: absolute;
-	height: 30px;
-	left: 308px;
-	top: 11px;
+	float: right;
 }
 #btn003{
-	position: absolute;
-	height: 30px;
-	left: 245px;
-	top: 11px;
+	float: right;
 }
-
 
 #Cbtn1{
 	padding-top: 15px;
 	width: 90%;
 	height: 80%
-}
-
-#Cbtn2{
-	text-align: center;
-	align-content: center;
-	margin-top: 5px;
-	height: 30px;
 }
 
 #cmtd{
@@ -170,20 +163,32 @@ a:visited {
 	width: 97.5%;
 	border: 1px solid white;
 	background-color: tomato;
+      box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+	  letter-spacing: 1px;
+	  transition: all 150ms linear;
+}
+
+.mdv1{
+	width: 100%;
+	float:left;
+}
+.mdv2{
+	margin-top: 1px;
+	margin-right: 3px;
+	height: 35px;
+	float: right;
+}
+
+#comment{
 	display: -webkit-flex;
      display:         flex;
      -webkit-align-items: center;
              align-items: center;
      -webkit-justify-content: center;
              justify-content: center;
-     flex-direction: column;
-      box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
-	  letter-spacing: 1px;
-	  transition: all 150ms linear;
 }
 
-.mdv{
-	width: 100%;
+.replyBox{
 	display: -webkit-flex;
      display:         flex;
      -webkit-align-items: center;
@@ -193,14 +198,14 @@ a:visited {
 }
 
 .dv1{
-	height: 30px;
-	margin-left: 88%;
+	width: 15%;
+	float: right;
 }
 
 .cont{
 	padding: 2px;
 	margin: 2px;
-	width: 100%;
+	width: 99.5%;
 	border: 1px solid white;
 	background-color: tomato;
 }
@@ -232,21 +237,30 @@ a:visited {
 	margin: 2px;
 	border: 1px solid white;
 	background-color: tomato;
+     height: 30px;
 }
+
 .th2{
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: left;
 	text-shadow: 1px 1px 0px black;
 	color: white;
 	text-align: center;
 	padding: 2px;
-	margin: 2px;
-	width: 15%;
+	width: 14.8%;
 	border: 1px solid white;
 	background-color: tomato;
 }
+
 .td{
+	margin-left: 2px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: left;
 	padding: 2px;
-	margin: 2px;
-	width: 45%;
+	width: 31.1%;
 	border: 1px solid gray;
 	background-color: white;
 	color: gray;
@@ -273,4 +287,8 @@ a:visited {
   color: #ec817d;
   text-shadow: 1px 1px 0 #c2211c;
   transition: all 250ms linear;
+}
+
+#txtArea{
+	margin-top: 4px;
 }

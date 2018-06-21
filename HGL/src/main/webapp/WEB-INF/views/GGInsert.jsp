@@ -36,7 +36,7 @@ $(document).ready(function(){
 });
 
 function fn_addFile(){
-    var str = "<p id='fileDiv1'><input id='fileDiv2' type='file' id='file' name='file_"+(gfv_count++)+"'><a href='#this' class='fileDiv0' name='delete'><button class='fileDiv'>삭제</button></a></p>";
+    var str = "<p id='fileDiv1'><input id='fileDiv2' type='file' id='file' name='file_"+(gfv_count++)+"'><a href='#this' class='fileDiv0' name='delete'><button id='delBtn' class='btn-3'>삭제</button></a></p>";
     $("#fileDiv").append(str);
     $("a[name='delete']").on("click", function(e){ //삭제 버튼
         e.preventDefault();
@@ -78,7 +78,7 @@ $(function(){
 	               <col width="100">
 	               		<tr>
 							<td colspan="2" class="th">
-								<div class="thDiv">좋은글 게시판 글쓰기</div>
+								<div id="ggTitle" class="thDiv">좋은글 게시판 글쓰기</div>
 							</td>
 						</tr>
 	                  <tr>
@@ -100,12 +100,16 @@ $(function(){
 							</div>
 						</td>
 					</tr>
+					<tr>
+						<td colspan="2">
+			               <div class="btn00">               
+			             		<button id="addFile" class="btn-3">파일 추가</button>
+			               		<input class="btn-3" type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" id="btn02">
+				                <input class="btn-3" type="submit" value="작성완료" id="btn03">
+			               </div>
+						</td>
+					</tr>
 	               </table>
-	               <div class="btn00">               
-	             		<button id="addFile" class="btn-3">파일 추가</button>
-	               		<input class="btn-3" type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" id="btn02">
-		                <input class="btn-3" type="submit" value="글작성" id="btn03">
-	               </div>
 	      </form:form>
 	               
 	      </div>
