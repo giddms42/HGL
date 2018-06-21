@@ -11,9 +11,11 @@ import com.lol.hgl.dto.ggcmDto;
 public interface GGBizz {
 	
 	public int ggListCount();
+	public void inserGGListRowNum();
 	public List<ggDto> selectAll(int startPost, int endPost);
 	
 	public int ggListSerchCount(String topic, String keyword);
+	public void insertGGSearchRowNum(String topic, String keyword);
 	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword);
 	
 	public ggDto selectOne(int seq);
