@@ -170,6 +170,8 @@ public class AdminController {
 		int endPost = (nowPage*10) ; 
 		//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
 		List<fwlbDto> list = adminBizz.memberFwlbList(startPost, endPost, memberNickName);
+		System.out.println("현재페이지"+nowPage);
+		System.out.println("전체 페이지"+pageCount);
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		model.addAttribute("nowPage", nowPage);

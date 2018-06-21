@@ -16,7 +16,7 @@
 	<div id="container">
 		<div>
 		<div id="cover">
-			<div><div><b>xx님의 활동내역</b></div></div>
+			<div><div><b>${dto.memberNickname}님의 정보 내역</b></div></div>
 			<br>
 					<table>
 						<col width="624px">

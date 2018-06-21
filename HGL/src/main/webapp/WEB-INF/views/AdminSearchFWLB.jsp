@@ -69,6 +69,7 @@ body {
                </table>
                <br/>
                 <div id="paging">
+	          		${nowPage}  ///  ${pageCount}
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
 							◀
@@ -91,6 +92,9 @@ body {
 					</c:forEach> 
 					<c:choose>
 						<c:when test="${nowPage eq pageCount}">
+							▶
+						</c:when>
+						<c:when test="${pageCount eq 0}">
 							▶
 						</c:when>
 						<c:otherwise>
