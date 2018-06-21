@@ -11,12 +11,21 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/AdminUserInfo.css">
+<style>
+body {
+ background: url('image/back.png') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
 <body>
 
 	<div id="container">
 		<div>
 		<div id="cover">
-			<div><div><b>${dto.memberNickname}님의 정보 내역</b></div></div>
+			<div id="idSize"><strong>${dto.memberNickname}님의 정보 내역</strong></div>
 			<br>
 					<table>
 						<col width="624px">

@@ -42,40 +42,45 @@ display: -webkit-flex;
      flex-direction: column;
  }
  
- #content{
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.7;
- }
- .ab{
- }
- 
- th{
+ .th{
+ 	text-align: center;
     font-weight:bold;
-    font-size: 13pt;
+    background-color: tomato;
+    text-shadow: 1px 1px 0 black;
  }
  
  td{
     text-align: center;
       border: 1px solid white;
+      
+      text-decoration: none;
+      padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
 
  }
  
+ tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+ 
  table{
-    background-color: orange;
     width:98%;
+    box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
  }
  
  #paging{
     text-align: center;
     width: 98%;
-    background-color: orange;
+    background-color: tomato;
     border: 1px solid white;
+    box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
  }
  
  #boardName{
+ 	text-shadow: 1px 1px 0 black;
     display: -webkit-flex;
      display:         flex;
      -webkit-align-items: center;
@@ -85,21 +90,39 @@ display: -webkit-flex;
     text-align: center;
     height: 30px;
     width: 98%;
-    background-color: orange;
+    background-color: tomato;
     border: 1px solid white;
+    box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
  }
  
- a:link{
+ #paging a:link{
  	color: white;
  	text-decoration: none;
+ 	text-shadow: 1px 1px 0 orange;
  }
  
- a:hover {
+#paging a:hover {
 	color: white;
 	text-decoration: none;
+ 	text-shadow: 1px 1px 0 orange;
  }
  
- a:visited {
+#paging a:visited {
+	color: white;
+	text-decoration: none;
+ 	text-shadow: 1px 1px 0 orange;
+}
+
+#paging strong:link{
+	color: white;
+	text-decoration: none;
+}
+#paging strong:hover{
+	color: white;
+	text-decoration: none;
+}
+#paging strong:visited{
 	color: white;
 	text-decoration: none;
 }

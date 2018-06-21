@@ -28,23 +28,22 @@ body {
       <div id="bodyMain">
          <div id="boardName">${memberNickName}님의 위시리스트 게시판 상세</div>
          <br/>
-         <img src="image/sadad.png" id="content">
                <table border="1" bordercolor="white">
                   <col width="70" class="ab">
                   <col width="550">
                   <col width="300">
                   <col width="70">
                   <tr>
-                     <th>글번호</th>
-                     <th>글제목</th>
-                     <th>작성일</th>
-                     <th>글삭제</th>
+                     <th class="th">글번호</th>
+                     <th class="th">글제목</th>
+                     <th class="th">작성일</th>
+                     <th class="th">글삭제</th>
                   </tr>
                   	  <c:choose> 
 	                 	<c:when test="${empty list}">
 	                 		<c:forEach begin="0" end="9">
 	                 		<tr>
-	                 			<td colspan="4">--------------글이 없습니다.--------------</td>
+	                 			<td colspan="4">작성된 글이 존재하지 않습니다.</td>
 	                 		</tr>
 	                 		</c:forEach>         	
 	                 	</c:when>
@@ -61,7 +60,7 @@ body {
 								</c:choose>
 								<td><a href="FWLBDetail.do?fwlbNo=${dto.fwlbNo}&count=1&fwlbWriter=${dto.fwlbWriter}">${dto.fwlbTitle}</a></td>
 								<td>${dto.fwlbDate }</td>
-								<td><input type="button" onclick="location.href='AdminFWLBDelete.do?fwlbNo=${dto.fwlbNo}&memberNickName=${memberNickName}'" value="삭제"></td>
+								<td><input class="btn-3" type="button" onclick="location.href='AdminFWLBDelete.do?fwlbNo=${dto.fwlbNo}&memberNickName=${memberNickName}'" value="삭제"></td>
 								</tr>
 								</c:forEach>
 	                 	</c:otherwise>
@@ -95,8 +94,8 @@ body {
 							▶
 						</c:when>
 						<c:when test="${pageCount eq 0}">
-							▶
-						</c:when>
+	                    	 ▶
+	                    </c:when>
 						<c:otherwise>
 							<a href="AdminSearchFWLB.do?nowpage=${nowPage + 1}&memberNickName=${memberNickName}">▶</a>
 						</c:otherwise>

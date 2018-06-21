@@ -22,11 +22,11 @@ body {
 <script type="text/javascript">
 
 function AdminUserInfo(nickName){
-   var popupX = (window.screen.width / 2) - (440 / 2);
+   var popupX = (window.screen.width / 2) - (460 / 2);
    // 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
-   var popupY= (window.screen.height /2) - (220 / 2);
+   var popupY= (window.screen.height /2) - (340 / 2);
    // 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-   window.open("AdminUserInfoForm.do?memberNickName="+nickName,"", 'width=440, height=220, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+   window.open("AdminUserInfoForm.do?memberNickName="+nickName,"", 'width=460, height=340, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
    }
    
  function userSearch(){
@@ -45,7 +45,6 @@ function AdminUserInfo(nickName){
       <div id="bodyMain">
          <div id="boardName">전체회원목록                                        총 회원 수 : ${memberCount}</div>
          <br/>
-         <img src="image/sadad.png" id="content">
                <table border="1" bordercolor="white">
                   <col width="50" class="ab">
                   <col width="150">
@@ -53,37 +52,41 @@ function AdminUserInfo(nickName){
                   <col width="300">
                   <col width="70">
                   <tr>
-                     <th>번호</th>
-                     <th>아이디</th>
-                     <th>닉네임</th>
-                     <th>이메일</th>
-                     <th>제재여부</th>
+                     <th class="th">번호</th>
+                     <th class="th">아이디</th>
+                     <th class="th">닉네임</th>
+                     <th class="th">이메일</th>
+                     <th class="th">제재여부</th>
                   </tr>
            			   <c:choose> 
 	                 	<c:when test="${empty list}">
 	                 		<c:forEach begin="0" end="9">
-	                 		<tr>
-	                 			<td colspan="5">--------------회원이 없습니다.--------------</td>
-	                 		</tr>
+	                 		<tbody>
+		                 		<tr>
+		                 			<td colspan="5">--------------회원이 없습니다.--------------</td>
+		                 		</tr>
+	                 		</tbody>
 	                 		</c:forEach>         	
 	                 	</c:when>
 	                 	<c:otherwise>
 	                 		  <c:forEach items="${list}" var="dto" varStatus="i">
-	                		  <tr onclick="AdminUserInfo('${dto.memberNickname }');">
-	                		  	<c:choose>
-	                		  		<c:when test="${nowPage eq 1}">
-										<td>${i.index+1}</td>
-	                		  		</c:when>
-	                		   		<c:otherwise>
-	                		   			<td>${i.index+1+(nowPage-1)*10}</td>
-	                		   		</c:otherwise>
-								</c:choose>
-								<td>${dto.memberId}</td>
-								<td>${dto.memberNickname }</td>
-								<td>${dto.memberEmail }</td>
-								<td>${dto.memberProhibitChk }</td>
+	                 		  <tbody>
+	                		    <tr onclick="AdminUserInfo('${dto.memberNickname }');">
+		                		  	<c:choose>
+		                		  		<c:when test="${nowPage eq 1}">
+											<td>${i.index+1}</td>
+		                		  		</c:when>
+		                		   		<c:otherwise>
+		                		   			<td>${i.index+1+(nowPage-1)*10}</td>
+		                		   		</c:otherwise>
+									</c:choose>
+									<td>${dto.memberId}</td>
+									<td>${dto.memberNickname }</td>
+									<td>${dto.memberEmail }</td>
+									<td>${dto.memberProhibitChk }</td>
 								</tr>
-								</c:forEach>
+	                 		  </tbody>
+							  </c:forEach>
 	                 	</c:otherwise>
 	                 </c:choose>
                </table>
@@ -101,7 +104,7 @@ function AdminUserInfo(nickName){
 						<a href="AdminSearchUserForm.do?nowpage=${i}"> 
 						<c:choose>
 							<c:when test="${i eq nowPage}">
-								<strong>${i}</strong>
+								<strong style="text-shadow: 1px 1px 0px orange;">${i}</strong>
 							</c:when>
 							<c:otherwise>
 								${i}

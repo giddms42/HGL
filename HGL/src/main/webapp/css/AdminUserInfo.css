@@ -43,9 +43,7 @@
 	          align-items: center;
 	  -webkit-justify-content: center;
 	          justify-content: center;
-	    background-color: tomato;
 		width: 420px;
-		height: 200px;
 		margin: 0 auto;
 	}
 	
@@ -54,16 +52,13 @@
 		height: 100%;
 	}
 	
-	b{
-		color: white;
-	}
 	
 	table{
-		border: 2px solid white;
+		border: 1px solid black;
 	}
 	
 	#ans{
-		background-color: white;
+		background-color: red;
 	}
 	
 	#res{
@@ -72,4 +67,8 @@
 	
 	#cursor{
 		cursor: pointer;
+	}
+	#idSize{
+		color: white;
+		font-size: 18pt;
 	}

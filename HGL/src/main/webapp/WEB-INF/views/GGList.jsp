@@ -95,7 +95,7 @@ $(function(){
 						<a href="GGListForm.do?nowpage=${i}"> 
 						<c:choose>
 							<c:when test="${i eq nowPage}">
-								<strong>${i}</strong>
+								<strong style="text-shadow: 1px 1px 0px orange;">${i}</strong>
 							</c:when>
 							<c:otherwise>
 								${i}
