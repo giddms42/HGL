@@ -26,7 +26,6 @@ display: -webkit-flex;
 	  -webkit-justify-content: center;
 	          justify-content: center;
 	height: 65%;
-	background-color: red;
 }
 
 #down{
@@ -55,12 +54,10 @@ display: -webkit-flex;
 	height: 100%;
 	background-color: tomato;
 	color: white;
-	/* border: 1px solid green; */
 }
 
 #up21{
-	background-color: green;
-	color: red;
+	height: 100%;
 	width: 10%;
 }
 #up22{
@@ -69,11 +66,7 @@ display: -webkit-flex;
 	color: black;
 }
 #up23{
-	width: 20%;
-}
-#up24{
-	color: green;
-	width: 10%;
+	width: 30%;
 }
 
 #header strong{
@@ -82,7 +75,21 @@ display: -webkit-flex;
 }
 
 #hgl{
+	text-shadow: 2px 2px 1px black;
 	margin-left: 37%;
+	font-size: 17pt;
+	color: white;
+}
+
+#homebtn{
+	width: 90%;
+	height: 90%;
+}
+
+#homeimg{
+	height: 100%;
+	width: 100%;
+	border-radius: 10px 10px 10px 10px;
 }
 
 #admin{
@@ -94,8 +101,6 @@ display: -webkit-flex;
 
 body{
     font-family: 'Lato', sans-serif;
-    /* background: #353535; /* 헤더 백그라운드 색깔 */
-    /* color: #FFF; */
 }
 
 #btn{

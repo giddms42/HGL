@@ -12,16 +12,22 @@
 		display: flex;
 	}
 	
-	.div1{
-		margin: 3;
+	.div1, .div4{
 		width: 30%;
 	}
 	
-	.div2{
+	.div2, .div3{
 		width: 70%;
-	}
+	}	
 	
 	#cover{
+	display: -webkit-flex;
+	display:         flex;
+	  -webkit-align-items: center;
+	          align-items: center;
+	  -webkit-justify-content: center;
+	          justify-content: center;
+	flex-direction: column;
 	text-align: center;
 	width: 400px;
 	}
@@ -52,17 +58,18 @@
 		height: 100%;
 	}
 	
-	
-	table{
-		border: 1px solid black;
-	}
-	
 	#ans{
-		background-color: red;
+		background-color: tomato;
+		background: tomato;
+	  border: 1px solid #da251f;
+	  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+	  letter-spacing: 1px;
+	 	color: white;
 	}
 	
 	#res{
-		background-color: orange;
+		background-color: white;
+		border: 1px solid gray;
 	}
 	
 	#cursor{
@@ -71,4 +78,33 @@
 	#idSize{
 		color: white;
 		font-size: 18pt;
+		text-shadow: 2px 2px 0 gray;
+	}
+	
+	.divIn{
+	display: -webkit-flex;
+	display:         flex;
+	  -webkit-align-items: center;
+	          align-items: center;
+	  -webkit-justify-content: center;
+	          justify-content: center;
+		position: relative;
+	}
+	
+	#backColor{
+	z-index: -1;
+	opacity: 0.2;
+	position: absolute;
+	height: 175px;
+	width: 410px;
+	background-color: black;
+	}
+	
+	#backColor2{
+		z-index: -1;
+		opacity: 0.2;
+		position: absolute;
+		height: 68px;
+		width: 410px;
+		background-color: black;
 	}

@@ -93,7 +93,7 @@ display: -webkit-flex;
  }
  
  table{
- box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+ box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
     background-color: tomato;
@@ -101,7 +101,7 @@ display: -webkit-flex;
  }
  
  #paging{
- box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+ box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
     text-align: center;
@@ -181,7 +181,7 @@ a:visited {
 	height: 25px;
   background: tomato;
   border: 1px solid #da251f;
-  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
 }

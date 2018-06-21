@@ -1,4 +1,14 @@
 @charset "UTF-8";
+body{
+	padding-top: 30px;
+	display: -webkit-flex;
+	display:         flex;
+	  -webkit-align-items: center;
+	          align-items: center;
+	  -webkit-justify-content: center;
+	          justify-content: center;
+}
+
 .td1{
 		background-color: gray;
 	}
@@ -9,25 +19,43 @@
 	
 	#div0{
 		width: 400px;
-		display: flex;
+		position: relative;
 	}
 	
 	.div1{
 		width: 30%;
+		position: absolute;
+		left: 281px;
+		top: 1px;
 	}
 	
 	.div2{
-		background-color: tomato;
 		width: 70%;
 	}
 	
 	.div3{
-		width: 100%
+		width: 70%
+	}
+	
+	.div5{
+		width: 70%;
 	}
 	
 	#cover{
-	text-align: center;
-	width: 400px;
+	display: -webkit-flex;
+	display:         flex;
+	  -webkit-align-items: center;
+	          align-items: center;
+	  -webkit-justify-content: center;
+	          justify-content: center;
+	flex-direction: column;
+	background-color: tomato;
+    text-align: center;
+    width: 415px;
+    height: 80px;
+    padding-right: 2px;
+    margin-bottom: 25px;
+    box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
 	}
 	
 	#input{
@@ -47,17 +75,52 @@
 	          align-items: center;
 	  -webkit-justify-content: center;
 	          justify-content: center;
-	    background-color: tomato;
-		width: 420px;
+		width: 410px;
 		height: 290px;
-		margin: 0 auto;
-	}
-	
-	.btn{
-		width: 100%;
-		height: 100%;
 	}
 	
 	b{
 		color: white;
 	}
+	
+	.btn-3 {
+	color: #fff;
+  cursor: pointer;
+	height: 45px;
+	width: 95%;
+    margin-left: 8px;
+  background: tomato;
+  border: 1px solid #da251f;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
+}
+
+.btn-3:hover {
+  background: tomato;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  color: #ec817d;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #c2211c;
+  transition: all 250ms linear;
+}
+
+.txtInput,.txtRes{
+	width: 100%;
+	text-align: center;
+}
+
+.backColor{
+	z-index: -1;
+    opacity: 0.2;
+    position: absolute;
+    height: 95px;
+    width: 430px;
+    background-color: black;
+}
+
+.amTitle {
+    padding-bottom: 3px;
+    text-shadow: 1px 1px 2px black;
+}

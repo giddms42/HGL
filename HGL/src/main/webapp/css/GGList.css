@@ -49,14 +49,14 @@ display: -webkit-flex;
  }
  
  
- table{
+ #tableOne{
  	text-align: center;
  	border: 1px solid white;
     width:98%;
     /* 오늘추가한거 */
     border-collapse: collapse;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
  }
  
  th{
@@ -177,7 +177,7 @@ a{
 	height: 25px;
   background: tomato;
   border: 1px solid #da251f;
-  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
 }

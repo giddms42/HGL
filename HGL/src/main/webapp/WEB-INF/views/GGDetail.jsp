@@ -96,11 +96,8 @@ $(function(){
 				
 					</table>
 					<br>
-					<br>
-
-					<br/>
 					<c:if test="${!empty dto2}">
-						<div id="cml">댓글 목록</div><br/>
+						<div id="cml">댓글 목록</div>
 							<c:forEach items="${dto2 }" var="ggcmDto">
 							<div class="dv0">
 								<div class="mdv1">
@@ -129,7 +126,6 @@ $(function(){
 							<c:when test="${login != null}">
 									<form action="GGRepleyInsert.do" id="cmtForm" method="post">
 										<input type="hidden" name="ggNo" value="${dto.ggNo}">
-										<br />
 										<table id="cmtDiv" border="1" bordercolor="white">
 											<col width="125" class="ab">
 											<col width="800">

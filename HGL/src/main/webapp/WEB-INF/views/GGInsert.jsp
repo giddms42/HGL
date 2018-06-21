@@ -104,8 +104,8 @@ $(function(){
 						<td colspan="2">
 			               <div class="btn00">               
 			             		<button id="addFile" class="btn-3">파일 추가</button>
-			               		<input class="btn-3" type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" id="btn02">
 				                <input class="btn-3" type="submit" value="작성완료" id="btn03">
+			               		<input class="btn-3" type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" id="btn02">
 			               </div>
 						</td>
 					</tr>

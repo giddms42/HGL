@@ -14,12 +14,9 @@
 <body>
 	
 		<div id="footer" align="center">
-			<h1>CopyRight HGL</h1>
 		<hr>
-			<div class="text-center center-block">
-				<p class="txt-railway">HGL.com © 2018 Hell | Final ProJect | Made In | lolFam</p>
-			</div>
+				<p>Copyright © HGL.com 2018-2222. All Rights Reserved.</p>
+			
 		</div>
-
 </body>
 </html>

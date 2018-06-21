@@ -3,22 +3,18 @@
    margin: auto;
    width: 1280px;
    height: 100%;
-   /* background-color: orange; */
 }
 
 #a{
 width: 100%;
-/* background-color: red; */
 }
 
 #c{
 width: 100%;
-/* background-color: green; */
 }
 
 #b{
 color: white;
-border: 1px dashed red;
 height: 550px;
 width: 100%; 
 display: -webkit-flex;
@@ -66,7 +62,7 @@ display: -webkit-flex;
  
  table{
     width:98%;
-    box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
  }
  
@@ -77,6 +73,18 @@ display: -webkit-flex;
     border: 1px solid white;
     box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
+ }
+ 
+ #paging2{
+ background: tomato;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+    border: 1px solid white;
+ 	color: black;
+ 	padding: 5px;
+    text-align: center;
+    width: 98%;
+    background-color: tomato;
  }
  
  #boardName{
@@ -125,4 +133,27 @@ display: -webkit-flex;
 #paging strong:visited{
 	color: white;
 	text-decoration: none;
+}
+
+.btn-3 {
+	padding-bottom: 20px;
+	color: #fff;
+  cursor: pointer;
+	margin: 4px;
+	height: 25px;
+  background: tomato;
+  border: 1px solid #da251f;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
+}
+
+.btn-3:hover {
+  background: tomato;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  color: #ec817d;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #c2211c;
+  transition: all 250ms linear;
 }

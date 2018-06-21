@@ -18,6 +18,7 @@
 h1 {
 	text-align: center;
 	color: white;
+	text-shadow: 2px 2px 0 gray;
 }
 
 .btn-3:hover {
@@ -32,7 +33,7 @@ h1 {
 	height: 25px;
   background: tomato;
   border: 1px solid #da251f;
-  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
 }
@@ -58,11 +59,6 @@ h1 {
 #table th{
 	text-shadow: 1px 1px 0 black;
 }
-
-h1{
-	text-shadow: 2px 2px 0 tomato;
-}
-
 
 #calTitle{
 	width: 97.5%;
