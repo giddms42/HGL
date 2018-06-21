@@ -78,8 +78,8 @@ function PwFindPopup(email2, id2){
 		<div id="cover">
 			<div><div><b>ID 찾기</b></div></div>
 			<div id="div0">
-				<div class="div1"><input type="text" readonly="readonly" value="E-Mail" class="input"></div>
-				<div class="div2"><input type="text" class="input" placeholder="E-Mail을 입력해주세요." id="email1"></div>
+				<div class="div1"><input type="text" readonly="readonly" value="E-Mail" class="input" ></div>
+				<div class="div2"><input type="text" class="input" placeholder="E-Mail을 입력해주세요." id="email1" maxlength=""></div>
 			</div>
 			<div id="div0">
 				<div class="div2"><input type="text" class="input" placeholder="결과가 출력됩니다." readonly="readonly" id="idVal"></div>

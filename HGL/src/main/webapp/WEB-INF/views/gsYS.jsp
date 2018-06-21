@@ -1,59 +1,78 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>
-<% response.setContentType("text/html; charset=UTF-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
+    <% request.setCharacterEncoding("UTF-8"); %>
+    <% response.setContentType("text/html; charset=UTF-8"); %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-
-<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
- <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/reset.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
+<title>Main.jsp</title>
 </head>
+<link rel="stylesheet" type="text/css" href="css/Main.css">
+<style>
+body {
+ background: url('image/back.png') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
 
+
+</script>
 <body>
-
-  <body>
-<main id="cd-main-content">
-	<section id="cd-intro">
-		<h1>Full Page Intro &amp; Navigation</h1>
-
-		<header class="cd-header">
-			<div id="cd-logo"><a href="#0"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-logo_2.svg" alt="Logo"></a></div>
-			<a class="cd-menu-trigger" href="#main-nav">Menu<span></span></a>
-		</header>
-		<div class="cd-blurred-bg"></div>
-	</section> <!-- cd-intro -->
-</main>
-
-<div class="cd-shadow-layer"></div>
-
-<nav id="main-nav">
-	<ul>
-		<li><a href="#0"><span>Tour</span></a></li>
-		<li><a href="#0"><span>Pricing</span></a></li>
-		<li><a href="#0"><span>Labs</span></a></li>
-		<li><a href="#0"><span>About</span></a></li>
-		<li><a href="#0"><span>Contact us</span></a></li>
-	</ul>
-	<a href="#0" class="cd-close-menu">Close<span></span></a>
-</nav>
-</body>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-  
-
-    <script  src="js/index.js"></script>
-
-
+	<div id="container">
+	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
+	
+	<div id="b">
+	<br>
+		<div class="csslider infinity" id="slider1">
+		  <input type="radio" name="slides" id="slides_1"/>
+		  <input type="radio" name="slides" checked="checked" id="slides_2"/>
+		  <input type="radio" name="slides" id="slides_5"/>
+		  <input type="radio" name="slides" id="slides_6"/>
+		  <ul>
+		    <li>
+		    	<div class="list1">1페이지</div>
+		    </li>
+		    <li>
+				<div class="list1">2페이지</div>
+			</li>
+		    <li>
+		    	<div class="list1">3페이지</div>
+		    </li>
+		    <li>
+		    	<div class="list1">4페이지</div>
+		    </li>
+		  </ul>
+		  <div class="arrows">
+		    <label for="slides_1"></label>
+		    <label for="slides_2"></label>
+		    <label for="slides_5"></label>
+		    <label for="slides_6"></label>
+		    <label class="goto-first" for="slides_1"></label>
+		    <label class="goto-last" for="slides_6"></label>
+		  </div>
+		  <div class="navigation"> 
+		    <div>
+		      <label for="slides_1"></label>
+		      <label for="slides_2"></label>
+		      <label for="slides_5"></label>
+		      <label for="slides_6"></label>
+		    </div>
+		  </div>
+		</div>
+	<br><br>
+	</div>
+	
+	
+	
+	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
+	</div>
 </body>
 </html>

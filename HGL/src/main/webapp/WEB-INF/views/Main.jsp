@@ -22,7 +22,17 @@ body {
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-
+window.onload = function() {
+		var i = 2;
+	setInterval(function(){
+		$("#label"+i).trigger("click");
+		if(i<4){
+			i++;
+		}else if(i==4){
+			i=1;
+		}
+	}, 3000);
+};
 </script>
 <body>
 	<div id="container">
@@ -31,8 +41,8 @@ body {
 	<div id="b">
 	<br>
 		<div class="csslider infinity" id="slider1">
-		  <input type="radio" name="slides" id="slides_1"/>
-		  <input type="radio" name="slides" checked="checked" id="slides_2"/>
+		  <input type="radio" name="slides" checked="checked" id="slides_1"/>
+		  <input type="radio" name="slides" id="slides_2"/>
 		  <input type="radio" name="slides" id="slides_5"/>
 		  <input type="radio" name="slides" id="slides_6"/>
 		  <ul>
@@ -59,10 +69,10 @@ body {
 		  </div>
 		  <div class="navigation"> 
 		    <div>
-		      <label for="slides_1"></label>
-		      <label for="slides_2"></label>
-		      <label for="slides_5"></label>
-		      <label for="slides_6"></label>
+		      <label for="slides_1" id="label1"></label>
+		      <label for="slides_2" id="label2"></label>
+		      <label for="slides_5" id="label3"></label>
+		      <label for="slides_6" id="label4"></label>
 		    </div>
 		  </div>
 		</div>
