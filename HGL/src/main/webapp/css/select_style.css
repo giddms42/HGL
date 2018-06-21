@@ -19,5 +19,5 @@
   -moz-appearance: none;       /* remove arrow FF     */
 }
 .select-wrapper select::-ms-expand{
-    display: none;             /* remove arrow IE     */
+	display: none;             /* remove arrow IE     */
 }

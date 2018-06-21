@@ -98,7 +98,7 @@ $(function(){
 			<form action="FWLBListSearch.do" method="post" id="searchForm">
 				<input type="hidden" name="nowpage" value="1"/>
 				<div style="text-align: center;">
-					<input type="search" class="searchTerm" name="searchNickName" placeholder="검색할 닉네임을 입력해주세요">
+					<input type="search" class="searchTerm" name="searchNickName" placeholder="검색할 닉네임을 입력해주세요" maxlength="45">
 					<button class="searchButton"><img id="searchButtonImg" src="image/serachicon.png"></button>			
 				</div>
 			</form>
