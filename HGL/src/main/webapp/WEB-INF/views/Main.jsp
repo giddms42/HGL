@@ -32,6 +32,12 @@ window.onload = function() {
 			i=1;
 		}
 	}, 3000);
+	
+	
+	
+	
+	
+	
 };
 </script>
 <body>

@@ -259,6 +259,18 @@ public class FWLDaoImple implements FWLDao {
 		}
 		return res;
 	}
+
+
+	@Override
+	public int FWLBDeleteAll(String fwlbWriter) {
+		int res = 0;
+		try {
+			res = sqlSession.delete(nameSpace+"FWLBDeleteAll", fwlbWriter);			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
 	
 	
 

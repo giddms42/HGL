@@ -32,5 +32,6 @@ public interface FWLDao {
 	public int FWLBCMInsert(fwlbcmDto dto);
 	public int FWLBCMDelete(int fwlbcmNo);
 	public int FWLBDelete(int fwlbNo);
+	public int FWLBDeleteAll(String fwlbWriter);
 
 }

@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.lol.hgl.dao.CalDao;
+import com.lol.hgl.dao.FWLDao;
 import com.lol.hgl.dao.MemberDao;
 import com.lol.hgl.dto.calDto;
 import com.lol.hgl.dto.memberDto;
@@ -27,6 +28,9 @@ public class MemberBizzImple implements MemberBizz {
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private FWLDao fwlDao;
 	
 	//ID중복 체크 및 정규식 검사 
 	@Override
@@ -180,6 +184,9 @@ public class MemberBizzImple implements MemberBizz {
 
 	@Override
 	public int getOut(int memberNo) {
+		memberDto memberDto = memberDao.detailLogin(memberNo);
+		String name = memberDto.getMemberNickname();
+		fwlDao.FWLBDeleteAll(name);
 		int res = memberDao.getOut(memberNo);
 		return res;
 	}

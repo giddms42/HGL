@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lol.hgl.dao.AdminDao;
+import com.lol.hgl.dao.FWLDao;
 import com.lol.hgl.dto.fwlbDto;
 import com.lol.hgl.dto.ggDto;
 import com.lol.hgl.dto.memberDto;
@@ -18,6 +19,8 @@ public class AdminBizzImple implements AdminBizz {
 	@Autowired
 	private AdminDao dao;
 	
+	@Autowired
+	private FWLDao fwlDao;
 	
 	@Override
 	public int memberAllListCount() {
@@ -102,6 +105,7 @@ public class AdminBizzImple implements AdminBizz {
 
 	@Override
 	public int memberGetOut(String memberNickName) {
+		fwlDao.FWLBDeleteAll(memberNickName);
 		return dao.memberGetOut(memberNickName);
 	}
 
