@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
-
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 @import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button
@@ -14,43 +14,48 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	text-align: center;
 	width: 600px;
 	height: 600px;
-	margin: auto;
-	margin-top: 5%;
-	border: none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2%;
+	border: 5px solid rgb(255,255,255,0.4);
+	padding:10px;
 	border-radius: 20px;
-	background:rgb(255,255,255,0.4);
+	background: rgb(255,255,200,0.4);
 }
 
 .famRegistForm h3 {
 	text-align: center;
-	font-family: 'Jeju Hallasan', serif;
+	font-family: 'Hanna', serif;
 	font-size: 26pt;
 	margin-bottom: 30px;
 }
 
 .famRegistForm form {
 	margin: auto;
-	width: 500px;
+	width: 550px;
 }
 
 .faminfo {
-	width: 150px;
-	height: 40px;
+	width: 180px;
+	height: 50px;
+	font-size: 14pt;
 	border: none;
+	background: transparent;
 }
-
-#famTable {
+#famTable{
 	margin: auto;
 }
-
 #famTable td {
 	padding: 3px;
 }
-
+.famInsert{
+	width:500px;
+	margin-left: auto;
+	margin-right: auto;
+}
 .famInsert img {
 	width: 70%;
 }
-
 #famRadi input {
 	width: 20px;
 	height: 20px;
@@ -103,14 +108,14 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	-moz-border-radius: .5em;
 	border-radius: .5em;
 	color: black;
-	background-color: white;
+	background-color: transparent;
 	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
 	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
 }
 
 #TwoBtn button:hover {
-	text-decoration: none;
+	background-color: white;
 }
 
 #TwoBtn button:active {
@@ -118,13 +123,12 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	top: 2px;
 }
 
-#disList select {
+#diseSelect {
 	height: 35px;
 	margin-top: 10px;
 	padding-left: 10px;
-	font-size: 14px;
-	color: #400040;
-	border: 1px solid #c0c0c0;
+	border: 2px solid white;
 	border-radius: 3px;
 	text-align: center;
+	background: transparent;
 }

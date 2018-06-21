@@ -8,6 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>행복한 가족의 미래</title>
 <link rel="stylesheet" type="text/css" href="css/FamInsert.css">
+<style>
+body {
+	background: url('image/back.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+</style>
 <script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
@@ -73,8 +82,6 @@ $(function(){
 	        }
 	    });
 	});
-
-	 
 });
 
 	function change(obj){
@@ -105,14 +112,14 @@ $(function(){
 			<div id="famInsert">
 				<table id="famTable">
 					<col width="48">
-					<col width="150">
+					<col width="200">
 					<tr>
 						<td><img src="icon/Famuser.png" style="width: 70%"></td>
-						<td><input class="faminfo" type="text" name="famName" required="required" placeholder="이름를 입력해주세요"></td>
+						<td><input class="faminfo" type="text" name="famName" required="required" placeholder="이름을 입력해주세요"></td>
 					</tr>
 					<tr>
 						<td><img src="icon/birthday.png" style="width: 70%"></td>
-						<td><input class="faminfo" type="NUMBER" name="famBirth" required="required" placeholder="생일 예)19910621"
+						<td><input class="faminfo" type="NUMBER" name="famBirth" required="required" placeholder="생일 예) 19910621"
 					 max="9999" maxlength="8" oninput="maxLengthCheck(this)"/></td>
 					</tr>
 					<tr>
@@ -120,7 +127,7 @@ $(function(){
 						<td><input class="faminfo" type="number" name="famHeight" required="required" placeholder="키를 입력해주세요"></td>
 					</tr>
 				</table>
-				<div id="famRadi" style="text-align: center; margin-top: 30px;">
+				<div id="famRadi" style="text-align: center; margin-top: 10px;">
 					<label><input class="radi" type="radio" value="질병없음" id="disNo" name="disease" checked="checked">질병없음</label>
           			<label><input class="radi" type="radio" value="질병있음" id="disYes">질병있음</label>
 				</div>
@@ -162,11 +169,12 @@ $(function(){
 				</div>
         	</div>	 
 			<div id="TwoBtn">
-	            <button onclick="goSubmit();">등록하기</button>
-	            <button style="margin-left: 70px;" type="button" onclick="history.back();">등록취소</button>
+	            <button type="button" onclick="history.back();">취소</button>
+	            <button onclick="goSubmit();" style="margin-left: 40px;">등록</button>
         	</div>
 		</form>
      </div> 
+	<div id="c" style="vertical-align: bottom"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 
 </body>
 </html>

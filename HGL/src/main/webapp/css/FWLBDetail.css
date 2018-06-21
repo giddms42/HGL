@@ -1,1 +1,160 @@
 @charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
+.LWLBDcontainer{
+	width: 800px; 
+	min-height:500px; 
+	height: 100%; 
+	padding: 20px;
+	margin-top: 2%;
+	margin-right: auto;
+	margin-left: auto; 
+	border-radius:10px;
+	background-color: rgb(95,189,165,0.4);
+}
+.LWLBDcontainer h2{
+	font-family: 'Hanna', serif;
+	text-align: center;
+}
+.minContainer{
+	width:650px;
+	margin-top: 20px;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:10px;
+	background: rgb(255,255,255,0.4);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.contHeader{
+	margin-bottom: 30px;
+	margin:auto;
+	width: 650px;
+	border-top: 2px solid black;
+}
+.contHeader span{
+	float: left;
+}
+.contBody{
+	text-align:center; 
+	margin-right:auto; 
+	margin-left:auto; 
+	width: 600px; 
+	min-height: 200px; 
+	height: 100%; 
+	padding: 20px;
+}
+.contBody table{
+	width:100%;
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+}
+.contBody th{
+	text-align: center;
+	font-family: 'Jeju Hallasan', serif;
+	font-size:18pt;
+}
+.contBody td{
+	font-family: 'Nanum Pen Script', serif;
+	font-size:20pt;
+}
+.contBody td b{
+	color:red;
+}
+.contFoot{
+	margin-right: auto; 
+	margin-left: auto; 
+	width: 600px;
+	padding: 20px;
+}
+.contFoot button{
+	background: transparent;
+	width: 80px;
+	height: 35px;
+	border-radius: 15px;
+	border: 3px solid rgb(255,255,255,0.8);
+	font-family: 'Hanna', serif;
+	font-size: 14pt;
+	color: white;
+}
+.contFoot button:hover{
+	background: rgb(95,189,165);
+}
+.contFoot button:active {
+	position:relative;
+	top:2px;
+}
+#Deletebtn{
+	float:right;
+}
+
+/* ------------------------------comment----------------------------------- */
+.comment{
+	margin-bottom: 20px;
+	
+}
+.commentBox{
+	border:1px solid #006b1b; 
+	width:600px; 
+	min-height: 110px;
+	max-height: 100%;
+	padding:20px;
+	margin-right: auto; 
+	margin-left: auto;  
+	margin-top: 5px; 
+	margin-bottom: 5px;
+	background: rgb(255,255,255,0.6);
+}
+.commnentDate{
+	float:right;
+}
+.commnentContent{
+	width:550px;  
+	margin-top: 15px; 
+	display: inline-block; 
+	word-break:break-all;
+}
+.deleteIcon{
+	width:550px;
+	height:20px;
+}
+.deleteIcon img{
+	vertical-align:top;
+	float:right;
+	cursor: pointer;
+	width:4%;"
+}
+.insertComment{
+	margin-right:auto; 
+	margin-left:auto; 
+	width: 600px; 
+	margin-bottom: 10px; 
+}
+.insertComment form{
+	text-align: center;
+}
+.textbox{
+	width: 500px; 
+	height:100px; 
+	overflow:visible; 
+	resize:none;
+}
+.insertComment button{
+	width:95px; 
+	height:99px; 
+	vertical-align:top;
+	background: transparent;
+	border: 3px solid rgb(255,255,255,0.8);
+	font-family: 'Hanna', serif;
+	font-size: 14pt;
+	color: white;
+}
+.insertComment button:hover{
+	background: rgb(95,189,165);
+}
+.insertComment button:active {
+	position: relative;
+ 	top:2px;
+}

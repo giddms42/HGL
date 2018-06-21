@@ -83,7 +83,7 @@ $(function(){
 						<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" id="btn001" class="btn-3">
 						<input type="submit" value="글수정" id="btn002" class="btn-3">
 					<c:if test="${login.memberNickname eq dto.ggWriter}">
-						<input type="submit" value="글수정" onclick="location.href='GGUpdateForm.do?ggNo=${dto.ggNo}'" id="btn002 class="btn002">
+						<input type="submit" value="글수정" onclick="location.href='GGUpdateForm.do?ggNo=${dto.ggNo}'" id="btn002" class="btn002">
 						<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" id="btn003" class="btn-3">
 					</c:if>
 				
@@ -108,6 +108,7 @@ $(function(){
 									<div class="cont"><textarea rows="3" cols="" style="resize: none; overflow: hidden;" readonly="readonly">${ggcmDto.ggcmCont }</textarea></div>
 								</div>
 							</div>
+							<div class="dv1">
 							<c:if test="${login.memberNickname eq ggcmDto.ggcmWriter}">
 								<input type="button" onclick="location.href='GGRepleyDelete.do?ggcmNo='+${ggcmDto.ggcmNo}+'&ggNo='+${ggcmDto.ggNo}" value="댓글삭제" id="Cbtn2" class="btn-3">
 							</c:if>

@@ -37,7 +37,7 @@ body {
 		  <input type="radio" name="slides" id="slides_6"/>
 		  <ul>
 		    <li>
-		    	<div class="list1">1페이지</div>
+		    	<div class="list1"><img src="image/s_003.png" style="width: 800px;"></div>
 		    </li>
 		    <li>
 				<div class="list1">2페이지</div>
