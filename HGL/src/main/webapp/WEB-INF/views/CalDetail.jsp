@@ -65,34 +65,8 @@ function del(){
 	var year =  $("select[name=year]").val();
 	var month =  $("select[name=month]").val();
 	var memberNickname = $("input[name=memberNickname]").val();
-	alert(calNo);
-<<<<<<< HEAD
-	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
-	window.close()
-	/* location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
-	opener.location.reload();
-	self.close(); */
-}
-
-function upOk(){
-	alert("창모드업데이트");
-	var calNo = $("#calNo").val();
-	var year = $("#year").val(); // 값 잘들어옴
-	var month = $("#month").val();
-	var date = $("#date").val();
-	var hour = $("#hour").val();
-	var min = $("#min").val();
-	var calTitle = $("#calTitle").val();
-	var calMemo = $("#calMemo").val();
-	var calSMS = $("#calSMS").val();
-	var memberId = $("#memberId").val();
-	alert(calNo);
-	window.opener.top.location.href="CalUpdate.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&date="+date+"&hour="+hour+"&min="+min+"&calTitle="+calTitle+"&calMemo="+calMemo+"&calSMS="+calSMS;
-	window.close();
-=======
 	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&memberNickname="+memberNickname;
 	window.close()
->>>>>>> branch 'he' of https://github.com/giddms42/HGL.git
 }
 
 $(function(){
@@ -128,9 +102,8 @@ $(function(){
 				success:function(val){
 					var r = $.trim(val);	
 					var count = parseInt(r);
-					alert(count)
 					if(count>=3){
-						alert("해당 날은 일정이 3개 이상입니다. 다른 날을 선택해주세요.");
+						alert("해당 날짜의 일정이 꽉 찼습니다. 다른 날을 선택해주세요.");
 						returnVar = false;
 					}
 				}
@@ -166,15 +139,15 @@ $(function(){
 				<td><input id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=dto.getMemberNickname()%>" readonly="readonly" /></td>
 			</tr>
 			<tr>
-				<th class="thPadding">날짜</th>
+				<th class="thPadding">날　짜</th>
 				<td><input id="inputSize" class="txtWidth" type="text" name="calTitle" value="<%=util.getToDates()%>" readonly="readonly"/></td>
 			</tr>
 			<tr>
-				<th class="thPadding">제목</th>
+				<th class="thPadding">제　목</th>
 				<td><input id="inputSize" class="txtWidth" type="text" name="calTitle" value="<%=dto.getCalTitle()%>" readonly="readonly"/></td>
 			</tr>
 			<tr>
-				<th class="thPadding">내용</th>
+				<th class="thPadding">내　용</th>
 				<td style="padding-left: 3.4px;"><textarea rows="10" cols="53" readonly="readonly" style=" resize: none;"><%=dto.getCalMemo()%></textarea> </td>
 			</tr>
 			<tr>
@@ -195,6 +168,8 @@ $(function(){
 		</table>
 </div>
 </div>
+
+
 <div id="Up">
 <h1>일정 수정하기</h1>
 <div id="CalForm0">
@@ -207,11 +182,11 @@ $(function(){
 			<col width="100">
 			<col width="400">
 			<tr>
-				<th class="thPadding">작성자</th>
+				<th class="thPadding3">작성자</th>
 				<td><input style="padding-left: 2px;" id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=dto.getMemberNickname()%>" readonly="readonly" /></td>
 			</tr>
 			<tr>
-				<th class="thPadding" id="thPadding">날짜</th>
+				<th class="thPadding3" id="thPadding">날　짜</th>
 				<td style="padding-left: 3.4px;">
 					<select name="year">
 						<%
@@ -261,11 +236,11 @@ $(function(){
 				</td>
 			</tr>
 			<tr>
-				<th class="thPadding">제목</th>
+				<th class="thPadding3">제　목</th>
 				<td><input class="txtWidth" type="text" id="calTitle" name="calTitle" value="<%=dto.getCalTitle()%>"/></td>
 			</tr>
 			<tr>
-				<th class="thPadding">내용</th>
+				<th class="thPadding3">내　용</th>
 				<td><textarea rows="10" cols="53" id="calMemo" class="txtWidth" name="calMemo"><%=dto.getCalMemo()%></textarea> </td>
 			</tr>
 			<tr>

@@ -40,23 +40,20 @@ body {
 			/* var memberId = $("login") */
 			
 			$.ajax({
-				type:"post", //전송방식
-				url:"CalListCountAjax.do", //요청url
-				data:"memberId="+memberId+"&yyyyMMdd="+yyyyMMdd, //전송 파리미터
-			//	data:{"memberId":memberId,"yyyyMMdd":yyyyMMdd},
-			//	datatype:"",//서버에서 받는 데이터 타입
-				async:true, //javascript 코드를 동기식으로 설정 (비동기/동기설정)
+				type:"post",
+				url:"CalListCountAjax.do",
+				data:"memberId="+memberId+"&yyyyMMdd="+yyyyMMdd,
+				async:true,
 				success:function(val){
-					  var r = $.trim(val);	
-				//	var count=val.calCount;
+					  var r = $.trim(val);
 					aCountView.after("<div class='cPreview'>"+r+"개의 스케줄이 있습니다</div>");
 				},
 				error:function(){
-					alert("서버통신실패!!");
+					alert("countView hover ajax error");
 				}
 			});
 		},function(){
-			$(".cPreview").remove();//마우스가 나가면 삭제하기
+			$(".cPreview").remove();
 		});
 	});
 	
@@ -64,26 +61,22 @@ body {
 		return n.length<2?"0"+n:n;
 	}
 	
-	function addSCH(num){ // num도 클릭한 날짜 잘 들어옴
+	function addSCH(num){
 		var year2 = $("#year").val();
 		var month2 = $("#month").val();
 		var date2 = num;
-		alert(num);
-		var lastDay2 = $("#lastDay").val(); // 값 잘들어옴
+		var lastDay2 = $("#lastDay").val();
 		var memberId2 = $("#memberId").val();
 		var memberNickname2 = $("#memberNickname").val();
 		var popupX = (window.screen.width/2) - (530 / 2);
 		var popupY= (window.screen.height/2)- (465/2);
-		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		$.ajax({
-				type:"post", //전송방식
-				url:"DayListCountAjax.do", //요청url
+				type:"post",
+				url:"DayListCountAjax.do",
 				data:"memberId="+memberId2+"&year="+year2+"&month="+month2+"&date="+num,
 				success:function(val){
-					alert("성공");
 					var r = $.trim(val);	
 					var count = parseInt(r);
-					alert(count);
 					if(count>=3){
 						alert("일정은 총 3개만 입력가능합니다.");
 					}else{
@@ -92,18 +85,15 @@ body {
 					}
 				},
 				error:function(){
-					alert("서버통신실패!!");
+					alert("addSCH() Ajax error");
 				}
 			});
 
 	}
 	
 	function DetSCH(num){
-		
-		alert(num);
 	 	var popupX = (window.screen.width/2) - (530 / 2);
 		var popupY= (window.screen.height/2)- (465/2);
-		// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		window.name="Parent";
 		window.open("calDetail.do?calNo="+num,"", 'status=no, width=530, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 		}
@@ -112,7 +102,7 @@ body {
 		var year = $("#year").val();
 		var month = $("#month").val();
 		var date = $("#date").val();
-		var lastDay = $("#lastDay").val(); // 값 잘들어옴
+		var lastDay = $("#lastDay").val();
 		var memberId = $("#memberId").val();
 		var memberNickname = $("#memberNickname").val();
 		
@@ -129,6 +119,7 @@ body {
 	System.out.println("CalList.jsp : " + paramYear);
 	System.out.println("CalList.jsp : " + paramMonth);
 	
+	@SuppressWarnings("unchecked")
 	List<calDto> cList = (List<calDto>)request.getAttribute("cList");
 	
 	Calendar cal =Calendar.getInstance();
@@ -189,14 +180,23 @@ body {
 	<table id="calendar">
 		<tr id="topBar">
 			<th colspan="7" class="th7">
-			<a href="CalListForm.do?year=<%=year-1%>&month=<%=month%>&memberId=${login.memberId}">◁</a>
-			<a href="CalListForm.do?year=<%=year%>&month=<%=month-1%>&memberId=${login.memberId}">◀</a>
-			
-			<span class="y"><%=year %></span>년
-			<span class="m"><%=month %></span>월
-			
-			<a href="CalListForm.do?year=<%=year%>&month=<%=month+1%>&memberId=${login.memberId}">▶</a>
-			<a href="CalListForm.do?year=<%=year+1%>&month=<%=month%>&memberId=${login.memberId}">▷</a>
+			<div id="divIn">
+				<div id="div1">
+					<a href="CalListForm.do?year=<%=year-1%>&month=<%=month%>&memberId=${login.memberId}">◁</a>
+					<a href="CalListForm.do?year=<%=year%>&month=<%=month-1%>&memberId=${login.memberId}">◀</a>
+					
+					<span class="y"><%=year %></span>년
+					<span class="m"><%=month %></span>월
+					
+					<a href="CalListForm.do?year=<%=year%>&month=<%=month+1%>&memberId=${login.memberId}">▶</a>
+					<a href="CalListForm.do?year=<%=year+1%>&month=<%=month%>&memberId=${login.memberId}">▷</a>
+				</div>
+				<div id="div2">
+					<div>
+						<input class="btn-3" type="button" value="일정추가" onclick="addSCH2();" />
+					</div>
+				</div>
+			</div>
 			</th>
 		</tr>
 		
@@ -238,9 +238,7 @@ body {
 %>
 		</tr>
 	</table>
-	<div id="CalBtn">
-		<input class="btn-3" type="button" value="일정추가" onclick="addSCH2();" />
-	</div>
+	
 	</div>
 	<br/>
 	

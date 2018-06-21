@@ -89,7 +89,8 @@ h1{
 	bottom: 50px;
 	width: 175px;
 	height: 20px;
-	margin: 2px;
+	margin: 1px;
+	margin-top: 2px;
 }
 .thPadding{
  	background: tomato;
@@ -152,9 +153,20 @@ h1{
 
 #calMemo{
 	resize: none;
-	padding-left: 3.4px;
+	padding-left: 2.4px;
 }
 
 #datePadding{
 	margin: 200px;
+}
+
+.thPadding3{
+	width: 19.7%;
+ 	background: tomato;
+  border: 1px solid #da251f;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  letter-spacing: 1px;
+ 	color: white;
+	text-align: left;
+	padding-left: 25px;
 }

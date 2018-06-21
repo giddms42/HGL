@@ -33,7 +33,7 @@ function fn_deleteFile(obj){
 function fn_addFile(){
     var str = "<p id='fileDiv1'>" +
             "<input id='fileDiv2' type='file' name='file_"+(gfv_count++)+"'>"+
-            "<a href='#this' class='fileDiv0' id='delete_${i.index }' name='delete_${i.index }'><button class='btn-3'>삭제</button></a>" +
+            "<a href='#this' class='fileDiv0' id='delete_${i.index }' name='delete_${i.index }'><button id='delBtn' class='btn-3'>삭제</button></a>" +
               "</p>";
     $("#fileDiv").append(str);
     $("a[name^='delete']").on("click", function(e){ //삭제 버튼
@@ -82,7 +82,7 @@ body {
 	               <table border="1" bordercolor="white">
 	               <col width="100">
 	               	  <tr>
-	               	  	<td colspan="2"><div class="thDiv">좋은글 게시판 수정하기</div></td>
+	               	  	<td colspan="2"><div id="ggTitle" class="thDiv">좋은글 게시판 수정하기</div></td>
 	               	  </tr>
 	                  <tr>
 	                     <td class="thDiv">제목</td>
@@ -115,13 +115,17 @@ body {
                         </div>
 						</td>
 					</tr>
+					<tr>
+						<td colspan="2">
+			               <div class="btn00">
+			               		<button class="btn-3" id="addFile">파일 추가</button>
+			               		<input class="btn-3" type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" id="btn002">
+				                <input class="btn-3" type="submit" value="글수정" id="btn003">
+			               </div>
+						</td>
+					</tr>
 	               </table>
-	               <div class="btn00">
-	               		<button class="btn-3" id="addFile">파일 추가</button>
-	               		<input class="btn-3" type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" id="btn002">
-		                <input class="btn-3" type="submit" value="글수정" id="btn003">
-	               </div>
-	               <br> <div id="paging">　<br>　</div>
+	               <br>
 	      </form>
 	      </div>
 	   </div>
