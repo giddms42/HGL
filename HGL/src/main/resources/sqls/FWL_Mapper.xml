@@ -54,7 +54,7 @@
 	</select>
 	
 	<select id="fwlbcmList" parameterType="int" resultMap="fwlbcmDto">
-		SELECT * FROM FWLBCM WHERE FWLBNO=#{fwlbNo}
+		SELECT * FROM FWLBCM WHERE FWLBNO=#{fwlbNo} order by FWLBCMNO DESC
 	</select>
 	
 	<select id="FWLBListCount" resultType="int">
