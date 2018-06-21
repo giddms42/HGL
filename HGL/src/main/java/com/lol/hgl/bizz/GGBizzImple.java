@@ -33,14 +33,21 @@ public class GGBizzImple implements GGBizz {
 	public int ggListCount() {
 		return dao.ggListCount();
 	}
+
+	@Override
+	public void inserGGListRowNum() {
+		List<ggDto> list = dao.ggAllList();
+		int rowNum = 1;
+		for(int i=0; i<list.size(); i++) {
+			int ggNo = list.get(i).getGgNo();
+			dao.insertGGRowNum(rowNum, ggNo);
+			rowNum++;
+		}
+	}
 	
 	@Override
 	public List<ggDto> selectAll(int startPost, int endPost) {
 		List<ggDto> res = dao.selectAll(startPost, endPost);
-		for(int i=0; i<res.size(); i++) { // 10번
-			res.get(i).setGgRowNum(startPost);
-			startPost++;
-		}
 		return res;
 	}
 	
@@ -49,6 +56,19 @@ public class GGBizzImple implements GGBizz {
 		return dao.ggListSerchCount(topic, keyword);
 	}
 
+	@Override
+	public void insertGGSearchRowNum(String topic, String keyword) {
+		List<ggDto> list = dao.ggSearchAllList(topic, keyword);
+		int rowNum = 1;
+		for(int i=0; i<list.size(); i++) {
+			int ggNo = list.get(i).getGgNo();
+			System.out.println(ggNo);
+			dao.insertGGRowNum(rowNum, ggNo);
+			rowNum++;
+		}
+		
+	}
+	
 	@Override
 	public List<ggDto> selectSearchAll(int startPost, int endPost, String topic, String keyword) {
 		List<ggDto> list = dao.selectSearchAll(startPost, endPost, topic, keyword);
@@ -179,7 +199,5 @@ public class GGBizzImple implements GGBizz {
 	public List<ggImgDto> imgSelectOne(int ggNo) {
 		return dao.imgSelectList(ggNo);
 	}
-
-	
 
 }

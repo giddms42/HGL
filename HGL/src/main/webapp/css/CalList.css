@@ -78,10 +78,6 @@
 		color: white;
 	}
 	
-	#CalBtn{
-		margin-left: 37.7%;
-	}
-	
 	#calTr{
 		background-color: tomato;
 		color: white;
@@ -92,7 +88,7 @@
 	#topBar{
 		background-color: tomato;
 		color: white;
-		height: 30px;
+		height: 30px;	
 	}
 	
 	 #topBar a:link{
@@ -167,4 +163,22 @@
  }
  #calendar tr th a:hover  {
 	text-shadow: 1px 1px 0 orange;
+ }
+ 
+ #divIn{
+	 height: 30px;
+ }
+ 
+ #div1{
+ 	margin-left: 90px;
+ 	padding-top: 5px;
+ 	height: 30px;
+ 	width: 40%;
+ 	float: left;
+ 	margin-left: 168px;
+ }
+ 
+ #div2{
+ 	margin-left: 85px;
+ 	float: left;
  }

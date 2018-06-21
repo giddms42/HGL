@@ -35,6 +35,14 @@
 	 SELECT COUNT(*) FROM GG 
 	</select>
 	
+	<select id="ggAllList" resultMap="ggDtoMap">
+		SELECT * FROM GG order by ggNo
+	</select>
+	
+	<update id="insertGGRowNum" parameterType="map">
+		UPDATE GG SET GGROWNUM=#{rowNum} WHERE GGNO=#{ggNo}
+	</update>
+	
 	<select id="selectAll" parameterType="map" resultMap="ggDtoMap">
 	<![CDATA[
 	select *
@@ -51,7 +59,11 @@
 	</select>
 	
 	<select id="ggListSerchCount" parameterType="map" resultType="int">
-	SELECT COUNT(*) FROM GG WHERE ${topic} LIKE #{keyword}
+	SELECT COUNT(*) FROM GG WHERE ${topic} LIKE #{keyword} order by ggNo
+	</select>
+	
+	<select id="ggSearchAllList" parameterType="map" resultMap="ggDtoMap">
+		SELECT * FROM GG WHERE ${topic} LIKE #{keyword}
 	</select>
 	
 	<select id="selectSearchAll" parameterType="map" resultMap="ggDtoMap">

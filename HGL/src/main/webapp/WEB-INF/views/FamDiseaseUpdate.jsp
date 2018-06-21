@@ -8,13 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>지병항목 변경하기</title>
-<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 $(function(){
 $("input[type=checkbox]").click(function(){ //체크박스를 클릭할때마다 
 	if($("input[type=checkbox]:checked").length > 3) {
-		   swal("지병은 최대 3개까지만 선택할 수 있습니다. 다시 확인해주세요");
+		   alert("지병은 최대 3개까지만 선택할 수 있습니다. 다시 확인해주세요");
 		   $(this).prop("checked", false);
 	}else{
 		$("input[type=checkbox]").each(function() { // 체크박스의 각자를 갖고와서 
@@ -31,10 +30,15 @@ $("input[type=checkbox]").click(function(){ //체크박스를 클릭할때마다
 	$(function(){
 		$("#DiseaseForm").submit(function(){
 	       	 if($(".dis:checked").length < 1){
-		       	 swal("질병을 한개 이상 체크해주세요")
+		       	 alert("질병을 한개 이상 체크해주세요")
 		       	 return false;	
 	       	 }else{
-		       	 window.opener.name = "Parent"; // 부모창의 이름 설정
+		       	if($("#chkCancer").is(":checked") && $("#diseSelect").val()==""){
+		       		alert("암 종류를 한개 이상 선택해주세요");
+		       		$("#chkCancer").removeAttr("name");
+		       		return false;
+		       	}
+	       		 window.opener.name = "Parent"; // 부모창의 이름 설정
 			     document.myForm.target = "Parent"; // 타켓을 부모창으로 설정
 			     self.close();
 	        	 }

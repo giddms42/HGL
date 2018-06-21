@@ -30,7 +30,7 @@
 					var r = $.trim(val);	
 					var count = parseInt(r);
 					if(count>=3){
-						alert("일정은 총 3개만 입력가능합니다.");
+						alert("일정은 최대 3개까지 입력 가능합니다.");
 					}else{
 						var params = $("#CalForm").serialize();
 						$.ajax({
@@ -49,7 +49,7 @@
 					}
 				},
 				error:function(){
-					alert("서버통신실패!!");
+					alert("bb() ajax error");
 				}
 			});
 			
@@ -105,7 +105,7 @@
 				<td><input style="padding-left: 2px;" id="inputSize" class="txtWidth" type="text" name="memberNickname" value="<%=memberNickname %>" readonly="readonly" /></td>
 			</tr>
 			<tr>
-				<th class="thPadding">날짜</th>
+				<th class="thPadding">날　짜</th>
 				<td style="padding-left: 3.4px;">
 					<select name="year">
 						<%
@@ -155,11 +155,11 @@
 				</td>
 			</tr>
 			<tr>
-				<th class="thPadding">제목</th>
+				<th class="thPadding">제　목</th>
 				<td><input style="padding-left: 2px;" id="inputSize" class="txtWidth" type="text" name="calTitle"/></td>
 			</tr>
 			<tr>
-				<th class="thPadding">내용</th>
+				<th class="thPadding">내　용</th>
 				<td style="padding-left: 3.4px;"><textarea rows="10" cols="53" name="calMemo" style="resize: none;"></textarea> </td>
 			</tr>
 			<tr>

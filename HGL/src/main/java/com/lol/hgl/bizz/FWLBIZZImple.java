@@ -64,15 +64,22 @@ public class FWLBIZZImple implements FWLBizz {
 	public int FWLBListCount() {
 		return dao.FWLBListCount();
 	}
+	
+	@Override
+	public void insertFWLBRowNum() {
+		List<fwlbDto> list = dao.fwlbAllList(); //1붵 시작 
+		int rowNum = 1;
+		for(int i=0; i<list.size(); i++) {
+			int fwlbNo = list.get(i).getFwlbNo();
+			dao.insertFWLBRowNum(rowNum, fwlbNo);
+			rowNum++;
+		}
+	}
+
 
 	@Override
 	public List<fwlbDto> FwlbList(int startPost, int endPost) {
 		List<fwlbDto> list = dao.FwlbList(startPost, endPost);
-		List<Integer> rowNum = dao.ListRowNum(startPost, endPost);
-		for(int i=0; i<list.size(); i++) {
-			list.get(i).setFwlbRowNum((rowNum.get(i)));
-		}
-		
 		return list;
 	}
 
@@ -80,14 +87,21 @@ public class FWLBIZZImple implements FWLBizz {
 	public int FWLBListSearchCount(String searchNickName) {
 		return dao.FWLBListSearchCount(searchNickName);
 	}
-
+	
+	@Override
+	public void insertFWLBSearchRowNum(String searchNickName) {
+		List<fwlbDto> list = dao.fwlbSearchAllList(searchNickName);
+		int rowNum = 1;
+		for(int i=0; i<list.size(); i++) {
+			int fwlbNo = list.get(i).getFwlbNo();
+			dao.insertFWLBRowNum(rowNum, fwlbNo);
+			rowNum++;
+		}
+	}
+	
 	@Override
 	public List<fwlbDto> FwlbListSearch(int startPost, int endPost, String searchNickName) {
 		List<fwlbDto> list = dao.FwlbListSearch(startPost, endPost, searchNickName);
-		List<Integer> rowNum = dao.SearchListrowNum(startPost, endPost, searchNickName);
-		for(int i=0; i<list.size(); i++) {
-			list.get(i).setFwlbRowNum(i);
-		}
 		return list;
 	}
 
@@ -110,6 +124,10 @@ public class FWLBIZZImple implements FWLBizz {
 	public int FWLBDelete(int fwlbNo) {
 		return dao.FWLBDelete(fwlbNo);
 	}
+
+	
+		
+	
 
 
 
