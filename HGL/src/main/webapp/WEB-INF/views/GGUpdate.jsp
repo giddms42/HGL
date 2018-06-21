@@ -102,7 +102,7 @@ body {
 	                  	<td>
 	                      <div id="fileDiv">               
                             <c:forEach items="${list}" var="ggImgDto" varStatus="i">
-                                <p>
+                                <p id="filePadding">
                                 <!-- 이미지 번호 -->
                                 <input type="hidden" id="IDX" class="file" name="IDX" value="${ggImgDto.ggImgNo}"/>
                                 <!-- 원 제목 -->

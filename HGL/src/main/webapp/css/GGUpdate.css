@@ -203,3 +203,7 @@ a:visited {
  #delBtn{
  	font-size: 10pt;
  }
+ 
+ #filePadding{
+ 	padding-top: 5px;
+ }

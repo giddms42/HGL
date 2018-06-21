@@ -43,7 +43,6 @@
 	          align-items: center;
 	  -webkit-justify-content: center;
 	          justify-content: center;
-	    background-color: tomato;
 		width: 420px;
 		height: 200px;
 		margin: 0 auto;
@@ -59,11 +58,11 @@
 	}
 	
 	table{
-		border: 2px solid white;
+		border: 1px solid black;
 	}
 	
 	#ans{
-		background-color: white;
+		background-color: red;
 	}
 	
 	#res{

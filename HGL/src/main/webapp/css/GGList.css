@@ -146,10 +146,6 @@ tr:hover td {
  	color: white;
  }
  
-
-thead th {
-  background-color: #55608f;
-}
 tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -169,10 +165,6 @@ tbody td {
 a:visited {
 	color: white;
 	text-decoration: none;
-}
-strong{
-	color: white;
-	text-shadow: orange;
 }
 a{
 	color: white;
@@ -198,4 +190,8 @@ a{
   text-decoration: none;
   text-shadow: 1px 1px 0 #c2211c;
   transition: all 250ms linear;
+}
+strong{
+	color: white;
+	text-shadow: orange;
 }

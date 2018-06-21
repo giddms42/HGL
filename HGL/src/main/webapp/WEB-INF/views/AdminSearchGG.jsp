@@ -28,41 +28,42 @@ body {
       <div id="bodyMain">
          <div id="boardName">${memberNickName}님의 좋은글 게시판 상세</div>
          <br/>
-         <img src="image/sadad.png" id="content">
                <table border="1" bordercolor="white">
                   <col width="70" class="ab">
                   <col width="550">
                   <col width="300">
                   <col width="70">
                   <tr>
-                     <th>글번호</th>
-                     <th>글제목</th>
-                     <th>작성일</th>
-                     <th>글삭제</th>
+                     <th class="th">글번호</th>
+                     <th class="th">글제목</th>
+                     <th class="th">작성일</th>
+                     <th class="th">글삭제</th>
                   </tr>
               	  <c:choose> 
 	                 	<c:when test="${empty list}">
 	                 		<c:forEach begin="0" end="9">
-	                 		<tr>
-	                 			<td colspan="4">--------------글이 없습니다.--------------</td>
-	                 		</tr>
+	                 		<tbody>
+		                 		<tr>
+		                 			<td colspan="4">작성된 글이 존재하지 않습니다.</td>
+		                 		</tr>
+	                 		</tbody>
 	                 		</c:forEach>         	
 	                 	</c:when>
 	                 	<c:otherwise>
 	                 		  <c:forEach items="${list}" var="dto" varStatus="i">
-	                		  	<c:choose>
-	                		  		<c:when test="${nowPage eq 1}">
 	                		  <tr>
-										<td>${i.index+1}</td>
-	                		  		</c:when>
-	                		   		<c:otherwise>
-	                		  <tr>
-	                		   			<td>${i.index+1+(nowPage-1)*10}</td>
-	                		   		</c:otherwise>
-								</c:choose>
-								<td><a href="GGDetailForm.do?ggNo=${dto.ggNo}&count=1">${dto.ggTitle}</a></td>
-								<td>${dto.ggDate }</td>
-								<td><input type="button" onclick="location.href='AdminGGDelete.do?ggNo=${dto.ggNo}&memberNickName=${memberNickName}'" value="삭제"></td>
+		                		  	<c:choose>
+		                		  		<c:when test="${nowPage eq 1}">
+											<td>${i.index+1}</td>
+		                		  		</c:when>
+		                		   		<c:otherwise>
+		                		 
+		                		   			<td>${i.index+1+(nowPage-1)*10}</td>
+		                		   		</c:otherwise>
+									</c:choose>
+									<td><a href="GGDetailForm.do?ggNo=${dto.ggNo}&count=1">${dto.ggTitle}</a></td>
+									<td>${dto.ggDate }</td>
+									<td><input class="btn-3" type="button" onclick="location.href='AdminGGDelete.do?ggNo=${dto.ggNo}&memberNickName=${memberNickName}'" value="삭제"></td>
 								</tr>
 								</c:forEach>
 	                 	</c:otherwise>
@@ -94,6 +95,9 @@ body {
 						<c:when test="${nowPage eq pageCount}">
 							▶
 						</c:when>
+						<c:when test="${pageCount eq 0}">
+	                    	 ▶
+	                    </c:when>
 						<c:otherwise>
 							<a href="AdminSearchGG.do?nowpage=${nowPage + 1}&memberNickName=${memberNickName}">▶</a>
 						</c:otherwise>

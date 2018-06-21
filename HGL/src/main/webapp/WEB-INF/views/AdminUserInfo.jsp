@@ -10,6 +10,15 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/AdminUserInfo.css">
+<style>
+body {
+ background: url('image/back.png') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ }
+</style>
 <body>
 
 	<div id="container">
