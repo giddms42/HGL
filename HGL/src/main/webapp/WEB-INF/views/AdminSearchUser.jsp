@@ -22,12 +22,19 @@ body {
 <script type="text/javascript">
 
 function AdminUserInfo(nickName){
-   var popupX = (window.screen.width / 2) - (440 / 2);
+   var popupX = (window.screen.width / 2) - (460 / 2);
    // 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
-   var popupY= (window.screen.height /2) - (220 / 2);
+   var popupY= (window.screen.height /2) - (340 / 2);
    // 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-   window.open("AdminUserInfoForm.do?memberNickName="+nickName,"", 'width=440, height=220, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+   window.open("AdminUserInfoForm.do?memberNickName="+nickName,"", 'width=460, height=340, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
    }
+   
+ function userSearch(){
+	 var nickName = $("input[name=searchNickName]").val();
+	 AdminUserInfo(nickName);
+ } 
+   
+
 
 </script>
 <body>
@@ -114,6 +121,13 @@ function AdminUserInfo(nickName){
 						</c:otherwise>
 					</c:choose>
 	            </div>
+	            
+	               <div id="paging2">
+						<div style="width: 50%; margin: auto; text-align: center;">
+							<input type="search" class="searchTerm" name="searchNickName" placeholder="검색할 닉네임을 입력해주세요!">
+							<input class="btn-3" type="button" value="검색" onclick="userSearch();">
+						</div>
+	               </div>
       </div>
    </div>
    

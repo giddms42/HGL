@@ -49,13 +49,12 @@ body {
 	                 	</c:when>
 	                 	<c:otherwise>
 	                 		  <c:forEach items="${list}" var="dto" varStatus="i">
+	                		  <tr>
 	                		  	<c:choose>
 	                		  		<c:when test="${nowPage eq 1}">
-	                		  <tr>
 										<td>${i.index+1}</td>
 	                		  		</c:when>
 	                		   		<c:otherwise>
-	                		  <tr>
 	                		   			<td>${i.index+1+(nowPage-1)*10}</td>
 	                		   		</c:otherwise>
 								</c:choose>
@@ -69,6 +68,7 @@ body {
                </table>
                <br/>
                 <div id="paging">
+	          		${nowPage}  ///  ${pageCount}
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
 							◀

@@ -84,12 +84,12 @@ function goSubmit(){
 				<div><div><b>비밀번호 변경</b></div></div><br/>
 				<div id="div0">
 					<div class="div1"><input type="text" class="input" readonly="readonly" value="비밀번호 입력" ></div>
-					<div class="div2"><input type="text" class="input" placeholder="비밀번호를 입력해주세요." name="memberPw" title="N"></div>
+					<div class="div2"><input type="password" class="input" placeholder="비밀번호를 입력해주세요." name="memberPw" title="N"></div>
 					<div class="div3"><input type="text" class="input" placeholder="O or X" readonly="readonly" id="pwValidity" ></div>
 				</div>
 				<div id="div0">
 					<div class="div1"><input type="text" class="input" readonly="readonly" value="비밀번호 재입력" ></div>
-					<div class="div2"><input type="text" class="input" placeholder="비밀번호를 재입력해주세요." name="memberPwChk" title="N"></div>
+					<div class="div2"><input type="password" class="input" placeholder="비밀번호를 재입력해주세요." name="memberPwChk" title="N"></div>
 					<div class="div3"><input type="text" class="input" placeholder="T or F" readonly="readonly" id="pwSame"></div>
 				</div>
 				<br/>

@@ -40,11 +40,13 @@ CREATE TABLE FWLB
 
 INSERT INTO FWLB VALUES(FWLBNO_SEQ.NEXTVAL, null, '관리자', '관리자 님의 위시리스트 입니다.', 0, SYSDATE);
 
-SELECT * FROM FWLB;
+	SELECT * FROM FWLB ORDER BY FWLBNO DESC
+
+SELECT * FROM FWLB
 
 	select *
 	from ( 
-    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    select A.FWLBNO, A.FWLBROWNUM, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
     ROWNUM AS RN
     from (
         select *
@@ -54,6 +56,20 @@ SELECT * FROM FWLB;
 	ORDER BY X.FWLBNO DESC
 
 
+		SELECT  * FROM FWLB WHERE FWLBWRITER LIKE '%지지%'  ORDER BY FWLBNO DESC
+		
+		
+		select *
+	from ( 
+    select A.FWLBNO, A.FWLBROWNUM, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from FWLB ORDER BY FWLBNO DESC) A
+    where ROWNUM <= 10) X
+	where X.RN >=1
+	ORDER BY X.FWLBNO DESC
+	
 --------------------------------------------------
 
 -- FWLBCM SEQUENCE SQL

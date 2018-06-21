@@ -44,7 +44,6 @@
 	  -webkit-justify-content: center;
 	          justify-content: center;
 		width: 420px;
-		height: 200px;
 		margin: 0 auto;
 	}
 	
@@ -53,9 +52,6 @@
 		height: 100%;
 	}
 	
-	b{
-		color: white;
-	}
 	
 	table{
 		border: 1px solid black;
@@ -71,4 +67,8 @@
 	
 	#cursor{
 		cursor: pointer;
+	}
+	#idSize{
+		color: white;
+		font-size: 18pt;
 	}

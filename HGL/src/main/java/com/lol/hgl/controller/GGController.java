@@ -23,7 +23,6 @@ public class GGController {
 	@Autowired
 	private GGBizz bizz;
 	
-
 	@RequestMapping(value = "ys.do")
 	   public String ys() {   
 	      return "ys";
@@ -62,6 +61,8 @@ public class GGController {
 		//한 페이지내에서 끝나는 글 번호
 		int endPost = (nowPage*10) ; 
 		//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
+		
+		bizz.inserGGListRowNum();
 		List<ggDto> list = bizz.selectAll(startPost, endPost);
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
@@ -93,6 +94,7 @@ public class GGController {
 		int startPost = (nowPage*10)-9;
 		//한 페이지내에서 끝나는 글 번호
 		int endPost = (nowPage*10) ; 
+		bizz.insertGGSearchRowNum(topic, keyword);
 		//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
 		List<ggDto> list = bizz.selectSearchAll(startPost, endPost, topic, keyword);
 		model.addAttribute("startPage", startPage);

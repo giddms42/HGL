@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>    
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,7 @@ body {
 	<div id="container">
 		<div>
 		<div id="cover">
-			<div><div><b>xx님의 활동내역</b></div></div>
+			<div id="idSize"><strong>${dto.memberNickname}님의 정보 내역</strong></div>
 			<br>
 					<table>
 						<col width="624px">
@@ -36,6 +37,30 @@ body {
 						<tr>
 							<td class="div1" id="ans">닉네임</td>
 							<td class="div2" id="res">${dto.memberNickname}</td>
+						</tr>
+						<tr>
+							<td class="div1" id="ans">이메일</td>
+							<td class="div2" id="res">${dto.memberEmail}</td>
+						</tr>
+						<tr>
+							<td class="div1" id="ans">제재여부</td>
+							<td class="div2" id="res">${dto.memberProhibitChk}</td>
+						</tr>
+						<tr>
+							<td class="div1" id="ans">제재횟수</td>
+							<td class="div2" id="res">${dto.memberProhibitCount}</td>
+						</tr>
+						<tr>
+							<td class="div1" id="ans">제재해제시간</td>
+							<c:choose>
+								<c:when test="${ empty dto.memberProhibitTime}">
+									<td class="div2" id="res">정보가 없습니다.</td>
+								</c:when>
+								<c:otherwise>
+									<td class="div2" id="res">${dto.memberProhibitTime}</td>
+								</c:otherwise>
+							</c:choose>
+
 						</tr>
 					</table>
 					<br/>

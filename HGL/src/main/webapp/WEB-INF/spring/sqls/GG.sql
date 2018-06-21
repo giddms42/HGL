@@ -18,8 +18,20 @@ CREATE TABLE GG
 
 INSERT INTO GG VALUES(GGNO_SEQ.NEXTVAL, 0, '관리자', '좋은 글 게시판 1', '테스트 페이지에용', 0, SYSDATE);
 
-SELECT * FROM GG;
+SELECT * FROM GG order by ggNo;
 
+select *
+	from ( 
+    select A.GGNO, A.GGROWNUM, A.GGWRITER, A.GGTITLE, A.GGCONT, A.GGREADCNT, A.GGDATE,
+    ROWNUM AS RN
+    from (
+        select *
+        from GG ORDER BY GGNO DESC) A
+    where ROWNUM <= 10) X
+	where X.RN >= 1
+	ORDER BY X.GGNO desc
+	
+	SELECT * FROM GG 
 ------------------------------------------------
 
 --GGCM SEQUENCE SQL

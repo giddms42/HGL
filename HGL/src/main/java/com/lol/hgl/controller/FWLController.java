@@ -109,6 +109,7 @@ public class FWLController {
 			//한 페이지내에서 끝나는 글 번호
 			int endPost = (nowPage*10) ; 
 			
+			fwlBizz.insertFWLBRowNum();
 			//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
 			List<fwlbDto> list = fwlBizz.FwlbList(startPost, endPost);	
 			model.addAttribute("startPage", startPage);
@@ -143,6 +144,7 @@ public class FWLController {
 			int endPost = (nowPage*10) ; 
 			
 			//시작 글번호와 끝나는 글번호를 가지고 해당하는 글을 가져오기
+			fwlBizz.insertFWLBSearchRowNum(searchNickName);
 			List<fwlbDto> list = fwlBizz.FwlbListSearch(startPost, endPost, searchNickName);
 			model.addAttribute("keyword", searchNickName);
 			model.addAttribute("startPage", startPage);

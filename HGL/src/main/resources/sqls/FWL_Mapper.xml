@@ -54,22 +54,26 @@
 	</select>
 	
 	<select id="fwlbcmList" parameterType="int" resultMap="fwlbcmDto">
-		SELECT * FROM FWLBCM WHERE FWLBNO=#{fwlbNo}
+		SELECT * FROM FWLBCM WHERE FWLBNO=#{fwlbNo} order by FWLBCMNO DESC
 	</select>
 	
 	<select id="FWLBListCount" resultType="int">
 		SELECT COUNT(*) FROM FWLB
 	</select>
 	
-	<select id="FWLBListSearchCount" parameterType="String" resultType="int">
-		SELECT COUNT(*) FROM FWLB WHERE FWLBWRITER LIKE #{searchNickName}
+	<select id="fwlbAllList" resultMap="fwlbDto">
+		SELECT * FROM FWLB 
 	</select>
+	
+	<update id="insertFWLBRowNum" parameterType="map">
+		UPDATE FWLB SET FWLBROWNUM=#{rowNum} WHERE FWLBNO=#{fwlbNo}
+	</update>
 	
 	<select id="FwlbList" parameterType="map" resultMap="fwlbDto">
 	<![CDATA[
 	select *
 	from ( 
-    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    select A.FWLBNO, A.FWLBROWNUM, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
     ROWNUM AS RN
     from (
         select *
@@ -79,27 +83,22 @@
 	ORDER BY X.FWLBNO DESC
 	]]>
 	</select>
-		
-	<select id="ListRowNum" parameterType="map" resultType="int">
-	<![CDATA[
-	select X.RN
-	from ( 
-    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
-    ROWNUM AS RN
-    from (
-        select *
-        from FWLB ORDER BY FWLBNO DESC) A
-    where ROWNUM <= #{endPost}) X
-	where X.RN >= #{startPost}
-	ORDER BY X.FWLBNO
-	]]>
+
+	<select id="FWLBListSearchCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM FWLB WHERE FWLBWRITER LIKE #{searchNickName}
 	</select>
+	
+	
+	<select id="fwlbSearchAllList" parameterType="String" resultMap="fwlbDto">
+		SELECT  * FROM FWLB WHERE FWLBWRITER LIKE #{searchNickName} 
+	</select>
+	
 	
 	<select id="FwlbListSearch" parameterType="map" resultMap="fwlbDto">
 		<![CDATA[
 	select *
 	from ( 
-    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
+    select A.FWLBNO, A.FWLBROWNUM,  A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
     ROWNUM AS RN
     from (
         select *
@@ -108,22 +107,6 @@
 	where X.RN >= TO_NUMBER(#{startPost})
 	ORDER BY X.FWLBNO DESC
 	]]>
-	</select>
-	
-	<select id="SearchListrowNum" parameterType="map" resultType="int">
-			<![CDATA[
-	select X.RN
-	from ( 
-    select A.FWLBNO, A.FWLBWRITER, A.FWLBTITLE, A.FWLBREADCNT, A.FWLBDATE,
-    ROWNUM AS RN
-    from (
-        select *
-        from FWLB WHERE FWLBWRITER LIKE #{searchNickName} ORDER BY FWLBNO DESC) A
-   where ROWNUM <= TO_NUMBER(#{endPost})) X
-	where X.RN >= TO_NUMBER(#{startPost})
-	ORDER BY X.FWLBNO
-	]]>
-	
 	</select>
 	
 	<insert id="FWLBCMInsert" parameterType="fwlbDto">
