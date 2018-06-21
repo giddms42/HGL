@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>가족정보 등록</title>
+<title>행복한 가족의 미래</title>
 <link rel="stylesheet" type="text/css" href="css/FamInsert.css">
 <script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -33,12 +33,12 @@ $(function(){
 		 		$("#disNo").prop("name","disease");
 		 		$("#disYes").removeAttr("name");
 				$("#disYes").prop("checked",false);
-				$("#disList").css("display","none");
+				$("#disList").hide();
 				$("input[type=checkbox]").each(function() { // 체크박스의 각자를 갖고와서 			 
 				$(this).removeAttr("name");				
 				});	
 			}else if(radioValue=="질병있음"){
-				$("#disList").css("display","block"); 
+				$("#disList").show(); 
 				$("#disNo").prop("checked",false);
 				$("#disNo").removeAttr("name");
 			}
@@ -99,26 +99,25 @@ $(function(){
 	<div class="famRegistForm">
 	    <header>
 			<h3>가족정보 등록</h3>
-			<div class="signUpText">가정 정보를 입력하세요</div>
 		</header>
 		<form id="myForm" action="FamInsert.do" method="post" class="userForm" novalidate>
 			<input type="hidden" name="memberNo" value="${login.memberNo}"/>
 			<div id="famInsert">
 				<table id="famTable">
 					<col width="48">
-					<col width="250">
+					<col width="150">
 					<tr>
 						<td><img src="icon/Famuser.png" style="width: 70%"></td>
-						<td><input type="text" name="famName" required="required" placeholder="이름를 입력해주세요"></td>
+						<td><input class="faminfo" type="text" name="famName" required="required" placeholder="이름를 입력해주세요"></td>
 					</tr>
 					<tr>
 						<td><img src="icon/birthday.png" style="width: 70%"></td>
-						<td><input type="NUMBER" name="famBirth" required="required" placeholder="생일를 입력해주세요 (ex.19910621)"
+						<td><input class="faminfo" type="NUMBER" name="famBirth" required="required" placeholder="생일 예)19910621"
 					 max="9999" maxlength="8" oninput="maxLengthCheck(this)"/></td>
 					</tr>
 					<tr>
 						<td><img src="icon/height.png" style="width: 70%"></td>
-						<td><input type="number" name="famHeight" required="required" placeholder="키를 입력해주세요" id="height"></td>
+						<td><input class="faminfo" type="number" name="famHeight" required="required" placeholder="키를 입력해주세요"></td>
 					</tr>
 				</table>
 				<div id="famRadi" style="text-align: center; margin-top: 30px;">
@@ -127,8 +126,13 @@ $(function(){
 				</div>
 								
 				<div id="disList">	
-					<div style="text-align: center;">지병 항목 (최대 3개)</div>
+					<h5>지병 항목 (최대 3개)</h5>
 					<table style="margin: auto;">
+						<col width="100">
+						<col width="90">
+						<col width="90">
+						<col width="70">
+					
 						<tr>
 							<td><input class="dis" type="checkbox" value="알츠하이머">알츠하이머</td>
 							<td><input class="dis" type="checkbox" value="지방간">지방간</td>
@@ -157,7 +161,7 @@ $(function(){
 					</table>		
 				</div>
         	</div>	 
-			<div id="TwoBtn" style="margin-top: 30px;">
+			<div id="TwoBtn">
 	            <button onclick="goSubmit();">등록하기</button>
 	            <button style="margin-left: 70px;" type="button" onclick="history.back();">등록취소</button>
         	</div>

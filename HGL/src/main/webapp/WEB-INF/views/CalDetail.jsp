@@ -66,8 +66,33 @@ function del(){
 	var month =  $("select[name=month]").val();
 	var memberNickname = $("input[name=memberNickname]").val();
 	alert(calNo);
+<<<<<<< HEAD
+	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
+	window.close()
+	/* location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month;
+	opener.location.reload();
+	self.close(); */
+}
+
+function upOk(){
+	alert("창모드업데이트");
+	var calNo = $("#calNo").val();
+	var year = $("#year").val(); // 값 잘들어옴
+	var month = $("#month").val();
+	var date = $("#date").val();
+	var hour = $("#hour").val();
+	var min = $("#min").val();
+	var calTitle = $("#calTitle").val();
+	var calMemo = $("#calMemo").val();
+	var calSMS = $("#calSMS").val();
+	var memberId = $("#memberId").val();
+	alert(calNo);
+	window.opener.top.location.href="CalUpdate.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&date="+date+"&hour="+hour+"&min="+min+"&calTitle="+calTitle+"&calMemo="+calMemo+"&calSMS="+calSMS;
+	window.close();
+=======
 	window.opener.top.location.href="CalDelete.do?calNo="+calNo+"&memberId="+memberId+"&year="+year+"&month="+month+"&memberNickname="+memberNickname;
 	window.close()
+>>>>>>> branch 'he' of https://github.com/giddms42/HGL.git
 }
 
 $(function(){

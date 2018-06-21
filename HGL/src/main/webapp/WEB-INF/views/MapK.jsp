@@ -416,6 +416,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ba70f18b82582ffb72e4e43aa8c40fbb&libraries=services"></script>
 <script>
 var i = 0;
+
 function SeachMap(SeachAddr,SeachKindName){
 	i++;
 	
