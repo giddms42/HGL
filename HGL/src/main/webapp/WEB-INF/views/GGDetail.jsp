@@ -82,8 +82,15 @@ $(function(){
 									<input type="button" value="글목록" onclick="location.href='GGListForm.do?nowpage=1'" id="btn001" class="btn-3">
 								<c:if test="${login.memberNickname eq dto.ggWriter}">
 									<input type="button" value="글수정" onclick="location.href='GGUpdateForm.do?ggNo=${dto.ggNo}'" id="btn002" class="btn-3">
-									<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" id="btn003" class="btn-3">
 								</c:if>
+								<c:choose>
+									<c:when test="${login.memberNickname eq dto.ggWriter}">
+										<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" id="btn003" class="btn-3">
+									</c:when>
+									<c:when test="${login.memberRole eq 'ADMIN'}">
+										<input type="button" value="글삭제" onclick="location.href='GGDelete.do?ggNo=${dto.ggNo}'" id="btn003" class="btn-3">
+									</c:when>
+								</c:choose>
 							</td>
 						</tr>
 				

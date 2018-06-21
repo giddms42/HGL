@@ -8,8 +8,10 @@ import com.lol.hgl.dto.memberDto;
 
 public interface AdminBizz {
 	
-	public int memberAllListCount();
+	public int memberAllListCount(); 
 	public List<memberDto> memberAllList(int startPost, int endPost);
+	
+	
 	public memberDto memberSelectOne(String memberNickName);
 	public int ggCount(String memberNickName);
 	public int fwlbCount(String memberNickName);
