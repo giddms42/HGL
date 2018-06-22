@@ -135,6 +135,7 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				          <ul class="dropdown-menu">
 				            <li><a href="MapHW.do">카테고리 지도</a></li>
 				            <li><a href="MapK.do">착한 가게</a></li>
+				            <li><a href="http://www.safemap.go.kr/main/smap.do?flag=2" target="_blank">생활안전지도</a></li>
 				          </ul>
 				        </li>
 				        <li class="dropdown">

@@ -9,6 +9,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>위시리스트 검색하기</title>
+<style>
+body {
+	background: url('image/back.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+</style>
 <link rel="stylesheet" type="text/css" href="css/FWLBList.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
@@ -24,7 +33,7 @@ $(function(){
 </head>
 <body>
 
-<div id="container" style="padding:30px; background-color: #F1F1F1;">
+<div id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	<div id="FWLBListCenter">
 		<div class="table">

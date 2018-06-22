@@ -44,7 +44,7 @@ window.onload = function() {
 	<div id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	
-	<div id="b">
+	<div id="b" style="margin-bottom: 5%;">
 	<br>
 		<div class="csslider infinity" id="slider1">
 		  <input type="radio" name="slides" checked="checked" id="slides_1"/>
@@ -56,13 +56,13 @@ window.onload = function() {
 		    	<div class="list1"><img src="image/s_003.png" style="width: 800px;"></div>
 		    </li>
 		    <li>
-				<div class="list1">2페이지</div>
+				<div class="list1"><img src="image/tab1.jpg" style="width: 800px;"></div>
 			</li>
 		    <li>
-		    	<div class="list1">3페이지</div>
+		    	<div class="list1"><img src="image/tab2.jpg" style="width: 800px; margin-top: 100px;"></div>
 		    </li>
 		    <li>
-		    	<div class="list1">4페이지</div>
+		    	<div class="list1"><img src="image/tab3.jpg" style="width: 800px;"></div>
 		    </li>
 		  </ul>
 		  <div class="arrows">

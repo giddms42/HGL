@@ -25,7 +25,7 @@ $(function(){
 		               url : "FWLSuccess.do",
 		               data: {checkValue : checkValue},
 		               success : function() {
-		            	   swal("위시리스트 달성을 축하드립니다.");
+		            	   alert("위시리스트 달성을 축하드립니다.");
 		            	   location.reload();
 		               },
 		               error:function(){
@@ -33,7 +33,7 @@ $(function(){
 		               }
 		            });
 			 }else{
-				 swal("위시리스트를 달성해봅시다!");
+				 alert("위시리스트를 달성해봅시다!");
 				 $(this).prop('checked',false);
 			 }
 		 }else{
@@ -44,7 +44,7 @@ $(function(){
 		               url : "FWLSuccessCancel.do",
 		               data: {checkValue : checkValue},
 		               success : function() {
-		            	   swal("취소되었습니다.");
+		            	   alert("취소되었습니다.");
 		            	   $(this).prop("checked","false");
 		            	   location.reload();
 		               }
@@ -78,6 +78,7 @@ $(function(){
 		var shareWLChk=confirm("위시리스트 게시판에 공유하시겠습니까?")
 		if(shareWLChk==true){
 			location.href='FWLShare.do?memberNickName=${login.memberNickname}&memberNo=${login.memberNo}';
+			alert("공유완료!");
 		}else if(shareWLChk==false){
 			return false;
 		}
