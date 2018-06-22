@@ -124,7 +124,7 @@ display: -webkit-flex;
  	text-shadow: 1px 1px 0 black;
 }
 
-strong{
+#paging strong{
 	text-shadow: 1px 1px 0px orange;
 }
 

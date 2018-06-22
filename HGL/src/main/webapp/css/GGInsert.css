@@ -175,6 +175,7 @@ a:visited {
              justify-content: center;
      flex-direction: row;
  	width: 100%;
+ 	font-size: 12pt;
  }
  #fileDiv2{
  	width: 40%;

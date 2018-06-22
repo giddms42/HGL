@@ -143,7 +143,7 @@
 			
 	
 	function snsChecked() { //문자알림서비스 확인창
-		var retVal = confirm("문자알림을 받으시겠습니까?\n매달 1일, 부모님께 안부를 물어보도록 유도하는 알림문자가 발송됩니다.");
+		var retVal = confirm("문자알림을 받으시겠습니까?\n 30일마다  부모님께 안부를 물어보도록 유도하는 알림문자가 발송됩니다.");
 		if (retVal == true) {
 			$(".smsChk").prop("checked", true);
 		} else {

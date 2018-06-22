@@ -3,6 +3,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +60,8 @@ body {
 	                		   		</c:otherwise>
 								</c:choose>
 								<td><a href="FWLBDetail.do?fwlbNo=${dto.fwlbNo}&count=1&fwlbWriter=${dto.fwlbWriter}">${dto.fwlbTitle}</a></td>
-								<td>${dto.fwlbDate }</td>
+								<td><fmt:formatDate value="${dto.fwlbDate }"
+													pattern="yyyy-MM-dd HH:mm" /></td>
 								<td><input class="btn-3" type="button" onclick="location.href='AdminFWLBDelete.do?fwlbNo=${dto.fwlbNo}&memberNickName=${memberNickName}'" value="삭제"></td>
 								</tr>
 								</c:forEach>

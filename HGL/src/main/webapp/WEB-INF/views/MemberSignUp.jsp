@@ -36,18 +36,20 @@
 	</div>
 	<div class="main-form__body">
 		<input type="text" name="memberId" title="n" required="required" class="main-form__input" placeholder="Username" />
-	  		<a class="ajChk" id="unId" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 아이디 입니다.</b></a>
+	  		<a class="ajChk" id="unId" style="color: #F15F5F; font-size: 0.8em;"><b>이미 존재하는 아이디 입니다.</b></a>
 			<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 아이디 입니다.</b></a>
-			<a class="ajChk" id="incorrectId" style="color: #F15F5F; font-size: 0.8em;"><b>올바르지 않은 E-MAIL 형식 입니다.</b></a>
+			<a class="ajChk" id="incorrectId" style="color: #F15F5F; font-size: 0.8em;"><b>영소문자, 숫자 포함 6~12글자 형식으로 입력 해주세요</b></a>
 		
 	   <input type="password" name="memberPw" required="required" title="n" class="main-form__input" placeholder="Password" />
-	  		<a class="ajChk" id="unPw" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 비밀번호 입니다.</b></a>
+	  		<a class="ajChk" id="unPw" style="color: #F15F5F; font-size: 0.8em;"><b>이미 존재하는 비밀번호 입니다.</b></a>
 	    	<a class="ajChk" id="usePw" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 비밀번호 입니다.</b></a>
+	    	<a class="ajChk" id="incorrectPW" style="color: #F15F5F; font-size: 0.8em;"><b>영소문자, 숫자 포함 8~12글자 형식으로 입력 해주세요</b></a>
+		
 	    
 	   <input type="password" name="userChkpw" required="required" class="main-form__input" placeholder="Repeat Password" />
 	   
 	   <input type="text" name="memberNickname" class="main-form__input" title="n" required="required" placeholder="Nick Name" />
-	   		<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 닉네임 입니다.</b></a>
+	   		<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><b>이미 존재하는 닉네임 입니다.</b></a>
 	   		<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
 	   <div>
 	   		<input type="text" name="memberPhone1" class="main-form__input" placeholder="010" oninput="maxLengthCheck(this)" style="width: 110px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
@@ -62,7 +64,7 @@
 	   </label>    
 	   
 	   <input type="email" name="memberEmail" title="n" required="required" class="main-form__input" placeholder="Email Address" size="50" maxlength="50" />
-	  	 	<a class="ajChk" id="unEmail" style="color: #F15F5F; font-size: 0.8em;"><b>중복된 E-MAIL 입니다.</b></a>
+	  	 	<a class="ajChk" id="unEmail" style="color: #F15F5F; font-size: 0.8em;"><b>이미 존재하는 E-MAIL 입니다.</b></a>
 	  		<a class="ajChk" id="useEmail" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 E-MAIL 입니다.</b></a>
 	  		<a class="ajChk" id="incorrectEmail"  style="color: #F15F5F; font-size: 0.8em;"><b>올바르지 않은 E-MAIL 형식 입니다.</b></a>
 	</div>
@@ -365,7 +367,7 @@
 		      <input class="main-form__input" type="text" name="memberAddr" placeholder="상세주소를 입력해주세요." maxlength="60" style="margin-top: -10px;">
 	 	  </div>
 	 	  <div class="main-form__body">
-	 	  	<button type="button" class="btn" onclick="history.back();">Cancel</button>
+	 	  	<button type="button" class="btn" onclick="location.href='MemberLoginForm.do';">Cancel</button>
    		  	<button class="btn">Join</button>
 	 	  </div>
 	</form>

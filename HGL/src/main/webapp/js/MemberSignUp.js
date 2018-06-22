@@ -1,5 +1,5 @@
 	function snsChecked() { //문자알림서비스 확인창
-		var retVal = confirm("문자알림을 받으시겠습니까?\n매달 1일, 부모님께 안부를 물어보도록 유도하는 알림문자가 발송됩니다.");
+		var retVal = confirm("문자알림을 받으시겠습니까?\n 30일마다 부모님께 안부를 물어보도록 유도하는 알림문자가 발송됩니다.");
 
 		if (retVal == true) {
 			$(".checked").prop("checked", true);
@@ -634,15 +634,14 @@
 		});
 		
 		
-		      $("input[name=memberId").on("change",function() {
-		    	  
-		    	  	var re = [a-z/0-9]{6,12};
+		      $("input[name=memberId").on("change",function() {    	  
+		    	  	var re = /[a-z/0-9]{6,12}$/;
 		            var idVal = $("input[name=memberId]").val();
 		            if(idVal==null || idVal==""){
 		            	 $("input[name=memberId]").attr('title','n');
 		            	 $("#useId").css("display", "none");
 	                     $("#unId").css("display", "none");
-		            }else if(idVal == ""||!re.test(idVal){
+		            }else if(idVal == ""||!re.test(idVal)){
 		            	 $("#useId").css("display", "none");
 		            	 $("#unId").css("display", "none");
 		        		 $("#incorrectId").css("display","inline");
@@ -657,10 +656,12 @@
 				                  if (r == "t") {  
 				                     $("#useId").css("display", "inline");
 				                     $("#unId").css("display", "none");
+				                	 $("#incorrectId").css("display","none");
 				                     $("input[name=memberId]").attr('title','y');
 				                  }else{
 				                	 $("#unId").css("display", "inline");
 				                	 $("#useId").css("display", "none");
+				                	 $("#incorrectId").css("display","none");
 				                	 $("input[name=memberId]").attr('title','n');
 				                  }
 				               }
@@ -698,7 +699,6 @@
 		         
 		          $("input[name=memberEmail").on("change",function() {
 		        	var re = /[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
-		        	//var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
 		            var emailVal = $("input[name=memberEmail]").val();
 		            if(emailVal==null || emailVal==""){
 		            	 $("#useEmail").css("display", "none");
@@ -707,7 +707,7 @@
 		            }else if(emailVal == ""||!re.test(emailVal)){
 		            	 $("#useEmail").css("display", "none");
 		            	 $("#unEmail").css("display", "none");
-		        		 $("#incorrectEmail").css("display","inline");m
+		        		 $("#incorrectEmail").css("display","inline");
 		        		 $("input[name=memberEmail]").attr('title','n');
 		        	}else{
 		            $.ajax({
@@ -734,10 +734,16 @@
 		         
 		          $("input[name=memberPw").on("change",function() {
 		            var pwVal = $("input[name=memberPw]").val();
+		        	var re = /[a-z/0-9]{8,12}$/;
 		            if(pwVal==null || pwVal==""){
 		            	 $("#usePw").css("display", "none");
 	                     $("#unPw").css("display", "none");
 	                     $("input[name=memberPw]").attr('title','n');
+		            }else if(pwVal == ""||!re.test(pwVal)){
+		            	 $("#useId").css("display", "none");
+		            	 $("#unId").css("display", "none");
+		        		 $("#incorrectPW").css("display","inline");
+		        		 $("input[name=memberId]").attr('title','n');
 		            }else{
 		            $.ajax({
 		               type:"post",
@@ -748,10 +754,12 @@
 		                  if (r == "t") {  
 		                     $("#usePw").css("display", "inline");
 		                     $("#unPw").css("display", "none");
+		                     $("#incorrectPW").css("display","none");
 		                     $("input[name=memberPw]").attr('title','y');
 		                  }else{
 		                	 $("#unPw").css("display", "inline");
 		                	 $("#usePw").css("display", "none");
+		                	 $("#incorrectPW").css("display","none");
 		                	 $("input[name=memberPw]").attr('title','n');
 		                  }
 		               }

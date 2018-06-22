@@ -35,20 +35,13 @@ public class MemberBizzImple implements MemberBizz {
 	//ID중복 체크 및 정규식 검사 
 	@Override
 	public String IDChk(String id) {
-		//id: 영소문자, 숫자 포함.  글자수 6-12
-		boolean flag = Pattern.matches("([a-z/0-9]{6,12})",id);
 		String use = "f";
-		if(flag) {
-			System.out.println("아이디 정규식 요건 충족");
-			String res = memberDao.IDChk(id);		
-			if (res == null) {
-				System.out.println("아이디 중복 없음");
-				use = "t"; 
-			}else {
-				System.out.println("아이디 중복 있음");
-			}
+		String res = memberDao.IDChk(id);		
+		if (res == null) {
+			System.out.println("아이디 중복 없음");
+			use = "t"; 
 		}else {
-			System.out.println("아이디 정규식 요건 불충족");
+				System.out.println("아이디 중복 있음");
 		}
 		System.out.println("id 사용 가능 여부 : " + use);
 		return use;

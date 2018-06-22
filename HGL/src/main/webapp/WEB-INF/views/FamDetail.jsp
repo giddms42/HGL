@@ -128,7 +128,7 @@ google.charts.setOnLoadCallback(drawChart);
 								</c:when>
 								<c:otherwise>
 									<td>${famDto.famDisease2}</td>
-									<td><button type="button" onclick="showMenu('${famDto.famDisease1}');">추천식단</button></td>
+									<td><button type="button" onclick="showMenu('${famDto.famDisease2}');">추천식단</button></td>
 								</c:otherwise>
 							</c:choose>
 						</tr>	
@@ -140,7 +140,7 @@ google.charts.setOnLoadCallback(drawChart);
 								</c:when>
 								<c:otherwise>
 									<td>${famDto.famDisease3}</td>
-									<td><button type="button" onclick="showMenu('${famDto.famDisease1}');">추천식단</button></td>
+									<td><button type="button" onclick="showMenu('${famDto.famDisease3}');">추천식단</button></td>
 								</c:otherwise>
 							</c:choose>
 						</tr>
