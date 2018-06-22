@@ -635,11 +635,18 @@
 		
 		
 		      $("input[name=memberId").on("change",function() {
+		    	  
+		    	  	var re = [a-z/0-9]{6,12};
 		            var idVal = $("input[name=memberId]").val();
 		            if(idVal==null || idVal==""){
 		            	 $("input[name=memberId]").attr('title','n');
 		            	 $("#useId").css("display", "none");
 	                     $("#unId").css("display", "none");
+		            }else if(idVal == ""||!re.test(idVal){
+		            	 $("#useId").css("display", "none");
+		            	 $("#unId").css("display", "none");
+		        		 $("#incorrectId").css("display","inline");
+		        		 $("input[name=memberId]").attr('title','n');
 		            }else{
 		            	  $.ajax({
 				               type:"post",

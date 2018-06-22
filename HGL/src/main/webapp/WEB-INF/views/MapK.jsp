@@ -404,7 +404,7 @@
 					</c:otherwise>
 				</c:choose>
             </div>
-			<div id="map"><h2 id="mapText">가게을 클릭하면 지도가 나타납니다</h2></div>
+			<div id="map"><h2 id="mapText">목록을 클릭해주세요</h2></div>
 		</c:otherwise>
 		</c:choose>
 	</div>
@@ -418,6 +418,7 @@
 var i = 0;
 
 function SeachMap(SeachAddr,SeachKindName){
+	document.getElementById('mapText').setAttribute('display','none');
 	i++;
 	
 	if(i==1){  // 제일 처음 클릭
@@ -498,12 +499,8 @@ function SeachMap(SeachAddr,SeachKindName){
 		
 			     }
 			})
-
-	
 	}
 		
-	
-	
 	}; 	
 	
 	
