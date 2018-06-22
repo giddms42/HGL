@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>지병항목 변경하기</title>
+<link rel="stylesheet" href="css/FamDiseaseUpdate.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -53,26 +54,14 @@ function change(obj){
 	
 }
 </script>
-<style>
-#diseaseUpdate{
-	background-color: #f2f2f2;
-	width:400px;
-	margin:auto;
-}
-.dis{
-	width: 20px;
-	height: 20px;
-	vertical-align: top;
-}
-</style>
 </head>
 <body>
 	
 	<div id="diseaseUpdate">
 		<form id="DiseaseForm" action="FamDiseaseUpdate.do" name="myForm">
 		<input type="hidden" name="famNo" value="${famDto.famNo}"/>
-		<div id="disList">	
-			<div style="text-align: center; margin-bottom: 10px;"><b>지병 항목 (최대 3개)</b></div>
+		<div id="disList">
+			<div class="diseaseName"><b>지병 항목 (최대 3개)</b></div>
 			<table style="margin: auto;">
 				<tr>
 					<td><input class="dis" type="checkbox" value="알츠하이머">알츠하이머</td>
@@ -101,7 +90,7 @@ function change(obj){
 				</tr>
 			</table>
 		</div>
-		<div style="text-align:center; margin-top: 10px; margin-bottom: 20px;">
+		<div class="updateButtons">
 			<button>변경</button>
 			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 			<button type="button" onclick="self.close()">취소</button>
