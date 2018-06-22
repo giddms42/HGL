@@ -77,7 +77,7 @@ body {
 				<div class="amTitle"><b>회원 제재</b></div>
 				<div id="div0">
 					<div class="div2"><input class="txtInput" type="text" id="YmangeNickname" placeholder="닉네임을 입력해주세요."></div>
-					<div class="div3"><input class="txtRes" type="text" id="Ymange" placeholder="제재 성공 여부 표시 / ex) 30일 글작성 정지" readonly="readonly"></div>
+					<div class="div3"><input class="txtRes" type="text" id="Ymange" placeholder="제재 성공 여부 표시 / ex) 30일 제재 성공" readonly="readonly"></div>
 					<div class="div1"><input class="btn-3" type="button" value="회원 제재" onclick="MangeY();"></div>
 				</div>
 			</div>
