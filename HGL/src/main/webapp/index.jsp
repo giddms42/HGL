@@ -21,7 +21,7 @@
  	font-size: 12pt;
 	color: black;
 	text-decoration: none;
-}
+}	
 
 a:visited {
 	font-size: 12pt;
@@ -31,6 +31,9 @@ a:visited {
 </style>
 </head>
 <body>
+
+<jsp:forward page="MemberLoginForm.do"></jsp:forward>
+
 
 <br>
 <h1>작성자 : 정현~</h1>

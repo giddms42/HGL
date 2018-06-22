@@ -421,7 +421,6 @@ function SeachMap(SeachAddr,SeachKindName){
 	i++;
 	
 	if(i==1){  // 제일 처음 클릭
-		$("#mapText").prop("display", "");
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = {
 	        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -459,8 +458,6 @@ function SeachMap(SeachAddr,SeachKindName){
 	})
 	}else{
 		  $("#map").contents().empty();
-
-		 $("#mapText").prop("display", "");
 			
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = {

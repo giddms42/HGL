@@ -700,7 +700,7 @@
 		            }else if(emailVal == ""||!re.test(emailVal)){
 		            	 $("#useEmail").css("display", "none");
 		            	 $("#unEmail").css("display", "none");
-		        		 $("#incorrectEmail").css("display","inline");
+		        		 $("#incorrectEmail").css("display","inline");m
 		        		 $("input[name=memberEmail]").attr('title','n');
 		        	}else{
 		            $.ajax({

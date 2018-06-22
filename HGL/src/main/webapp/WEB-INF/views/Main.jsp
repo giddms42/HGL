@@ -22,23 +22,6 @@ body {
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-window.onload = function() {
-		var i = 2;
-	setInterval(function(){
-		$("#label"+i).trigger("click");
-		if(i<4){
-			i++;
-		}else if(i==4){
-			i=1;
-		}
-	}, 3000);
-	
-	
-	
-	
-	
-	
-};
 </script>
 <body>
 	<div id="container">

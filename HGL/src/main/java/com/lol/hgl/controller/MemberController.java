@@ -30,7 +30,7 @@ public class MemberController {
    @Autowired
    private FamBizz famBizz;
    
-   int chk=1;
+   int chk=0;
    
    //제일 처음 로그인 페이지 이동
    @RequestMapping(value="MemberLoginForm.do")
@@ -103,6 +103,13 @@ public class MemberController {
    //로그인 
    @RequestMapping(value = "MemberLogin.do")
    public String memberLogin(String memberId, String memberPw, Model model, HttpSession session) throws IOException {  
+	   if(1>chk) {
+		   memberBizz.mangeCancel();
+		   memberBizz.safetySMS();
+		   memberBizz.birthSMS();
+		   memberBizz.calSMS();
+		   chk++;
+	   }
 	  String chkRes = memberBizz.LoginChk(memberId, memberPw);
 	  String msg = "";
 	 //1. 아이디 비밀번호 일치 호가인
