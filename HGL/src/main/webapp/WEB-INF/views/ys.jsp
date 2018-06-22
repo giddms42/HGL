@@ -26,6 +26,8 @@
   <input type="button" value="버튼" class="file_input_button" />
   <input type="file" class="file_input_hidden" onchange="javascript: document.getElementById('fileName').value = this.value" />
 </div>
+
+자기전에한번더
 </body>
 
 </html>

@@ -3,22 +3,18 @@
    margin: auto;
    width: 1280px;
    height: 100%;
-   /* background-color: orange; */
 }
 
 #a{
 width: 100%;
-/* background-color: red; */
 }
 
 #c{
 width: 100%;
-/* background-color: green; */
 }
 
 #b{
 color: white;
-border: 1px dashed red;
 height: 515px;
 width: 100%; 
 display: -webkit-flex;
@@ -61,7 +57,7 @@ display: -webkit-flex;
  
  table{
     width:98%;
-    box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
  }
  
@@ -87,6 +83,7 @@ display: -webkit-flex;
     background-color: tomato;
     border: 1px solid white;
     box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+    text-shadow: 1px 1px 0 black;
   letter-spacing: 1px;
  }
  
@@ -152,7 +149,7 @@ strong{
 	height: 25px;
   background: tomato;
   border: 1px solid #da251f;
-  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
 }

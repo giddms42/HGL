@@ -41,7 +41,8 @@ $(function(){
 	      <br/>
 	         <div id="boardName">좋은글 게시판</div>
 	         <br/>
-	               <table border="1" bordercolor="white">
+	               <table id="tableOne" border="1">
+	              	 <thead>
 	                    <col width="50">
 						<col width="350">
 						<col width="100">
@@ -54,6 +55,15 @@ $(function(){
 						 <th class="text-center">작성일</th>
 						 <th class="text-center">조회수</th>
 	                  </tr>
+	                  </thead>
+	                  <tbody>
+	                  <c:choose>
+								<c:when test="${empty list}">
+										<tr>
+											<td colspan="5">검색 결과가 존재하지 않습니다.</td>
+										</tr>
+								</c:when>
+								<c:otherwise>
 	                  <c:forEach items="${list}" var="dto">
 	                  <tr>
 						<td>${dto.ggRowNum}</td>
@@ -65,8 +75,11 @@ $(function(){
 						<td>${dto.ggReadcnt }</td>
 					</tr>
 				</c:forEach>
+				</c:otherwise>
+							</c:choose>
+				</tbody>
 	               </table>
-	               <div class="Gbtn"><input type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
+	               <div class="Gbtn"><input class="btn-3" type="button" value="글쓰기" onclick="location.href='GGInsertForm.do'"></div>
 	           <div id="paging1">
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
@@ -92,6 +105,9 @@ $(function(){
 						<c:when test="${nowPage eq pageCount}">
 							▶
 						</c:when>
+						<c:when test="${pageCount eq 0}">
+	                    	 ▶
+	                    </c:when>
 						<c:otherwise>
 							<a href="GGListSearch.do?nowpage=${nowPage + 1}&topic=${topic}&keyword=${keyword}">▶</a>
 						</c:otherwise>
@@ -108,7 +124,7 @@ $(function(){
 								<option value="GGWRITER">작성자</option>
 							</select>
 							<input type="search" name="keyword" placeholder="검색어를 입력해주세요">
-							<button>검색</button>
+							<input class="btn-3" type="submit" value="검색">
 						</div>
 					</form>
 	               </div>

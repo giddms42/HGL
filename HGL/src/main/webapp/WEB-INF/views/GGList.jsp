@@ -41,7 +41,7 @@ $(function(){
 	       	 <br/>
 	         <div id="boardName">좋은글 게시판</div>
 	         <br/>
-	               <table border="1">
+	               <table id="tableOne" border="1">
 						<thead>
 						<col width="50">
 						<col width="350">
@@ -107,6 +107,9 @@ $(function(){
 						<c:when test="${nowPage eq pageCount}">
 							▶
 						</c:when>
+						<c:when test="${pageCount eq 0}">
+	                    	 ▶
+	                    </c:when>
 						<c:otherwise>
 							<a href="GGListForm.do?nowpage=${nowPage + 1}">▶</a>
 						</c:otherwise>
