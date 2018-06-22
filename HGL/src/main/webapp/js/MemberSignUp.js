@@ -636,13 +636,13 @@
 		
 		      $("input[name=memberId").on("change",function() {
 		    	  
-		    	  	var re = [a-z/0-9]{6,12};
+		    	  	var re = /[a-z/0-9]{6,12}$/;
 		            var idVal = $("input[name=memberId]").val();
 		            if(idVal==null || idVal==""){
 		            	 $("input[name=memberId]").attr('title','n');
 		            	 $("#useId").css("display", "none");
 	                     $("#unId").css("display", "none");
-		            }else if(idVal == ""||!re.test(idVal){
+		            }else if(idVal == ""||!re.test(idVal)){
 		            	 $("#useId").css("display", "none");
 		            	 $("#unId").css("display", "none");
 		        		 $("#incorrectId").css("display","inline");
@@ -657,10 +657,12 @@
 				                  if (r == "t") {  
 				                     $("#useId").css("display", "inline");
 				                     $("#unId").css("display", "none");
+				                     $("#incorrectId").css("display","none");
 				                     $("input[name=memberId]").attr('title','y');
 				                  }else{
 				                	 $("#unId").css("display", "inline");
 				                	 $("#useId").css("display", "none");
+				                	 $("#incorrectId").css("display","none");
 				                	 $("input[name=memberId]").attr('title','n');
 				                  }
 				               }

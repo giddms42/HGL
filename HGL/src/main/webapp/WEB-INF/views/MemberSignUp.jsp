@@ -35,10 +35,10 @@
 	  <h1>Sign-up</h1>
 	</div>
 	<div class="main-form__body">
-		<input type="text" name="memberId" title="n" required="required" class="main-form__input" placeholder="Username" />
+		<input type="text" name="memberId" title="n" required="required" class="main-form__input" placeholder="Username" maxlength="" />
 	  		<a class="ajChk" id="unId" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 아이디 입니다.</b></a>
 			<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 아이디 입니다.</b></a>
-			<a class="ajChk" id="incorrectId" style="color: #F15F5F; font-size: 0.8em;"><b>올바르지 않은 E-MAIL 형식 입니다.</b></a>
+			<a class="ajChk" id="incorrectId" style="color: #F15F5F; font-size: 0.8em;"><b>올바르지 않은 ID 형식 입니다.</b></a>
 		
 	   <input type="password" name="memberPw" required="required" title="n" class="main-form__input" placeholder="Password" />
 	  		<a class="ajChk" id="unPw" style="color: #F15F5F; font-size: 0.8em;"><b>사용 불가능한 비밀번호 입니다.</b></a>
