@@ -19,7 +19,7 @@ SELECT * FROM FWL;
 INSERT INTO FWL VALUES(1, FWLNO_SEQ.NEXTVAL, '맛있는거 먹으러 가기', 'N');
 
 delete from fwl where memberno=21
--------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 
 -- FWLB SEQUENCE SQL
 DROP SEQUENCE FWLBNO_SEQ;
@@ -31,7 +31,7 @@ CREATE TABLE FWLB
 (
     FWLBNO         NUMBER            NOT NULL, 
     FWLBROWNUM     NUMBER			 NULL,
-    FWLBWRITER     VARCHAR2(100)     NOT NULL, 
+    FWLBWRITER     VARCHAR2(100)     NULL,
     FWLBTITLE      VARCHAR2(200)     NOT NULL, 
     FWLBREADCNT    NUMBER            NOT NULL, 
     FWLBDATE       DATE              NOT NULL, 
@@ -69,6 +69,8 @@ SELECT * FROM FWLB
     where ROWNUM <= 10) X
 	where X.RN >=1
 	ORDER BY X.FWLBNO DESC
+	
+DELETE FROM FWLB WHERE FWLBWRITER = '테스팅'
 	
 --------------------------------------------------
 

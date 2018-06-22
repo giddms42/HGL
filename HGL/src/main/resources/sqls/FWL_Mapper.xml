@@ -62,7 +62,7 @@
 	</select>
 	
 	<select id="fwlbAllList" resultMap="fwlbDto">
-		SELECT * FROM FWLB 
+		SELECT * FROM FWLB order by FWLBNO
 	</select>
 	
 	<update id="insertFWLBRowNum" parameterType="map">
@@ -90,7 +90,7 @@
 	
 	
 	<select id="fwlbSearchAllList" parameterType="String" resultMap="fwlbDto">
-		SELECT  * FROM FWLB WHERE FWLBWRITER LIKE #{searchNickName} 
+		SELECT  * FROM FWLB WHERE FWLBWRITER LIKE #{searchNickName}  order by FWLBNO
 	</select>
 	
 	
@@ -125,4 +125,7 @@
 	DELETE FROM FWLB WHERE FWLBNO=#{fwlbNo}
 	</delete>
 
+	<delete id="FWLBDeleteAll" parameterType="String">
+	DELETE FROM FWLB WHERE FWLBWRITER=#{fwlbWriter}
+	</delete>
 </mapper>

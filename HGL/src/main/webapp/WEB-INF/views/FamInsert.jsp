@@ -53,31 +53,32 @@ $(function(){
 			}
 	});
 	
-	 $("#myForm").submit(function(){
-		 var radioValue = $("#disYes").val(); 
-         if($("input[name=famName]").val() == ""){
-        	 swal("이름을 입력해주세요")
-        	 return false;
-         }else if($("input[name=famBirth]").val() == ""){
-        	 swal("생일을 입력해주세요")
-        	 return false;
-         }else if($("input[name=famBirth]").val().length!=8){
-        	 swal("예)19910621 형태로 입력해주세요");
-	 		return false;
-         }else if($("input[name=famHeight]").val().length!=3){
-        	 swal("신장을 입력해주세요")
-        	 return false;
-         }else if($("#disYes").is(":checked")){
-        	 if($(".dis:checked").length < 1){
-        	 	swal("질병을 한개 이상 체크해주세요")
-        	 	return false;
-      	 	}else if($("#chkCancer").is(":checked") && $("#diseSelect").val()==""){
-       	    	swal("암 종류를 한개 이상 선택해주세요");
-             	$("#chkCancer").removeAttr("name");
-             	return false;
-         	}
-	 	}
-	})
+    $("#myForm").submit(function(){
+        var radioValue = $("#disYes").val(); 
+          if($("input[name=famName]").val() == ""){
+             swal("이름을 입력해주세요")
+             return false;
+          }else if($("input[name=famBirth]").val() == ""){
+             swal("생일을 입력해주세요")
+             return false;
+          }else if($("input[name=famBirth]").val().length!=8){
+             swal("예)19910621 형태로 입력해주세요");
+           return false;
+          }else if($("input[name=famHeight]").val().length!=3){
+             swal("신장을 입력해주세요")
+             return false;
+          }else if($("#disYes").is(":checked")){
+             if($(".dis:checked").length < 1){
+      	      		swal("질병을 한개 이상 체크해주세요")
+          	  		return false;   
+          	}else if($("#chkCancer").is(":checked") && $("#diseSelect").val()==""){
+           	     	swal("암 종류를 한개 이상 선택해주세요");
+            	  	$("#chkCancer").removeAttr("name");
+              		return false;
+          	}
+     	}
+ })
+	 
 	$(document).ready(function() {
 	    $('#height').on('keyup', function() {
 	        if($(this).val().length > 3) {
@@ -85,6 +86,8 @@ $(function(){
 	        }
 	    });
 	});
+
+
 });
 
 	function change(obj){
