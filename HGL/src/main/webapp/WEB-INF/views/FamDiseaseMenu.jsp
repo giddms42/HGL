@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>
-<img src="image/${disease} 식단.JPG">
+<div style="text-align: center;">
+<img src="image/${disease} 식단.JPG" style="width: 100%">
 </div>
 </body>
 </html>

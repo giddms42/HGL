@@ -25,7 +25,7 @@ body {
 </script>
 </head>
 <body>
-<div class="container"  id="container">
+<div id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	<form id="MemberupdateForm" action="MemberInfoUpdate.do" novalidate>
 		<div class="userInfo">

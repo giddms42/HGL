@@ -34,7 +34,7 @@ $(function(){
 
 </head>
 <body>
-<div id="container" style="padding:30px;">
+<div id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 	<div id="FWLBListCenter">
 		<div class="table">

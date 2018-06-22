@@ -633,7 +633,7 @@
 		    });
 		});
 		
-		
+
 		      $("input[name=memberId").on("change",function() {    	  
 		    	  	var re = /[a-z/0-9]{6,12}$/;
 		            var idVal = $("input[name=memberId]").val();
@@ -697,7 +697,7 @@
 		            }
 		         })
 		         
-		          $("input[name=memberEmail").on("change",function() {
+		          $("input[name=memberEmail").on("change",function() {        	
 		        	var re = /[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
 		            var emailVal = $("input[name=memberEmail]").val();
 		            if(emailVal==null || emailVal==""){

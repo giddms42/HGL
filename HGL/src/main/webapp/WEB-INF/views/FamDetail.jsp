@@ -39,10 +39,10 @@ function goHealthInfoAdd(){
 }
 
 function showMenu(disea){
-	var popupX = (window.screen.width/2)-(410/2);
-	var popupY= (window.screen.height/2)-(240/2); 
+	var popupX = (window.screen.width/2)-(850/2);
+	var popupY= (window.screen.height/2)-(250); 
 	window.name="Parent";
-	window.open("FamDiseaseMenu.do?disease="+disea,"", 'status=no, width=410, height=240, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	window.open("FamDiseaseMenu.do?disease="+disea,"", 'status=no, width=850, height=500, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 }
 
 
@@ -51,7 +51,7 @@ google.charts.setOnLoadCallback(drawChart);
 </script>
 </head>
 <body>
-<div class="container"  id="container">
+<div id="container">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
 		<div id="detail">
 				<h2>${famDto.famName} 님의 정보</h2>
@@ -196,7 +196,7 @@ google.charts.setOnLoadCallback(drawChart);
 				<input type="hidden" name="health" id="dto${status.index}RelBP" value="${healthDto.healthRelbp}" />
 				<input type="hidden" name="health" id="dto${status.index}Weigth" value="${healthDto.healthWeight}" />
 			</c:forEach>
-	<%-- <div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div> --%>
+	<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 </div>
 	
 </body>

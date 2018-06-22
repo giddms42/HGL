@@ -35,10 +35,12 @@
 	  <h1>Sign-up</h1>
 	</div>
 	<div class="main-form__body">
+
 		<input type="text" name="memberId" title="n" required="required" class="main-form__input" placeholder="Username" />
 	  		<a class="ajChk" id="unId" style="color: #F15F5F; font-size: 0.8em;"><b>이미 존재하는 아이디 입니다.</b></a>
 			<a class="ajChk" id="useId" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 아이디 입니다.</b></a>
 			<a class="ajChk" id="incorrectId" style="color: #F15F5F; font-size: 0.8em;"><b>영소문자, 숫자 포함 6~12글자 형식으로 입력 해주세요</b></a>
+
 		
 	   <input type="password" name="memberPw" required="required" title="n" class="main-form__input" placeholder="Password" />
 	  		<a class="ajChk" id="unPw" style="color: #F15F5F; font-size: 0.8em;"><b>이미 존재하는 비밀번호 입니다.</b></a>
@@ -52,7 +54,7 @@
 	   		<a class="ajChk" id="unNick" style="color: #F15F5F; font-size: 0.8em;"><b>이미 존재하는 닉네임 입니다.</b></a>
 	   		<a class="ajChk" id="useNick" style="color: #3ee625; font-size: 0.8em;"><b>사용 가능한 닉네임 입니다.</b></a>
 	   <div>
-	   		<input type="text" name="memberPhone1" class="main-form__input" placeholder="010" oninput="maxLengthCheck(this)" style="width: 110px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+	   		<input type="text" name="memberPhone1" class="main-form__input" placeholder="tel" oninput="maxLengthCheck(this)" style="width: 110px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
 	   		<input type="text" name="memberPhone2" class="main-form__input" placeholder="번호입력" oninput="maxLengthCheck(this)" style="width: 170px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
 	   		<input type="text" name="memberPhone3" class="main-form__input" placeholder="나머지번호입력" oninput="maxLengthCheck(this)" style="width: 170px; display: inline-block;" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
 	   </div>	
@@ -364,7 +366,7 @@
 	      	<option value="서귀포시">서귀포시</option>
 	      	<option value="제주시">제주시</option>
 	      </select>
-		      <input class="main-form__input" type="text" name="memberAddr" placeholder="상세주소를 입력해주세요." maxlength="60" style="margin-top: -10px;">
+		      <input class="main-form__input" type="text" name="memberAddr" placeholder="상세주소를 입력해주세요." maxlength="60" style="margin-top: 10px;">
 	 	  </div>
 	 	  <div class="main-form__body">
 	 	  	<button type="button" class="btn" onclick="location.href='MemberLoginForm.do';">Cancel</button>
