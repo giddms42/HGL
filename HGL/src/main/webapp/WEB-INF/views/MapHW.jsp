@@ -7,6 +7,7 @@
 <head>
 <meta charset="utf-8">
 <title>카테고리별 장소 검색하기</title>
+<link rel="stylesheet" type="text/css" href="css/MapHW.css">
 <style>
 body {
 	background: url('image/back.png') no-repeat center center fixed;
@@ -45,8 +46,9 @@ body {
 <body>
 <div id="container" style="text-align: center;">
 	<div id="a"><%@ include file="/WEB-INF/views/Header.jsp"%></div>
-	<div class="map_wrap" style="margin-top: 5%;">
-	    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+	<h1>카테고리 지도</h1>
+	<div class="map_wrap">
+	    <div id="map"></div>
 	    <ul id="category">
 	        <li id="HP8" data-order="2"> 
 	            <span class="category_bg pharmacy"></span>
@@ -274,5 +276,6 @@ function changeCategoryClass(el) {
     } 
 } 
 </script>
+<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 </body>
 </html>

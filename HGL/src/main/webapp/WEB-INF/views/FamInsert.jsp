@@ -130,7 +130,7 @@ $(function(){
 					</tr>
 					<tr>
 						<td><img src="icon/height.png" style="width: 70%"></td>
-						<td><input class="faminfo" type="number" name="famHeight" required="required" placeholder="키를 입력해주세요"></td>
+						<td><input class="faminfo" type="number" name="famHeight" required="required" placeholder="키를 입력해주세요" id="height"></td>
 					</tr>
 				</table>
 				<div id="famRadi" style="text-align: center; margin-top: 10px;">

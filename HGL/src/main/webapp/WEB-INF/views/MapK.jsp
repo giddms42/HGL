@@ -508,5 +508,6 @@ function SeachMap(SeachAddr,SeachKindName){
 	
 	
 </script>
+<div id="c"><%@ include file="/WEB-INF/views/Footer.jsp"%></div>
 </body>
 </html>

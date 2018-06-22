@@ -20,12 +20,12 @@
 <script type="text/javascript">
 
 function AdminMange(){
-	var popupX = (window.screen.width / 2) - (440 / 2);
+	var popupX = (window.screen.width / 2) - (460 / 2);
 	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
 
-	var popupY= (window.screen.height /2) - (310 / 2);
+	var popupY= (window.screen.height /2) - (350 / 2);
 	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-	window.open("AdminMangeForm.do","", 'width=440, height=310, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+	window.open("AdminMangeForm.do","", 'width=460, height=350, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 	}
 	
 $(function(){
@@ -96,9 +96,8 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 %>
 	<div>
 		<div id="header">
-		<div id="header2"><img src="image/sadad.png" id="img"></div>
 			<div id="up">
-				<div class="up2" id="up21"><a href="MainForm.do">홈버튼 로고</a></div>
+				<div class="up2" id="up21"><a id="homebtn" href="MainForm.do"><img id="homeimg" alt="" src="image/homebtn.jpg"></a></div>
 				<div class="up2" id="up22">
 					<div id="hgl"><strong>행</strong>복한
 					<strong>가</strong>족의
@@ -106,7 +105,6 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				</div>
 				
 						<div class="up2" id="up23"></div>
-						<div class="up2" id="up24"></div>
 			</div>
 
 			<div id="down">
@@ -150,9 +148,6 @@ int month2 = cal2.get(Calendar.MONTH)+1;
 				      </ul>
 				      <ul class="nav navbar-nav navbar-right">
 				     	 <c:choose>
-								<%-- <c:when test="${login == null}">
-									<li><a href="memberLoginOut.do"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
-								</c:when> --%>
 								<c:when test="${login != null}">
 								<li><a href="#"><span class="glyphicon glyphicon-heart"></span> ${login.memberNickname} 님 접속중</a></li>
 					     		    <li><a href="memberLoginOut.do"><span class="glyphicon glyphicon-off"></span> Logout</a></li>

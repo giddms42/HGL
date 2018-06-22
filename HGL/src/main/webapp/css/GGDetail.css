@@ -7,12 +7,10 @@
 
 #a{
 width: 100%;
-/* background-color: red; */
 }
 
 #c{
 width: 100%;
-/* background-color: green; */
 }
 
 #b{
@@ -76,7 +74,7 @@ flex-direction: column;
  }
  
  table{
- 	box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+ 	box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
  	letter-spacing: 1px;
   	transition: all 150ms linear;
     background-color: tomato;
@@ -163,7 +161,7 @@ a:visited {
 	width: 97.5%;
 	border: 1px solid white;
 	background-color: tomato;
-      box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+      box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
 	  letter-spacing: 1px;
 	  transition: all 150ms linear;
 }
@@ -212,19 +210,21 @@ a:visited {
 
 #cml{
 	text-shadow: 1px 1px 0px black;
-	 box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+	 box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
 	color: white;
 	text-align: center;
 	width: 97.5%;
-	border: 1px solid white;
 	background-color: tomato;
 	padding: 5px;
+	border-top: 1px solid;
+	border-left: 1px solid;
+	border-right: 1px solid;
 }
 
 #paging{
-	 box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+	 box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
 	background-color: tomato;
@@ -274,7 +274,7 @@ a:visited {
 	height: 25px;
   background: tomato;
   border: 1px solid #da251f;
-  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
 }

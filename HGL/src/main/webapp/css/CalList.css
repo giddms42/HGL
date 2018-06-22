@@ -48,7 +48,7 @@
 	
 	table{
 		background-color: white;
-  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
     border: 1px solid white;
 	}
@@ -139,7 +139,7 @@
 	height: 25px;
   background: tomato;
   border: 1px solid #da251f;
-  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
 }

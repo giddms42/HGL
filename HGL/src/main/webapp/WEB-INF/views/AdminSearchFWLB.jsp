@@ -68,7 +68,6 @@ body {
                </table>
                <br/>
                 <div id="paging">
-	          		${nowPage}  ///  ${pageCount}
 	          		<c:choose>
 						<c:when test="${nowPage eq 1}">
 							◀

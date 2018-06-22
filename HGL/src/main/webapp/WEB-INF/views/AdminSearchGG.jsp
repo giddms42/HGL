@@ -3,6 +3,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +63,8 @@ body {
 		                		   		</c:otherwise>
 									</c:choose>
 									<td><a href="GGDetailForm.do?ggNo=${dto.ggNo}&count=1">${dto.ggTitle}</a></td>
-									<td>${dto.ggDate }</td>
+									<td><fmt:formatDate value="${dto.ggDate}"
+													pattern="yyyy-MM-dd HH:mm" /></td>
 									<td><input class="btn-3" type="button" onclick="location.href='AdminGGDelete.do?ggNo=${dto.ggNo}&memberNickName=${memberNickName}'" value="삭제"></td>
 								</tr>
 								</c:forEach>

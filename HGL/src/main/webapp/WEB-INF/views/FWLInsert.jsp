@@ -33,19 +33,31 @@
 	}
  
 </script>
+<style>
+.FWLInsert button{
+	margin-top:5px;
+	width:50px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid orange;
+	border-radius: 5px;
+}
+.FWLInsert button:active {
+	position: relative;
+	top:2px;	
+}
+</style>
 </head>
-<body>
-
-	<div style="margin: auto; width: 500px;">
+<body >
+	<div class="FWLInsert" style="background: rgb(255,165,0,0.4); border: 2px solid orange; border-radius:10px; margin: auto; width: 550px; text-align: center;">
 		<h3>위시리스트 추가하기</h3>
 		<form id="wishInsert">
 			<div>
 				<textarea name="fwlItem" placeholder="위시리스트를 입력해주세요" maxlength="60" style="width: 500px; height: 30px;"></textarea>
 				<input type="hidden" name="memberNo" value="${memberNo}"/>
+			<button type="button" onclick="self.close()" style="float:right; margin-left: 10px;">취소</button>
+			<button onclick="fn_editFL();" style="float:right;">추가</button>
 			</div>
-			<br>
-			<button type="button" onclick="self.close()" style="float:right; margin-left: 10px;">취소하기</button>
-			<button onclick="fn_editFL();" style="float:right;">추가하기</button>
 		</form>
 	</div>
 	

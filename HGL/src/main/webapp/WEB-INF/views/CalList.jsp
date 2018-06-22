@@ -78,7 +78,7 @@ body {
 					var r = $.trim(val);	
 					var count = parseInt(r);
 					if(count>=3){
-						alert("일정은 총 3개만 입력가능합니다.");
+						alert("일정은 최대 3개까지 입력 가능합니다.");
 					}else{
 						window.name="Parent";
 						window.open("CalInsertForm.do?year="+year2+"&month="+month2+"&date="+date2+"&lastDay="+lastDay2+"&memberId="+memberId2+"&memberNickname="+memberNickname2,"", 'status=no, width=530, height=465, left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
@@ -219,7 +219,8 @@ body {
 					<%=i %>
 				</a>
 				<a id="penIcon" href="#" onclick="addSCH(<%=i%>);">
-					<img alt="일정추가" src="image/pen.png" style="with:15px;height:15px;">
+					<!-- <img alt="일정추가" src="image/pen.png" style="with:15px;height:15px;"> -->
+					<span class="glyphicon glyphicon-pencil" style="color:black;with:15px;height:15px;text-shadow: 1px 1px 0px gray;"></span>
 				</a>
 				<div class="cList">
 					<%=Util.getCalView(i, cList) %>

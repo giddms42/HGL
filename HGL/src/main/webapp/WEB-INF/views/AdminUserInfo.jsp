@@ -27,6 +27,9 @@ body {
 		<div id="cover">
 			<div id="idSize"><strong>${dto.memberNickname}님의 정보 내역</strong></div>
 			<br>
+			
+			<div class="divIn">
+					<div id="backColor"></div>
 					<table>
 						<col width="624px">
 						<col width="624px">
@@ -63,19 +66,25 @@ body {
 
 						</tr>
 					</table>
+				</div>
+				
 					<br/>
+					
+				<div class="divIn">
+					<div id="backColor2"></div>
 					<table>
 						<col width="624px">
 						<col width="624px">
 						<tr onclick="javascript:opener.location.href='AdminSearchGG.do?memberNickName=${dto.memberNickname}&nowpage=1';self.close();" id="cursor">
-							<td class="div2" id="ans">좋은글 게시판 작성글 갯수</td>
-							<td class="div1" id="res">${ggCount}</td>
+							<td class="div3" id="ans">좋은글 게시판 작성글 갯수</td>
+							<td class="div4" id="res">${ggCount}</td>
 						</tr>
 						<tr onclick="javascript:opener.location.href='AdminSearchFWLB.do?memberNickName=${dto.memberNickname}&nowpage=1';self.close();" id="cursor">
-							<td class="div2" id="ans">위시리스트 게시판 작성글 갯수</td>
-							<td class="div1" id="res">${fwlbCount}</td>
+							<td class="div3" id="ans">위시리스트 게시판 작성글 갯수</td>
+							<td class="div4" id="res">${fwlbCount}</td>
 						</tr>
 					</table>
+				</div>
 		</div>
 		</div>
 	</div>

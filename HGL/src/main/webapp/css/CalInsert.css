@@ -19,7 +19,7 @@ display: -webkit-flex;
 	height: 25px;
   background: tomato;
   border: 1px solid #da251f;
-  box-shadow: 2px 2px 0 #d6251f, 2px 2px 2px #e02a24;
+  box-shadow: 1px 1px 0 #d6251f, 2px 2px 2px #e02a24;
   letter-spacing: 1px;
   transition: all 150ms linear;
 }
@@ -58,22 +58,10 @@ display: -webkit-flex;
 	padding-left: 14px;
 }
 
-
-#table{
-	padding: 2px;
-	border-bottom: 1px solid tomato;
-	border-right: 1px solid tomato;
-	border-left: 1px solid tomato;
-	border-top: 1px solid tomato;
-}
-
 #table th{
 	text-shadow: 1px 1px 0 black;
 }
 
-h1{
-	text-shadow: 2px 2px 0 tomato;
-}
 #radioIn{
 	padding-top: 2px;
 	float: left;
@@ -95,6 +83,7 @@ h1{
 h1 {
 	text-align: center;
 	color: white;
+	text-shadow: 2px 2px 0 tomato;
 }
 
 #backColor{

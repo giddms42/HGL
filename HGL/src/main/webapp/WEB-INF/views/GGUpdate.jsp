@@ -119,8 +119,8 @@ body {
 						<td colspan="2">
 			               <div class="btn00">
 			               		<button class="btn-3" id="addFile">파일 추가</button>
-			               		<input class="btn-3" type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" id="btn002">
 				                <input class="btn-3" type="submit" value="글수정" id="btn003">
+			               		<input class="btn-3" type="button" value="취소" onclick="location.href='GGDetailForm.do?ggNo=${dto.ggNo}&count=${dto.ggReadcnt}'" id="btn002">
 			               </div>
 						</td>
 					</tr>
