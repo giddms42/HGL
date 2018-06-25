@@ -22,7 +22,7 @@
 
       var arr = new Array(totalCount);  // totalcount 크기의 배열 선언 (현재 5개)
 		for(var i=0; i<arr.length; i++){
-			arr[i]=new Array(3);  // 이중 배열 선언 (i번지의  배열은 3개)
+			arr[i]=new Array(4);  // 이중 배열 선언 (i번지의  배열크기 3개)
 		}
       
       var count = 0;

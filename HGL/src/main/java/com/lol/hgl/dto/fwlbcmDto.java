@@ -14,6 +14,11 @@ public class fwlbcmDto {
 		
 	}
 	
+	public fwlbcmDto(int fwlbNo, String fwlbcmWriter, String fwlbcmCont) {
+		
+	}	
+	
+	
 	public fwlbcmDto(int fwlbNo, int fwlbcmNo, String fwlbcmWriter, String fwlbcmCont, Date fwlbcmDate) {
 		this.fwlbNo = fwlbNo;
 		this.fwlbcmNo = fwlbcmNo;

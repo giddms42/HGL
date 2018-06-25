@@ -47,7 +47,8 @@ public class TimerLogic {
 			}
 			
 		};
-		timer.schedule(timerTask, 1000, 1000 * 60 * 60 * 24 );  // 하루에 한번으로 고정 
+		timer.schedule(timerTask, 1000, 1000 * 60 * 20);  // 하루에 한번.
+		//timer.schedule(timerTask, 1000, 1000 * 60 * 60 * 24 );  // 하루에 한번으로 고정 
 	}
 
 	public void safetySMSTime(List<memberDto> smsList) {
@@ -71,7 +72,8 @@ public class TimerLogic {
 			}
 			
 		};
-		timer.schedule(timerTask, 1000, 1000 * 60 * 60 * 24 * 15);  // 15일에 한번
+		timer.schedule(timerTask, 1000, 1000 * 60 * 20);  // 하루에 한번.
+		//timer.schedule(timerTask, 1000, 1000 * 60 * 60 * 24 * 15);  // 15일에 한번
 	}
 	
 	public void birthSMSTime(List<calDto> birthList) {
@@ -119,7 +121,8 @@ public class TimerLogic {
 					    System.out.println(famName);
 					    String msg = "내일은  " + famName + " 님의 생일입니다. 축하해주세요 ^^";
 					    try {
-							SMSFormOne.sms(rphone, msg);
+					    	//보내는 번호. 메세지
+							SMSFormOne.sms(rphone, msg); 
 						} catch (NoSuchAlgorithmException | IOException e) {
 							e.printStackTrace();
 						}   
@@ -130,7 +133,8 @@ public class TimerLogic {
 			}
 			
 		};
-		timer.schedule(timerTask, 1000, 1000 * 60 * 60 * 24);  // 하루에 한번.
+		timer.schedule(timerTask, 1000, 1000 * 60 * 20);  // 하루에 한번.
+		//timer.schedule(timerTask, 1000, 1000 * 60 * 60 * 24);  // 하루에 한번.
 	}
 	
 	public void calSMSTime(List<calDto> calList) {
@@ -186,7 +190,8 @@ public class TimerLogic {
 			}
 			
 		};
-		timer.schedule(timerTask, 1000, 1000 * 60 * 60 * 24);  // 하루에 한번.
+		timer.schedule(timerTask, 1000, 1000 * 60 * 20);  // 하루에 한번.
+		//timer.schedule(timerTask, 1000, 1000 * 60 * 60 * 24);  // 하루에 한번.
 	}
 
 

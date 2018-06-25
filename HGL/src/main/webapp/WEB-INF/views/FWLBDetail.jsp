@@ -67,7 +67,14 @@ $(function(){
 			</div>
 				<div class="contFoot">
 					<button type="button" id="Listbtn" onclick="location.href='FWLBList.do?nowpage=1'">목록</button>
-					<button type="button" id="Deletebtn" onclick="location.href='FWLBDelete.do?fwlbNo=${dto.fwlbNo}'">삭제</button>				
+					<c:choose>
+							<c:when test="${login.memberNickname eq dto.fwlbWriter}">
+								<button type="button" id="Deletebtn" onclick="location.href='FWLBDelete.do?fwlbNo=${dto.fwlbNo}'">삭제</button>				
+							</c:when>
+							<c:when test="${login.memberRole eq 'ADMIN'}">
+								<button type="button" id="Deletebtn" onclick="location.href='FWLBDelete.do?fwlbNo=${dto.fwlbNo}'">삭제</button>				
+							</c:when>
+								</c:choose>
 				</div>
 				<hr>
 			<!-- 댓글창 -->
@@ -91,6 +98,7 @@ $(function(){
 					<form action="FWLBCMInsert.do" id="myform">
 						<input type="hidden" name="fwlbNo" value="${dto.fwlbNo}" >
 						<input type="hidden" name="fwlbWriter" value="${dto.fwlbWriter}">
+						<input type="hidden" name="fwlbcmWriter" value="${login.memberNickname}">
 						<input type="hidden" name="count" value="0"/>
 						<textarea class="textbox" name="fwlbcmCont" placeholder="입력할 댓글을 작성해주세요" maxlength="300"></textarea>
  					<button>댓글달기</button>

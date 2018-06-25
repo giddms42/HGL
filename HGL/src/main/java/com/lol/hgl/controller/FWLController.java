@@ -173,9 +173,9 @@ public class FWLController {
 	   }
 	   
 	   @RequestMapping(value="FWLBCMInsert.do")
-	   public String FWLBCMInsert(@ModelAttribute fwlbcmDto dto, String fwlbWriter, int fwlbNo, Model model) {
+	   public String FWLBCMInsert(@ModelAttribute fwlbcmDto dto, String fwlbWriter,  Model model) {
 		   fwlBizz.FWLBCMInsert(dto);
-		   model.addAttribute("fwlbNo", fwlbNo);
+		   model.addAttribute("fwlbNo", dto.getFwlbNo());
 		   model.addAttribute("fwlbWriter", fwlbWriter);
 		   model.addAttribute("count", 0);
 		   return "redirect:FWLBDetail.do";

@@ -30,7 +30,7 @@ public class MemberController {
    @Autowired
    private FamBizz famBizz;
    
-   int chk=0;
+   int chk=1;
    
    //제일 처음 로그인 페이지 이동
    @RequestMapping(value="MemberLoginForm.do")
