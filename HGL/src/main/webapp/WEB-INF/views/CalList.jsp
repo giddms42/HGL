@@ -37,7 +37,6 @@ body {
 			var memberId = $("#memberId").val();
 
 			var yyyyMMdd=year+isTwo(month)+isTwo(cDate);//8자리
-			/* var memberId = $("login") */
 			
 			$.ajax({
 				type:"post",
@@ -219,7 +218,6 @@ body {
 					<%=i %>
 				</a>
 				<a id="penIcon" href="#" onclick="addSCH(<%=i%>);">
-					<!-- <img alt="일정추가" src="image/pen.png" style="with:15px;height:15px;"> -->
 					<span class="glyphicon glyphicon-pencil" style="color:black;with:15px;height:15px;text-shadow: 1px 1px 0px gray;"></span>
 				</a>
 				<div class="cList">

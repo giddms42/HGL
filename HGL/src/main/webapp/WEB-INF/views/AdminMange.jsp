@@ -22,7 +22,7 @@ function MangeY(){
 	        	  var msgVal = $.trim(msg);
 	        	  $("#Ymange").val(msgVal);
 	          }
-	       })
+	       });
 	}
 }
 
@@ -38,7 +38,7 @@ function MangeN(){
 	        	  var msgVal = $.trim(msg);
 	        	  $("#Nmange").val(msgVal);
 	          }
-	       })
+	       });
 	}
 }
 
@@ -54,7 +54,7 @@ function getOut(){
 	        	  var msgVal = $.trim(msg);
 	        	  $("#getOut").val(msgVal);
 	          }
-	       })
+	       });
 	}
 }
 </script>
